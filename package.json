@@ -2,6 +2,8 @@
   "name": "purple-movement-website",
   "version": "0.1.0",
   "private": true,
+  "author": "The Purple Movement",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,10 +17,9 @@
     "framer-motion": "^12.23.25",
     "lucide-react": "^0.544.0",
     "next": "^16.1.6",
-    "ogl": "^1.0.11",
     "radix-ui": "^1.4.3",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "react-icons": "^5.5.0",
     "react-phone-input-2": "^2.15.1",
     "tailwind-merge": "^3.3.1"

@@ -33,11 +33,8 @@
   --sidebar-accent-foreground: #F7F8FF;
   --sidebar-border: rgba(255, 255, 255, 0.08);
   --sidebar-ring: rgba(122, 87, 255, 0.5);
-  /* Movement Semantic Colors */
   --energy: #DE3B3D;
   --steady: #0061CE;
-  --brand-light: #C6C5FF;
-
   --radius: 0.75rem;
 }
 
@@ -76,7 +73,6 @@
 
   --color-energy: var(--energy);
   --color-steady: var(--steady);
-  --color-brand-light: var(--brand-light);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -95,15 +91,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: rgb(92, 0, 128);
   border-radius: 20px;
-}
-
-.blend {
-  mix-blend-mode: lighten;
-}
-
-#spotlight {
-  transition: background 0.1s ease;
-  mix-blend-mode: screen;
 }
 
 h1,

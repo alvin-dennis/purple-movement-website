@@ -3,42 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const resources = [
-    {
-        title: "The Architecture of Fairness",
-        source: "Beyond Borders Journal",
-        category: "Philosophy",
-        link: "#",
-        description: "Exploring how decentralized systems can foster genuine human generosity and collective rise.",
-        date: "MAR 2026",
-    },
-    {
-        title: "Learning Without Limits",
-        source: "Curiosity Collective",
-        category: "Learning",
-        link: "#",
-        description: "A guide to breaking free from the conventional syllabus mindset and embracing curiosity.",
-        date: "FEB 2026",
-    },
-    {
-        title: "The Power of Many",
-        source: "Impact Weekly",
-        category: "Community",
-        link: "#",
-        description: "Case studies on collective growth and mutual support networks within the Kerala ecosystem.",
-        date: "JAN 2026",
-    },
-    {
-        title: "Mentorship as a Loop",
-        source: "Generosity Lab",
-        category: "Impact",
-        link: "#",
-        description: "Redefining leadership as a continuous cycle of empowerment and shared knowledge.",
-        date: "DEC 2025",
-    },
-];
+import { articles } from "@/data/home";
 
-export const ResourcesSection = () => {
+export const Articles = () => {
     return (
         <section className="w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6" id="resources">
             <div className="max-w-7xl mx-auto">
@@ -52,20 +19,19 @@ export const ResourcesSection = () => {
                         >
                             Knowledge Loop
                         </motion.span>
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-8 leading-tight text-center lg:text-left">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-8 leading-tight text-center lg:text-left">
                             Shared <span className="text-tpm">Wisdom</span>.
                         </h2>
-                        <p className="text-white/40 text-base md:text-lg lg:text-xl leading-relaxed text-center lg:text-left">
+                        <p className="textforeground/40 text-base md:text-lg lg:text-xl leading-relaxed text-center lg:text-left">
                             Resources are not static archives. They are living seeds for our community to plant
                             and grow together. Explore the collective intelligence of the movement.
                         </p>
                     </div>
                 </div>
 
-                {/* Resource Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 rounded-2xl overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bgforeground/5 rounded-2xl overflow-hidden">
                     <AnimatePresence>
-                        {resources.map((res, idx) => (
+                        {articles.map((res, idx) => (
                             <motion.div
                                 key={res.title}
                                 initial={{ opacity: 0, y: 10 }}
@@ -78,21 +44,21 @@ export const ResourcesSection = () => {
                                     <div className="text-[10px] font-bold tracking-widest text-primary uppercase border border-primary/30 px-3 py-1 rounded-full flex-shrink-0">
                                         {res.category}
                                     </div>
-                                    <span className="text-[10px] text-white/20 font-mono flex-shrink-0">
+                                    <span className="text-[10px] textforeground/20 font-mono flex-shrink-0">
                                         {res.date}
                                     </span>
                                 </div>
 
-                                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 group-hover:text-primary transition-colors">
+                                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6 group-hover:text-primary transition-colors">
                                     {res.title}
                                 </h3>
-                                <p className="text-white/30 text-sm mb-8 md:mb-12 leading-relaxed max-w-md">
+                                <p className="textforeground/30 text-sm mb-8 md:mb-12 leading-relaxed max-w-md">
                                     {res.description}
                                 </p>
 
                                 <a
                                     href={res.link}
-                                    className="inline-flex items-center gap-3 md:gap-4 text-white font-bold tracking-widest text-[10px] hover:text-primary transition-colors"
+                                    className="inline-flex items-center gap-3 md:gap-4 font-bold tracking-widest text-[10px] hover:text-primary transition-colors"
                                 >
                                     READ ARTICLE
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />

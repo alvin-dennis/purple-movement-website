@@ -6,17 +6,7 @@ import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { BsTwitterX } from "react-icons/bs";
 import FeedbackPopup from "./FeedbackPopup";
 
-const links = [
-  { name: "Home", href: "/#" },
-  { name: "About", href: "/#about" },
-  { name: "Events", href: "/#events" },
-];
-
-const supportLinks = [
-  { name: "Term of Use", href: "/terms" },
-  { name: "Privacy Policy", href: "/privacy" },
-  { name: "Feedback", action: "feedback" },
-];
+import { navLinks, supportLinks } from "@/data/common";
 
 export const Footer = () => {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
@@ -54,7 +44,7 @@ export const Footer = () => {
               className="brightness-125 saturate-150 w-auto h-10 md:h-auto"
             />
             <div className="space-y-4 md:space-y-6">
-              <p className="text-sm md:text-base lg:text-lg text-white/50">
+              <p className="text-sm md:text-base lg:text-lg textforeground/50">
                 Beyond Syllabus, Beyond Gatekeepers, Beyond Borders. <br />
                 Rise Together.
               </p>
@@ -70,7 +60,7 @@ export const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-white/10 text-white/40 hover:text-primary hover:border-primary transition-all duration-300"
+                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border borderforeground/10 textforeground/40 hover:text-primary hover:border-primary transition-all duration-300"
                 >
                   {social.icon}
                 </a>
@@ -80,14 +70,14 @@ export const Footer = () => {
 
           {/* Nav Col */}
           <div className="md:col-span-3 space-y-6 md:space-y-8 flex flex-col items-center md:items-start">
-            <h4 className="text-xs font-bold tracking-[0.5em] text-white/20 uppercase text-center md:text-left">Navigation</h4>
+            <h4 className="text-xs font-bold tracking-[0.5em] textforeground/20 uppercase text-center md:text-left">Navigation</h4>
             <nav className="flex flex-col gap-4 md:gap-6">
-              {links.map((l) => (
+              {navLinks.map((l) => (
                 <a
                   key={l.name}
                   href={l.href}
                   onClick={(e) => handleLinkClick(e, l.href)}
-                  className="text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors text-center md:text-left"
+                  className="text-lg sm:text-xl md:text-2xl font-bold textforeground/40 hover:transition-colors text-center md:text-left"
                 >
                   {l.name}
                 </a>
@@ -97,14 +87,14 @@ export const Footer = () => {
 
           {/* Support Col */}
           <div className="md:col-span-4 space-y-6 md:space-y-8 flex flex-col items-center md:items-start">
-            <h4 className="text-xs font-bold tracking-[0.5em] text-white/20 uppercase text-center md:text-left">Access</h4>
+            <h4 className="text-xs font-bold tracking-[0.5em] textforeground/20 uppercase text-center md:text-left">Access</h4>
             <nav className="flex flex-col gap-4 md:gap-6">
               {supportLinks.map((l) =>
                 l.action === "feedback" ? (
                   <button
                     key={l.name}
                     onClick={() => setIsFeedbackOpen(true)}
-                    className="text-center md:text-left text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors uppercase"
+                    className="text-center md:text-left text-lg sm:text-xl md:text-2xl font-bold textforeground/40 hover:transition-colors uppercase"
                   >
                     {l.name}
                   </button>
@@ -112,7 +102,7 @@ export const Footer = () => {
                   <a
                     key={l.name}
                     href={l.href}
-                    className="text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors uppercase text-center md:text-left"
+                    className="text-lg sm:text-xl md:text-2xl font-bold textforeground/40 hover:transition-colors uppercase text-center md:text-left"
                   >
                     {l.name}
                   </a>
@@ -123,7 +113,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 md:pt-12 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-8">
+        <div className="pt-8 md:pt-12 border-t borderforeground/5 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-8">
           <span className="text-[10px] text-foreground tracking-widest text-center sm:text-left">
             © 2025 THE PURPLE MOVEMENT.
           </span>

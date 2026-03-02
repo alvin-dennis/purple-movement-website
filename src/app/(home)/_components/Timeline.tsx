@@ -1,39 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { timeline } from "@/data/home";
 
-const milestones = [
-    {
-        year: "DISCOVERY",
-        title: "The Spark",
-        description: "It started with a simple question: Can we create a space without gatekeepers?",
-        status: "ORIGIN",
-    },
-    {
-        year: "CURIOSITY",
-        title: "First Connections",
-        description: "People from different backgrounds started sharing their learning journeys beyond borders.",
-        status: "STIRRING",
-    },
-    {
-        year: "PARTICIPATION",
-        title: "Rising Together",
-        description: "Our first collective projects broke the syllabus limits and opened new doors for everyone.",
-        status: "FLOW",
-    },
-    {
-        year: "CONTRIBUTION",
-        title: "Shared Progress",
-        description: "Every contribution became a seed for someone else's growth, completing the loop.",
-        status: "PEAK",
-    },
-];
-
-export const LivingTimeline = () => {
+export const Timeline = () => {
     return (
         <section className="w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6" id="timeline">
             <div className="max-w-7xl mx-auto">
-                {/* Header */}
                 <div className="text-center mb-12 md:mb-24">
                     <motion.span
                         initial={{ opacity: 0 }}
@@ -47,19 +20,15 @@ export const LivingTimeline = () => {
                     </h2>
                 </div>
 
-                {/* Timeline */}
                 <div className="relative">
-                    {/* Central Vertical Line – desktop only */}
                     <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden md:block" />
-
                     <div className="space-y-12 md:space-y-24">
-                        {milestones.map((item, idx) => (
+                        {timeline.map((item, idx) => (
                             <div
                                 key={item.title}
                                 className={`flex flex-col md:flex-row items-start md:items-center justify-center gap-6 md:gap-0 ${idx % 2 === 0 ? "" : "md:flex-row-reverse"
                                     }`}
                             >
-                                {/* Content Card */}
                                 <motion.div
                                     initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
                                     whileInView={{ opacity: 1, x: 0 }}
@@ -69,7 +38,7 @@ export const LivingTimeline = () => {
                                 >
                                     <div className="bg-foreground/5 border border-foreground/5 p-6 sm:p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] group-hover:border-primary/30 transition-all duration-500 group-hover:bg-foreground/10">
                                         <div className="flex flex-col sm:flex-row justify-between items-center mb-4 md:mb-6 gap-4">
-                                            <span className="text-brand-light font-bold tracking-widest text-[10px] uppercase border border-primary/20 px-3 py-1 rounded-full flex-shrink-0">
+                                            <span className="text-foreground font-bold tracking-widest text-[10px] uppercase border border-primary/20 px-3 py-1 rounded-full flex-shrink-0">
                                                 {item.status}
                                             </span>
                                             <span className="text-foreground/20 font-bold text-xs md:text-sm tracking-widest">
@@ -84,8 +53,6 @@ export const LivingTimeline = () => {
                                         </p>
                                     </div>
                                 </motion.div>
-
-                                {/* Dot on Line */}
                                 <div className="relative z-10 hidden md:flex items-center justify-center w-20 flex-shrink-0">
                                     <motion.div
                                         initial={{ scale: 0 }}
@@ -94,8 +61,6 @@ export const LivingTimeline = () => {
                                         className="w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_var(--primary)]"
                                     />
                                 </div>
-
-                                {/* Spacer */}
                                 <div className="hidden md:block w-[45%]" />
                             </div>
                         ))}

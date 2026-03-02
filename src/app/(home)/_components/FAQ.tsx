@@ -4,56 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-interface FAQItem {
-  question: string;
-  answer: string | React.ReactNode;
-}
-
-const FAQs: FAQItem[] = [
-  {
-    question: "What is The Purple Movement?",
-    answer:
-      `The Purple Movement is where curious, purpose-driven people come together to explore big 
-ideas, solve real problems, and spark meaningful change. 
-A barrier-free community where your skills actually matter.`,
-  },
-  {
-    question: "Who can join?",
-    answer:
-      `If you're driven by purpose, you belong here. No limitations. A place to connect and grow alongside 
-others on the same path.`,
-  },
-  {
-    question: "What does 'Beyond Syllabus' mean?",
-    answer:
-      `Beyond Syllabus is where learning stops being boring. It is about picking up real skills, trying 
-new things, and exploring what actually excites you, not just what is written in textbooks.`,
-  },
-  {
-    question: "What does 'Beyond Gatekeepers' mean?",
-    answer:
-      `Beyond Gatekeepers gives everyone a real chance to grow. By lifting each other up, we create a space 
-where anyone with purpose can connect, contribute, and move forward without limitations.`,
-  },
-  {
-    question: "What does 'Beyond Borders' mean?",
-    answer:
-      `Beyond Borders is all about breaking limits. It helps people connect, share ideas, and 
-access opportunities without being held back by geography, systems, or labels.`,
-  },
-  {
-    question: "How can I contribute?",
-    answer: (
-      <>
-        Click{" "}
-        <Link href="/join" className="text-primary hover:text-primary transition-colors underline decoration-primary underline-offset-4">
-          Join Us
-        </Link>
-        {" "}that&apos;s all it takes to get started.
-      </>
-    ),
-  },
-];
+import { FAQItem } from "@/lib/types";
+import { FAQs } from "@/data/home";
 
 export const FAQ = () => {
   return (

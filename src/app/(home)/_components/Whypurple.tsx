@@ -4,6 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
+import { whyPurple } from "@/data/home";
+
 export const Whypurple = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -23,10 +25,7 @@ export const Whypurple = () => {
               PURPLE REPRESENTS WHAT HAPPENS WHEN TWO WORLDS COLLIDE. ENERGY MEETS EXPERIENCE.
             </p>
           </div>
-
-          {/* Right Pillar */}
           <div className="w-full lg:w-2/3 flex flex-col gap-16 md:gap-24">
-            {/* Pullquote */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -35,46 +34,36 @@ export const Whypurple = () => {
             >
               <span className="text-[20vw] absolute -top-10 md:-top-20 -left-4 md:-left-10 font-black text-foreground/[0.03] leading-none pointer-events-none select-none">&ldquo;PURPLE&rdquo;</span>
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black text-foreground leading-[1.1] relative z-10 text-center lg:text-left">
-                Purple isn&apos;t just a colour.{" "}
+                {whyPurple.quote.split(". ")[0]}.{" "}
                 <br className="hidden sm:block" />
-                <span className="text-tpm">It is a bridge between worlds.</span>
+                <span className="text-tpm">{whyPurple.quote.split(". ")[1]}</span>
               </h3>
             </motion.div>
-
-            {/* Duality Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 relative">
-              {/* Youth Side */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-energy/5 backdrop-blur-3xl border border-energy/10 p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] group hover:bg-energy/10 transition-all duration-700 flex flex-col items-center sm:items-start"
-              >
-                <span className="text-energy font-black tracking-widest text-xs block mb-6 md:mb-8 uppercase text-center sm:text-left">01 / The Energy</span>
-                <h4 className="text-3xl md:text-4xl font-black text-foreground mb-4 md:mb-6 uppercase text-center sm:text-left">RED</h4>
-                <p className="text-foreground/60 text-base md:text-lg lg:text-xl leading-relaxed text-center sm:text-left">
-                  Symbolizes the <span className="text-energy font-bold">youth</span>: energetic, passionate, curious, and
-                  unapologetically ready to create change.
-                </p>
-              </motion.div>
+              {whyPurple.duality.map((item, index) => {
+                const isEnergy = item.id === "01";
+                const bgClass = isEnergy ? "bg-energy/30" : "bg-steady/30";
+                const borderClass = isEnergy ? "border-energy/10" : "border-steady/10";
+                const hoverBgClass = isEnergy ? "hover:bg-energy/40" : "hover:bg-steady/40";
+                const textClass = isEnergy ? "text-energy" : "text-steady";
 
-              {/* Professional Side */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-steady/5 backdrop-blur-3xl border border-steady/10 p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] group hover:bg-steady/10 transition-all duration-700 sm:mt-12 flex flex-col items-center sm:items-start"
-              >
-                <span className="text-steady font-black tracking-widest text-xs block mb-6 md:mb-8 uppercase text-center sm:text-left">02 / The Steady</span>
-                <h4 className="text-3xl md:text-4xl font-black text-foreground mb-4 md:mb-6 uppercase text-center sm:text-left">BLUE</h4>
-                <p className="text-foreground/60 text-base md:text-lg lg:text-xl leading-relaxed text-center sm:text-left">
-                  Symbolizes <span className="text-steady font-bold">professionals</span>: steady, knowledgeable,
-                  and capable of unlocking doors previously bolted shut.
-                </p>
-              </motion.div>
+                return (
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className={`${bgClass} backdrop-blur-3xl border ${borderClass} p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] group ${hoverBgClass} transition-all duration-700 ${index === 1 ? "sm:mt-12" : ""} flex flex-col items-center sm:items-start`}
+                  >
+                    <span className={`${textClass} font-black tracking-widest text-xs block mb-6 md:mb-8 uppercase text-center sm:text-left`}>{item.id} / {item.title}</span>
+                    <h4 className="text-3xl md:text-4xl font-black text-foreground mb-4 md:mb-6 uppercase text-center sm:text-left">{item.label}</h4>
+                    <p className="text-foreground/60 text-base md:text-lg lg:text-xl leading-relaxed text-center sm:text-left">
+                      {item.text.split(":")[0]}: <span className={`${textClass} font-bold`}>{item.text.split(":")[1].trim().split(",")[0]}</span>, {item.text.split(":")[1].trim().split(",").slice(1).join(",")}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
-
-            {/* Bridge CTA */}
             <div className="w-full p-8 sm:p-12 md:p-16 lg:p-20 relative overflow-hidden group">
               <div className="flex flex-col gap-8 md:gap-12 relative z-10">
                 <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground uppercase leading-none text-center lg:text-left">
@@ -89,10 +78,10 @@ export const Whypurple = () => {
                 <button
                   type="button"
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="w-full sm:w-max px-8 md:px-12 py-4 md:py-5 border-2 border-primary/30 rounded-full text-foreground font-black tracking-[0.3em] md:tracking-[0.4em] uppercase text-[10px] hover:bg-primary transition-all duration-500 hover:text-white"
+                  className="w-full sm:w-max px-8 md:px-12 py-4 md:py-5 border-2 border-primary/30 rounded-full text-foreground font-black tracking-[0.3em] md:tracking-[0.4em] uppercase text-[10px] hover:bg-primary transition-all duration-500 hover:textforeground"
                 >
                   <span className="flex items-center gap-3 md:gap-4">
-                    {isExpanded ? "Minimize Philosophy" : "Explore The Deep Dive"}
+                    Explore The Deep Dive
                     <motion.div animate={{ rotate: isExpanded ? 180 : 0 }}>
                       <ChevronDown className="w-4 h-4" />
                     </motion.div>

@@ -4,8 +4,8 @@
 
 The Purple Movement is a bold, open-source initiative by **GTech μLearn** — created to inspire, enable, and accelerate a generation of young changemakers. This is the official pre-launch website of the movement, designed to help you explore what we stand for and how you can be a part of it.
 
-🔗 Website: [purple-movement.com](https://www.purple-movement.com)  
-📂 Docs & Source: [github.com/gtech-mulearn/Purple-Movement](https://github.com/gtech-mulearn/Purple-Movement)
+🔗 Website: [purple-movement.com](https://purple-movement.com)  
+📂 Docs & Source: [github.com/The-Purple-Movement/purple-movement-website](https://github.com/The-Purple-Movement/purple-movement-website)
 
 ---
 
@@ -49,23 +49,24 @@ The Purple Movement is a bold, open-source initiative by **GTech μLearn** — c
 
 The Purple Movement is fully open-source and built **by the community, for the community**. All website source code, content, and documentation are available here:
 
-👉 [https://github.com/gtech-mulearn/Purple-Movement](https://github.com/gtech-mulearn/Purple-Movement)
+👉 [https://github.com/The-Purple-Movement/purple-movement-website](https://github.com/The-Purple-Movement/purple-movement-website)
 
 ---
 
 ## 👥 Maintainers
 
-Maintained by [**GTech μLearn**](https://github.com/gtech-mulearn) and supported by the vibrant μLearn community.
+Maintained by [**GTech μLearn**](https://mulearn.org) and supported by the vibrant μLearn community.
 
 ---
 
 ## 📬 Connect With Us
 
-- 🌐 [mulearn.org](https://www.mulearn.org)
+- 🌐 [mulearn.org](https://mulearn.org)
 - 💬 [discord.gg/mulearn](https://discord.gg/mulearn)
-- 🟣 [purple-movement.com](https://www.purple-movement.com)
+- 🟣 [purple-movement.com](https://purple-movement.com)
 
 ---
 
 > 💡 _This is not just a website. It's a signal. The Movement has begun._
+
 ---

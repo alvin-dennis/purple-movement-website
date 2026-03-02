@@ -2,34 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-export interface LevelData {
-  id: number;
-  title: string;
-  description: string;
-  slug: string;
-}
-
-const levels: LevelData[] = [
-  {
-    id: 3,
-    title: "Beyond Syllabus",
-    slug: "syllabus",
-    description: "Learning is a starting point, not a rulebook. Real growth happens outside the lines and prescribed paths.",
-  },
-  {
-    id: 2,
-    title: "Beyond Gatekeepers",
-    slug: "gatekeepers",
-    description: "We don't hold opportunities; we share them. Ensuring success is open, fair, and accessible to every dreamer.",
-  },
-  {
-    id: 1,
-    title: "Beyond Borders",
-    slug: "borders",
-    description: "Removing the artificial barriers that separate talent from opportunity. Connecting the world through purpose.",
-  },
-];
+import { levels } from "@/data/home";
 
 const PyramidChart = () => {
   const [activeLevel, setActiveLevel] = useState<number>(3);
@@ -57,7 +30,6 @@ const PyramidChart = () => {
             </filter>
           </defs>
 
-          {/* Level 3: Syllabus (Top Triangle) */}
           <g
             className="cursor-pointer"
             role="button"
@@ -78,12 +50,11 @@ const PyramidChart = () => {
               }}
               filter={activeLevel === 3 ? "url(#glow-effect)" : "none"}
             />
-            <text x="300" y="170" textAnchor="middle" className="fill-white text-[12px] font-bold tracking-widest uppercase pointer-events-none">
-              SYLLABUS
+            <text x="300" y="170" textAnchor="middle" className="fillforeground text-[12px] font-bold tracking-widest uppercase pointer-events-none">
+              BEYOND BORDERS
             </text>
           </g>
 
-          {/* Level 2: Gatekeepers (Middle Trapezoid) */}
           <g
             className="cursor-pointer"
             role="button"
@@ -104,8 +75,8 @@ const PyramidChart = () => {
               }}
               filter={activeLevel === 2 ? "url(#glow-effect)" : "none"}
             />
-            <text x="300" y="315" textAnchor="middle" className="fill-white text-[14px] font-bold tracking-widest uppercase pointer-events-none">
-              GATEKEEPERS
+            <text x="300" y="315" textAnchor="middle" className="fillforeground text-[14px] font-bold tracking-widest uppercase pointer-events-none">
+              BEYOND GATEKEEPERS
             </text>
           </g>
 
@@ -130,8 +101,8 @@ const PyramidChart = () => {
               }}
               filter={activeLevel === 1 ? "url(#glow-effect)" : "none"}
             />
-            <text x="300" y="475" textAnchor="middle" className="fill-white text-[16px] font-bold tracking-widest uppercase pointer-events-none">
-              BORDERS
+            <text x="300" y="475" textAnchor="middle" className="fillforeground text-[16px] font-bold tracking-widest uppercase pointer-events-none">
+              Beyond Syllabus
             </text>
           </g>
         </svg>
@@ -152,7 +123,7 @@ const PyramidChart = () => {
               <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block text-center lg:text-left">
                 PHASE 0{level.id}
               </span>
-              <h2 className="text-5xl md:text-7xl text-white mb-8 text-center lg:text-left">
+              <h2 className="text-5xl md:text-7xl mb-8 text-center lg:text-left">
                 {level.title}
               </h2>
               <p className="mb-12">
@@ -161,7 +132,7 @@ const PyramidChart = () => {
               <button
                 type="button"
                 onClick={() => scrollToSection(level.slug)}
-                className="group flex items-center gap-4 text-white font-bold tracking-widest text-xs"
+                className="group flex items-center gap-4 font-bold tracking-widest text-xs"
               >
                 RECLAIM THIS
                 <div className="w-12 h-[1px] bg-primary group-hover:w-20 transition-all duration-500" />

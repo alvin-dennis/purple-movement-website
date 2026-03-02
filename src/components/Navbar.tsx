@@ -8,17 +8,13 @@ import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/button";
 
+import { navLinks } from "@/data/common";
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-
-  const links = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/#about" },
-    { name: "Events", href: "/#events" },
-  ];
 
   const [activeSection, setActiveSection] = useState("");
 
@@ -99,7 +95,7 @@ export const Navbar = () => {
         }`}
     >
       <div
-        className={`flex items-center justify-between px-6 md:px-10 py-3 md:py-5 transition-all duration-500 rounded-[3rem] border border-white/5 shadow-2xl ${isScrolled
+        className={`flex items-center justify-between px-6 md:px-10 py-3 md:py-5 transition-all duration-500 rounded-[3rem] border borderforeground/5 shadow-2xl ${isScrolled
           ? "bg-black/60 backdrop-blur-2xl border-primary/20"
           : "bg-transparent border-transparent"
           }`}
@@ -118,7 +114,7 @@ export const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 lg:gap-12">
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
@@ -126,7 +122,7 @@ export const Navbar = () => {
                 e.preventDefault();
                 handleLinkClick(link.href);
               }}
-              className={`font-bold text-xs uppercase tracking-[0.3em] relative group py-2 hover:text-primary transition-colors ${activeSection === link.href ? "text-primary" : "text-white/60"
+              className={`font-bold text-xs uppercase tracking-[0.3em] relative group py-2 hover:text-primary transition-colors ${activeSection === link.href ? "text-primary" : "textforeground/60"
                 }`}
             >
               {link.name}
@@ -156,9 +152,9 @@ export const Navbar = () => {
           aria-label="Toggle menu"
         >
           {isOpen ? (
-            <X size={18} className="text-white" />
+            <X size={18} className="textforeground" />
           ) : (
-            <Menu size={18} className="text-white" />
+            <Menu size={18} className="textforeground" />
           )}
         </Button>
       </div>
@@ -171,9 +167,9 @@ export const Navbar = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.97, y: -10 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute top-[calc(100%+12px)] left-0 w-full md:hidden bg-black/80 backdrop-blur-3xl rounded-[2rem] border border-white/10 p-8 flex flex-col items-center gap-8"
+            className="absolute top-[calc(100%+12px)] left-0 w-full md:hidden bg-black/80 backdrop-blur-3xl rounded-[2rem] border borderforeground/10 p-8 flex flex-col items-center gap-8"
           >
-            {links.map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
@@ -181,7 +177,7 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
-                className={`text-2xl sm:text-3xl transition-colors ${activeSection === link.href ? "text-primary" : "text-white hover:text-primary"
+                className={`text-2xl sm:text-3xl transition-colors ${activeSection === link.href ? "text-primary" : "hover:text-primary"
                   }`}
               >
                 {link.name}
@@ -190,7 +186,7 @@ export const Navbar = () => {
             <Link
               href="/join"
               onClick={() => setIsOpen(false)}
-              className="px-10 py-4 bg-primary rounded-full font-bold text-sm tracking-widest text-white uppercase shadow-xl hover:bg-primary transition-all active:scale-95 mt-2"
+              className="px-10 py-4 bg-primary rounded-full font-bold text-sm tracking-widest uppercase shadow-xl hover:bg-primary transition-all active:scale-95 mt-2"
             >
               Start Rising
             </Link>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { contact } from "@/data/home";
 
 export const Contact = () => {
   const [question, setQuestion] = useState("");
@@ -70,11 +71,11 @@ export const Contact = () => {
               viewport={{ once: true }}
               className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
             >
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white mb-4 md:mb-6 text-center lg:text-left">
-                GOT <br /><span className="text-tpm">INPUT</span>{" "}?
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-4 md:mb-6 text-center lg:text-left">
+                {contact.title} <br /><span className="text-tpm">{contact.highlight}</span>{" "}?
               </h2>
-              <p className="text-base md:text-lg lg:text-xl text-white/50 text-center lg:text-left">
-                A movement is built on dialogue. Drop your spark below and let&apos;s evolve together.
+              <p className="text-base md:text-lg lg:text-xl textforeground/50 text-center lg:text-left">
+                {contact.description}
               </p>
             </motion.div>
 
@@ -83,8 +84,8 @@ export const Contact = () => {
                 <textarea
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
-                  placeholder="Type your question or spark..."
-                  className="w-full bg-zinc-900/50 border border-white/5 text-white text-base md:text-xl p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] focus:outline-none focus:border-primary/50 transition-all min-h-[160px] md:min-h-[200px] resize-none placeholder:text-white/10"
+                  placeholder={contact.placeholder}
+                  className="w-full bg-zinc-900/50 border borderforeground/5 text-base md:text-xl p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] focus:outline-none focus:border-primary/50 transition-all min-h-[160px] md:min-h-[200px] resize-none placeholder:textforeground/10"
                   disabled={isSubmitting}
                 />
                 <div className="flex flex-col sm:flex-row items-end sm:items-center justify-end gap-3 mt-4 sm:mt-0 sm:absolute sm:bottom-6 sm:right-6">
@@ -98,11 +99,11 @@ export const Contact = () => {
                     type="submit"
                     disabled={!question.trim() || isSubmitting}
                     className={`px-8 md:px-12 py-3 md:py-5 rounded-full font-bold tracking-widest text-xs uppercase transition-all whitespace-nowrap ${question.trim() && !isSubmitting
-                      ? "bg-primary text-white hover:bg-primary hover:scale-105 active:scale-95"
-                      : "bg-white/5 text-white/20 cursor-not-allowed"
+                      ? "bg-primary hover:bg-primary hover:scale-105 active:scale-95"
+                      : "bgforeground/5 textforeground/20 cursor-not-allowed"
                       }`}
                   >
-                    {isSubmitting ? "TRANSMITTING..." : "SUBMIT SPARK"}
+                    {isSubmitting ? contact.submittingText : contact.buttonText}
                   </button>
                 </div>
               </div>
