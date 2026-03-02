@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 
 const milestones = [
@@ -32,7 +31,7 @@ const milestones = [
 
 export const LivingTimeline = () => {
     return (
-        <section className="w-full py-20 sm:py-28 md:py-32 bg-transparent px-4 sm:px-6 border-t border-white/5" id="timeline">
+        <section className="w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6" id="timeline">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12 md:mb-24">
@@ -43,7 +42,7 @@ export const LivingTimeline = () => {
                     >
                         OUR EVOLUTION
                     </motion.span>
-                    <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl movement-title text-white">
+                    <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">
                         THE <span className="text-purple-600">RISE</span>
                     </h2>
                 </div>

@@ -1,18 +1,21 @@
 import type { Metadata } from 'next'
-import { Montserrat, Poppins } from 'next/font/google'
+import localFont from "next/font/local";
+import { Poppins } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--font-montserrat'
-})
+const headline = localFont({
+  src: "../components/fonts/headline.ttf",
+  variable: "--font-display",
+  display: "swap",
+});
+
 
 const poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-poppins',
-  weight: ['300', '400', '500', '600', '700']
+  variable: '--font-body',
+  weight: ["300", "400", "500"]
 })
 
 export const metadata: Metadata = {
@@ -26,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
-      <body className={`${montserrat.variable} ${poppins.variable} bg-background font-poppins`}>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <body className={`${headline.variable} ${poppins.variable} bg-[#020205] text-foreground font-body`}>
         <Navbar />
         {children}
         <Footer />

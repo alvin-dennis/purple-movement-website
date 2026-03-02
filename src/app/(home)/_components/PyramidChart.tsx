@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export interface LevelData {
@@ -42,14 +42,10 @@ const PyramidChart = () => {
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 py-40 px-6">
-      {/* Background Ambience */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-900/5 blur-[120px] rounded-full pointer-events-none" />
-
-      {/* Visual Side: The Proper Geometric Pyramid */}
-      <div className="relative w-full lg:w-1/2 aspect-square max-w-[550px]">
+    <div className="relative w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 py-32 md:py-48 px-6">
+      <div className="relative w-full lg:w-1/2 aspect-square max-w-[550px] flex items-center justify-center">
         <svg viewBox="0 0 600 600" className="w-full h-full overflow-visible" role="img" aria-labelledby="pyramid-interactive-title">
-          <title id="pyramid-interactive-title">Interactive 3-Layer Impact Pyramid</title>
+          <title id="pyramid-interactive-title">Pyramid</title>
           <defs>
             <linearGradient id="pyr-active-grad" x1="50%" y1="0%" x2="50%" y2="100%">
               <stop offset="0%" stopColor="#8E00FF" />
@@ -142,7 +138,7 @@ const PyramidChart = () => {
       </div>
 
       {/* Content Side: Narrative Focus */}
-      <div className="flex-1 flex flex-col justify-center min-h-[400px]">
+      <div className="flex-1 flex flex-col justify-center items-center lg:items-start min-h-[400px]">
         <AnimatePresence mode="wait">
           {levels.map((level) => level.id === activeLevel && (
             <motion.div
@@ -151,15 +147,15 @@ const PyramidChart = () => {
               animate={{ opacity: 1, scale: 1, x: 0 }}
               exit={{ opacity: 0, scale: 0.95, x: -30 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="max-w-xl"
+              className="max-w-xl w-full flex flex-col items-center lg:items-start text-center lg:text-left"
             >
               <span className="text-purple-500 font-bold tracking-[0.5em] uppercase text-xs mb-8 block">
                 PHASE 0{level.id}
               </span>
-              <h2 className="text-5xl md:text-7xl movement-title text-white mb-8">
+              <h2 className="text-5xl md:text-7xl text-white mb-8">
                 {level.title}
               </h2>
-              <p className="movement-subtitle mb-12">
+              <p className="mb-12">
                 {level.description}
               </p>
               <button

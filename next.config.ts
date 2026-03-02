@@ -3,18 +3,6 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   compress: true,
   reactStrictMode: true,
-  // Image optimization settings for better performance
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-    ],
-    // Enable image optimization
-    unoptimized: false,
-  },
-
   // Environment variables configuration
   env: {
     CUSTOM_KEY: process.env.CUSTOM_KEY,

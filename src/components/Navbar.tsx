@@ -177,7 +177,7 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
-                className={`text-2xl sm:text-3xl movement-title transition-colors ${activeSection === link.href ? "text-purple-400" : "text-white hover:text-purple-400"
+                className={`text-2xl sm:text-3xl transition-colors ${activeSection === link.href ? "text-purple-400" : "text-white hover:text-purple-400"
                   }`}
               >
                 {link.name}

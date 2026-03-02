@@ -41,7 +41,7 @@ const resources = [
 
 export const ResourcesSection = () => {
     return (
-        <section className="w-full py-20 sm:py-28 md:py-32 bg-transparent px-4 sm:px-6 border-t border-white/5" id="resources">
+        <section className="w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6" id="resources">
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 mb-12 md:mb-24">
@@ -79,7 +79,7 @@ export const ResourcesSection = () => {
                                     <div className="text-[10px] font-bold tracking-widest text-purple-400 uppercase border border-purple-400/30 px-3 py-1 rounded-full flex-shrink-0">
                                         {res.category}
                                     </div>
-                                    <span className="text-[10px] text-white/20 font-mono tracking-tighter flex-shrink-0">
+                                    <span className="text-[10px] text-white/20 font-mono flex-shrink-0">
                                         {res.date}
                                     </span>
                                 </div>

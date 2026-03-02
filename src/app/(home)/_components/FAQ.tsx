@@ -61,7 +61,7 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="w-full py-20 sm:py-28 md:py-40 bg-background px-4 sm:px-6 border-t border-white/5">
+    <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 md:gap-20">
         {/* Left: Header */}
         <div className="lg:w-1/3">
@@ -74,10 +74,10 @@ export const FAQ = () => {
             <div className="h-[1px] w-12 bg-purple-600" />
             <span className="text-purple-500 font-bold tracking-[0.4em] uppercase text-xs">Assistance</span>
           </motion.div>
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl movement-title text-white mb-4 md:mb-8">
-            GOT <br /><span className="text-purple-600 italic">QUESTIONS?</span>
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white mb-4 md:mb-8">
+            GOT <br /><span className="text-purple-600">QUESTIONS?</span>
           </h2>
-          <p className="movement-subtitle text-base md:text-lg text-white/50">
+          <p className="text-base md:text-lg text-white/50">
             Got questions? We&apos;ve got answers. Here are some of the most common things people ask
             about the Purple Movement.
           </p>

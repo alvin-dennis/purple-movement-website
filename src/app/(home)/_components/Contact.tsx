@@ -45,7 +45,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="w-full py-20 sm:py-28 md:py-40 bg-transparent px-4 sm:px-6 overflow-hidden">
+    <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 overflow-hidden">
       <div className="max-w-[1400px] mx-auto glass-panel p-6 sm:p-10 md:p-16 lg:p-24 relative">
         {/* Background Accent */}
         <div className="absolute top-0 right-0 w-48 md:w-96 h-48 md:h-96 bg-purple-600/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -54,14 +54,13 @@ export const Contact = () => {
           {/* Visual Side – desktop only */}
           <div className="lg:w-1/3 relative hidden lg:flex items-center justify-center">
             <div className="relative w-64 xl:w-80 h-64 xl:h-80 flex items-center justify-center">
-              <div className="absolute inset-0 bg-purple-600/10 rounded-full animate-pulse" />
+              <div className="absolute inset-0 bg-purple-600/10 rounded-full" />
               <Image
                 src="/images/qtnmark.png"
                 alt="Question Mark"
                 width={250}
                 height={250}
                 className="relative z-10 brightness-200"
-                unoptimized
               />
             </div>
           </div>
@@ -74,10 +73,10 @@ export const Contact = () => {
               viewport={{ once: true }}
               className="mb-8 md:mb-12"
             >
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl movement-title text-white mb-4 md:mb-6">
-                GOT <br /><span className="text-purple-600 italic">INPUT</span>{""}?
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white mb-4 md:mb-6">
+                GOT <br /><span className="text-purple-600">INPUT</span>{" "}?
               </h2>
-              <p className="movement-subtitle text-base md:text-lg lg:text-xl text-white/50">
+              <p className="text-base md:text-lg lg:text-xl text-white/50">
                 A movement is built on dialogue. Drop your spark below and let&apos;s evolve together.
               </p>
             </motion.div>

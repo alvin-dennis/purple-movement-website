@@ -13,15 +13,8 @@ const communityMoments = [
 
 export const CommunityMosaic = () => {
     return (
-        <section className="w-full py-20 sm:py-28 md:py-40 bg-transparent px-4 sm:px-6 relative overflow-hidden" id="gallery">
-            {/* Background Accents */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-                <div className="absolute top-[10%] right-[5%] w-48 md:w-96 h-48 md:h-96 bg-purple-900/30 blur-[150px] rounded-full" />
-                <div className="absolute bottom-[20%] left-[10%] w-[200px] md:w-[500px] h-[200px] md:h-[500px] bg-indigo-900/20 blur-[180px] rounded-full" />
-            </div>
-
+        <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 relative overflow-hidden" id="gallery">
             <div className="max-w-[1400px] mx-auto relative z-10">
-                {/* Header */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 mb-12 md:mb-24 items-end">
                     <div className="lg:col-span-8">
                         <motion.div
@@ -35,12 +28,12 @@ export const CommunityMosaic = () => {
                                 Living Community
                             </span>
                         </motion.div>
-                        <h2 className="text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] movement-title text-white leading-[0.85]">
-                            THE <br /><span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent italic">ENERGY</span> OF US.
+                        <h2 className="text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] text-white leading-[0.85] space-y-2">
+                            THE <br /><span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">ENERGY</span> OF US.
                         </h2>
                     </div>
                     <div className="lg:col-span-4">
-                        <p className="movement-subtitle text-base md:text-lg border-l border-white/10 pl-6 md:pl-8 text-white/50">
+                        <p className="text-base md:text-lg border-l border-white/10 pl-6 md:pl-8 text-white/50">
                             Snapshots from a community that rises together. Not just faces, but the energy of collective progress.
                         </p>
                     </div>
@@ -75,19 +68,6 @@ export const CommunityMosaic = () => {
                             </div>
                         </motion.div>
                     ))}
-
-                    {/* Filler card */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        className="hidden md:flex flex-col items-center justify-center border border-dashed border-white/10 rounded-[3rem] p-8 text-center col-span-1"
-                    >
-                        <h4 className="movement-title text-xl text-white/20 uppercase mb-4">Join the Story</h4>
-                        <p className="text-[10px] text-white/10 tracking-widest leading-relaxed">
-                            Every face here is a pioneer of the future. <br />Add your pulse to the movement.
-                        </p>
-                    </motion.div>
                 </div>
             </div>
         </section>

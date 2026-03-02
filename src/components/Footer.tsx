@@ -41,9 +41,9 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-background border-t border-white/5 pt-16 sm:pt-24 md:pt-40 pb-10 md:pb-20 px-4 sm:px-6 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 md:gap-12 mb-16 md:mb-40">
+    <footer className="w-full px-4 overflow-hidden pb-10">
+      <div className="mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 md:gap-12 mb-16">
           {/* Brand Col */}
           <div className="sm:col-span-2 md:col-span-5 space-y-8 md:space-y-12">
             <Image
@@ -52,11 +52,9 @@ export const Footer = () => {
               height={60}
               alt="Purple Movement Logo"
               className="brightness-125 saturate-150 w-auto h-10 md:h-auto"
-              unoptimized
             />
             <div className="space-y-4 md:space-y-6">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl movement-title text-white">THE PURPLE <br />MOVEMENT.</h3>
-              <p className="movement-subtitle text-sm md:text-base lg:text-lg text-white/50">
+              <p className="text-sm md:text-base lg:text-lg text-white/50">
                 Beyond Syllabus, Beyond Gatekeepers, Beyond Borders. <br />
                 Rise Together.
               </p>
@@ -66,9 +64,9 @@ export const Footer = () => {
                 { icon: <FaInstagram size={18} />, href: "https://www.instagram.com/tpm.live/" },
                 { icon: <BsTwitterX size={18} />, href: "https://x.com/ThePurpleMVMT" },
                 { icon: <FaLinkedinIn size={18} />, href: "https://www.linkedin.com/company/the-purple-movement/posts/?feedView=all" },
-              ].map((social, i) => (
+              ].map((social) => (
                 <a
-                  key={i}
+                  key={social.href}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -106,7 +104,7 @@ export const Footer = () => {
                   <button
                     key={l.name}
                     onClick={() => setIsFeedbackOpen(true)}
-                    className="text-left text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors uppercase italic"
+                    className="text-left text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors uppercase"
                   >
                     {l.name}
                   </button>
@@ -114,7 +112,7 @@ export const Footer = () => {
                   <a
                     key={l.name}
                     href={l.href}
-                    className="text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors uppercase italic"
+                    className="text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors uppercase"
                   >
                     {l.name}
                   </a>
