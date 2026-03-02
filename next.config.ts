@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  compress: true,
+  reactStrictMode: true,
   // Image optimization settings for better performance
   images: {
     remotePatterns: [
@@ -12,9 +14,6 @@ const nextConfig: NextConfig = {
     // Enable image optimization
     unoptimized: false,
   },
-
-  // Enable compression
-  compress: true,
 
   // Environment variables configuration
   env: {
@@ -41,19 +40,6 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-    ];
-  },
-
-  // Redirects if needed
-  async redirects() {
-    return [
-      // Add any redirects here if needed
-      // Example:
-      // {
-      //   source: '/old-page',
-      //   destination: '/new-page',
-      //   permanent: true,
-      // },
     ];
   },
 };
