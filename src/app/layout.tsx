@@ -1,26 +1,16 @@
 import type { Metadata } from 'next'
-import { Inter, Montserrat, Poppins, IBM_Plex_Sans_Devanagari } from 'next/font/google'
+import { Montserrat, Poppins } from 'next/font/google'
 import './globals.css'
+import { Navbar } from '@/components/Navbar'
+import { Footer } from '@/components/Footer'
 
-const ibmPlexSansDevanagari = IBM_Plex_Sans_Devanagari({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin', 'devanagari'],
-  display: 'swap',
-  variable: '--font-ibm-plex-sans-devanagari',
-})
-
-const inter = Inter({ 
+const montserrat = Montserrat({
   subsets: ['latin'],
-  variable: '--font-inter'
+  variable: '--font-montserrat'
 })
 
-const montserrat = Montserrat({ 
-  subsets: ['latin'], 
-  variable: '--font-montserrat' 
-})
-
-const poppins = Poppins({ 
-  subsets: ['latin'], 
+const poppins = Poppins({
+  subsets: ['latin'],
   variable: '--font-poppins',
   weight: ['300', '400', '500', '600', '700']
 })
@@ -36,9 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${montserrat.variable} ${poppins.variable} ${ibmPlexSansDevanagari.variable}`}>
-      <body className="bg-slate-950 font-inter w-full min-h-screen">
+    <html lang="en" data-scroll-behavior="smooth">
+      <body className={`${montserrat.variable} ${poppins.variable} bg-background font-poppins`}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

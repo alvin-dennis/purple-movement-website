@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { Navbar } from '../components/layout/Navbar'
 import StepOne from './components/StepOne'
 import StepTwo from './components/StepTwo'
 import StepThree from './components/StepThree'
@@ -169,8 +168,6 @@ export default function JoinUsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#020309] via-[#05041b] to-[#020309] text-white">
-      <Navbar />
-
       <main className="flex items-start justify-center pt-24 pb-12 px-4 sm:px-6 md:px-8">
         {/* Background Image - Full Width */}
         <div className="fixed top-50 left-0 w-full h-full z-0 overflow-hidden">
@@ -184,9 +181,8 @@ export default function JoinUsPage() {
 
         <div className="relative w-full max-w-7xl mt-15 mx-auto z-10">
           {/* Form Content */}
-          <div className={`relative z-10 transition-opacity duration-300 ${
-            isTransitioning ? 'opacity-0 pointer-events-none' : 'opacity-100'
-          }`}>
+          <div className={`relative z-10 transition-opacity duration-300 ${isTransitioning ? 'opacity-0 pointer-events-none' : 'opacity-100'
+            }`}>
             {renderCurrentStep()}
 
             {/* Progress Steps */}
@@ -196,25 +192,22 @@ export default function JoinUsPage() {
                   {/* Step Circle */}
                   <div className="relative">
                     <div
-                      className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 ${
-                        step.number === currentStep
-                          ? 'border-white'
-                          : step.number < currentStep
+                      className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 ${step.number === currentStep
+                        ? 'border-white'
+                        : step.number < currentStep
                           ? 'border-violet-700'
                           : 'border-white/40'
-                      }`}
+                        }`}
                     />
                     <div
-                      className={`absolute inset-1 rounded-full ${
-                        step.number <= currentStep
-                          ? 'bg-violet-700'
-                          : 'bg-violet-800/50'
-                      }`}
+                      className={`absolute inset-1 rounded-full ${step.number <= currentStep
+                        ? 'bg-violet-700'
+                        : 'bg-violet-800/50'
+                        }`}
                     />
                     <span
-                      className={`absolute inset-0 flex items-center justify-center text-sm sm:text-base font-bold font-montserrat ${
-                        step.number <= currentStep ? 'text-white' : 'text-white/50'
-                      }`}
+                      className={`absolute inset-0 flex items-center justify-center text-sm sm:text-base font-bold ${step.number <= currentStep ? 'text-white' : 'text-white/50'
+                        }`}
                     >
                       {step.number < currentStep ? '✓' : step.number}
                     </span>
@@ -223,11 +216,10 @@ export default function JoinUsPage() {
                   {/* Connector */}
                   {index < steps.length - 1 && (
                     <div
-                      className={`w-8 sm:w-12 h-0.5 mx-2 sm:mx-3 ${
-                        step.number < currentStep
-                          ? 'bg-violet-700'
-                          : 'bg-white/30'
-                      }`}
+                      className={`w-8 sm:w-12 h-0.5 mx-2 sm:mx-3 ${step.number < currentStep
+                        ? 'bg-violet-700'
+                        : 'bg-white/30'
+                        }`}
                     />
                   )}
                 </div>

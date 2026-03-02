@@ -32,7 +32,7 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
     } else {
       document.body.style.overflow = 'auto'
     }
-    
+
     return () => {
       document.body.style.overflow = 'auto'
     }
@@ -40,9 +40,9 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
 
   const handleSubmit = async () => {
     if (!feedback.trim() && !selectedReaction) return
-    
+
     setIsSubmitting(true)
-    
+
     try {
       const response = await fetch('/api/feedback', {
         method: 'POST',
@@ -82,7 +82,7 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
   if (!isOpen) return null
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black p-2 sm:p-4"
       onClick={handleBackdropClick}
     >
@@ -98,7 +98,7 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
 
         {/* Main heading */}
         <div className="text-center mb-4 sm:mb-6 pt-2 sm:pt-0">
-          <h2 className="text-white text-xl xs:text-2xl sm:text-3xl font-bold font-montserrat tracking-wide leading-tight">
+          <h2 className="text-white text-xl xs:text-2xl sm:text-3xl font-bold tracking-wide leading-tight">
             How helpful was this?
           </h2>
         </div>
@@ -109,11 +109,10 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             <button
               key={reaction.id}
               onClick={() => handleReactionClick(reaction.id)}
-              className={`transition-all duration-200 hover:opacity-100 hover:scale-110 ${
-                selectedReaction === reaction.id 
-                  ? 'opacity-100 scale-110' 
-                  : 'opacity-25'
-              }`}
+              className={`transition-all duration-200 hover:opacity-100 hover:scale-110 ${selectedReaction === reaction.id
+                ? 'opacity-100 scale-110'
+                : 'opacity-25'
+                }`}
               title={reaction.alt}
             >
               <Image
@@ -133,7 +132,7 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="Feedback"
-            className="w-full h-32 px-4 py-4 bg-transparent text-white text-sm font-poppins resize-none focus:outline-none border border-neutral-400 rounded placeholder:text-neutral-400"
+            className="w-full h-32 px-4 py-4 bg-transparent text-white text-sm resize-none focus:outline-none border border-neutral-400 rounded placeholder:text-neutral-400"
           />
         </div>
 
@@ -161,7 +160,7 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
 
         {/* Main heading */}
         <div className="absolute left-[121.5px] top-[66.32px]">
-          <h2 className="text-white text-5xl font-bold font-montserrat tracking-wide">
+          <h2 className="text-white text-5xl font-bold tracking-wide">
             How helpful was this?
           </h2>
         </div>
@@ -172,11 +171,10 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             <button
               key={reaction.id}
               onClick={() => handleReactionClick(reaction.id)}
-              className={`transition-all duration-200 hover:opacity-100 hover:scale-110 ${
-                selectedReaction === reaction.id 
-                  ? 'opacity-100 scale-110' 
-                  : 'opacity-25'
-              }`}
+              className={`transition-all duration-200 hover:opacity-100 hover:scale-110 ${selectedReaction === reaction.id
+                ? 'opacity-100 scale-110'
+                : 'opacity-25'
+                }`}
               title={reaction.alt}
             >
               <Image
@@ -196,7 +194,7 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="Feedback"
-            className="w-full h-full px-4 py-4 bg-transparent text-white text-lg font-poppins resize-none focus:outline-none placeholder:text-neutral-400"
+            className="w-full h-full px-4 py-4 bg-transparent text-white text-lg resize-none focus:outline-none placeholder:text-neutral-400"
           />
         </div>
 

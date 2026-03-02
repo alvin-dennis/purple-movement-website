@@ -65,7 +65,7 @@ export default function StepTwo({
         <div className="max-w-[864px] w-full mx-auto space-y-3">
           <label
             htmlFor="role-select"
-            className="block text-base sm:text-xl md:text-2xl font-semibold font-montserrat capitalize text-white tracking-wide"
+            className="block text-base sm:text-xl md:text-2xl font-semibold capitalize text-white tracking-wide"
           >
             What defines you?
           </label>{" "}
@@ -115,7 +115,7 @@ export default function StepTwo({
         <div className="max-w-[864px] w-full mx-auto space-y-3">
           <label
             htmlFor="why-here"
-            className="block text-base sm:text-xl md:text-2xl font-semibold font-montserrat capitalize text-white tracking-wide"
+            className="block text-base sm:text-xl md:text-2xl font-semibold capitalize text-white tracking-wide"
           >
             What Do You Want to Share?
           </label>
@@ -185,11 +185,10 @@ export default function StepTwo({
         <button
           onClick={canProceed ? onNext : undefined}
           disabled={!canProceed}
-          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${
-            canProceed
+          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${canProceed
               ? "bg-purple-700 hover:bg-purple-600"
               : "bg-purple-700/50 cursor-not-allowed"
-          }`}
+            }`}
         >
           <span className="text-white text-sm font-inter">Next</span>
           <svg

@@ -146,7 +146,7 @@ export default function StepThree({
   submitError = null,
 }: StepThreeProps) {
   const { name, email, phone, notInterested } = formData
-  
+
   // Track which fields have been touched
   const [touchedFields, setTouchedFields] = useState({
     name: false,
@@ -188,20 +188,20 @@ export default function StepThree({
     <div className="w-full px-4 sm:px-6 space-y-8">
       {/* Inject custom styles */}
       <style dangerouslySetInnerHTML={{ __html: phoneInputStyles }} />
-      
+
       {/* Header & Description */}
       <div className="space-y-6">
         <div className="max-w-[864px] w-full mx-auto space-y-3">
-          <h1 className="text-2xl sm:text-4xl font-bold font-montserrat text-white capitalize text-left pl-3 sm:pl-4">
+          <h1 className="text-2xl sm:text-4xl font-bold text-white capitalize text-left pl-3 sm:pl-4">
             Tell Us About You
           </h1>
-          <div className="justify-start text-white text-base font-normal font-montserrat capitalize pl-3 sm:pl-4">
+          <div className="justify-start text-white text-base font-normal capitalize pl-3 sm:pl-4">
             We&apos;d love to hear from you, or you can stay anonymous.
           </div>
         </div>
 
         <div className="max-w-[864px] w-full mx-auto">
-          <label 
+          <label
             className="flex items-center space-x-3 cursor-pointer pl-3 sm:pl-4"
           >
             <div className="relative cursor-pointer">
@@ -223,7 +223,7 @@ export default function StepThree({
                 </div>
               )}
             </div>
-            <span className="text-red-400 text-xl font-medium font-poppins capitalize">
+            <span className="text-red-400 text-xl font-medium capitalize">
               Stay Anonymous
             </span>
           </label>
@@ -234,7 +234,7 @@ export default function StepThree({
       <div className="max-w-[864px] w-full mx-auto space-y-8">
         {/* Name */}
         <div className="space-y-3">
-          <label className={`block text-sm sm:text-lg text-white font-bold font-montserrat capitalize
+          <label className={`block text-sm sm:text-lg text-white font-bold capitalize
             ${notInterested ? 'opacity-50' : ''}
           `}>
             Name:
@@ -245,11 +245,10 @@ export default function StepThree({
             onChange={(e) => onChange({ name: e.target.value })}
             onFocus={() => setTouchedFields(prev => ({ ...prev, name: true }))}
             disabled={notInterested}
-            className={`w-full h-11 px-4 text-sm sm:text-base bg-transparent border rounded text-white placeholder-white/60 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed ${
-              nameError && !notInterested
-                ? 'border-red-500 focus:ring-red-500'
-                : 'border-white focus:ring-violet-700'
-            }`}
+            className={`w-full h-11 px-4 text-sm sm:text-base bg-transparent border rounded text-white placeholder-white/60 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed ${nameError && !notInterested
+              ? 'border-red-500 focus:ring-red-500'
+              : 'border-white focus:ring-violet-700'
+              }`}
             placeholder="Enter your full name"
           />
           {nameError && !notInterested && (
@@ -259,7 +258,7 @@ export default function StepThree({
 
         {/* Email */}
         <div className="space-y-3">
-          <label className={`block text-sm sm:text-lg text-white font-bold font-montserrat capitalize
+          <label className={`block text-sm sm:text-lg text-white font-bold capitalize
             ${notInterested ? 'opacity-50' : ''}
           `}>
             Email:
@@ -270,11 +269,10 @@ export default function StepThree({
             onChange={(e) => onChange({ email: e.target.value })}
             onFocus={() => setTouchedFields(prev => ({ ...prev, email: true }))}
             disabled={notInterested}
-            className={`w-full h-11 px-4 text-sm sm:text-base bg-transparent border rounded text-white placeholder-white/60 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed ${
-              emailError && !notInterested
-                ? 'border-red-500 focus:ring-red-500'
-                : 'border-white focus:ring-violet-700'
-            }`}
+            className={`w-full h-11 px-4 text-sm sm:text-base bg-transparent border rounded text-white placeholder-white/60 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed ${emailError && !notInterested
+              ? 'border-red-500 focus:ring-red-500'
+              : 'border-white focus:ring-violet-700'
+              }`}
             placeholder="Enter your email address"
           />
           {emailError && !notInterested && (
@@ -284,7 +282,7 @@ export default function StepThree({
 
         {/* Phone */}
         <div className="space-y-3">
-          <label className={`block text-sm sm:text-lg text-white font-bold font-montserrat capitalize
+          <label className={`block text-sm sm:text-lg text-white font-bold capitalize
             ${notInterested ? 'opacity-50' : ''}
           `}>
             Phone:
@@ -321,11 +319,10 @@ export default function StepThree({
         <button
           onClick={onBack}
           disabled={isSubmitting}
-          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${
-            isSubmitting 
-              ? 'bg-purple-700/30 cursor-not-allowed' 
-              : 'bg-purple-700/60 hover:bg-purple-700'
-          }`}
+          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${isSubmitting
+            ? 'bg-purple-700/30 cursor-not-allowed'
+            : 'bg-purple-700/60 hover:bg-purple-700'
+            }`}
         >
           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -336,11 +333,10 @@ export default function StepThree({
         <button
           onClick={onNext}
           disabled={!isFormValid || isSubmitting}
-          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${
-            isFormValid && !isSubmitting
-              ? 'bg-purple-700 hover:bg-purple-600'
-              : 'bg-purple-700/50 cursor-not-allowed'
-          }`}
+          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${isFormValid && !isSubmitting
+            ? 'bg-purple-700 hover:bg-purple-600'
+            : 'bg-purple-700/50 cursor-not-allowed'
+            }`}
         >
           {isSubmitting ? (
             <>
