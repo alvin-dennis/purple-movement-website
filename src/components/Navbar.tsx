@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "./ui/button";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -99,7 +100,7 @@ export const Navbar = () => {
     >
       <div
         className={`flex items-center justify-between px-6 md:px-10 py-3 md:py-5 transition-all duration-500 rounded-[3rem] border border-white/5 shadow-2xl ${isScrolled
-          ? "bg-black/60 backdrop-blur-2xl border-purple-500/20"
+          ? "bg-black/60 backdrop-blur-2xl border-primary/20"
           : "bg-transparent border-transparent"
           }`}
       >
@@ -125,12 +126,12 @@ export const Navbar = () => {
                 e.preventDefault();
                 handleLinkClick(link.href);
               }}
-              className={`font-montserrat font-bold text-xs uppercase tracking-[0.3em] relative group py-2 hover:text-purple-400 transition-colors ${activeSection === link.href ? "text-purple-400" : "text-white/60"
+              className={`font-bold text-xs uppercase tracking-[0.3em] relative group py-2 hover:text-primary transition-colors ${activeSection === link.href ? "text-primary" : "text-white/60"
                 }`}
             >
               {link.name}
               <span
-                className={`absolute bottom-0 left-0 h-[2px] bg-purple-500 transition-all duration-500 group-hover:w-full ${activeSection === link.href ? "w-full" : "w-0"
+                className={`absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-500 group-hover:w-full ${activeSection === link.href ? "w-full" : "w-0"
                   }`}
               />
             </Link>
@@ -138,17 +139,20 @@ export const Navbar = () => {
 
           <Link
             href="/join"
-            className="ml-2 px-6 lg:px-8 py-3 bg-purple-600 rounded-full font-bold text-[10px] tracking-[0.2em] text-white uppercase hover:bg-purple-500 hover:scale-105 active:scale-95 transition-all whitespace-nowrap"
+            className="ml-2 px-6 lg:px-8 py-3 text-[10px] tracking-[0.2em] uppercase whitespace-nowrap"
           >
-            Connect
+            <Button variant={"default"}>
+              Connect
+            </Button>
           </Link>
         </div>
 
         {/* Hamburger (Mobile) */}
-        <button
-          type="button"
+        <Button
+          variant={"default"}
+          size={"icon"}
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-10 p-2.5 bg-white/5 rounded-full border border-white/10 flex-shrink-0"
+          className="md:hidden relative z-10 p-2.5 rounded-full flex-shrink-0"
           aria-label="Toggle menu"
         >
           {isOpen ? (
@@ -156,7 +160,7 @@ export const Navbar = () => {
           ) : (
             <Menu size={18} className="text-white" />
           )}
-        </button>
+        </Button>
       </div>
 
       {/* Mobile Menu */}
@@ -177,7 +181,7 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
-                className={`text-2xl sm:text-3xl transition-colors ${activeSection === link.href ? "text-purple-400" : "text-white hover:text-purple-400"
+                className={`text-2xl sm:text-3xl transition-colors ${activeSection === link.href ? "text-primary" : "text-white hover:text-primary"
                   }`}
               >
                 {link.name}
@@ -186,7 +190,7 @@ export const Navbar = () => {
             <Link
               href="/join"
               onClick={() => setIsOpen(false)}
-              className="px-10 py-4 bg-purple-600 rounded-full font-bold text-sm tracking-widest text-white uppercase shadow-xl hover:bg-purple-500 transition-all active:scale-95 mt-2"
+              className="px-10 py-4 bg-primary rounded-full font-bold text-sm tracking-widest text-white uppercase shadow-xl hover:bg-primary transition-all active:scale-95 mt-2"
             >
               Start Rising
             </Link>

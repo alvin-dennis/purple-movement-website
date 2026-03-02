@@ -47,14 +47,11 @@ export const Contact = () => {
   return (
     <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 overflow-hidden">
       <div className="max-w-[1400px] mx-auto glass-panel p-6 sm:p-10 md:p-16 lg:p-24 relative">
-        {/* Background Accent */}
-        <div className="absolute top-0 right-0 w-48 md:w-96 h-48 md:h-96 bg-purple-600/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
-
         <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-20">
           {/* Visual Side – desktop only */}
           <div className="lg:w-1/3 relative hidden lg:flex items-center justify-center">
             <div className="relative w-64 xl:w-80 h-64 xl:h-80 flex items-center justify-center">
-              <div className="absolute inset-0 bg-purple-600/10 rounded-full" />
+              <div className="absolute inset-0 bg-primary/10 rounded-full" />
               <Image
                 src="/images/qtnmark.png"
                 alt="Question Mark"
@@ -71,12 +68,12 @@ export const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-8 md:mb-12"
+              className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
             >
-              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white mb-4 md:mb-6">
-                GOT <br /><span className="text-purple-600">INPUT</span>{" "}?
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white mb-4 md:mb-6 text-center lg:text-left">
+                GOT <br /><span className="text-tpm">INPUT</span>{" "}?
               </h2>
-              <p className="text-base md:text-lg lg:text-xl text-white/50">
+              <p className="text-base md:text-lg lg:text-xl text-white/50 text-center lg:text-left">
                 A movement is built on dialogue. Drop your spark below and let&apos;s evolve together.
               </p>
             </motion.div>
@@ -87,7 +84,7 @@ export const Contact = () => {
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
                   placeholder="Type your question or spark..."
-                  className="w-full bg-zinc-900/50 border border-white/5 text-white text-base md:text-xl p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] focus:outline-none focus:border-purple-500/50 transition-all min-h-[160px] md:min-h-[200px] resize-none placeholder:text-white/10"
+                  className="w-full bg-zinc-900/50 border border-white/5 text-white text-base md:text-xl p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] focus:outline-none focus:border-primary/50 transition-all min-h-[160px] md:min-h-[200px] resize-none placeholder:text-white/10"
                   disabled={isSubmitting}
                 />
                 <div className="flex flex-col sm:flex-row items-end sm:items-center justify-end gap-3 mt-4 sm:mt-0 sm:absolute sm:bottom-6 sm:right-6">
@@ -101,7 +98,7 @@ export const Contact = () => {
                     type="submit"
                     disabled={!question.trim() || isSubmitting}
                     className={`px-8 md:px-12 py-3 md:py-5 rounded-full font-bold tracking-widest text-xs uppercase transition-all whitespace-nowrap ${question.trim() && !isSubmitting
-                      ? "bg-purple-600 text-white hover:bg-purple-500 hover:scale-105 active:scale-95"
+                      ? "bg-primary text-white hover:bg-primary hover:scale-105 active:scale-95"
                       : "bg-white/5 text-white/20 cursor-not-allowed"
                       }`}
                   >

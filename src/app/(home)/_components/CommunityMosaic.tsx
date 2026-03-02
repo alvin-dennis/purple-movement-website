@@ -16,24 +16,24 @@ export const CommunityMosaic = () => {
         <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 relative overflow-hidden" id="gallery">
             <div className="max-w-[1400px] mx-auto relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 mb-12 md:mb-24 items-end">
-                    <div className="lg:col-span-8">
+                    <div className="lg:col-span-8 flex flex-col items-center lg:items-start">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="flex items-center gap-3 mb-4 md:mb-6"
+                            className="flex items-center justify-center lg:justify-start gap-3 mb-4 md:mb-6"
                         >
-                            <div className="h-[1px] w-12 bg-purple-500" />
-                            <span className="text-purple-400 font-bold tracking-[0.5em] uppercase text-xs">
+                            <div className="h-[1px] w-12 bg-primary" />
+                            <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs">
                                 Living Community
                             </span>
                         </motion.div>
-                        <h2 className="text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] text-white leading-[0.85] space-y-2">
-                            THE <br /><span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">ENERGY</span> OF US.
+                        <h2 className="text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] text-white leading-[0.85] space-y-2 text-center lg:text-left">
+                            THE <br /><span className="text-tpm">ENERGY</span> OF US.
                         </h2>
                     </div>
                     <div className="lg:col-span-4">
-                        <p className="text-base md:text-lg border-l border-white/10 pl-6 md:pl-8 text-white/50">
+                        <p className="text-base md:text-lg border-l-0 lg:border-l border-white/10 lg:pl-8 text-white/50 text-center lg:text-left">
                             Snapshots from a community that rises together. Not just faces, but the energy of collective progress.
                         </p>
                     </div>
@@ -63,7 +63,7 @@ export const CommunityMosaic = () => {
                                 </span>
                                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 opacity-0 group-hover:opacity-100">
                                     <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{img.alt}</h3>
-                                    <div className="w-12 h-1 bg-purple-600 rounded-full" />
+                                    <div className="w-12 h-1 bg-primary rounded-full" />
                                 </div>
                             </div>
                         </motion.div>

@@ -164,7 +164,7 @@ export default function StepTwo({
       <div className="flex flex-col sm:flex-row gap-3 justify-between items-center max-w-[864px] w-full mx-auto">
         <button
           onClick={onBack}
-          className="w-full sm:w-32 py-2 bg-purple-700/60 hover:bg-purple-700 rounded flex justify-center items-center gap-1.5 transition-colors"
+          className="w-full sm:w-32 py-2 bg-primary/60 hover:bg-primary rounded flex justify-center items-center gap-1.5 transition-colors"
         >
           <svg
             className="w-5 h-5 text-white"
@@ -186,8 +186,8 @@ export default function StepTwo({
           onClick={canProceed ? onNext : undefined}
           disabled={!canProceed}
           className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${canProceed
-              ? "bg-purple-700 hover:bg-purple-600"
-              : "bg-purple-700/50 cursor-not-allowed"
+            ? "bg-primary hover:bg-primary"
+            : "bg-primary/50 cursor-not-allowed"
             }`}
         >
           <span className="text-white text-sm font-inter">Next</span>

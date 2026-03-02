@@ -149,10 +149,10 @@ const PyramidChart = () => {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-xl w-full flex flex-col items-center lg:items-start text-center lg:text-left"
             >
-              <span className="text-purple-500 font-bold tracking-[0.5em] uppercase text-xs mb-8 block">
+              <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block text-center lg:text-left">
                 PHASE 0{level.id}
               </span>
-              <h2 className="text-5xl md:text-7xl text-white mb-8">
+              <h2 className="text-5xl md:text-7xl text-white mb-8 text-center lg:text-left">
                 {level.title}
               </h2>
               <p className="mb-12">
@@ -164,7 +164,7 @@ const PyramidChart = () => {
                 className="group flex items-center gap-4 text-white font-bold tracking-widest text-xs"
               >
                 RECLAIM THIS
-                <div className="w-12 h-[1px] bg-purple-600 group-hover:w-20 transition-all duration-500" />
+                <div className="w-12 h-[1px] bg-primary group-hover:w-20 transition-all duration-500" />
               </button>
             </motion.div>
           ))}

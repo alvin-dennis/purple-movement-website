@@ -1,10 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { PlusCircle, MinusCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface FAQItem {
   question: string;
@@ -48,7 +46,7 @@ access opportunities without being held back by geography, systems, or labels.`,
     answer: (
       <>
         Click{" "}
-        <Link href="/join" className="text-purple-400 hover:text-purple-300 transition-colors underline decoration-purple-600 underline-offset-4">
+        <Link href="/join" className="text-primary hover:text-primary transition-colors underline decoration-primary underline-offset-4">
           Join Us
         </Link>
         {" "}that&apos;s all it takes to get started.
@@ -58,69 +56,51 @@ access opportunities without being held back by geography, systems, or labels.`,
 ];
 
 export const FAQ = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
     <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 md:gap-20">
         {/* Left: Header */}
-        <div className="lg:w-1/3">
+        <div className="lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex items-center gap-4 mb-4 md:mb-6"
+            className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-6"
           >
-            <div className="h-[1px] w-12 bg-purple-600" />
-            <span className="text-purple-500 font-bold tracking-[0.4em] uppercase text-xs">Assistance</span>
+            <div className="h-[1px] w-12 bg-primary" />
+            <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs">Assistance</span>
           </motion.div>
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white mb-4 md:mb-8">
-            GOT <br /><span className="text-purple-600">QUESTIONS?</span>
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-foreground mb-4 md:mb-8">
+            GOT <br /><span className="text-tpm">QUESTIONS?</span>
           </h2>
-          <p className="text-base md:text-lg text-white/50">
+          <p className="text-base md:text-lg text-foreground/50">
             Got questions? We&apos;ve got answers. Here are some of the most common things people ask
             about the Purple Movement.
           </p>
         </div>
 
         {/* Right: Accordion */}
-        <div className="lg:w-2/3 space-y-4 md:space-y-6">
-          {FAQs.map((faq, index) => (
-            <div key={index} className="group">
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className={`w-full text-left p-6 sm:p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] border transition-all duration-500 flex items-center justify-between gap-4 md:gap-8 ${openIndex === index
-                  ? "bg-purple-900/10 border-purple-500/50"
-                  : "bg-zinc-900/30 border-white/5 hover:border-white/20"
-                  }`}
+        <div className="lg:w-2/3">
+          <Accordion type="single" collapsible className="w-full space-y-4 md:space-y-6">
+            {FAQs.map((faq, index) => (
+              <AccordionItem
+                key={faq.question}
+                value={`item-${index}`}
+                className="group border border-foreground/5 hover:border-foreground/20 rounded-[2rem] md:rounded-[3rem] px-6 sm:px-8 md:px-10 transition-all duration-500 bg-foreground/5 data-[state=open]:bg-primary/5 data-[state=open]:border-primary/50 overflow-hidden"
               >
-                <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white text-left">
-                  {faq.question}
-                </h3>
-                {openIndex === index ? (
-                  <MinusCircle className="w-6 h-6 md:w-8 md:h-8 text-purple-500 shrink-0" />
-                ) : (
-                  <PlusCircle className="w-6 h-6 md:w-8 md:h-8 text-white/10 group-hover:text-purple-500 transition-colors shrink-0" />
-                )}
-              </button>
-
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div className="p-6 sm:p-8 md:p-10 md:px-12 text-white/50 text-base md:text-lg leading-relaxed border-l-2 border-purple-600/30 ml-6 md:ml-10 mt-3 md:mt-4">
-                      {faq.answer}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                <AccordionTrigger className="hover:no-underline py-6 sm:py-8 md:py-10">
+                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-foreground text-left group-data-[state=open]:text-primary transition-colors">
+                    {faq.question}
+                  </h3>
+                </AccordionTrigger>
+                <AccordionContent className="pb-10">
+                  <div className="text-foreground/50 text-base md:text-lg leading-relaxed border-l-2 border-primary/30 pl-6 md:pl-10">
+                    {faq.answer}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>

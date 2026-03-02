@@ -45,7 +45,7 @@ export const Footer = () => {
       <div className="mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-10 md:gap-12 mb-16">
           {/* Brand Col */}
-          <div className="sm:col-span-2 md:col-span-5 space-y-8 md:space-y-12">
+          <div className="sm:col-span-2 md:col-span-5 space-y-8 md:space-y-12 flex flex-col items-center md:items-start text-center md:text-left">
             <Image
               src="/logos/logo_pm.png"
               width={160}
@@ -70,7 +70,7 @@ export const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-white/10 text-white/40 hover:text-purple-500 hover:border-purple-600 transition-all duration-300"
+                  className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-white/10 text-white/40 hover:text-primary hover:border-primary transition-all duration-300"
                 >
                   {social.icon}
                 </a>
@@ -79,15 +79,15 @@ export const Footer = () => {
           </div>
 
           {/* Nav Col */}
-          <div className="md:col-span-3 space-y-6 md:space-y-8">
-            <h4 className="text-xs font-bold tracking-[0.5em] text-white/20 uppercase">Navigation</h4>
+          <div className="md:col-span-3 space-y-6 md:space-y-8 flex flex-col items-center md:items-start">
+            <h4 className="text-xs font-bold tracking-[0.5em] text-white/20 uppercase text-center md:text-left">Navigation</h4>
             <nav className="flex flex-col gap-4 md:gap-6">
               {links.map((l) => (
                 <a
                   key={l.name}
                   href={l.href}
                   onClick={(e) => handleLinkClick(e, l.href)}
-                  className="text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors"
+                  className="text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors text-center md:text-left"
                 >
                   {l.name}
                 </a>
@@ -96,15 +96,15 @@ export const Footer = () => {
           </div>
 
           {/* Support Col */}
-          <div className="md:col-span-4 space-y-6 md:space-y-8">
-            <h4 className="text-xs font-bold tracking-[0.5em] text-white/20 uppercase">Access</h4>
+          <div className="md:col-span-4 space-y-6 md:space-y-8 flex flex-col items-center md:items-start">
+            <h4 className="text-xs font-bold tracking-[0.5em] text-white/20 uppercase text-center md:text-left">Access</h4>
             <nav className="flex flex-col gap-4 md:gap-6">
               {supportLinks.map((l) =>
                 l.action === "feedback" ? (
                   <button
                     key={l.name}
                     onClick={() => setIsFeedbackOpen(true)}
-                    className="text-left text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors uppercase"
+                    className="text-center md:text-left text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors uppercase"
                   >
                     {l.name}
                   </button>
@@ -112,28 +112,22 @@ export const Footer = () => {
                   <a
                     key={l.name}
                     href={l.href}
-                    className="text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors uppercase"
+                    className="text-lg sm:text-xl md:text-2xl font-bold text-white/40 hover:text-white transition-colors uppercase text-center md:text-left"
                   >
                     {l.name}
                   </a>
                 )
               )}
             </nav>
-            <div className="pt-8 md:pt-20">
-              <p className="text-[10px] text-white/10 font-bold tracking-[0.3em] uppercase leading-relaxed">
-                Designed for collective evolution. <br />
-                Engineered for purpose.
-              </p>
-            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 md:pt-12 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-8">
-          <span className="text-[10px] text-white/20 tracking-widest text-center sm:text-left">
+          <span className="text-[10px] text-foreground tracking-widest text-center sm:text-left">
             © 2025 THE PURPLE MOVEMENT.
           </span>
-          <div className="flex gap-6 md:gap-12 text-[10px] text-white/10 tracking-widest font-bold">
+          <div className="flex gap-6 md:gap-12 text-[10px] text-foreground tracking-widest font-bold">
             <span>RECLAIM YOUR LIMITS</span>
             <span>RISE BEYOND</span>
           </div>

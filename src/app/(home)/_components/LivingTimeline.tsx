@@ -38,24 +38,24 @@ export const LivingTimeline = () => {
                     <motion.span
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="text-purple-500 font-bold tracking-[0.5em] uppercase text-xs mb-4 md:mb-6 block"
+                        className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-4 md:mb-6 block"
                     >
                         OUR EVOLUTION
                     </motion.span>
-                    <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">
-                        THE <span className="text-purple-600">RISE</span>
+                    <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-foreground">
+                        THE <span className="text-tpm">RISE</span>
                     </h2>
                 </div>
 
                 {/* Timeline */}
                 <div className="relative">
                     {/* Central Vertical Line – desktop only */}
-                    <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-purple-500/30 to-transparent hidden md:block" />
+                    <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden md:block" />
 
                     <div className="space-y-12 md:space-y-24">
                         {milestones.map((item, idx) => (
                             <div
-                                key={idx}
+                                key={item.title}
                                 className={`flex flex-col md:flex-row items-start md:items-center justify-center gap-6 md:gap-0 ${idx % 2 === 0 ? "" : "md:flex-row-reverse"
                                     }`}
                             >
@@ -67,19 +67,19 @@ export const LivingTimeline = () => {
                                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                                     className="w-full md:w-[45%] group"
                                 >
-                                    <div className="bg-zinc-900/30 border border-white/5 p-6 sm:p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] group-hover:border-purple-500/30 transition-all duration-500 group-hover:bg-zinc-900/50">
-                                        <div className="flex justify-between items-center mb-4 md:mb-6 gap-4">
-                                            <span className="text-purple-400 font-bold tracking-widest text-[10px] uppercase border border-purple-500/20 px-3 py-1 rounded-full flex-shrink-0">
+                                    <div className="bg-foreground/5 border border-foreground/5 p-6 sm:p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] group-hover:border-primary/30 transition-all duration-500 group-hover:bg-foreground/10">
+                                        <div className="flex flex-col sm:flex-row justify-between items-center mb-4 md:mb-6 gap-4">
+                                            <span className="text-brand-light font-bold tracking-widest text-[10px] uppercase border border-primary/20 px-3 py-1 rounded-full flex-shrink-0">
                                                 {item.status}
                                             </span>
-                                            <span className="text-white/20 font-bold text-xs md:text-sm tracking-widest">
+                                            <span className="text-foreground/20 font-bold text-xs md:text-sm tracking-widest">
                                                 {item.year}
                                             </span>
                                         </div>
-                                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
+                                        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 md:mb-4 text-center md:text-left">
                                             {item.title}
                                         </h3>
-                                        <p className="text-white/40 text-base md:text-lg leading-relaxed">
+                                        <p className="text-foreground/40 text-base md:text-lg leading-relaxed text-center md:text-left">
                                             {item.description}
                                         </p>
                                     </div>
@@ -91,7 +91,7 @@ export const LivingTimeline = () => {
                                         initial={{ scale: 0 }}
                                         whileInView={{ scale: 1 }}
                                         viewport={{ once: true }}
-                                        className="w-4 h-4 rounded-full bg-purple-600 shadow-[0_0_20px_#8E00FF]"
+                                        className="w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_var(--primary)]"
                                     />
                                 </div>
 

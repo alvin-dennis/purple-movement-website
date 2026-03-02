@@ -45,7 +45,7 @@ export const Events = () => {
   return (
     <section className="w-full py-20 sm:py-28 md:py-32 bg-transparent px-4 sm:px-6 relative overflow-hidden" id="events">
       {/* Abstract Background */}
-      <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-purple-900/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-primary/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
@@ -55,17 +55,17 @@ export const Events = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-3 mb-4 md:mb-6"
+              className="flex items-center justify-center sm:justify-start gap-3 mb-4 md:mb-6"
             >
-              <div className="h-[1px] w-12 bg-purple-500" />
-              <span className="text-purple-400 font-bold tracking-[0.4em] uppercase text-xs">
+              <div className="h-[1px] w-12 bg-primary" />
+              <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs">
                 Kerala Stories
               </span>
             </motion.div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-8 leading-[1.1]">
-              Lived <span className="italic text-purple-400">Experiences</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-8 leading-[1.1] text-center sm:text-left">
+              Lived <span className="text-tpm">Experiences</span>
             </h2>
-            <p className="text-white/50 text-base md:text-lg lg:text-xl leading-relaxed">
+            <p className="text-white/50 text-base md:text-lg lg:text-xl leading-relaxed text-center sm:text-left">
               Our movement is rooted in real moments. These aren&apos;t just events;
               they are the heartbeat of a community rising together.
             </p>
@@ -91,7 +91,7 @@ export const Events = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-6 md:p-10">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                  <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-bold text-purple-300 uppercase tracking-widest mb-3 md:mb-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-[10px] font-bold text-primary uppercase tracking-widest mb-3 md:mb-4 opacity-0 group-hover:opacity-100 transition-opacity">
                     {event.tag}
                   </span>
                   <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 md:mb-3">
@@ -114,7 +114,7 @@ export const Events = () => {
             whileTap={{ scale: 0.95 }}
             className="group relative px-10 md:px-12 py-4 md:py-5 overflow-hidden rounded-full transition-all"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-800 to-purple-600 group-hover:from-purple-700 group-hover:to-purple-500 transition-colors" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary group-hover:from-primary group-hover:to-primary transition-colors" />
             <span className="relative z-10 text-white font-bold tracking-widest text-sm flex items-center gap-3">
               BECOME THE STORY
               <div className="w-5 h-[1px] bg-white group-hover:w-8 transition-all" />

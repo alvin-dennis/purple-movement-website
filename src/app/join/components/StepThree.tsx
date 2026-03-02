@@ -209,7 +209,7 @@ export default function StepThree({
                 type="checkbox"
                 checked={notInterested}
                 onChange={(e) => onChange({ notInterested: e.target.checked })}
-                className="w-5 h-5 border border-red-400 bg-transparent appearance-none rounded-sm focus:ring-purple-500 focus:outline-none cursor-pointer"
+                className="w-5 h-5 border border-red-400 bg-transparent appearance-none rounded-sm focus:ring-primary focus:outline-none cursor-pointer"
               />
               {notInterested && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -320,8 +320,8 @@ export default function StepThree({
           onClick={onBack}
           disabled={isSubmitting}
           className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${isSubmitting
-            ? 'bg-purple-700/30 cursor-not-allowed'
-            : 'bg-purple-700/60 hover:bg-purple-700'
+            ? 'bg-primary/30 cursor-not-allowed'
+            : 'bg-primary/60 hover:bg-primary'
             }`}
         >
           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -334,8 +334,8 @@ export default function StepThree({
           onClick={onNext}
           disabled={!isFormValid || isSubmitting}
           className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${isFormValid && !isSubmitting
-            ? 'bg-purple-700 hover:bg-purple-600'
-            : 'bg-purple-700/50 cursor-not-allowed'
+            ? 'bg-primary hover:bg-primary'
+            : 'bg-primary/50 cursor-not-allowed'
             }`}
         >
           {isSubmitting ? (

@@ -13,13 +13,7 @@ import { ResourcesSection } from "./_components/ResourcesSection";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#020205] text-white premium-noise overflow-hidden">
-      {/* Global Background Glows */}
-      <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-900/10 blur-[150px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-900/10 blur-[150px] rounded-full" />
-        <div className="absolute top-[40%] right-[-5%] w-[30%] h-[40%] bg-purple-900/5 blur-[120px] rounded-full" />
-      </div>
+    <div className="min-h-screen overflow-hidden">
       <main className="w-full">
         <Hero />
         <VisionMission />

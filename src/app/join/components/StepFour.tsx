@@ -26,7 +26,7 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
 
               {/* Go Home Button */}
               <Link href="/" className="mt-4">
-                <div className="px-7 py-3.5 bg-purple-700 hover:bg-purple-600 rounded inline-flex justify-center items-center gap-1.5 transition-all duration-300 cursor-pointer">
+                <div className="px-7 py-3.5 bg-primary hover:bg-primary rounded inline-flex justify-center items-center gap-1.5 transition-all duration-300 cursor-pointer">
                   <div className="text-center text-white text-xl font-bold capitalize">Go Home</div>
                   <MdHome className="w-5 h-5 text-white" />
                 </div>
