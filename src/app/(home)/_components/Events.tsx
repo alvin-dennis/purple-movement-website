@@ -1,13 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 import { events } from "@/data/home";
 
 export const Events = () => {
   return (
-    <section className="w-full py-20 sm:py-28 md:py-32 bg-transparent px-4 sm:px-6 relative overflow-hidden" id="events">
+    <section
+      className="w-full py-20 sm:py-28 md:py-32 bg-transparent px-4 sm:px-6 relative overflow-hidden"
+      id="events"
+    >
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-6 md:gap-8">
           <div className="max-w-2xl">
@@ -26,8 +29,8 @@ export const Events = () => {
               Lived <span className="text-tpm">Experiences</span>
             </h2>
             <p className="textforeground/50 text-base md:text-lg lg:text-xl leading-relaxed text-center sm:text-left">
-              Our movement is rooted in real moments. These aren&apos;t just events;
-              they are the heartbeat of a community rising together.
+              Our movement is rooted in real moments. These aren&apos;t just events; they are the
+              heartbeat of a community rising together.
             </p>
           </div>
         </div>

@@ -7,7 +7,9 @@ export const Manifesto = () => {
   return (
     <section className="w-full py-20 sm:py-32 md:py-40 lg:py-60 px-4 sm:px-6 relative">
       <div className="absolute top-0 right-0 w-full h-full select-none pointer-events-none opacity-[0.03] overflow-hidden">
-        <span className="text-[40vw] font-black uppercase text-foreground leading-none absolute -top-20 -right-20">MANIFESTO</span>
+        <span className="text-[40vw] font-black uppercase text-foreground leading-none absolute -top-20 -right-20">
+          MANIFESTO
+        </span>
       </div>
 
       <div className="max-w-[1400px] mx-auto relative z-10">
@@ -20,7 +22,9 @@ export const Manifesto = () => {
             className="relative flex flex-col items-center md:items-start"
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase flex flex-col items-center md:items-start text-center md:text-left">
-              <span>MANIFESTO <span className="text-primary">.</span></span>
+              <span>
+                MANIFESTO <span className="text-primary">.</span>
+              </span>
             </h2>
             <div className="max-w-2xl mt-8 md:mt-12 pl-0 md:pl-8 border-l-0 md:border-l-4 border-primary text-center md:text-left">
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/60 leading-tight">
@@ -39,13 +43,21 @@ export const Manifesto = () => {
               >
                 <div className="flex items-center gap-6 md:gap-8 w-full">
                   {idx % 2 !== 0 && <div className="h-[1px] w-full bg-foreground/10" />}
-                  <span className="text-primary font-bold tracking-[1em] uppercase text-xs whitespace-nowrap">{section.id}</span>
+                  <span className="text-primary font-bold tracking-[1em] uppercase text-xs whitespace-nowrap">
+                    {section.id}
+                  </span>
                   {idx % 2 === 0 && <div className="h-[1px] w-full bg-foreground/10" />}
                 </div>
                 <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase">
-                  {section.title.split(" ")[0]}<br /><span className={idx % 2 === 0 ? "text-primary" : "text-steady"}>{section.title.split(" ")[1]}</span>
+                  {section.title.split(" ")[0]}
+                  <br />
+                  <span className={idx % 2 === 0 ? "text-primary" : "text-steady"}>
+                    {section.title.split(" ")[1]}
+                  </span>
                 </h3>
-                <div className={`max-w-3xl ${idx % 2 === 0 ? "md:ml-[10vw] lg:ml-[20vw]" : "md:mr-[5vw] lg:mr-[10vw]"}`}>
+                <div
+                  className={`max-w-3xl ${idx % 2 === 0 ? "md:ml-[10vw] lg:ml-[20vw]" : "md:mr-[5vw] lg:mr-[10vw]"}`}
+                >
                   <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-[1.3] text-foreground">
                     {section.text}
                   </p>
@@ -61,15 +73,19 @@ export const Manifesto = () => {
             className="py-12 sm:py-20 md:py-32 flex flex-col items-center text-center justify-center rounded-[2rem] md:rounded-[4rem] relative overflow-hidden group px-6 md:px-12"
           >
             <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] space-y-2 mb-4 uppercase">
-              IN ACCESS,<br />NOT GATEKEEPING.
+              IN ACCESS,
+              <br />
+              NOT GATEKEEPING.
             </h4>
             <div className="h-1 w-24 md:w-40 bg-primary my-6 md:my-10" />
             <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] text-primary uppercase">
-              IN BOLD VISIONS,<br />NOT TEMPLATES.
+              IN BOLD VISIONS,
+              <br />
+              NOT TEMPLATES.
             </h4>
             <div className="mt-8 md:mt-12 text-sm sm:text-base md:text-lg lg:text-xl text-foreground/40 max-w-4xl px-4 md:px-10 leading-relaxed">
-              We are here to reclaim the narrative. To give confidence to the
-              curious, networks to the bold, and direction to the determined.
+              We are here to reclaim the narrative. To give confidence to the curious, networks to
+              the bold, and direction to the determined.
             </div>
           </motion.div>
           <motion.div

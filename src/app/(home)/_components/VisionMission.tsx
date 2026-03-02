@@ -12,7 +12,9 @@ export const VisionMission = () => {
     >
       <div className="max-w-[1400px] mx-auto w-full flex flex-col gap-16 sm:gap-24 md:gap-32 relative">
         <div className="absolute top-0 left-0 w-full select-none pointer-events-none opacity-[0.02] overflow-hidden">
-          <span className="text-[30vw] font-black uppercase text-foreground leading-none">PURPOSE</span>
+          <span className="text-[30vw] font-black uppercase text-foreground leading-none">
+            PURPOSE
+          </span>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-start relative z-10">
           <div className="lg:col-span-1 lg:block hidden" />
@@ -24,9 +26,12 @@ export const VisionMission = () => {
             className="lg:col-span-5 flex flex-col gap-6 md:gap-10 items-center lg:items-start"
           >
             <div className="flex flex-col gap-3 md:gap-4 items-center lg:items-start">
-              <span className="text-primary font-bold tracking-[0.6em] uppercase text-[10px] text-center lg:text-left">The Foundation</span>
+              <span className="text-primary font-bold tracking-[0.6em] uppercase text-[10px] text-center lg:text-left">
+                The Foundation
+              </span>
               <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl text-foreground leading-[0.9] text-center lg:text-left">
-                OUR<br />
+                OUR
+                <br />
                 <span className="text-tpm">{vision.vision.title}</span>
               </h2>
             </div>
@@ -43,9 +48,12 @@ export const VisionMission = () => {
             className="lg:col-span-5 flex flex-col gap-6 md:gap-10 items-center lg:items-end lg:text-right lg:mt-32"
           >
             <div className="flex flex-col gap-3 md:gap-4 items-center lg:items-end">
-              <span className="text-primary font-bold tracking-[0.6em] uppercase text-[10px] text-center lg:text-right">The Propulsion</span>
+              <span className="text-primary font-bold tracking-[0.6em] uppercase text-[10px] text-center lg:text-right">
+                The Propulsion
+              </span>
               <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl text-foreground leading-[0.9] text-center lg:text-right">
-                OUR<br />
+                OUR
+                <br />
                 <span className="text-tpm">{vision.mission.title}</span>
               </h2>
             </div>

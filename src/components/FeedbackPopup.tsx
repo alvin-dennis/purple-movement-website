@@ -1,53 +1,53 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface FeedbackPopupProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
-  const [feedback, setFeedback] = useState('')
-  const [selectedReaction, setSelectedReaction] = useState<string | null>(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [feedback, setFeedback] = useState("");
+  const [selectedReaction, setSelectedReaction] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const reactions = [
-    { id: 'very-sad', src: '/images/fbr1.png', alt: 'Very Sad' },
-    { id: 'sad', src: '/images/fbr2.png', alt: 'Sad' },
-    { id: 'neutral', src: '/images/fbr3.png', alt: 'Neutral' },
-    { id: 'happy', src: '/images/fbr4.png', alt: 'Happy' },
-    { id: 'very-happy', src: '/images/fbr5.png', alt: 'Very Happy' }
-  ]
+    { id: "very-sad", src: "/images/fbr1.png", alt: "Very Sad" },
+    { id: "sad", src: "/images/fbr2.png", alt: "Sad" },
+    { id: "neutral", src: "/images/fbr3.png", alt: "Neutral" },
+    { id: "happy", src: "/images/fbr4.png", alt: "Happy" },
+    { id: "very-happy", src: "/images/fbr5.png", alt: "Very Happy" },
+  ];
 
   const handleReactionClick = (reactionId: string) => {
-    setSelectedReaction(selectedReaction === reactionId ? null : reactionId)
-  }
+    setSelectedReaction(selectedReaction === reactionId ? null : reactionId);
+  };
 
   // Prevent body scrolling when popup is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = "auto";
     }
 
     return () => {
-      document.body.style.overflow = 'auto'
-    }
-  }, [isOpen])
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   const handleSubmit = async () => {
-    if (!feedback.trim() && !selectedReaction) return
+    if (!feedback.trim() && !selectedReaction) return;
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/feedback', {
-        method: 'POST',
+      const response = await fetch("/api/feedback", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           reaction: selectedReaction,
@@ -55,31 +55,31 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
           timestamp: new Date().toISOString(),
           userAgent: navigator.userAgent,
         }),
-      })
+      });
 
       if (!response.ok) {
-        throw new Error('Failed to submit feedback')
+        throw new Error("Failed to submit feedback");
       }
 
       // Reset form and close popup
-      setFeedback('')
-      setSelectedReaction(null)
-      onClose()
+      setFeedback("");
+      setSelectedReaction(null);
+      onClose();
     } catch (error) {
-      console.error('Error submitting feedback:', error)
+      console.error("Error submitting feedback:", error);
       // You can add error handling UI here
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
-      onClose()
+      onClose();
     }
-  }
+  };
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <div
@@ -109,10 +109,9 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             <button
               key={reaction.id}
               onClick={() => handleReactionClick(reaction.id)}
-              className={`transition-all duration-200 hover:opacity-100 hover:scale-110 ${selectedReaction === reaction.id
-                ? 'opacity-100 scale-110'
-                : 'opacity-25'
-                }`}
+              className={`transition-all duration-200 hover:opacity-100 hover:scale-110 ${
+                selectedReaction === reaction.id ? "opacity-100 scale-110" : "opacity-25"
+              }`}
               title={reaction.alt}
             >
               <Image
@@ -143,7 +142,7 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             disabled={(!feedback.trim() && !selectedReaction) || isSubmitting}
             className="w-full max-w-32 py-2 px-4 bg-purple-700 rounded inline-flex justify-center items-center gap-2.5 text-white text-lg font-normal font-inter disabled:opacity-50 hover:bg-purple-600 transition-colors"
           >
-            {isSubmitting ? 'Submitting...' : 'Submit'}
+            {isSubmitting ? "Submitting..." : "Submit"}
           </button>
         </div>
       </div>
@@ -160,9 +159,7 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
 
         {/* Main heading */}
         <div className="absolute left-[121.5px] top-[66.32px]">
-          <h2 className="text-white text-5xl font-bold tracking-wide">
-            How helpful was this?
-          </h2>
+          <h2 className="text-white text-5xl font-bold tracking-wide">How helpful was this?</h2>
         </div>
 
         {/* Reactions section */}
@@ -171,10 +168,9 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             <button
               key={reaction.id}
               onClick={() => handleReactionClick(reaction.id)}
-              className={`transition-all duration-200 hover:opacity-100 hover:scale-110 ${selectedReaction === reaction.id
-                ? 'opacity-100 scale-110'
-                : 'opacity-25'
-                }`}
+              className={`transition-all duration-200 hover:opacity-100 hover:scale-110 ${
+                selectedReaction === reaction.id ? "opacity-100 scale-110" : "opacity-25"
+              }`}
               title={reaction.alt}
             >
               <Image
@@ -205,10 +201,10 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             disabled={(!feedback.trim() && !selectedReaction) || isSubmitting}
             className="text-white text-xl font-normal font-inter disabled:opacity-50"
           >
-            {isSubmitting ? 'Submitting...' : 'Submit'}
+            {isSubmitting ? "Submitting..." : "Submit"}
           </button>
         </div>
       </div>
     </div>
-  )
+  );
 }

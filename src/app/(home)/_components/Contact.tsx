@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { contact } from "@/data/home";
 
 export const Contact = () => {
@@ -72,7 +72,8 @@ export const Contact = () => {
               className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
             >
               <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-4 md:mb-6 text-center lg:text-left">
-                {contact.title} <br /><span className="text-tpm">{contact.highlight}</span>{" "}?
+                {contact.title} <br />
+                <span className="text-tpm">{contact.highlight}</span> ?
               </h2>
               <p className="text-base md:text-lg lg:text-xl textforeground/50 text-center lg:text-left">
                 {contact.description}
@@ -90,18 +91,23 @@ export const Contact = () => {
                 />
                 <div className="flex flex-col sm:flex-row items-end sm:items-center justify-end gap-3 mt-4 sm:mt-0 sm:absolute sm:bottom-6 sm:right-6">
                   {submitStatus === "success" && (
-                    <span className="text-green-500 font-bold tracking-widest text-xs uppercase">SENT!</span>
+                    <span className="text-green-500 font-bold tracking-widest text-xs uppercase">
+                      SENT!
+                    </span>
                   )}
                   {submitStatus === "error" && (
-                    <span className="text-red-500 font-bold tracking-widest text-xs uppercase">Error, try again</span>
+                    <span className="text-red-500 font-bold tracking-widest text-xs uppercase">
+                      Error, try again
+                    </span>
                   )}
                   <button
                     type="submit"
                     disabled={!question.trim() || isSubmitting}
-                    className={`px-8 md:px-12 py-3 md:py-5 rounded-full font-bold tracking-widest text-xs uppercase transition-all whitespace-nowrap ${question.trim() && !isSubmitting
-                      ? "bg-primary hover:bg-primary hover:scale-105 active:scale-95"
-                      : "bgforeground/5 textforeground/20 cursor-not-allowed"
-                      }`}
+                    className={`px-8 md:px-12 py-3 md:py-5 rounded-full font-bold tracking-widest text-xs uppercase transition-all whitespace-nowrap ${
+                      question.trim() && !isSubmitting
+                        ? "bg-primary hover:bg-primary hover:scale-105 active:scale-95"
+                        : "bgforeground/5 textforeground/20 cursor-not-allowed"
+                    }`}
                   >
                     {isSubmitting ? contact.submittingText : contact.buttonText}
                   </button>

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 import { whyPurple } from "@/data/home";
 
@@ -15,10 +15,15 @@ export const Whypurple = () => {
         <div className="flex flex-col lg:flex-row gap-12 md:gap-16 lg:gap-24 items-start">
           <div className="w-full lg:w-1/3 flex flex-col gap-8 md:gap-12 lg:sticky lg:top-40 items-center lg:items-start">
             <div className="flex flex-col gap-4 md:gap-6 items-center lg:items-start">
-              <span className="text-primary font-bold tracking-[0.6em] uppercase text-[10px] text-center lg:text-left">WHY WE EXIST</span>
+              <span className="text-primary font-bold tracking-[0.6em] uppercase text-[10px] text-center lg:text-left">
+                WHY WE EXIST
+              </span>
               <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl text-foreground leading-none text-center lg:text-left">
-                THE<br />
-                <span className="text-tpm border-b-2 border-primary py-2 md:py-4 block">PHILOSOPHY</span>
+                THE
+                <br />
+                <span className="text-tpm border-b-2 border-primary py-2 md:py-4 block">
+                  PHILOSOPHY
+                </span>
               </h2>
             </div>
             <p className="text-foreground/40 font-bold tracking-widest text-xs leading-loose max-w-xs text-center lg:text-left">
@@ -32,10 +37,11 @@ export const Whypurple = () => {
               viewport={{ once: true }}
               className="relative flex flex-col items-center lg:items-start"
             >
-              <span className="text-[20vw] absolute -top-10 md:-top-20 -left-4 md:-left-10 font-black text-foreground/[0.03] leading-none pointer-events-none select-none">&ldquo;PURPLE&rdquo;</span>
+              <span className="text-[20vw] absolute -top-10 md:-top-20 -left-4 md:-left-10 font-black text-foreground/[0.03] leading-none pointer-events-none select-none">
+                &ldquo;PURPLE&rdquo;
+              </span>
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black text-foreground leading-[1.1] relative z-10 text-center lg:text-left">
-                {whyPurple.quote.split(". ")[0]}.{" "}
-                <br className="hidden sm:block" />
+                {whyPurple.quote.split(". ")[0]}. <br className="hidden sm:block" />
                 <span className="text-tpm">{whyPurple.quote.split(". ")[1]}</span>
               </h3>
             </motion.div>
@@ -55,10 +61,20 @@ export const Whypurple = () => {
                     viewport={{ once: true }}
                     className={`${bgClass} backdrop-blur-3xl border ${borderClass} p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] group ${hoverBgClass} transition-all duration-700 ${index === 1 ? "sm:mt-12" : ""} flex flex-col items-center sm:items-start`}
                   >
-                    <span className={`${textClass} font-black tracking-widest text-xs block mb-6 md:mb-8 uppercase text-center sm:text-left`}>{item.id} / {item.title}</span>
-                    <h4 className="text-3xl md:text-4xl font-black text-foreground mb-4 md:mb-6 uppercase text-center sm:text-left">{item.label}</h4>
+                    <span
+                      className={`${textClass} font-black tracking-widest text-xs block mb-6 md:mb-8 uppercase text-center sm:text-left`}
+                    >
+                      {item.id} / {item.title}
+                    </span>
+                    <h4 className="text-3xl md:text-4xl font-black text-foreground mb-4 md:mb-6 uppercase text-center sm:text-left">
+                      {item.label}
+                    </h4>
                     <p className="text-foreground/60 text-base md:text-lg lg:text-xl leading-relaxed text-center sm:text-left">
-                      {item.text.split(":")[0]}: <span className={`${textClass} font-bold`}>{item.text.split(":")[1].trim().split(",")[0]}</span>, {item.text.split(":")[1].trim().split(",").slice(1).join(",")}
+                      {item.text.split(":")[0]}:{" "}
+                      <span className={`${textClass} font-bold`}>
+                        {item.text.split(":")[1].trim().split(",")[0]}
+                      </span>
+                      , {item.text.split(":")[1].trim().split(",").slice(1).join(",")}
                     </p>
                   </motion.div>
                 );
@@ -67,12 +83,14 @@ export const Whypurple = () => {
             <div className="w-full p-8 sm:p-12 md:p-16 lg:p-20 relative overflow-hidden group">
               <div className="flex flex-col gap-8 md:gap-12 relative z-10">
                 <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground uppercase leading-none text-center lg:text-left">
-                  WE AIM TO<br />
+                  WE AIM TO
+                  <br />
                   <span className="text-primary">BRIDGE THAT GAP.</span>
                 </h3>
 
                 <p className="text-base md:text-xl lg:text-2xl text-foreground/50 leading-relaxed max-w-xl text-center lg:text-left">
-                  Today, a gap exists. No bridge, no shared space. We are here to reclaim the collective power of curiosity and experience.
+                  Today, a gap exists. No bridge, no shared space. We are here to reclaim the
+                  collective power of curiosity and experience.
                 </p>
 
                 <button
@@ -106,13 +124,16 @@ export const Whypurple = () => {
                       ].map((text) => (
                         <div key={text} className="flex flex-col gap-4">
                           <div className="h-1 w-12 bg-primary" />
-                          <p className="text-foreground font-bold text-base md:text-lg uppercase tracking-widest">{text}</p>
+                          <p className="text-foreground font-bold text-base md:text-lg uppercase tracking-widest">
+                            {text}
+                          </p>
                         </div>
                       ))}
                     </div>
                     <div className="mt-12 md:mt-20 p-8 md:p-12 bg-foreground/5 border border-foreground/5 rounded-[2rem] md:rounded-[3rem]">
                       <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-primary uppercase leading-[0.9]">
-                        WE&apos;RE HERE TO MAKE THAT <span className="text-foreground">PLACE REAL.</span>
+                        WE&apos;RE HERE TO MAKE THAT{" "}
+                        <span className="text-foreground">PLACE REAL.</span>
                       </p>
                     </div>
                   </motion.div>

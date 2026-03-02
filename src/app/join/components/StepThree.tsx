@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import { useState } from "react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 // Custom styles for the phone input to match dark theme
 const phoneInputStyles = `
@@ -116,24 +116,24 @@ const phoneInputStyles = `
     opacity: 0.5 !important;
     cursor: not-allowed !important;
   }
-`
+`;
 
 interface StepThreeFormData {
-  name: string
-  email: string
-  phone: string
-  interested: boolean
-  notInterested: boolean
+  name: string;
+  email: string;
+  phone: string;
+  interested: boolean;
+  notInterested: boolean;
 }
 
 interface StepThreeProps {
-  selectedFromPrevious?: string | null
-  formData: StepThreeFormData
-  onChange: (updates: Partial<StepThreeFormData>) => void
-  onNext?: () => void
-  onBack?: () => void
-  isSubmitting?: boolean
-  submitError?: string | null
+  selectedFromPrevious?: string | null;
+  formData: StepThreeFormData;
+  onChange: (updates: Partial<StepThreeFormData>) => void;
+  onNext?: () => void;
+  onBack?: () => void;
+  isSubmitting?: boolean;
+  submitError?: string | null;
 }
 
 export default function StepThree({
@@ -145,44 +145,46 @@ export default function StepThree({
   isSubmitting = false,
   submitError = null,
 }: StepThreeProps) {
-  const { name, email, phone, notInterested } = formData
+  const { name, email, phone, notInterested } = formData;
 
   // Track which fields have been touched
   const [touchedFields, setTouchedFields] = useState({
     name: false,
     email: false,
-    phone: false
-  })
+    phone: false,
+  });
 
   // Validation functions
   const validateName = (name: string) => {
-    if (!name.trim()) return "Name is required"
-    if (name.trim().length < 2) return "Name must be at least 2 characters"
-    if (!/^[a-zA-Z\s]+$/.test(name.trim())) return "Name can only contain letters and spaces"
-    return ""
-  }
+    if (!name.trim()) return "Name is required";
+    if (name.trim().length < 2) return "Name must be at least 2 characters";
+    if (!/^[a-zA-Z\s]+$/.test(name.trim())) return "Name can only contain letters and spaces";
+    return "";
+  };
 
   const validateEmail = (email: string) => {
-    if (!email.trim()) return "Email is required"
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email.trim())) return "Please enter a valid email address"
-    return ""
-  }
+    if (!email.trim()) return "Email is required";
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) return "Please enter a valid email address";
+    return "";
+  };
 
   const validatePhone = (phone: string) => {
-    if (!phone.trim()) return "Phone number is required"
+    if (!phone.trim()) return "Phone number is required";
     // react-phone-input-2 returns formatted phone with country code
-    if (phone.length < 7) return "Phone number is too short"
-    if (phone.length > 15) return "Phone number is too long"
-    return ""
-  }
+    if (phone.length < 7) return "Phone number is too short";
+    if (phone.length > 15) return "Phone number is too long";
+    return "";
+  };
 
   // Get validation errors (only show for touched fields)
-  const nameError = !notInterested && touchedFields.name ? validateName(name) : ""
-  const emailError = !notInterested && touchedFields.email ? validateEmail(email) : ""
-  const phoneError = !notInterested && touchedFields.phone ? validatePhone(phone) : ""
+  const nameError = !notInterested && touchedFields.name ? validateName(name) : "";
+  const emailError = !notInterested && touchedFields.email ? validateEmail(email) : "";
+  const phoneError = !notInterested && touchedFields.phone ? validatePhone(phone) : "";
 
-  const isFormValid = notInterested || (name.trim() && email.trim() && phone.trim() && !nameError && !emailError && !phoneError)
+  const isFormValid =
+    notInterested ||
+    (name.trim() && email.trim() && phone.trim() && !nameError && !emailError && !phoneError);
 
   return (
     <div className="w-full px-4 sm:px-6 space-y-8">
@@ -201,9 +203,7 @@ export default function StepThree({
         </div>
 
         <div className="max-w-[864px] w-full mx-auto">
-          <label
-            className="flex items-center space-x-3 cursor-pointer pl-3 sm:pl-4"
-          >
+          <label className="flex items-center space-x-3 cursor-pointer pl-3 sm:pl-4">
             <div className="relative cursor-pointer">
               <input
                 type="checkbox"
@@ -223,9 +223,7 @@ export default function StepThree({
                 </div>
               )}
             </div>
-            <span className="text-red-400 text-xl font-medium capitalize">
-              Stay Anonymous
-            </span>
+            <span className="text-red-400 text-xl font-medium capitalize">Stay Anonymous</span>
           </label>
         </div>
       </div>
@@ -234,45 +232,49 @@ export default function StepThree({
       <div className="max-w-[864px] w-full mx-auto space-y-8">
         {/* Name */}
         <div className="space-y-3">
-          <label className={`block text-sm sm:text-lg text-white font-bold capitalize
-            ${notInterested ? 'opacity-50' : ''}
-          `}>
+          <label
+            className={`block text-sm sm:text-lg text-white font-bold capitalize
+            ${notInterested ? "opacity-50" : ""}
+          `}
+          >
             Name:
           </label>
           <input
             type="text"
             value={name}
             onChange={(e) => onChange({ name: e.target.value })}
-            onFocus={() => setTouchedFields(prev => ({ ...prev, name: true }))}
+            onFocus={() => setTouchedFields((prev) => ({ ...prev, name: true }))}
             disabled={notInterested}
-            className={`w-full h-11 px-4 text-sm sm:text-base bg-transparent border rounded text-white placeholder-white/60 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed ${nameError && !notInterested
-              ? 'border-red-500 focus:ring-red-500'
-              : 'border-white focus:ring-violet-700'
-              }`}
+            className={`w-full h-11 px-4 text-sm sm:text-base bg-transparent border rounded text-white placeholder-white/60 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed ${
+              nameError && !notInterested
+                ? "border-red-500 focus:ring-red-500"
+                : "border-white focus:ring-violet-700"
+            }`}
             placeholder="Enter your full name"
           />
-          {nameError && !notInterested && (
-            <p className="text-red-400 text-sm mt-1">{nameError}</p>
-          )}
+          {nameError && !notInterested && <p className="text-red-400 text-sm mt-1">{nameError}</p>}
         </div>
 
         {/* Email */}
         <div className="space-y-3">
-          <label className={`block text-sm sm:text-lg text-white font-bold capitalize
-            ${notInterested ? 'opacity-50' : ''}
-          `}>
+          <label
+            className={`block text-sm sm:text-lg text-white font-bold capitalize
+            ${notInterested ? "opacity-50" : ""}
+          `}
+          >
             Email:
           </label>
           <input
             type="email"
             value={email}
             onChange={(e) => onChange({ email: e.target.value })}
-            onFocus={() => setTouchedFields(prev => ({ ...prev, email: true }))}
+            onFocus={() => setTouchedFields((prev) => ({ ...prev, email: true }))}
             disabled={notInterested}
-            className={`w-full h-11 px-4 text-sm sm:text-base bg-transparent border rounded text-white placeholder-white/60 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed ${emailError && !notInterested
-              ? 'border-red-500 focus:ring-red-500'
-              : 'border-white focus:ring-violet-700'
-              }`}
+            className={`w-full h-11 px-4 text-sm sm:text-base bg-transparent border rounded text-white placeholder-white/60 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed ${
+              emailError && !notInterested
+                ? "border-red-500 focus:ring-red-500"
+                : "border-white focus:ring-violet-700"
+            }`}
             placeholder="Enter your email address"
           />
           {emailError && !notInterested && (
@@ -282,20 +284,22 @@ export default function StepThree({
 
         {/* Phone */}
         <div className="space-y-3">
-          <label className={`block text-sm sm:text-lg text-white font-bold capitalize
-            ${notInterested ? 'opacity-50' : ''}
-          `}>
+          <label
+            className={`block text-sm sm:text-lg text-white font-bold capitalize
+            ${notInterested ? "opacity-50" : ""}
+          `}
+          >
             Phone:
           </label>
           <PhoneInput
-            country={'us'}
+            country={"us"}
             value={phone}
             onChange={(value) => onChange({ phone: value })}
-            onFocus={() => setTouchedFields(prev => ({ ...prev, phone: true }))}
+            onFocus={() => setTouchedFields((prev) => ({ ...prev, phone: true }))}
             disabled={notInterested}
-            containerClass={`w-full ${phoneError && !notInterested ? 'error' : ''} ${notInterested ? 'disabled' : ''}`}
+            containerClass={`w-full ${phoneError && !notInterested ? "error" : ""} ${notInterested ? "disabled" : ""}`}
             inputProps={{
-              placeholder: 'Enter your phone number',
+              placeholder: "Enter your phone number",
               disabled: notInterested,
             }}
           />
@@ -319,13 +323,17 @@ export default function StepThree({
         <button
           onClick={onBack}
           disabled={isSubmitting}
-          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${isSubmitting
-            ? 'bg-primary/30 cursor-not-allowed'
-            : 'bg-primary/60 hover:bg-primary'
-            }`}
+          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${
+            isSubmitting ? "bg-primary/30 cursor-not-allowed" : "bg-primary/60 hover:bg-primary"
+          }`}
         >
           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           <span className="text-white text-sm font-inter">Back</span>
         </button>
@@ -333,10 +341,11 @@ export default function StepThree({
         <button
           onClick={onNext}
           disabled={!isFormValid || isSubmitting}
-          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${isFormValid && !isSubmitting
-            ? 'bg-primary hover:bg-primary'
-            : 'bg-primary/50 cursor-not-allowed'
-            }`}
+          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${
+            isFormValid && !isSubmitting
+              ? "bg-primary hover:bg-primary"
+              : "bg-primary/50 cursor-not-allowed"
+          }`}
         >
           {isSubmitting ? (
             <>
@@ -346,8 +355,18 @@ export default function StepThree({
           ) : (
             <>
               <span className="text-white text-sm font-inter">Submit</span>
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-5 h-5 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </>
           )}
@@ -357,12 +376,10 @@ export default function StepThree({
       {/* Selected Role Footer */}
       {selectedFromPrevious && (
         <p className="text-xs sm:text-sm text-white/60 text-center mt-4">
-          Joining as:{' '}
-          <span className="text-violet-400 font-medium capitalize">
-            {selectedFromPrevious}
-          </span>
+          Joining as:{" "}
+          <span className="text-violet-400 font-medium capitalize">{selectedFromPrevious}</span>
         </p>
       )}
     </div>
-  )
+  );
 }

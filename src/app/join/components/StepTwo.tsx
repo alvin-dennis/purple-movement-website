@@ -22,8 +22,7 @@ export default function StepTwo({
   onBack,
 }: StepTwoProps) {
   const { selectedRole, whyHere, portfolioLink } = formData;
-  const canProceed =
-    (selectedRole?.trim() || "") !== "" && (whyHere?.trim() || "") !== "";
+  const canProceed = (selectedRole?.trim() || "") !== "" && (whyHere?.trim() || "") !== "";
 
   // Define role options based on the category selected in StepOne
   const getRoleOptions = (category: string | null) => {
@@ -80,11 +79,7 @@ export default function StepTwo({
                 Select...
               </option>
               {roleOptions.map((option) => (
-                <option
-                  key={option}
-                  value={option}
-                  className="bg-slate-900 text-white"
-                >
+                <option key={option} value={option} className="bg-slate-900 text-white">
                   {option}
                 </option>
               ))}
@@ -166,12 +161,7 @@ export default function StepTwo({
           onClick={onBack}
           className="w-full sm:w-32 py-2 bg-primary/60 hover:bg-primary rounded flex justify-center items-center gap-1.5 transition-colors"
         >
-          <svg
-            className="w-5 h-5 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -185,34 +175,20 @@ export default function StepTwo({
         <button
           onClick={canProceed ? onNext : undefined}
           disabled={!canProceed}
-          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${canProceed
-            ? "bg-primary hover:bg-primary"
-            : "bg-primary/50 cursor-not-allowed"
-            }`}
+          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${
+            canProceed ? "bg-primary hover:bg-primary" : "bg-primary/50 cursor-not-allowed"
+          }`}
         >
           <span className="text-white text-sm font-inter">Next</span>
-          <svg
-            className="w-5 h-5 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
       </div>
 
       {selectedFromPrevious && (
         <div className="text-xs sm:text-sm text-white/60 text-center mt-6">
-          Joining as:{" "}
-          <span className="text-violet-400 capitalize">
-            {selectedFromPrevious}
-          </span>
+          Joining as: <span className="text-violet-400 capitalize">{selectedFromPrevious}</span>
         </div>
       )}
     </div>

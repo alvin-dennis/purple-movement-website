@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "./ui/button";
-
+import { useEffect, useState } from "react";
 import { navLinks } from "@/data/common";
+import { Button } from "./ui/button";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -91,14 +90,16 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed left-1/2 -translate-x-1/2 z-[100] transition-all duration-700 w-[95%] max-w-[1400px] ${isScrolled ? "top-4" : "top-8"
-        }`}
+      className={`fixed left-1/2 -translate-x-1/2 z-[100] transition-all duration-700 w-[95%] max-w-[1400px] ${
+        isScrolled ? "top-4" : "top-8"
+      }`}
     >
       <div
-        className={`flex items-center justify-between px-6 md:px-10 py-3 md:py-5 transition-all duration-500 rounded-[3rem] border borderforeground/5 shadow-2xl ${isScrolled
-          ? "bg-black/60 backdrop-blur-2xl border-primary/20"
-          : "bg-transparent border-transparent"
-          }`}
+        className={`flex items-center justify-between px-6 md:px-10 py-3 md:py-5 transition-all duration-500 rounded-[3rem] border borderforeground/5 shadow-2xl ${
+          isScrolled
+            ? "bg-black/60 backdrop-blur-2xl border-primary/20"
+            : "bg-transparent border-transparent"
+        }`}
       >
         {/* Logo */}
         <Link href="/" className="relative z-10 cursor-pointer flex-shrink-0">
@@ -122,13 +123,15 @@ export const Navbar = () => {
                 e.preventDefault();
                 handleLinkClick(link.href);
               }}
-              className={`font-bold text-xs uppercase tracking-[0.3em] relative group py-2 hover:text-primary transition-colors ${activeSection === link.href ? "text-primary" : "textforeground/60"
-                }`}
+              className={`font-bold text-xs uppercase tracking-[0.3em] relative group py-2 hover:text-primary transition-colors ${
+                activeSection === link.href ? "text-primary" : "textforeground/60"
+              }`}
             >
               {link.name}
               <span
-                className={`absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-500 group-hover:w-full ${activeSection === link.href ? "w-full" : "w-0"
-                  }`}
+                className={`absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-500 group-hover:w-full ${
+                  activeSection === link.href ? "w-full" : "w-0"
+                }`}
               />
             </Link>
           ))}
@@ -137,9 +140,7 @@ export const Navbar = () => {
             href="/join"
             className="ml-2 px-6 lg:px-8 py-3 text-[10px] tracking-[0.2em] uppercase whitespace-nowrap"
           >
-            <Button variant={"default"}>
-              Connect
-            </Button>
+            <Button variant={"default"}>Connect</Button>
           </Link>
         </div>
 
@@ -177,8 +178,9 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
-                className={`text-2xl sm:text-3xl transition-colors ${activeSection === link.href ? "text-primary" : "hover:text-primary"
-                  }`}
+                className={`text-2xl sm:text-3xl transition-colors ${
+                  activeSection === link.href ? "text-primary" : "hover:text-primary"
+                }`}
               >
                 {link.name}
               </Link>

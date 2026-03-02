@@ -33,9 +33,7 @@ export default function StepOne({ selectedOption, onCardClick }: StepOneProps) {
     <div className="space-y-8 sm:space-y-12 w-full">
       {/* Header */}
       <div className="space-y-3 sm:space-y-4 text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold capitalize">
-          What Defines You?
-        </h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold capitalize">What Defines You?</h1>
         <p className="text-sm sm:text-base md:text-lg font-normal text-white/80 capitalize">
           Understanding the things that define you.
         </p>
@@ -47,10 +45,11 @@ export default function StepOne({ selectedOption, onCardClick }: StepOneProps) {
           <button
             key={option.id}
             onClick={() => onCardClick(option.id)}
-            className={`w-[90%] xs:w-64 sm:w-60 md:w-64 h-32 xs:h-40 sm:h-64 md:h-72 relative bg-slate-900/75 rounded-xl shadow-lg border   group overflow-hidden cursor-pointer transform transition-transform duration-300 ease-out hover:scale-110 hover:shadow-violet-500/30 hover:shadow-lg ${selectedOption === option.id
-              ? "border-violet-700 bg-slate-800/90"
-              : "border-black/40 hover:border-violet-700/50"
-              }`}
+            className={`w-[90%] xs:w-64 sm:w-60 md:w-64 h-32 xs:h-40 sm:h-64 md:h-72 relative bg-slate-900/75 rounded-xl shadow-lg border   group overflow-hidden cursor-pointer transform transition-transform duration-300 ease-out hover:scale-110 hover:shadow-violet-500/30 hover:shadow-lg ${
+              selectedOption === option.id
+                ? "border-violet-700 bg-slate-800/90"
+                : "border-black/40 hover:border-violet-700/50"
+            }`}
           >
             {/* Icon */}
             <div className="absolute top-6 left-5 w-10 h-10  rounded flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -66,9 +65,7 @@ export default function StepOne({ selectedOption, onCardClick }: StepOneProps) {
 
             {/* Default Label */}
             <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-2 text-center">
-              <span className="text-lg sm:text-xl font-bold text-white">
-                {option.label}
-              </span>
+              <span className="text-lg sm:text-xl font-bold text-white">{option.label}</span>
             </div>
 
             {/* Hover Text */}

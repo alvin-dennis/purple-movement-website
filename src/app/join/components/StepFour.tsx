@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { FaWhatsapp } from "react-icons/fa6"
-import Link from "next/link"
-import { MdHome } from "react-icons/md"
+import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa6";
+import { MdHome } from "react-icons/md";
 
 interface StepFourProps {
-  userName?: string
-  isAnonymous?: boolean
+  userName?: string;
+  isAnonymous?: boolean;
 }
 
 export default function StepFour({ userName = "Friend", isAnonymous = false }: StepFourProps) {
   const handleWhatsAppJoin = () => {
-    window.open('https://chat.whatsapp.com/JfnuaMproG51BoNJZ21LNB', '_blank')
-  }
+    window.open("https://chat.whatsapp.com/JfnuaMproG51BoNJZ21LNB", "_blank");
+  };
 
   // If user chose to stay anonymous, show simplified message
   if (isAnonymous) {
@@ -22,7 +22,9 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
           <div className="w-[904px] bg-slate-900 rounded-[10px] flex flex-col items-center justify-center py-10 gap-8">
             <div className="w-80 space-y-6 flex flex-col items-center">
               <div className="text-center text-white text-5xl font-bold capitalize">Thank You!</div>
-              <div className="text-center text-white text-xl font-normal capitalize">We&apos;ve received your response.</div>
+              <div className="text-center text-white text-xl font-normal capitalize">
+                We&apos;ve received your response.
+              </div>
 
               {/* Go Home Button */}
               <Link href="/" className="mt-4">
@@ -35,7 +37,7 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -52,7 +54,9 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
             We&apos;ve received your response.
           </p>
 
-          <div className="text-center justify-start sm:text-base md:text-lg text-white text-xl font-semibold capitalize">Join our WhatsApp for updates.</div>
+          <div className="text-center justify-start sm:text-base md:text-lg text-white text-xl font-semibold capitalize">
+            Join our WhatsApp for updates.
+          </div>
           {/* WhatsApp Button */}
           <div className="w-full flex justify-center">
             <button
@@ -66,5 +70,5 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
         </div>
       </div>
     </div>
-  )
+  );
 }

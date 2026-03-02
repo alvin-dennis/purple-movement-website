@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import PyramidChart from "./PyramidChart";
 
 const Pyramid: React.FC = () => {

@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { hero } from "@/data/home";
 
@@ -28,15 +28,15 @@ export function Hero() {
           muted
           playsInline
           onLoadedData={() => setVideoLoaded(true)}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? "opacity-60" : "opacity-0"
-            }`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            videoLoaded ? "opacity-60" : "opacity-0"
+          }`}
         >
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
       </div>
 
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 md:pt-36 md:pb-28 flex flex-col items-center text-center">
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,9 +79,7 @@ export function Hero() {
                 size="lg"
                 className="group relative rounded-full overflow-hidden font-bold uppercase tracking-[0.3em] h-auto"
               >
-                <span className="relative z-10">
-                  Join Us
-                </span>
+                <span className="relative z-10">Join Us</span>
               </Button>
             </Link>
           </div>

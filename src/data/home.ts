@@ -1,11 +1,4 @@
-import type {
-  FAQItem,
-  EventItem,
-  ArticleItem,
-  Timeline,
-  Gallery,
-  LevelData,
-} from "@/lib/types";
+import type { ArticleItem, EventItem, FAQItem, Gallery, LevelData, Timeline } from "@/lib/types";
 
 export const hero = {
   badge: "The Collective Rise",
@@ -44,11 +37,7 @@ export const whyPurple = {
       text: "Symbolizes professionals: steady, knowledgeable, and capable of unlocking doors previously bolted shut.",
     },
   ],
-  deepDive: [
-    "Prove change is necessary",
-    "Inspire & open doors",
-    "Lift each other up",
-  ],
+  deepDive: ["Prove change is necessary", "Inspire & open doors", "Lift each other up"],
 };
 
 export const gallery: Gallery[] = [
@@ -128,32 +117,28 @@ export const events: EventItem[] = [
   {
     image: "/images/saddle.jpg",
     title: "Alleppey Backwaters Pulse",
-    description:
-      "A journey through the waters, finding rhythm in community movement.",
+    description: "A journey through the waters, finding rhythm in community movement.",
     size: "md:col-span-1 md:row-span-1",
     tag: "Community",
   },
   {
     image: "/images/p80-1.jpg",
     title: "Wayanad Tech Retreat",
-    description:
-      "Deep growth and shared learning amidst the mist of the Western Ghats.",
+    description: "Deep growth and shared learning amidst the mist of the Western Ghats.",
     size: "md:col-span-1 md:row-span-2",
     tag: "Growth",
   },
   {
     image: "/images/hkbr.jpg",
     title: "Trivandrum Open Loop",
-    description:
-      "Building open source culture in the heart of the capital city.",
+    description: "Building open source culture in the heart of the capital city.",
     size: "md:col-span-1 md:row-span-1",
     tag: "Open Source",
   },
   {
     image: "/images/aic.jpg",
     title: "Munnar Mindscape",
-    description:
-      "Elevating human compassion above the clouds, a collective peak experience.",
+    description: "Elevating human compassion above the clouds, a collective peak experience.",
     size: "md:col-span-2 md:row-span-1",
     tag: "Impact",
   },
@@ -192,8 +177,7 @@ export const articles: ArticleItem[] = [
     source: "Generosity Lab",
     category: "Impact",
     link: "#",
-    description:
-      "Redefining leadership as a continuous cycle of empowerment and shared knowledge.",
+    description: "Redefining leadership as a continuous cycle of empowerment and shared knowledge.",
     date: "DEC 2025",
   },
 ];
@@ -202,8 +186,7 @@ export const timeline: Timeline[] = [
   {
     year: "DISCOVERY",
     title: "The Spark",
-    description:
-      "It started with a simple question: Can we create a space without gatekeepers?",
+    description: "It started with a simple question: Can we create a space without gatekeepers?",
     status: "ORIGIN",
   },
   {
@@ -223,15 +206,13 @@ export const timeline: Timeline[] = [
   {
     year: "CONTRIBUTION",
     title: "Shared Progress",
-    description:
-      "Every contribution became a seed for someone else's growth, completing the loop.",
+    description: "Every contribution became a seed for someone else's growth, completing the loop.",
     status: "PEAK",
   },
 ];
 
 export const manifesto = {
-  description:
-    "A declaration of our purpose, our power, and the future we are building.",
+  description: "A declaration of our purpose, our power, and the future we are building.",
   sections: [
     {
       id: "01",
@@ -263,8 +244,7 @@ export const cta = {
 export const contact = {
   title: "GOT",
   highlight: "INPUT",
-  description:
-    "A movement is built on dialogue. Drop your spark below and let's evolve together.",
+  description: "A movement is built on dialogue. Drop your spark below and let's evolve together.",
   placeholder: "Type your question or spark...",
   buttonText: "SUBMIT SPARK",
   submittingText: "TRANSMITTING...",

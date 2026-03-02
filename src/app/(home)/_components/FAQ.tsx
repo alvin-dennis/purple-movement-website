@@ -1,11 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-
-import { FAQItem } from "@/lib/types";
+import Link from "next/link";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { FAQs } from "@/data/home";
+import { FAQItem } from "@/lib/types";
 
 export const FAQ = () => {
   return (
@@ -20,14 +24,17 @@ export const FAQ = () => {
             className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-6"
           >
             <div className="h-[1px] w-12 bg-primary" />
-            <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs">Assistance</span>
+            <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs">
+              Assistance
+            </span>
           </motion.div>
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-foreground mb-4 md:mb-8">
-            GOT <br /><span className="text-tpm">QUESTIONS?</span>
+            GOT <br />
+            <span className="text-tpm">QUESTIONS?</span>
           </h2>
           <p className="text-base md:text-lg text-foreground/50">
-            Got questions? We&apos;ve got answers. Here are some of the most common things people ask
-            about the Purple Movement.
+            Got questions? We&apos;ve got answers. Here are some of the most common things people
+            ask about the Purple Movement.
           </p>
         </div>
 

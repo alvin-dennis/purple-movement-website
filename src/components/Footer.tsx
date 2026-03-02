@@ -1,12 +1,11 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { useState } from "react";
 import { BsTwitterX } from "react-icons/bs";
-import FeedbackPopup from "./FeedbackPopup";
-
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { navLinks, supportLinks } from "@/data/common";
+import FeedbackPopup from "./FeedbackPopup";
 
 export const Footer = () => {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
@@ -53,7 +52,10 @@ export const Footer = () => {
               {[
                 { icon: <FaInstagram size={18} />, href: "https://www.instagram.com/tpm.live/" },
                 { icon: <BsTwitterX size={18} />, href: "https://x.com/ThePurpleMVMT" },
-                { icon: <FaLinkedinIn size={18} />, href: "https://www.linkedin.com/company/the-purple-movement/posts/?feedView=all" },
+                {
+                  icon: <FaLinkedinIn size={18} />,
+                  href: "https://www.linkedin.com/company/the-purple-movement/posts/?feedView=all",
+                },
               ].map((social) => (
                 <a
                   key={social.href}
@@ -70,7 +72,9 @@ export const Footer = () => {
 
           {/* Nav Col */}
           <div className="md:col-span-3 space-y-6 md:space-y-8 flex flex-col items-center md:items-start">
-            <h4 className="text-xs font-bold tracking-[0.5em] textforeground/20 uppercase text-center md:text-left">Navigation</h4>
+            <h4 className="text-xs font-bold tracking-[0.5em] textforeground/20 uppercase text-center md:text-left">
+              Navigation
+            </h4>
             <nav className="flex flex-col gap-4 md:gap-6">
               {navLinks.map((l) => (
                 <a
@@ -87,7 +91,9 @@ export const Footer = () => {
 
           {/* Support Col */}
           <div className="md:col-span-4 space-y-6 md:space-y-8 flex flex-col items-center md:items-start">
-            <h4 className="text-xs font-bold tracking-[0.5em] textforeground/20 uppercase text-center md:text-left">Access</h4>
+            <h4 className="text-xs font-bold tracking-[0.5em] textforeground/20 uppercase text-center md:text-left">
+              Access
+            </h4>
             <nav className="flex flex-col gap-4 md:gap-6">
               {supportLinks.map((l) =>
                 l.action === "feedback" ? (
@@ -106,7 +112,7 @@ export const Footer = () => {
                   >
                     {l.name}
                   </a>
-                )
+                ),
               )}
             </nav>
           </div>

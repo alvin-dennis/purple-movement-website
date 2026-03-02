@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 import { cta } from "@/data/home";
@@ -20,14 +20,16 @@ export const CallToAction = () => {
               className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
             >
               <h2 className="text-[11vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] space-y-2 mb-6 md:mb-10 text-center lg:text-left">
-                {cta.title1} <br /><span className="text-tpm">{cta.title2}</span> {cta.title3}
+                {cta.title1} <br />
+                <span className="text-tpm">{cta.title2}</span> {cta.title3}
               </h2>
               <div className="max-w-2xl border-l-0 lg:border-l border-primary/30 lg:pl-10 space-y-4 md:space-y-8 text-center lg:text-left">
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl textforeground/60 leading-relaxed">
                   {cta.description}
                 </p>
                 <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl textforeground">
-                  {cta.statement.split(" THE ")[0]} THE <span className="text-primary">{cta.statement.split(" THE ")[1]}</span>
+                  {cta.statement.split(" THE ")[0]} THE{" "}
+                  <span className="text-primary">{cta.statement.split(" THE ")[1]}</span>
                 </h3>
               </div>
             </motion.div>
@@ -53,9 +55,7 @@ export const CallToAction = () => {
           </div>
 
           <div className="lg:w-1/3 relative w-full flex justify-center">
-            <motion.div
-              className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-full lg:aspect-square"
-            >
+            <motion.div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-full lg:aspect-square">
               <Image
                 fill
                 src="/images/spiral.png"
