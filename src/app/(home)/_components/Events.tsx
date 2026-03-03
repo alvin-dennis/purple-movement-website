@@ -84,7 +84,6 @@ export const Events = () => {
                     alt={event.title}
                     width={960}
                     height={480}
-                    loading="lazy"
                   />
                 </article>
               ))}

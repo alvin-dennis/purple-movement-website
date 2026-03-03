@@ -4,16 +4,13 @@ const nextConfig: NextConfig = {
   compress: true,
   reactStrictMode: true,
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "placehold.co",
       },
     ],
-  },
-  // Environment variables configuration
-  env: {
-    CUSTOM_KEY: process.env.CUSTOM_KEY,
   },
 };
 
