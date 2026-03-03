@@ -35,7 +35,7 @@ export const Footer = () => {
 
   return (
     <footer className="w-full border-t border-foreground/10">
-      <div className="mx-auto px-4 py-16 md:py-24">
+      <div className="mx-auto px-4 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 mb-16">
           <div className="md:col-span-3 flex flex-col gap-8">
             <div className="space-y-6">
@@ -44,7 +44,7 @@ export const Footer = () => {
                 width={160}
                 height={60}
                 alt="Purple Movement Logo"
-                className="brightness-125 saturate-150 w-auto h-12"
+                className="brightness-125 w-auto h-12"
               />
               <p className="text-sm text-foreground leading-relaxed">
                 Empowering individuals and organizations to rise beyond their limits.

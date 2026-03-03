@@ -30,11 +30,6 @@ export interface Timeline {
   status: string;
 }
 
-export interface Gallery {
-  src: string;
-  alt: string;
-}
-
 export interface LevelData {
   id: number;
   title: string;

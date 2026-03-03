@@ -3,7 +3,6 @@ import { Contact } from "./_components/Contact";
 import { CallToAction } from "./_components/CTA";
 import { Events } from "./_components/Events";
 import { FAQ } from "./_components/FAQ";
-import { Gallery } from "./_components/Gallery";
 import { Hero } from "./_components/Hero";
 import { Manifesto } from "./_components/Manifesto";
 import { Pyramid } from "./_components/Pyramid";
@@ -20,7 +19,6 @@ export default function Home() {
         <Whypurple />
         <Pyramid />
         <Manifesto />
-        <Gallery />
         <Timeline />
         <Events />
         <Articles />

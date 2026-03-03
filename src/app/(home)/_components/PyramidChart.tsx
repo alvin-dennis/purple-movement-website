@@ -43,21 +43,21 @@ const PyramidChart = () => {
             className="cursor-pointer"
             role="button"
             tabIndex={0}
-            onClick={() => scrollToSection("syllabus")}
-            onMouseEnter={() => setActiveLevel(3)}
-            onKeyDown={(e) => e.key === "Enter" && scrollToSection("syllabus")}
+            onClick={() => scrollToSection("borders")}
+            onMouseEnter={() => setActiveLevel(1)}
+            onKeyDown={(e) => e.key === "Enter" && scrollToSection("borders")}
           >
             <MotionPath
               d="M300 50 L420 220 L180 220 Z"
-              fill={activeLevel === 3 ? "url(#pyr-active-grad)" : "transparent"}
+              fill={activeLevel === 1 ? "url(#pyr-active-grad)" : "transparent"}
               stroke="violet"
               strokeWidth="2"
               initial={false}
               animate={{
-                opacity: activeLevel === 3 ? 1 : 0.3,
-                y: activeLevel === 3 ? -10 : 0,
+                opacity: activeLevel === 1 ? 1 : 0.3,
+                y: activeLevel === 1 ? -10 : 0,
               }}
-              filter={activeLevel === 3 ? "url(#glow-effect)" : "none"}
+              filter={activeLevel === 1 ? "url(#glow-effect)" : "none"}
             />
             <text
               x="300"
@@ -103,21 +103,21 @@ const PyramidChart = () => {
             className="cursor-pointer"
             role="button"
             tabIndex={0}
-            onClick={() => scrollToSection("borders")}
-            onMouseEnter={() => setActiveLevel(1)}
-            onKeyDown={(e) => e.key === "Enter" && scrollToSection("borders")}
+            onClick={() => scrollToSection("syllabus")}
+            onMouseEnter={() => setActiveLevel(3)}
+            onKeyDown={(e) => e.key === "Enter" && scrollToSection("syllabus")}
           >
             <MotionPath
               d="M90 385 L510 385 L580 540 L20 540 Z"
-              fill={activeLevel === 1 ? "url(#pyr-active-grad)" : "transparent"}
+              fill={activeLevel === 3 ? "url(#pyr-active-grad)" : "transparent"}
               stroke="violet"
               strokeWidth="2"
               initial={false}
               animate={{
-                opacity: activeLevel === 1 ? 1 : 0.3,
-                y: activeLevel === 1 ? 0 : 0,
+                opacity: activeLevel === 3 ? 1 : 0.3,
+                y: activeLevel === 3 ? 0 : 0,
               }}
-              filter={activeLevel === 1 ? "url(#glow-effect)" : "none"}
+              filter={activeLevel === 3 ? "url(#glow-effect)" : "none"}
             />
             <text
               x="300"

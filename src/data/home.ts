@@ -1,4 +1,4 @@
-import type { ArticleItem, EventItem, FAQItem, Gallery, LevelData, Timeline } from "@/lib/types";
+import type { ArticleItem, EventItem, FAQItem, LevelData, Timeline } from "@/lib/types";
 
 export const hero = {
   badge: "The Collective Rise",
@@ -48,26 +48,13 @@ export const whyPurple = {
   final: "We're here to make that place real.",
 };
 
-export const gallery: Gallery[] = [
-  { src: "/images/p80-1.jpg", alt: "Faces of the Movement" },
-  { src: "/images/p80-2.jpg", alt: "Collective Rise" },
-  { src: "/images/p80-3.jpg", alt: "The Spark" },
-  { src: "/images/p80-4.jpg", alt: "Shared Space" },
-  { src: "/images/p80-5.jpg", alt: "Community Core" },
-  { src: "/images/saddle.jpg", alt: "Outdoor Community Gathering" },
-  { src: "/images/saddle2.jpg", alt: "Collective Engagement" },
-  { src: "/images/hkbr.jpg", alt: "Movement Discussion" },
-  { src: "/images/aic.jpg", alt: "Purposeful Collaboration" },
-  { src: "/images/flow.png", alt: "The Energy Flow" },
-];
-
 export const levels: LevelData[] = [
   {
-    id: 3,
-    title: "Beyond Syllabus",
-    slug: "syllabus",
+    id: 1,
+    title: "Beyond Borders",
+    slug: "borders",
     description:
-      "We should start treating the syllabus like a starting point and not a cage. It's a guide, not a rulebook. Real growth begins when curious minds explore outside the lines, experiment, and discover what truly inspires them. Those who step off the conventional path aren’t rebels, they’re pioneers. And instead of holding them back, we uplift and support them as they learn, grow, and create their own way forward.",
+      "Once, the Earth was a single piece of connected land. We want the world of opportunity to feel that way too. We can’t literally push continents and stick them together, but we can remove the barriers that separate people. Beyond Borders means enabling global access to the best talent, markets, and opportunities. It’s about creating a space where purposeful people can connect, collaborate, and grow without limits, without boundaries.",
     link: "#",
   },
   {
@@ -79,11 +66,11 @@ export const levels: LevelData[] = [
     link: "#",
   },
   {
-    id: 1,
-    title: "Beyond Borders",
-    slug: "borders",
+    id: 3,
+    title: "Beyond Syllabus",
+    slug: "syllabus",
     description:
-      "Once, the Earth was a single piece of connected land. We want the world of opportunity to feel that way too. We can’t literally push continents and stick them together, but we can remove the barriers that separate people. Beyond Borders means enabling global access to the best talent, markets, and opportunities. It’s about creating a space where purposeful people can connect, collaborate, and grow without limits, without boundaries.",
+      "We should start treating the syllabus like a starting point and not a cage. It's a guide, not a rulebook. Real growth begins when curious minds explore outside the lines, experiment, and discover what truly inspires them. Those who step off the conventional path aren’t rebels, they’re pioneers. And instead of holding them back, we uplift and support them as they learn, grow, and create their own way forward.",
     link: "#",
   },
 ];
@@ -280,6 +267,6 @@ export const contact = {
   highlight: "QUESTIONS",
   description: "A movement is built on dialogue. Drop your spark below and let's evolve together.",
   placeholder: "Type your question or spark...",
-  buttonText: "SUBMIT SPARK",
+  buttonText: "SUBMIT",
   submittingText: "TRANSMITTING...",
 };
