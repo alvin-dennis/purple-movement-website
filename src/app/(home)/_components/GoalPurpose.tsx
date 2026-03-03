@@ -1,8 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 import { vision } from "@/data/home";
+import { MotionDiv } from "@/components/Framer";
 
 export const VisionMission = () => {
   return (
@@ -18,7 +15,7 @@ export const VisionMission = () => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-start relative z-10">
           <div className="lg:col-span-1 lg:block hidden" />
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -38,9 +35,9 @@ export const VisionMission = () => {
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-foreground/50 border-l-0 lg:border-l border-foreground/10 lg:pl-10 text-center lg:text-left">
               {vision.vision.text}
             </p>
-          </motion.div>
+          </MotionDiv>
           <div className="lg:col-span-1 lg:block hidden" />
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -60,9 +57,9 @@ export const VisionMission = () => {
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-foreground/50 lg:border-r border-l-0 border-foreground/10 lg:pr-10 text-center lg:text-right">
               {vision.mission.text}
             </p>
-          </motion.div>
+          </MotionDiv>
         </div>
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -75,7 +72,7 @@ export const VisionMission = () => {
               REAL PROGRESS BEGINS WITH GENEROSITY.
             </span>
           </h3>
-        </motion.div>
+        </MotionDiv>
       </div>
     </section>
   );

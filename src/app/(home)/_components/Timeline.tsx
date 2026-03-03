@@ -1,27 +1,27 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { timeline } from "@/data/home";
+import { MotionDiv } from "@/components/Framer";
+import { Card, CardContent } from "@/components/ui/card";
 
 export const Timeline = () => {
   return (
     <section className="w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6" id="timeline">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-24">
-          <motion.span
+          <MotionDiv
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-4 md:mb-6 block"
           >
             OUR EVOLUTION
-          </motion.span>
+          </MotionDiv>
+
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-foreground">
             THE <span className="text-tpm">RISE</span>
           </h2>
         </div>
 
         <div className="relative">
-          <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden md:block" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-tpm hidden md:block" />
           <div className="space-y-12 md:space-y-24">
             {timeline.map((item, idx) => (
               <div
@@ -30,32 +30,40 @@ export const Timeline = () => {
                   idx % 2 === 0 ? "" : "md:flex-row-reverse"
                 }`}
               >
-                <motion.div
+                <MotionDiv
                   initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{
+                    duration: 0.8,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="w-full md:w-[45%] group"
                 >
-                  <div className="bg-foreground/5 border border-foreground/5 p-6 sm:p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] group-hover:border-primary/30 transition-all duration-500 group-hover:bg-foreground/10">
-                    <div className="flex flex-col sm:flex-row justify-between items-center mb-4 md:mb-6 gap-4">
-                      <span className="text-foreground font-bold tracking-widest text-[10px] uppercase border border-primary/20 px-3 py-1 rounded-full flex-shrink-0">
-                        {item.status}
-                      </span>
-                      <span className="text-foreground/20 font-bold text-xs md:text-sm tracking-widest">
-                        {item.year}
-                      </span>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 md:mb-4 text-center md:text-left">
-                      {item.title}
-                    </h3>
-                    <p className="text-foreground/40 text-base md:text-lg leading-relaxed text-center md:text-left">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
+                  <Card className="backdrop-blur-xl border border-primary/50 transition-all duration-500">
+                    <CardContent className="p-6 sm:p-8 md:p-10">
+                      <div className="flex flex-col sm:flex-row justify-between items-center mb-4 md:mb-6 gap-4">
+                        <span className="text-foreground font-bold tracking-widest text-[10px] uppercase border border-primary/20 px-3 py-1 rounded-full flex-shrink-0">
+                          {item.status}
+                        </span>
+
+                        <span className="text-foreground/20 font-bold text-xs md:text-sm tracking-widest">
+                          {item.year}
+                        </span>
+                      </div>
+
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 md:mb-4 text-center md:text-left">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-foreground/50 text-base md:text-lg leading-relaxed text-center md:text-left">
+                        {item.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </MotionDiv>
                 <div className="relative z-10 hidden md:flex items-center justify-center w-20 flex-shrink-0">
-                  <motion.div
+                  <MotionDiv
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { IconType } from "react-icons";
 
 export interface FAQItem {
   question: string;
@@ -39,6 +40,7 @@ export interface LevelData {
   title: string;
   description: string;
   slug: string;
+  link: string;
 }
 
 export interface NavLink {
@@ -47,12 +49,28 @@ export interface NavLink {
 }
 
 export interface SocialLink {
-  icon: ReactNode;
+  icon: IconType;
   href: string;
 }
 
 export interface SupportLink {
   name: string;
-  href?: string;
+  href: string;
   action?: string;
+}
+
+export interface VerticalItem {
+  label: string;
+  href: string;
+}
+
+export interface FooterData {
+  verticals: VerticalItem[];
+  navLinks: NavLink[];
+  supportLinks: SupportLink[];
+  socialLinks: SocialLink[];
+  bottomBar: {
+    copyright: string;
+    slogans: string[];
+  };
 }

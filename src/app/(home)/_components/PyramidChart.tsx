@@ -1,8 +1,11 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { levels } from "@/data/home";
+import { MotionDiv, MotionPath } from "@/components/Framer";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const PyramidChart = () => {
   const [activeLevel, setActiveLevel] = useState<number>(3);
@@ -43,11 +46,11 @@ const PyramidChart = () => {
             onMouseEnter={() => setActiveLevel(3)}
             onKeyDown={(e) => e.key === "Enter" && scrollToSection("syllabus")}
           >
-            <motion.path
+            <MotionPath
               d="M300 50 L420 220 L180 220 Z"
               fill={activeLevel === 3 ? "url(#pyr-active-grad)" : "transparent"}
-              stroke="#8E00FF"
-              strokeWidth="1.5"
+              stroke="violet"
+              strokeWidth="2"
               initial={false}
               animate={{
                 opacity: activeLevel === 3 ? 1 : 0.3,
@@ -59,9 +62,9 @@ const PyramidChart = () => {
               x="300"
               y="170"
               textAnchor="middle"
-              className="fillforeground text-[12px] font-bold tracking-widest uppercase pointer-events-none"
+              className="fill-foreground text-[14px] font-bold tracking-wider uppercase pointer-events-none"
             >
-              BEYOND BORDERS
+              Beyond Borders
             </text>
           </g>
 
@@ -73,11 +76,11 @@ const PyramidChart = () => {
             onMouseEnter={() => setActiveLevel(2)}
             onKeyDown={(e) => e.key === "Enter" && scrollToSection("gatekeepers")}
           >
-            <motion.path
+            <MotionPath
               d="M170 235 L430 235 L500 370 L100 370 Z"
               fill={activeLevel === 2 ? "url(#pyr-active-grad)" : "transparent"}
-              stroke="#8E00FF"
-              strokeWidth="1.5"
+              stroke="violet"
+              strokeWidth="2"
               initial={false}
               animate={{
                 opacity: activeLevel === 2 ? 1 : 0.3,
@@ -87,15 +90,14 @@ const PyramidChart = () => {
             />
             <text
               x="300"
-              y="315"
+              y="320"
               textAnchor="middle"
-              className="fillforeground text-[14px] font-bold tracking-widest uppercase pointer-events-none"
+              className="fill-foreground text-[25px] font-bold tracking-wider uppercase pointer-events-none"
             >
-              BEYOND GATEKEEPERS
+              Beyond Gatekeepers
             </text>
           </g>
 
-          {/* Level 1: Borders (Base Trapezoid) */}
           <g
             className="cursor-pointer"
             role="button"
@@ -104,11 +106,11 @@ const PyramidChart = () => {
             onMouseEnter={() => setActiveLevel(1)}
             onKeyDown={(e) => e.key === "Enter" && scrollToSection("borders")}
           >
-            <motion.path
+            <MotionPath
               d="M90 385 L510 385 L580 540 L20 540 Z"
               fill={activeLevel === 1 ? "url(#pyr-active-grad)" : "transparent"}
-              stroke="#8E00FF"
-              strokeWidth="1.5"
+              stroke="violet"
+              strokeWidth="2"
               initial={false}
               animate={{
                 opacity: activeLevel === 1 ? 1 : 0.3,
@@ -118,9 +120,9 @@ const PyramidChart = () => {
             />
             <text
               x="300"
-              y="475"
+              y="485"
               textAnchor="middle"
-              className="fillforeground text-[16px] font-bold tracking-widest uppercase pointer-events-none"
+              className="fill-foreground text-[40px] font-bold tracking-wider uppercase pointer-events-none"
             >
               Beyond Syllabus
             </text>
@@ -128,13 +130,12 @@ const PyramidChart = () => {
         </svg>
       </div>
 
-      {/* Content Side: Narrative Focus */}
       <div className="flex-1 flex flex-col justify-center items-center lg:items-start min-h-[400px]">
         <AnimatePresence mode="wait">
           {levels.map(
             (level) =>
               level.id === activeLevel && (
-                <motion.div
+                <MotionDiv
                   key={level.id}
                   initial={{ opacity: 0, scale: 0.98, x: 30 }}
                   animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -145,19 +146,20 @@ const PyramidChart = () => {
                   <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block text-center lg:text-left">
                     PHASE 0{level.id}
                   </span>
-                  <h2 className="text-5xl md:text-7xl mb-8 text-center lg:text-left">
+                  <h2 className="text-5xl md:text-6xl mb-8 text-center lg:text-left">
                     {level.title}
                   </h2>
                   <p className="mb-12">{level.description}</p>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection(level.slug)}
+                  <Link
+                    key={level.id}
+                    href={level.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group flex items-center gap-4 font-bold tracking-widest text-xs"
                   >
-                    RECLAIM THIS
-                    <div className="w-12 h-[1px] bg-primary group-hover:w-20 transition-all duration-500" />
-                  </button>
-                </motion.div>
+                    <Button variant={"default"}>Explore {level.title}</Button>
+                  </Link>
+                </MotionDiv>
               ),
           )}
         </AnimatePresence>

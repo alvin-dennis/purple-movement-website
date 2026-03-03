@@ -1,10 +1,11 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { gallery } from "@/data/home";
 import type { Gallery as GalleryType } from "@/lib/types";
+import { MotionDiv } from "@/components/Framer";
 
 const GalleryItem = ({ item, index }: { item: GalleryType; index: number }) => {
   const [currentImage, setCurrentImage] = useState(gallery[index % gallery.length].src);
@@ -45,7 +46,7 @@ const GalleryItem = ({ item, index }: { item: GalleryType; index: number }) => {
   };
 
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -57,7 +58,7 @@ const GalleryItem = ({ item, index }: { item: GalleryType; index: number }) => {
       className={`relative overflow-hidden rounded-[2rem] md:rounded-[3rem] group ${getSpan(index)}`}
     >
       <AnimatePresence mode="popLayout">
-        <motion.div
+        <MotionDiv
           key={currentImage}
           initial={{ opacity: 0, scale: 1.2, rotate: 2 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -69,18 +70,11 @@ const GalleryItem = ({ item, index }: { item: GalleryType; index: number }) => {
             src={currentImage}
             alt={item.alt}
             fill
-            unoptimized
             className="object-cover transition-all duration-1000 group-hover:scale-110 grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100"
           />
-        </motion.div>
+        </MotionDiv>
       </AnimatePresence>
-      <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-          <h3 className="text-xl md:text-2xl font-bold mb-2">{item.alt}</h3>
-          <div className="w-12 h-1 bg-primary rounded-full" />
-        </div>
-      </div>
-    </motion.div>
+    </MotionDiv>
   );
 };
 
@@ -93,7 +87,7 @@ export const Gallery = () => {
       <div className="max-w-[1400px] mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 mb-12 md:mb-24 items-end">
           <div className="lg:col-span-8 flex flex-col items-center lg:items-start">
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -103,7 +97,7 @@ export const Gallery = () => {
               <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs">
                 Living Community
               </span>
-            </motion.div>
+            </MotionDiv>
             <h2 className="text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] space-y-2 text-center lg:text-left">
               THE <br />
               <span className="text-tpm">ENERGY</span> OF US.
@@ -118,7 +112,7 @@ export const Gallery = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {gallery.slice(0, 7).map((img, idx) => (
-            <GalleryItem key={`${img.alt}-${idx}`} item={img} index={idx} />
+            <GalleryItem key={`${img.alt}`} item={img} index={idx} />
           ))}
         </div>
       </div>

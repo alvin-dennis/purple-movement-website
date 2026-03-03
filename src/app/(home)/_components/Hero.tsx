@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { hero } from "@/data/home";
+import { MotionDiv } from "@/components/Framer";
 
 export function Hero() {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -37,7 +37,7 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 md:pt-36 md:pb-28 flex flex-col items-center text-center">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
@@ -57,9 +57,9 @@ export function Hero() {
           <h2 className="text-tpm text-[16vw] sm:text-[13vw] lg:text-[9vw] xl:text-[8vw] font-black uppercase leading-[1]">
             {hero.title2}
           </h2>
-        </motion.div>
+        </MotionDiv>
 
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
@@ -83,7 +83,7 @@ export function Hero() {
               </Button>
             </Link>
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
     </section>
   );

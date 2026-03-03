@@ -1,19 +1,16 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-
 import { cta } from "@/data/home";
+import { MotionDiv } from "@/components/Framer";
+import { Button } from "@/components/ui/button";
 
 export const CallToAction = () => {
   return (
     <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 lg:gap-24 relative z-10">
-          {/* Text Section */}
           <div className="lg:w-2/3 text-center lg:text-left w-full flex flex-col items-center lg:items-start">
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -32,9 +29,9 @@ export const CallToAction = () => {
                   <span className="text-primary">{cta.statement.split(" THE ")[1]}</span>
                 </h3>
               </div>
-            </motion.div>
+            </MotionDiv>
 
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -44,25 +41,25 @@ export const CallToAction = () => {
                 href="/join"
                 className="inline-flex flex-col sm:flex-row items-center gap-4 md:gap-8 group"
               >
-                <div className="px-10 sm:px-12 md:px-16 py-4 md:py-6 bg-primary rounded-full font-bold tracking-widest text-sm group-hover:bg-primary transition-all duration-500 group-hover:px-14 md:group-hover:px-20 active:scale-95 shadow-[0_0_40px_-10px_rgba(142,0,255,0.4)]">
+                <Button variant="default" className="px-6 py-4">
                   {cta.buttonText}
-                </div>
+                </Button>
                 <div className="items-center gap-3 text-primary font-bold uppercase tracking-[0.3em] text-[10px] opacity-0 group-hover:opacity-100 transition-all transform md:translate-x-[-20px] group-hover:translate-x-0 hidden sm:flex">
                   GET STARTED <div className="w-12 h-[1px] bg-primary" />
                 </div>
               </Link>
-            </motion.div>
+            </MotionDiv>
           </div>
 
           <div className="lg:w-1/3 relative w-full flex justify-center">
-            <motion.div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-full lg:aspect-square">
+            <MotionDiv className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-full lg:aspect-square">
               <Image
                 fill
                 src="/images/spiral.png"
                 alt="Purple Movement spiral illustration"
                 className="object-contain opacity-40"
               />
-            </motion.div>
+            </MotionDiv>
           </div>
         </div>
       </div>

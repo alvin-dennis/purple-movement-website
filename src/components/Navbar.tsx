@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navLinks } from "@/data/common";
 import { Button } from "./ui/button";
+import { MotionDiv } from "./Framer";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,7 +102,6 @@ export const Navbar = () => {
             : "bg-transparent border-transparent"
         }`}
       >
-        {/* Logo */}
         <Link href="/" className="relative z-10 cursor-pointer flex-shrink-0">
           <Image
             src="/logos/logo_pm.png"
@@ -112,8 +112,6 @@ export const Navbar = () => {
             className="w-auto h-10 md:h-12 brightness-125"
           />
         </Link>
-
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 lg:gap-12">
           {navLinks.map((link) => (
             <Link
@@ -136,15 +134,12 @@ export const Navbar = () => {
             </Link>
           ))}
 
-          <Link
-            href="/join"
-            className="ml-2 px-6 lg:px-8 py-3 text-[10px] tracking-[0.2em] uppercase whitespace-nowrap"
-          >
-            <Button variant={"default"}>Connect</Button>
+          <Link href="/join">
+            <Button variant={"default"} className="ml-2 uppercase">
+              Connect
+            </Button>
           </Link>
         </div>
-
-        {/* Hamburger (Mobile) */}
         <Button
           variant={"default"}
           size={"icon"}
@@ -159,11 +154,9 @@ export const Navbar = () => {
           )}
         </Button>
       </div>
-
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, scale: 0.97, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.97, y: -10 }}
@@ -192,7 +185,7 @@ export const Navbar = () => {
             >
               Start Rising
             </Link>
-          </motion.div>
+          </MotionDiv>
         )}
       </AnimatePresence>
     </nav>

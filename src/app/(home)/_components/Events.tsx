@@ -1,9 +1,7 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
-
 import { events } from "@/data/home";
+import { MotionDiv } from "@/components/Framer";
+import { Button } from "@/components/ui/button";
 
 export const Events = () => {
   return (
@@ -14,7 +12,7 @@ export const Events = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-6 md:gap-8">
           <div className="max-w-2xl">
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -24,7 +22,7 @@ export const Events = () => {
               <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs">
                 Kerala Stories
               </span>
-            </motion.div>
+            </MotionDiv>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-8 leading-[1.1] text-center sm:text-left">
               Lived <span className="text-tpm">Experiences</span>
             </h2>
@@ -36,7 +34,7 @@ export const Events = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:auto-rows-[280px] lg:auto-rows-[320px]">
           {events.map((event, idx) => (
-            <motion.div
+            <MotionDiv
               key={event.title}
               initial={{ opacity: 0, scale: 0.98, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -64,21 +62,8 @@ export const Events = () => {
                 </div>
               </div>
               <div className="absolute inset-0 border borderforeground/0 group-hover:borderforeground/10 rounded-[2rem] md:rounded-[2.5rem] transition-colors duration-500 pointer-events-none" />
-            </motion.div>
+            </MotionDiv>
           ))}
-        </div>
-        <div className="mt-12 md:mt-24 flex justify-center">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative px-10 md:px-12 py-4 md:py-5 overflow-hidden rounded-full transition-all"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary group-hover:from-primary group-hover:to-primary transition-colors" />
-            <span className="relative z-10 font-bold tracking-widest text-sm flex items-center gap-3">
-              BECOME THE STORY
-              <div className="w-5 h-[1px] bgforeground group-hover:w-8 transition-all" />
-            </span>
-          </motion.button>
         </div>
       </div>
     </section>

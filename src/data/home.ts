@@ -10,34 +10,48 @@ export const hero = {
 
 export const vision = {
   vision: {
-    title: "VISION",
-    text: "We aim to build a world free of barriers and privilege, where compassion and fairness open the door for everyone to rise and realize their potential.",
+    title: "GOAL",
+    text: "We aim to build a world free of barriers and privilege, where compassion and fairness open the door for everyone to rise and realize their potential. By helping people grow and encouraging them to uplift others, we create a community that thrives together.",
   },
   mission: {
-    title: "MISSION",
-    text: "A community that rises beyond borders, syllabus limits, and gatekeepers, where curiosity and generosity guide how we learn and grow.",
+    title: "PURPOSE",
+    text: "A community that rises beyond borders, syllabus limits, and gatekeepers, where curiosity and generosity guide how we learn and grow. By breaking down barriers and removing limits, we create a space where everyone can connect, collaborate, and grow without boundaries.",
   },
   statement:
     "Together, we create an open cycle of shared learning, mutual support, and lifelong empowerment because REAL PROGRESS BEGINS WITH GENEROSITY.",
 };
 
 export const whyPurple = {
-  quote: "Purple isn't just a colour. It is a bridge between worlds.",
+  quote: "Purple isn't just a colour for us, it represents what happens when two worlds meet.",
   duality: [
     {
       id: "01",
       label: "RED",
       title: "The Energy",
-      text: "Symbolizes the youth: energetic, passionate, curious, and unapologetically ready to create change.",
+      text: "Red symbolizes the youth: energetic, passionate, curious, and ready to create change.",
     },
     {
       id: "02",
       label: "BLUE",
       title: "The Steady",
-      text: "Symbolizes professionals: steady, knowledgeable, and capable of unlocking doors previously bolted shut.",
+      text: "Blue symbolizes experienced professionals: steady, knowledgeable, and capable of unlocking new possibilities.",
     },
   ],
-  deepDive: ["Prove change is necessary", "Inspire & open doors", "Lift each other up"],
+  gap: {
+    title: "WE AIM TO BRIDGE THAT GAP.",
+    description:
+      "Today, a gap exists between these two groups. There's no bridge, no shared space where they can learn from each other.",
+  },
+  deepDive: [
+    "A place where young minds can prove that change is possible and necessary.",
+    "A place where experts can guide, inspire, and open doors to new opportunities.",
+    "A place where everyone can be themselves, grow together, and lift each other up.",
+  ],
+  outcome:
+    "When red and blue come together, they create purple—a symbol of collaboration, balance, and the future we want to build.",
+  thought:
+    'And that thought every person has felt at least once: "If only there was a place where I could learn, connect, and be understood"',
+  final: "we're here to make that place real.",
 };
 
 export const gallery: Gallery[] = [
@@ -59,21 +73,24 @@ export const levels: LevelData[] = [
     title: "Beyond Syllabus",
     slug: "syllabus",
     description:
-      "Learning is a starting point, not a rulebook. Real growth happens outside the lines and prescribed paths.",
+      "We should start treating the syllabus like a starting point and not a cage. It's a guide, not a rulebook. Real growth begins when curious minds explore outside the lines, experiment, and discover what truly inspires them. Those who step off the conventional path aren’t rebels, they’re pioneers. And instead of holding them back, we uplift and support them as they learn, grow, and create their own way forward.",
+    link: "#",
   },
   {
     id: 2,
     title: "Beyond Gatekeepers",
     slug: "gatekeepers",
     description:
-      "We don't hold opportunities; we share them. Ensuring success is open, fair, and accessible to every dreamer.",
+      "Gatekeeping is a big no. We don’t hold opportunities for ourselves, we share them. We want to give everyone the chance to showcase their best selves, grow their skills, and reach their full potential. By lifting others up, we create a community where growth, learning, and success are open, fair, and accessible to all.",
+    link: "#",
   },
   {
     id: 1,
     title: "Beyond Borders",
     slug: "borders",
     description:
-      "Removing the artificial barriers that separate talent from opportunity. Connecting the world through purpose.",
+      "Once, the Earth was a single piece of connected land. We want the world of opportunity to feel that way too. We can’t literally push continents and stick them together, but we can remove the barriers that separate people. Beyond Borders means enabling global access to the best talent, markets, and opportunities. It’s about creating a space where purposeful people can connect, collaborate, and grow without limits, without boundaries.",
+    link: "#",
   },
 ];
 
