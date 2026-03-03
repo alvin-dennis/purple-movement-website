@@ -3,9 +3,10 @@
 import { AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { gallery } from "@/data/home";
-import type { Gallery as GalleryType } from "@/lib/types";
 import { MotionDiv } from "@/components/Framer";
+import { gallery } from "@/data/home";
+import { fadeInUp, viewportConfig } from "@/lib/animations";
+import type { Gallery as GalleryType } from "@/lib/types";
 
 const GalleryItem = ({ item, index }: { item: GalleryType; index: number }) => {
   const [currentImage, setCurrentImage] = useState(gallery[index % gallery.length].src);
@@ -47,23 +48,19 @@ const GalleryItem = ({ item, index }: { item: GalleryType; index: number }) => {
 
   return (
     <MotionDiv
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{
-        delay: index * 0.15,
-        duration: 1.2,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      variants={fadeInUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportConfig}
       className={`relative overflow-hidden rounded-[2rem] md:rounded-[3rem] group ${getSpan(index)}`}
     >
       <AnimatePresence mode="popLayout">
         <MotionDiv
           key={currentImage}
-          initial={{ opacity: 0, scale: 1.2, rotate: 2 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          exit={{ opacity: 0, scale: 0.9, rotate: -2 }}
-          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
           className="absolute inset-0"
         >
           <Image
@@ -88,9 +85,10 @@ export const Gallery = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 mb-12 md:mb-24 items-end">
           <div className="lg:col-span-8 flex flex-col items-center lg:items-start">
             <MotionDiv
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
               className="flex items-center justify-center lg:justify-start gap-3 mb-4 md:mb-6"
             >
               <div className="h-[1px] w-12 bg-primary" />

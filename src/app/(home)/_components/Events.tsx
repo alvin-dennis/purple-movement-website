@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { events } from "@/data/home";
 import { MotionDiv } from "@/components/Framer";
-import { Button } from "@/components/ui/button";
+import { events } from "@/data/home";
+import { containerVariants, fadeInUp, viewportConfig } from "@/lib/animations";
 
 export const Events = () => {
   return (
@@ -13,9 +13,10 @@ export const Events = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-6 md:gap-8">
           <div className="max-w-2xl">
             <MotionDiv
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
               className="flex items-center justify-center sm:justify-start gap-3 mb-4 md:mb-6"
             >
               <div className="h-[1px] w-12 bg-primary" />
@@ -32,14 +33,17 @@ export const Events = () => {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:auto-rows-[280px] lg:auto-rows-[320px]">
-          {events.map((event, idx) => (
+        <MotionDiv
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:auto-rows-[280px] lg:auto-rows-[320px]"
+        >
+          {events.map((event) => (
             <MotionDiv
               key={event.title}
-              initial={{ opacity: 0, scale: 0.98, y: 20 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              variants={fadeInUp}
               className={`group relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-zinc-900/50 border borderforeground/5 min-h-[280px] sm:min-h-0 ${event.size}`}
             >
               <Image
@@ -64,7 +68,7 @@ export const Events = () => {
               <div className="absolute inset-0 border borderforeground/0 group-hover:borderforeground/10 rounded-[2rem] md:rounded-[2.5rem] transition-colors duration-500 pointer-events-none" />
             </MotionDiv>
           ))}
-        </div>
+        </MotionDiv>
       </div>
     </section>
   );

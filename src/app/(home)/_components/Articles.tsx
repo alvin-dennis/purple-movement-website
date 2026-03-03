@@ -1,9 +1,10 @@
 import { AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { articles } from "@/data/home";
+import Link from "next/link";
 import { MotionDiv, MotionSpan } from "@/components/Framer";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import Link from "next/link";
+import { articles } from "@/data/home";
+import { containerVariants, fadeInUp, viewportConfig } from "@/lib/animations";
 
 export const Articles = () => {
   return (
@@ -12,8 +13,9 @@ export const Articles = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 mb-12 md:mb-24">
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start">
             <MotionSpan
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
               className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-4 md:mb-6 block text-center lg:text-left"
             >
               Knowledge Loop
@@ -29,17 +31,16 @@ export const Articles = () => {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <MotionDiv
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
           <AnimatePresence>
-            {articles.map((res, idx) => (
-              <MotionDiv
-                key={res.title}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="group"
-              >
+            {articles.map((res) => (
+              <MotionDiv key={res.title} variants={fadeInUp} className="group">
                 <Card className="h-full backdrop-blur-xl border border-primary/50 transition-all duration-500">
                   <CardContent className="p-8 md:p-10">
                     <div className="flex justify-between items-start mb-8 md:mb-12 gap-4">
@@ -72,7 +73,7 @@ export const Articles = () => {
               </MotionDiv>
             ))}
           </AnimatePresence>
-        </div>
+        </MotionDiv>
       </div>
     </section>
   );

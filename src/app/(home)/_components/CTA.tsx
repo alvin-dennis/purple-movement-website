@@ -1,19 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
-import { cta } from "@/data/home";
 import { MotionDiv } from "@/components/Framer";
 import { Button } from "@/components/ui/button";
+import { cta } from "@/data/home";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const CallToAction = () => {
   return (
     <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto">
+      <MotionDiv
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportConfig}
+        className="mx-auto relative overflow-hidden px-8 md:px-16 lg:px-24 py-16 md:py-24 lg:py-32"
+      >
         <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 lg:gap-24 relative z-10">
           <div className="lg:w-2/3 text-center lg:text-left w-full flex flex-col items-center lg:items-start">
             <MotionDiv
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
               className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
             >
               <h2 className="text-[11vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] space-y-2 mb-6 md:mb-10 text-center lg:text-left">
@@ -32,10 +40,10 @@ export const CallToAction = () => {
             </MotionDiv>
 
             <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
             >
               <Link
                 href="/join"
@@ -62,7 +70,7 @@ export const CallToAction = () => {
             </MotionDiv>
           </div>
         </div>
-      </div>
+      </MotionDiv>
     </section>
   );
 };

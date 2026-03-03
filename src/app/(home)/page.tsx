@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
-
-import { Hero } from "./_components/Hero";
 import { VisionMission } from "./_components/GoalPurpose";
+import { Hero } from "./_components/Hero";
 import { Whypurple } from "./_components/Whypurple";
 
 const Gallery = dynamic(() => import("./_components/Gallery").then((mod) => mod.Gallery));

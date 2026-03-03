@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { contact } from "@/data/home";
 import { MotionDiv } from "@/components/Framer";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+import { contact } from "@/data/home";
+import { fadeInUp, viewportConfig } from "@/lib/animations";
 
 export const Contact = () => {
   const [question, setQuestion] = useState("");
@@ -69,9 +70,10 @@ export const Contact = () => {
             </div>
             <div className="lg:w-2/3 w-full">
               <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportConfig}
                 className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
               >
                 <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-4 md:mb-6 text-center lg:text-left">

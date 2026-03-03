@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FAQs } from "@/data/home";
+import { fadeInUp, viewportConfig } from "@/lib/animations";
 
 export const FAQ = () => {
   return (
@@ -13,9 +14,10 @@ export const FAQ = () => {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 md:gap-20">
         <div className="lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left">
           <MotionDiv
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
             className="flex items-center justify-center lg:justify-start gap-4 mb-4 md:mb-6"
           >
             <div className="h-[1px] w-12 bg-primary" />

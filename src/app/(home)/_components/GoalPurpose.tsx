@@ -1,5 +1,6 @@
-import { vision } from "@/data/home";
 import { MotionDiv } from "@/components/Framer";
+import { vision } from "@/data/home";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const VisionMission = () => {
   return (
@@ -13,14 +14,19 @@ export const VisionMission = () => {
             PURPOSE
           </span>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-start relative z-10">
-          <div className="lg:col-span-1 lg:block hidden" />
+        <MotionDiv
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center"
+        >
           <MotionDiv
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="lg:col-span-5 flex flex-col gap-6 md:gap-10 items-center lg:items-start"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="flex flex-col gap-6 md:gap-10 items-center lg:items-start"
           >
             <div className="flex flex-col gap-3 md:gap-4 items-center lg:items-start">
               <span className="text-primary font-bold tracking-[0.6em] uppercase text-[10px] text-center lg:text-left">
@@ -36,13 +42,9 @@ export const VisionMission = () => {
               {vision.vision.text}
             </p>
           </MotionDiv>
-          <div className="lg:col-span-1 lg:block hidden" />
           <MotionDiv
-            initial={{ opacity: 0, y: 80 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="lg:col-span-5 flex flex-col gap-6 md:gap-10 items-center lg:items-end lg:text-right lg:mt-32"
+            variants={fadeInUp}
+            className="bg-primary/5 border border-primary/20 p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] backdrop-blur-xl group hover:bg-primary/10 transition-all duration-700"
           >
             <div className="flex flex-col gap-3 md:gap-4 items-center lg:items-end">
               <span className="text-primary font-bold tracking-[0.6em] uppercase text-[10px] text-center lg:text-right">
@@ -58,12 +60,10 @@ export const VisionMission = () => {
               {vision.mission.text}
             </p>
           </MotionDiv>
-        </div>
+        </MotionDiv>
         <MotionDiv
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="max-w-5xl mx-auto text-center border-t border-b border-foreground/5 py-12 px-4"
+          variants={fadeInUp}
+          className="mt-12 md:mt-20 pt-12 md:pt-20 border-t border-foreground/5 text-center"
         >
           <h3 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-black text-foreground leading-tight uppercase opacity-80">
             {vision.statement}

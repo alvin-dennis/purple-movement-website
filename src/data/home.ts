@@ -120,6 +120,11 @@ export const FAQs: FAQItem[] = [
     answer:
       "Beyond Borders is all about breaking limits. It helps people connect, share ideas, and access opportunities without being held back by geography, systems, or labels.",
   },
+  {
+    question: "How can I contribute?",
+    answer:
+      "You can contribute by joining our community, participating in our events, sharing your ideas, and helping us create a space where everyone can grow and succeed.",
+  },
 ];
 
 export const events: EventItem[] = [
@@ -255,7 +260,7 @@ export const cta = {
   description:
     "You've sparked the start of a borderless, collaborative journey. Ideas will grow, connections will flourish, and together, we'll turn ambition into real impact.",
   statement: "TOGETHER, WE ARE THE PURPLE MOVEMENT.",
-  buttonText: "JOIN THE SPARKS",
+  buttonText: "JOIN US",
 };
 
 export const contact = {

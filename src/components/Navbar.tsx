@@ -7,8 +7,9 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navLinks } from "@/data/common";
-import { Button } from "./ui/button";
+import { fadeInUp, viewportConfig } from "@/lib/animations";
 import { MotionDiv } from "./Framer";
+import { Button } from "./ui/button";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -157,10 +158,11 @@ export const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <MotionDiv
-            initial={{ opacity: 0, scale: 0.97, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.97, y: -10 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            viewport={viewportConfig}
             className="absolute top-[calc(100%+12px)] left-0 w-full md:hidden bg-black/80 backdrop-blur-3xl rounded-[2rem] border borderforeground/10 p-8 flex flex-col items-center gap-8"
           >
             {navLinks.map((link) => (

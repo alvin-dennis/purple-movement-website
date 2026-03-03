@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import { Separator } from "@/components/ui/separator";
 import { footer } from "@/data/common";
 import FeedbackPopup from "./FeedbackPopup";
-import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
 
 export const Footer = () => {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
@@ -35,7 +35,7 @@ export const Footer = () => {
 
   return (
     <footer className="w-full border-t border-foreground/10">
-      <div className="mx-auto px-4 py-16 md:py-18">
+      <div className="mx-auto px-4 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 mb-16">
           <div className="md:col-span-3 flex flex-col gap-8">
             <div className="space-y-6">

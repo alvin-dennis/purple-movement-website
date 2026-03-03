@@ -1,5 +1,6 @@
-import { manifesto } from "@/data/home";
 import { MotionDiv } from "@/components/Framer";
+import { manifesto } from "@/data/home";
+import { containerVariants, fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const Manifesto = () => {
   return (
@@ -13,10 +14,10 @@ export const Manifesto = () => {
       <div className="max-w-[1400px] mx-auto relative z-10">
         <div className="flex flex-col gap-16">
           <MotionDiv
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
             className="relative flex flex-col items-center md:items-start"
           >
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase flex flex-col items-center md:items-start text-center md:text-left">
@@ -30,13 +31,17 @@ export const Manifesto = () => {
               </p>
             </div>
           </MotionDiv>
-          <div className="flex flex-col gap-24 md:gap-40">
+          <MotionDiv
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="flex flex-col gap-24 md:gap-40"
+          >
             {manifesto.sections.map((section, idx) => (
               <MotionDiv
                 key={section.id}
-                initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                variants={fadeInUp}
                 className={`flex flex-col gap-8 md:gap-12 items-center ${idx % 2 === 0 ? "md:items-start" : "md:items-end text-center md:text-right"}`}
               >
                 <div className="flex items-center gap-6 md:gap-8 w-full">
@@ -80,12 +85,13 @@ export const Manifesto = () => {
                 </div>
               </MotionDiv>
             ))}
-          </div>
+          </MotionDiv>
+
           <MotionDiv
-            initial={{ opacity: 0, rotateX: 20 }}
-            whileInView={{ opacity: 1, rotateX: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2 }}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
             className="py-12 sm:py-20 md:py-32 flex flex-col items-center text-center justify-center relative overflow-hidden group px-6 md:px-12"
           >
             <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] space-y-2 uppercase">
@@ -99,22 +105,36 @@ export const Manifesto = () => {
               <br />
               NOT TEMPLATES.
             </h4>
-            <div className="mt-8 md:mt-12 text-sm sm:text-base md:text-lg lg:text-xl text-foreground max-w-4xl px-4 md:px-10 leading-relaxed">
-              We are here to reclaim the narrative. To give confidence to the curious, networks to
-              the bold, and direction to the determined.
+            <div className="mt-8 md:mt-12 text-foreground max-w-4xl px-4 md:px-10 leading-relaxed text-center">
+              <p className="mb-4 text-lg md:text-2xl">
+                We are here to reclaim the narrative. To give confidence to the curious, networks to
+                the bold, and direction to the determined.
+              </p>
+              <div className="mt-12 space-y-6">
+                <h2 className="text-primary font-bold tracking-[0.4em] uppercase text-xl">
+                  The Movement
+                </h2>
+                <h3 className="text-2xl md:text-4xl py-2 max-w-md mx-auto bg-tpm font-black uppercase">
+                  This is The Purple Movement.
+                </h3>
+                <p className="text-lg md:text-2xl text-foreground leading-relaxed max-w-3xl mx-auto">
+                  A wave of youth power, purpose, and possibility. A signal that change is not
+                  coming—it&apos;s already here.
+                </p>
+              </div>
             </div>
           </MotionDiv>
+
           <MotionDiv
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
             className="mt-12 text-center relative"
           >
             <div className="flex flex-col gap-12 sm:gap-16">
               <MotionDiv
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                variants={fadeInUp}
                 className="flex flex-col items-center text-center max-w-5xl mx-auto"
               >
                 <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.9] mb-6">
@@ -128,9 +148,12 @@ export const Manifesto = () => {
                 </h4>
               </MotionDiv>
             </div>
-            <p className="mt-6 md:mt-10 text-base sm:text-lg md:text-xl lg:text-2xl font-black text-primary tracking-[0.3em] md:tracking-[0.4em] uppercase animate-pulse">
+            <MotionDiv
+              variants={fadeInUp}
+              className="mt-6 md:mt-10 text-base sm:text-lg md:text-xl lg:text-2xl font-black text-primary tracking-[0.3em] md:tracking-[0.4em] uppercase animate-pulse"
+            >
               AND IT STARTS NOW
-            </p>
+            </MotionDiv>
           </MotionDiv>
         </div>
       </div>

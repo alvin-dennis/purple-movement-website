@@ -1,11 +1,12 @@
 "use client";
 
 import { AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { useState } from "react";
-import { levels } from "@/data/home";
 import { MotionDiv, MotionPath } from "@/components/Framer";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { levels } from "@/data/home";
+import { fadeInUp, viewportConfig } from "@/lib/animations";
 
 const PyramidChart = () => {
   const [activeLevel, setActiveLevel] = useState<number>(3);
@@ -137,10 +138,11 @@ const PyramidChart = () => {
               level.id === activeLevel && (
                 <MotionDiv
                   key={level.id}
-                  initial={{ opacity: 0, scale: 0.98, x: 30 }}
-                  animate={{ opacity: 1, scale: 1, x: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, x: -30 }}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  variants={fadeInUp}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  viewport={viewportConfig}
                   className="max-w-xl w-full flex flex-col items-center lg:items-start text-center lg:text-left"
                 >
                   <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block text-center lg:text-left">

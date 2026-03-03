@@ -1,7 +1,8 @@
 import { AnimatePresence } from "framer-motion";
-import { whyPurple } from "@/data/home";
 import { MotionDiv } from "@/components/Framer";
 import { Card, CardContent } from "@/components/ui/card";
+import { whyPurple } from "@/data/home";
+import { fadeInUp, viewportConfig } from "@/lib/animations";
 
 export const Whypurple = () => {
   return (
@@ -28,9 +29,10 @@ export const Whypurple = () => {
           </div>
           <div className="w-full lg:w-2/3 flex flex-col gap-16 md:gap-24">
             <MotionDiv
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
               className="relative flex flex-col items-center lg:items-start"
             >
               <span className="text-[20vw] absolute -top-10 md:-top-20 -left-4 md:-left-10 font-black text-foreground/[0.03] leading-none pointer-events-none select-none">
@@ -63,9 +65,10 @@ export const Whypurple = () => {
                 return (
                   <MotionDiv
                     key={item.id}
-                    initial={{ opacity: 0, x: index === 0 ? -20 : 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportConfig}
                     className={`${bgClass} backdrop-blur-3xl border ${borderClass} p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] group ${hoverBgClass} transition-all duration-700 ${
                       index === 1 ? "sm:mt-12" : ""
                     } flex flex-col items-center sm:items-start`}
@@ -99,10 +102,10 @@ export const Whypurple = () => {
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-16 md:py-24">
           <AnimatePresence>
             <MotionDiv
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
               className="overflow-hidden"
             >
               <div className="pt-12 md:pt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">

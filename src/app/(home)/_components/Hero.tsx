@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { MotionDiv } from "@/components/Framer";
 import { Button } from "@/components/ui/button";
 import { hero } from "@/data/home";
-import { MotionDiv } from "@/components/Framer";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export function Hero() {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -38,9 +39,10 @@ export function Hero() {
 
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 md:pt-36 md:pb-28 flex flex-col items-center text-center">
         <MotionDiv
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+          viewport={viewportConfig}
           className="w-full flex flex-col items-center"
         >
           <div className="inline-flex items-center gap-3 px-4 py-2 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-md mb-4 md:mb-6">
@@ -60,9 +62,10 @@ export function Hero() {
         </MotionDiv>
 
         <MotionDiv
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          viewport={viewportConfig}
           className="flex flex-col items-center gap-6 md:gap-10 w-full max-w-3xl mt-8"
         >
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-foreground">

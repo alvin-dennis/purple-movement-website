@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
 import type { HTMLMotionProps, SVGMotionProps } from "framer-motion";
+import { motion } from "framer-motion";
+import React from "react";
 
 const MotionDiv = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(function MotionDiv(
   { children, ...props },
