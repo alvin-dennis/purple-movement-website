@@ -62,25 +62,16 @@ export const Manifesto = () => {
                   className={`max-w-4xl space-y-2 ${idx % 2 === 0 ? "md:ml-[10vw] lg:ml-[20vw]" : "md:mr-[5vw] lg:mr-[10vw]"}`}
                 >
                   <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-normal text-foreground">
-                    {section.id === "01" ? (
-                      <>
-                        We are the Manifestors of Change. Not waiting for the future, but building
-                        it with{" "}
-                        <span className="bg-tpm text-foreground uppercase font-bold px-2 py-1">
-                          courage, code, creativity, and clarity.
-                        </span>
-                      </>
-                    ) : section.id === "02" ? (
-                      <>
-                        We are not consumers of culture;{" "}
-                        <span className="bg-tpm text-foreground uppercase font-bold px-2 py-1">
-                          we are producers of purpose.
-                        </span>{" "}
-                        We hold the key to ecosystems that empower, not limit.
-                      </>
-                    ) : (
-                      section.text
-                    )}
+                    {section.text.split(section.highlight).map((part, i, arr) => (
+                      <span key={i}>
+                        {part}
+                        {i < arr.length - 1 && (
+                          <span className="bg-tpm text-foreground uppercase font-bold px-2 py-1">
+                            {section.highlight}
+                          </span>
+                        )}
+                      </span>
+                    ))}
                   </p>
                 </div>
               </MotionDiv>
@@ -94,32 +85,30 @@ export const Manifesto = () => {
             viewport={viewportConfig}
             className="py-12 sm:py-20 md:py-32 flex flex-col items-center text-center justify-center relative overflow-hidden group px-6 md:px-12"
           >
-            <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] space-y-2 uppercase">
-              IN ACCESS,
-              <br />
-              NOT GATEKEEPING.
-            </h4>
-            <div className="h-1 w-24 md:w-40 bg-primary my-6 md:my-10" />
-            <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] text-primary uppercase">
-              IN BOLD VISIONS,
-              <br />
-              NOT TEMPLATES.
-            </h4>
+            {manifesto.statements.bold.map((stmt, i) => (
+              <div key={i} className="flex flex-col items-center">
+                <h4
+                  className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] uppercase ${i === 1 ? "text-primary mt-6 md:mt-10" : "space-y-2"}`}
+                >
+                  {stmt.top}
+                  <br />
+                  {stmt.bottom}
+                </h4>
+                {i === 0 && <div className="h-1 w-24 md:w-40 bg-primary my-6 md:my-10" />}
+              </div>
+            ))}
+
             <div className="mt-8 md:mt-12 text-foreground max-w-4xl px-4 md:px-10 leading-relaxed text-center">
-              <p className="mb-4 text-lg md:text-2xl">
-                We are here to reclaim the narrative. To give confidence to the curious, networks to
-                the bold, and direction to the determined.
-              </p>
+              <p className="mb-4 text-lg md:text-2xl">{manifesto.statements.reclaim}</p>
               <div className="mt-12 space-y-6">
                 <h2 className="text-primary font-bold tracking-[0.4em] uppercase text-xl">
-                  The Movement
+                  {manifesto.statements.movement.badge}
                 </h2>
                 <h3 className="text-2xl md:text-4xl py-2 max-w-md mx-auto bg-tpm font-black uppercase">
-                  This is The Purple Movement.
+                  {manifesto.statements.movement.title}
                 </h3>
                 <p className="text-lg md:text-2xl text-foreground leading-relaxed max-w-3xl mx-auto">
-                  A wave of youth power, purpose, and possibility. A signal that change is not
-                  coming—it&apos;s already here.
+                  {manifesto.statements.movement.description}
                 </p>
               </div>
             </div>
@@ -137,22 +126,22 @@ export const Manifesto = () => {
                 variants={fadeInUp}
                 className="flex flex-col items-center text-center max-w-5xl mx-auto"
               >
-                <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.9] mb-6">
-                  We are the <span className="text-primary">energy.</span>
-                </h4>
-                <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.9] mb-6">
-                  We are the <span className="text-steady">strategy.</span>
-                </h4>
-                <h4 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.9] text-foreground">
-                  We are the <span className="text-energy">spark.</span>
-                </h4>
+                {manifesto.statements.footer.map((item, i) => (
+                  <h4
+                    key={i}
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.9] mb-6 last:mb-0"
+                  >
+                    {item.text}{" "}
+                    <span className={item.color || "text-primary"}>{item.highlight}</span>
+                  </h4>
+                ))}
               </MotionDiv>
             </div>
             <MotionDiv
               variants={fadeInUp}
               className="mt-6 md:mt-10 text-base sm:text-lg md:text-xl lg:text-2xl font-black text-primary tracking-[0.3em] md:tracking-[0.4em] uppercase animate-pulse"
             >
-              AND IT STARTS NOW
+              {manifesto.statements.startsNow}
             </MotionDiv>
           </MotionDiv>
         </div>

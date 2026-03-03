@@ -42,10 +42,7 @@ export const VisionMission = () => {
               {vision.vision.text}
             </p>
           </MotionDiv>
-          <MotionDiv
-            variants={fadeInUp}
-            className="bg-primary/5 border border-primary/20 p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] backdrop-blur-xl group hover:bg-primary/10 transition-all duration-700"
-          >
+          <MotionDiv variants={fadeInUp} className="p-8 md:p-12 backdrop-blur-xl group">
             <div className="flex flex-col gap-3 md:gap-4 items-center lg:items-end">
               <span className="text-primary font-bold tracking-[0.6em] uppercase text-[10px] text-center lg:text-right">
                 The Propulsion
