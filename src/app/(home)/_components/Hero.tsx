@@ -56,7 +56,7 @@ export function Hero() {
             {hero.title1}
           </h1>
 
-          <h2 className="text-tpm text-[16vw] sm:text-[13vw] lg:text-[9vw] xl:text-[8vw] font-black uppercase leading-[1]">
+          <h2 className="text-tpm text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[1]">
             {hero.title2}
           </h2>
         </MotionDiv>
@@ -73,7 +73,7 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 w-full justify-center">
-            <span className="text-foreground/40 font-bold tracking-widest text-xs uppercase hidden sm:block">
+            <span className="text-foreground font-bold tracking-widest text-xs uppercase hidden sm:block">
               Sounds like you?
             </span>
             <Link href="/join">

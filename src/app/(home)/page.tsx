@@ -1,37 +1,27 @@
-import dynamic from "next/dynamic";
-import { VisionMission } from "./_components/GoalPurpose";
+import { Articles } from "./_components/Articles";
+import { Contact } from "./_components/Contact";
+import { CallToAction } from "./_components/CTA";
+import { Events } from "./_components/Events";
+import { FAQ } from "./_components/FAQ";
+import { Gallery } from "./_components/Gallery";
 import { Hero } from "./_components/Hero";
+import { Manifesto } from "./_components/Manifesto";
+import { Pyramid } from "./_components/Pyramid";
+import { Timeline } from "./_components/Timeline";
+import { VisionMission } from "./_components/VisionMission";
 import { Whypurple } from "./_components/Whypurple";
 
-const Gallery = dynamic(() => import("./_components/Gallery").then((mod) => mod.Gallery));
-
-const Timeline = dynamic(() => import("./_components/Timeline").then((mod) => mod.Timeline));
-
-const Pyramid = dynamic(() => import("./_components/Pyramid"));
-
-const Manifesto = dynamic(() => import("./_components/Manifesto").then((mod) => mod.Manifesto));
-
-const Events = dynamic(() => import("./_components/Events").then((mod) => mod.Events));
-
-const Articles = dynamic(() => import("./_components/Articles").then((mod) => mod.Articles));
-
-const FAQ = dynamic(() => import("./_components/FAQ").then((mod) => mod.FAQ));
-
-const Contact = dynamic(() => import("./_components/Contact").then((mod) => mod.Contact));
-
-const CallToAction = dynamic(() => import("./_components/CTA").then((mod) => mod.CallToAction));
-
-export default async function Home() {
+export default function Home() {
   return (
     <div className="min-h-screen overflow-hidden">
       <main className="w-full">
         <Hero />
         <VisionMission />
         <Whypurple />
-        <Gallery />
-        <Timeline />
         <Pyramid />
         <Manifesto />
+        <Gallery />
+        <Timeline />
         <Events />
         <Articles />
         <FAQ />

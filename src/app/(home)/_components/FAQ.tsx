@@ -26,8 +26,7 @@ export const FAQ = () => {
             </span>
           </MotionDiv>
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-foreground mb-4 md:mb-8">
-            GOT <br />
-            <span className="text-tpm">QUESTIONS?</span>
+            <span className="text-tpm">FAQ</span>
           </h2>
           <p className="text-base md:text-lg text-foreground/50">
             Got questions? We&apos;ve got answers. Here are some of the most common things people

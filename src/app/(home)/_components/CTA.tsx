@@ -13,7 +13,7 @@ export const CallToAction = () => {
         initial="hidden"
         whileInView="visible"
         viewport={viewportConfig}
-        className="mx-auto relative overflow-hidden px-8 md:px-16 lg:px-24 py-16 md:py-24 lg:py-32"
+        className="max-w-7xl mx-auto relative overflow-hidden px-8 md:px-16 lg:px-24 py-16 md:py-24 lg:py-32"
       >
         <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 lg:gap-24 relative z-10">
           <div className="lg:w-2/3 text-center lg:text-left w-full flex flex-col items-center lg:items-start">
@@ -24,7 +24,7 @@ export const CallToAction = () => {
               viewport={viewportConfig}
               className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
             >
-              <h2 className="text-[11vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] space-y-2 mb-6 md:mb-10 text-center lg:text-left">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.85] space-y-2 mb-6 md:mb-10 text-center lg:text-left">
                 {cta.title1} <br />
                 <span className="text-tpm">{cta.title2}</span> {cta.title3}
               </h2>

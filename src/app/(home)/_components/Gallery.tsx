@@ -81,7 +81,7 @@ export const Gallery = () => {
       className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 relative overflow-hidden"
       id="gallery"
     >
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 mb-12 md:mb-24 items-end">
           <div className="lg:col-span-8 flex flex-col items-center lg:items-start">
             <MotionDiv
@@ -96,9 +96,8 @@ export const Gallery = () => {
                 Living Community
               </span>
             </MotionDiv>
-            <h2 className="text-[12vw] sm:text-[9vw] md:text-[7vw] lg:text-[6vw] leading-[0.85] space-y-2 text-center lg:text-left">
-              THE <br />
-              <span className="text-tpm">ENERGY</span> OF US.
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl  leading-[0.85] space-y-2 text-center lg:text-left">
+              THE <span className="text-tpm">ENERGY</span> OF US.
             </h2>
           </div>
           <div className="lg:col-span-4">

@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import localFont from "next/font/local";
+import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 
-const headline = localFont({
-  src: "../components/fonts/headline.ttf",
+const montserrat = Montserrat({
+  subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
@@ -16,6 +15,7 @@ const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-body",
   weight: ["300", "400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
-        className={`${headline.variable} ${poppins.variable} bg-[#020205] text-foreground font-body`}
+        className={`${montserrat.variable} ${poppins.variable} bg-background text-foreground font-body`}
       >
         <Navbar />
         {children}

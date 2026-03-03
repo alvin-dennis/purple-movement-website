@@ -19,7 +19,7 @@ const PyramidChart = () => {
   };
 
   return (
-    <div className="relative w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 py-32 md:py-48 px-6">
+    <div className="relative w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 py-32 md:py-48 px-6">
       <div className="relative w-full lg:w-1/2 aspect-square max-w-[550px] flex items-center justify-center">
         <svg
           viewBox="0 0 600 600"

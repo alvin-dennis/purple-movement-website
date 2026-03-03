@@ -10,15 +10,13 @@ export const hero = {
 
 export const vision = {
   vision: {
-    title: "GOAL",
+    title: "VISION",
     text: "We aim to build a world free of barriers and privilege, where compassion and fairness open the door for everyone to rise and realize their potential. By helping people grow and encouraging them to uplift others, we create a community that thrives together.",
   },
   mission: {
-    title: "PURPOSE",
+    title: "MISSION",
     text: "A community that rises beyond borders, syllabus limits, and gatekeepers, where curiosity and generosity guide how we learn and grow. By breaking down barriers and removing limits, we create a space where everyone can connect, collaborate, and grow without boundaries.",
   },
-  statement:
-    "Together, we create an open cycle of shared learning, mutual support, and lifelong empowerment because REAL PROGRESS BEGINS WITH GENEROSITY.",
 };
 
 export const whyPurple = {
@@ -26,14 +24,10 @@ export const whyPurple = {
   duality: [
     {
       id: "01",
-      label: "RED",
-      title: "The Energy",
       text: "Red symbolizes the youth: energetic, passionate, curious, and ready to create change.",
     },
     {
       id: "02",
-      label: "BLUE",
-      title: "The Steady",
       text: "Blue symbolizes experienced professionals: steady, knowledgeable, and capable of unlocking new possibilities.",
     },
   ],
@@ -51,7 +45,7 @@ export const whyPurple = {
     "When red and blue come together, they create purple—a symbol of collaboration, balance, and the future we want to build.",
   thought:
     'And that thought every person has felt at least once: "If only there was a place where I could learn, connect, and be understood"',
-  final: "we're here to make that place real.",
+  final: "We're here to make that place real.",
 };
 
 export const gallery: Gallery[] = [
@@ -283,7 +277,7 @@ export const cta = {
 
 export const contact = {
   title: "GOT",
-  highlight: "INPUT",
+  highlight: "QUESTIONS",
   description: "A movement is built on dialogue. Drop your spark below and let's evolve together.",
   placeholder: "Type your question or spark...",
   buttonText: "SUBMIT SPARK",

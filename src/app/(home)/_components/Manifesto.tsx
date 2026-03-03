@@ -6,12 +6,12 @@ export const Manifesto = () => {
   return (
     <section className="w-full py-20 sm:py-32 md:py-40 lg:py-60 px-4 sm:px-6 relative">
       <div className="absolute top-0 right-0 w-full h-full select-none pointer-events-none opacity-[0.03] overflow-hidden">
-        <span className="text-[40vw] font-black uppercase text-foreground leading-none absolute -top-20 -right-20">
+        <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase text-foreground leading-none absolute -top-20 -right-20">
           MANIFESTO
         </span>
       </div>
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col gap-16">
           <MotionDiv
             variants={fadeInUp}

@@ -53,7 +53,7 @@ export const Contact = () => {
 
   return (
     <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 overflow-hidden">
-      <Card className="max-w-[1400px] mx-auto backdrop-blur-xl border border-primary/50 relative">
+      <Card className="max-w-7xl mx-auto backdrop-blur-xl border border-primary/50 relative">
         <CardContent className="p-6 sm:p-10 md:p-16 lg:p-24">
           <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-20">
             <div className="lg:w-1/3 relative hidden lg:flex items-center justify-center">
@@ -76,9 +76,8 @@ export const Contact = () => {
                 viewport={viewportConfig}
                 className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
               >
-                <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-4 md:mb-6 text-center lg:text-left">
-                  {contact.title} <br />
-                  <span className="text-tpm">{contact.highlight}</span> ?
+                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-6 text-center lg:text-left">
+                  {contact.title} <span className="text-tpm">{contact.highlight}</span>?
                 </h2>
 
                 <p className="text-base md:text-lg lg:text-xl text-foreground/50 text-center lg:text-left">
