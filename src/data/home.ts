@@ -188,27 +188,39 @@ export const articles: ArticleItem[] = [
 export const timeline: Timeline[] = [
   {
     year: "DISCOVERY",
-    title: "The Spark",
+    title: "Perumte",
     description: "It started with a simple question: Can we create a space without gatekeepers?",
     status: "ORIGIN",
   },
   {
     year: "CURIOSITY",
-    title: "First Connections",
+    title: "Formed TPM",
     description:
       "People from different backgrounds started sharing their learning journeys beyond borders.",
     status: "STIRRING",
   },
   {
     year: "PARTICIPATION",
-    title: "Rising Together",
+    title: "Launch at beyond faya port:80",
     description:
       "Our first collective projects broke the syllabus limits and opened new doors for everyone.",
     status: "FLOW",
   },
   {
     year: "CONTRIBUTION",
-    title: "Shared Progress",
+    title: "Verticals syllabus and gatekeepers kickstart",
+    description: "Every contribution became a seed for someone else's growth, completing the loop.",
+    status: "PEAK",
+  },
+  {
+    year: "CONTRIBUTION",
+    title: "ai+compassion",
+    description: "Every contribution became a seed for someone else's growth, completing the loop.",
+    status: "PEAK",
+  },
+  {
+    year: "CONTRIBUTION",
+    title: "Tricult",
     description: "Every contribution became a seed for someone else's growth, completing the loop.",
     status: "PEAK",
   },
@@ -245,8 +257,8 @@ export const manifesto = {
     },
     footer: [
       { text: "We are the", highlight: "energy." },
-      { text: "We are the", highlight: "strategy.", color: "text-steady" },
-      { text: "We are the", highlight: "spark.", color: "text-energy" },
+      { text: "We are the", highlight: "strategy." },
+      { text: "We are the", highlight: "spark." },
     ],
     startsNow: "AND IT STARTS NOW",
   },

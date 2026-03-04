@@ -1,7 +1,12 @@
 "use client";
 
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { useState } from "react";
 import PhoneInput from "react-phone-input-2";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Spinner } from "@/components/ui/spinner";
 import "react-phone-input-2/lib/style.css";
 
 // Custom styles for the phone input to match dark theme
@@ -154,7 +159,6 @@ export default function StepThree({
     phone: false,
   });
 
-  // Validation functions
   const validateName = (name: string) => {
     if (!name.trim()) return "Name is required";
     if (name.trim().length < 2) return "Name must be at least 2 characters";
@@ -177,7 +181,6 @@ export default function StepThree({
     return "";
   };
 
-  // Get validation errors (only show for touched fields)
   const nameError = !notInterested && touchedFields.name ? validateName(name) : "";
   const emailError = !notInterested && touchedFields.email ? validateEmail(email) : "";
   const phoneError = !notInterested && touchedFields.phone ? validatePhone(phone) : "";
@@ -188,196 +191,152 @@ export default function StepThree({
 
   return (
     <div className="w-full px-4 sm:px-6 space-y-8">
-      {/* Inject custom styles */}
       <style dangerouslySetInnerHTML={{ __html: phoneInputStyles }} />
-
-      {/* Header & Description */}
       <div className="space-y-6">
         <div className="max-w-[864px] w-full mx-auto space-y-3">
-          <h1 className="text-2xl sm:text-4xl font-bold text-white capitalize text-left pl-3 sm:pl-4">
+          <h1 className="text-2xl sm:text-4xl font-bold capitalize text-left pl-3 sm:pl-4">
             Tell Us About You
           </h1>
-          <div className="justify-start text-white text-base font-normal capitalize pl-3 sm:pl-4">
+          <div className="justify-start text-base font-normal capitalize pl-3 sm:pl-4">
             We&apos;d love to hear from you, or you can stay anonymous.
           </div>
         </div>
 
         <div className="max-w-[864px] w-full mx-auto">
-          <label className="flex items-center space-x-3 cursor-pointer pl-3 sm:pl-4">
+          <Label className="flex items-center space-x-3 cursor-pointer pl-3 sm:pl-4">
             <div className="relative cursor-pointer">
-              <input
+              <Input
                 type="checkbox"
                 checked={notInterested}
                 onChange={(e) => onChange({ notInterested: e.target.checked })}
-                className="w-5 h-5 border border-red-400 bg-transparent appearance-none rounded-sm focus:ring-primary focus:outline-none cursor-pointer"
+                className="w-8 h-8 border border-destructive bg-transparent appearance-none rounded-sm focus:ring-primary focus:outline-none cursor-pointer"
               />
               {notInterested && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <svg className="w-3 h-3 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <Check className="h-4 w-4" />
                 </div>
               )}
             </div>
-            <span className="text-red-400 text-xl font-medium capitalize">Stay Anonymous</span>
-          </label>
+            <span className="text-destructive text-xl font-medium capitalize">Stay Anonymous</span>
+          </Label>
         </div>
       </div>
-
-      {/* Form Fields */}
       <div className="max-w-[864px] w-full mx-auto space-y-8">
-        {/* Name */}
         <div className="space-y-3">
-          <label
-            className={`block text-sm sm:text-lg text-white font-bold capitalize
+          <Label
+            className={`block text-sm sm:text-lg font-bold capitalize
             ${notInterested ? "opacity-50" : ""}
           `}
           >
             Name:
-          </label>
-          <input
+          </Label>
+          <Input
             type="text"
             value={name}
             onChange={(e) => onChange({ name: e.target.value })}
             onFocus={() => setTouchedFields((prev) => ({ ...prev, name: true }))}
             disabled={notInterested}
-            className={`w-full h-11 px-4 text-sm sm:text-base bg-transparent border rounded text-white placeholder-white/60 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed ${
+            className={`w-full h-11 px-4 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed ${
               nameError && !notInterested
-                ? "border-red-500 focus:ring-red-500"
-                : "border-white focus:ring-violet-700"
+                ? "border-destructive focus:ring-destructive"
+                : "border-foreground focus:ring-primary"
             }`}
             placeholder="Enter your full name"
           />
-          {nameError && !notInterested && <p className="text-red-400 text-sm mt-1">{nameError}</p>}
+          {nameError && !notInterested && (
+            <p className="text-destructive text-sm mt-1">{nameError}</p>
+          )}
         </div>
 
-        {/* Email */}
         <div className="space-y-3">
-          <label
-            className={`block text-sm sm:text-lg text-white font-bold capitalize
+          <Label
+            className={`block text-sm sm:text-lg font-bold capitalize
             ${notInterested ? "opacity-50" : ""}
           `}
           >
             Email:
-          </label>
-          <input
+          </Label>
+          <Input
             type="email"
             value={email}
             onChange={(e) => onChange({ email: e.target.value })}
             onFocus={() => setTouchedFields((prev) => ({ ...prev, email: true }))}
             disabled={notInterested}
-            className={`w-full h-11 px-4 text-sm sm:text-base bg-transparent border rounded text-white placeholder-white/60 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed ${
+            className={`w-full h-11 px-4 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed ${
               emailError && !notInterested
-                ? "border-red-500 focus:ring-red-500"
-                : "border-white focus:ring-violet-700"
+                ? "border-destructive focus:ring-destructive"
+                : "border-foreground focus:ring-primary"
             }`}
             placeholder="Enter your email address"
           />
           {emailError && !notInterested && (
-            <p className="text-red-400 text-sm mt-1">{emailError}</p>
+            <p className="text-destructive text-sm mt-1">{emailError}</p>
           )}
         </div>
 
-        {/* Phone */}
         <div className="space-y-3">
-          <label
-            className={`block text-sm sm:text-lg text-white font-bold capitalize
+          <Label
+            className={`block text-sm sm:text-lg font-bold capitalize
             ${notInterested ? "opacity-50" : ""}
           `}
           >
             Phone:
-          </label>
+          </Label>
           <PhoneInput
             country={"us"}
             value={phone}
             onChange={(value) => onChange({ phone: value })}
             onFocus={() => setTouchedFields((prev) => ({ ...prev, phone: true }))}
             disabled={notInterested}
-            containerClass={`w-full ${phoneError && !notInterested ? "error" : ""} ${notInterested ? "disabled" : ""}`}
+            containerClass={`w-full rounded-2xl ${phoneError && !notInterested ? "error" : ""} ${notInterested ? "disabled" : ""}`}
             inputProps={{
               placeholder: "Enter your phone number",
               disabled: notInterested,
             }}
           />
           {phoneError && !notInterested && (
-            <p className="text-red-400 text-sm mt-1">{phoneError}</p>
+            <p className="text-destructive text-sm mt-1">{phoneError}</p>
           )}
         </div>
       </div>
-
-      {/* Submit Error */}
       {submitError && (
         <div className="max-w-[864px] w-full mx-auto">
-          <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4">
-            <p className="text-red-400 text-sm">{submitError}</p>
+          <div className="bg-destructive/30 border border-destructive rounded-lg p-4">
+            <p className="text-foreground text-sm">{submitError}</p>
           </div>
         </div>
       )}
-
-      {/* Navigation Buttons */}
       <div className="flex flex-col sm:flex-row gap-3 justify-between items-center max-w-[864px] w-full mx-auto">
-        <button
+        <Button
+          variant={"default"}
           onClick={onBack}
           disabled={isSubmitting}
-          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${
-            isSubmitting ? "bg-primary/30 cursor-not-allowed" : "bg-primary/60 hover:bg-primary"
+          className={`w-full sm:w-32 py-2 flex justify-center items-center gap-1.5 ${
+            isSubmitting ? "bg-primary/30 cursor-not-allowed" : ""
           }`}
         >
-          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          <span className="text-white text-sm font-inter">Back</span>
-        </button>
+          <ArrowLeft className="h-4 w-4" />
+          <span className="text-sm font-inter">Back</span>
+        </Button>
 
-        <button
+        <Button
+          variant={"default"}
           onClick={onNext}
           disabled={!isFormValid || isSubmitting}
-          className={`w-full sm:w-32 py-2 rounded flex justify-center items-center gap-1.5 transition-colors ${
-            isFormValid && !isSubmitting
-              ? "bg-primary hover:bg-primary"
-              : "bg-primary/50 cursor-not-allowed"
+          className={`w-full sm:w-32 py-2  flex justify-center items-center gap-1.5 ${
+            isFormValid && !isSubmitting ? "" : "bg-primary/50 cursor-not-allowed"
           }`}
         >
-          {isSubmitting ? (
-            <>
-              <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              <span className="text-white text-sm font-inter">Submitting...</span>
-            </>
-          ) : (
-            <>
-              <span className="text-white text-sm font-inter">Submit</span>
-              <svg
-                className="w-5 h-5 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </>
-          )}
-        </button>
+          {isSubmitting && <Spinner className="mr-2 h-4 w-4" />}
+          <span className=" text-sm font-inter">Submit</span>
+          <ArrowRight className="h-4 w-4" />
+        </Button>
       </div>
 
-      {/* Selected Role Footer */}
       {selectedFromPrevious && (
-        <p className="text-xs sm:text-sm text-white/60 text-center mt-4">
+        <p className="text-xs sm:text-sm text-center mt-4">
           Joining as:{" "}
-          <span className="text-violet-400 font-medium capitalize">{selectedFromPrevious}</span>
+          <span className="text-primary font-medium capitalize">{selectedFromPrevious}</span>
         </p>
       )}
     </div>

@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { toast } from "sonner";
+import type { JoinCommunityRequest } from "@/lib/schema";
+import { useJoinCommunity } from "@/services/hooks";
 import StepFour from "./components/StepFour";
 import StepOne from "./components/StepOne";
 import StepThree from "./components/StepThree";
@@ -26,8 +29,6 @@ export default function JoinUsPage() {
   const [selectedFromPrevious, setSelectedFromPrevious] = useState<string | null>(null);
   const [currentStep, setCurrentStep] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
   const [stepTwoData, setStepTwoData] = useState<StepTwoFormData>({
     selectedRole: "",
     whyHere: "",
@@ -40,6 +41,10 @@ export default function JoinUsPage() {
     interested: false,
     notInterested: false,
   });
+
+  const { mutateAsync: submitJoinRequest, isPending: isSubmitting } = useJoinCommunity();
+
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const steps = [
     { number: 1, active: true },
@@ -74,48 +79,36 @@ export default function JoinUsPage() {
       return;
     }
 
-    setIsSubmitting(true);
     setSubmitError(null);
 
-    try {
-      const formData = {
-        selectedRole: selectedFromPrevious,
-        defining: stepTwoData.selectedRole,
-        whyHere: stepTwoData.whyHere,
-        portfolioLink: stepTwoData.portfolioLink,
+    await submitJoinRequest(
+      {
+        category: selectedFromPrevious as JoinCommunityRequest["category"],
+        what_defines_you: stepTwoData.selectedRole,
+        what_to_share: stepTwoData.whyHere,
+        link: stepTwoData.portfolioLink,
+        is_anonymous: stepThreeData.notInterested,
         name: stepThreeData.name,
         email: stepThreeData.email,
         phone: stepThreeData.phone,
-        notInterested: stepThreeData.notInterested,
-      };
-
-      const response = await fetch("/api/join", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+        site_id: "tpm-website",
+      },
+      {
+        onSuccess: () => {
+          toast.success("Join request submitted successfully! Welcome to The Purple Movement");
+          setIsTransitioning(true);
+          setTimeout(() => {
+            setCurrentStep(4);
+            setIsTransitioning(false);
+          }, 300);
         },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error || "Failed to submit form");
-      }
-
-      // Success - proceed to step 4
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentStep(4);
-        setIsTransitioning(false);
-      }, 300);
-    } catch (error) {
-      console.error("Form submission error:", error);
-      setSubmitError(
-        error instanceof Error ? error.message : "Failed to submit form. Please try again.",
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
+        onError: (error) => {
+          const errorMessage = error.message || "Failed to submit form. Please try again.";
+          setSubmitError(errorMessage);
+          toast.error(errorMessage);
+        },
+      },
+    );
   };
 
   const handleBackStep = () => {
@@ -173,7 +166,7 @@ export default function JoinUsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#020309] via-[#05041b] to-[#020309] text-white">
+    <div className="min-h-screen">
       <main className="flex items-start justify-center pt-24 pb-12 px-4 sm:px-6 md:px-8">
         {/* Background Image - Full Width */}
         <div className="fixed top-50 left-0 w-full h-full z-0 overflow-hidden">

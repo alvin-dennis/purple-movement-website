@@ -1,6 +1,5 @@
-"use client";
-
-import Image from "next/image";
+import { Building2, Landmark, User } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 interface StepOneProps {
   selectedOption: string | null;
@@ -13,68 +12,53 @@ export default function StepOne({ selectedOption, onCardClick }: StepOneProps) {
       id: "individual",
       label: "Individual",
       text: "Students, creators, and entrepreneurs collaborating, contributing, and networking to drive meaningful impact together.",
-      svgPath: "/svgs/ind.svg",
+      icon: User,
     },
     {
-      id: "organization",
+      id: "organisation",
       label: "Organization",
       text: "Nonprofit organizations, startups, universities, and research labs enabling learning, fostering innovation, and creating scalable solutions.",
-      svgPath: "/svgs/org.svg",
+      icon: Building2,
     },
     {
       id: "government",
       label: "Government",
       text: "Government departments, policymakers, and public institutions shaping programs, fostering the ecosystem, and enabling impactful collaboration.",
-      svgPath: "/svgs/gov.svg",
+      icon: Landmark,
     },
   ];
 
   return (
     <div className="space-y-8 sm:space-y-12 w-full">
-      {/* Header */}
       <div className="space-y-3 sm:space-y-4 text-center">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold capitalize">What Defines You?</h1>
-        <p className="text-sm sm:text-base md:text-lg font-normal text-white/80 capitalize">
+        <p className="text-sm sm:text-base md:text-lg font-normal capitalize">
           Understanding the things that define you.
         </p>
       </div>
-
-      {/* Selection Cards */}
       <div className="w-full flex flex-wrap items-center justify-center gap-6 sm:gap-8">
         {options.map((option) => (
-          <button
+          <Card
             key={option.id}
             onClick={() => onCardClick(option.id)}
-            className={`w-[90%] xs:w-64 sm:w-60 md:w-64 h-32 xs:h-40 sm:h-64 md:h-72 relative bg-slate-900/75 rounded-xl shadow-lg border   group overflow-hidden cursor-pointer transform transition-transform duration-300 ease-out hover:scale-110 hover:shadow-violet-500/30 hover:shadow-lg ${
+            className={`w-[90%] xs:w-64 sm:w-60 md:w-64 h-32 xs:h-40 sm:h-64 md:h-72 relative group overflow-hidden cursor-pointer transform transition-transform duration-300 ease-out hover:scale-110 ${
               selectedOption === option.id
-                ? "border-violet-700 bg-slate-800/90"
-                : "border-black/40 hover:border-violet-700/50"
+                ? "border-primary"
+                : "border-background/40 hover:border-primary"
             }`}
           >
-            {/* Icon */}
-            <div className="absolute top-6 left-5 w-10 h-10  rounded flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <Image
-                src={option.svgPath}
-                alt={option.label}
-                width={24}
-                height={24}
-                color="white"
-                style={{ height: "auto" }}
-              />
+            <div className="absolute top-6 left-5 w-10 h-10 rounded flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <option.icon className="w-6 h-6" />
             </div>
-
-            {/* Default Label */}
             <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 px-2 text-center">
-              <span className="text-lg sm:text-xl font-bold text-white">{option.label}</span>
+              <span className="text-lg sm:text-xl font-bold">{option.label}</span>
             </div>
-
-            {/* Hover Text */}
             <div className="absolute  inset-0 flex items-start justify-start p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="w-full text-left text-white/75 text-xs sm:text-sm font-normal capitalize mt-14 overflow-hidden text-ellipsis leading-snug">
+              <div className="w-full text-left text-xs sm:text-sm font-normal capitalize mt-14 overflow-hidden text-ellipsis leading-snug">
                 {option.text}
               </div>
             </div>
-          </button>
+          </Card>
         ))}
       </div>
     </div>

@@ -31,7 +31,7 @@ export const footer: FooterData = {
   supportLinks: [
     { name: "Terms of Use", href: "/terms" },
     { name: "Privacy Policy", href: "/privacy" },
-    { name: "Feedback", href: "/feedback" },
+    { name: "Feedback", href: "/feedback", action: "feedback" },
   ],
 
   socialLinks: [

@@ -22,15 +22,15 @@ export const Whypurple = () => {
           viewport={viewportConfig}
           className="w-full flex flex-col items-center md:items-start text-center md:text-left"
         >
-          <MotionDiv variants={fadeInUp} className="mb-8">
+          <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="mb-8">
             <span className="text-primary font-black uppercase tracking-[0.3em] text-xs">
               THE PHILOSOPHY
             </span>
           </MotionDiv>
-          <MotionDiv variants={fadeInUp}>
+          <MotionDiv variants={fadeInUp} viewport={viewportConfig}>
             <h2 className="mb-16 lg:text-8xl">Why Purple?</h2>
           </MotionDiv>
-          <MotionDiv variants={fadeInUp} className="w-full relative">
+          <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full relative">
             <div className="space-y-6 text-xl md:text-2xl font-medium leading-relaxed">
               <p className="border-l-4 border-primary pl-8 py-2">{whyPurple.quote}</p>
               <p className="text-secondary-foreground">
@@ -41,7 +41,7 @@ export const Whypurple = () => {
               <div className="relative">
                 <div
                   className={`overflow-hidden transition-all duration-1000 ease-in-out ${
-                    isExpanded ? "max-h-[2000px] opacity-100" : "max-h-[100px] opacity-90"
+                    isExpanded ? "max-h-[2000px] opacity-100" : "max-h-[115px] opacity-90"
                   }`}
                 >
                   <div className="space-y-8 pt-8">
@@ -74,11 +74,15 @@ export const Whypurple = () => {
                   </div>
                 </div>
                 {!isExpanded && (
-                  <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background/65 to-transparent pointer-events-none" />
                 )}
               </div>
             </div>
-            <MotionDiv variants={fadeInUp} className="mt-16 flex justify-center w-full">
+            <MotionDiv
+              variants={fadeInUp}
+              viewport={viewportConfig}
+              className="mt-16 flex justify-center w-full"
+            >
               <Button
                 variant="default"
                 onClick={() => setIsExpanded(!isExpanded)}

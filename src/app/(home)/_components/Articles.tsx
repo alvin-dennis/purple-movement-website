@@ -21,6 +21,7 @@ export const Articles = () => {
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
+              viewport={viewportConfig}
               className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-4 md:mb-6 block text-center lg:text-left"
             >
               Knowledge Loop
@@ -48,7 +49,13 @@ export const Articles = () => {
           >
             <AnimatePresence>
               {articles.map((res) => (
-                <MotionDiv key={res.title} variants={fadeInUp} layout className="group">
+                <MotionDiv
+                  key={res.title}
+                  variants={fadeInUp}
+                  viewport={viewportConfig}
+                  layout
+                  className="group"
+                >
                   <Card className="h-full backdrop-blur-xl border border-primary/50 transition-all duration-500 hover:border-primary">
                     <CardContent className="p-8 md:p-10">
                       <div className="flex justify-between items-start mb-8 md:mb-12 gap-4">

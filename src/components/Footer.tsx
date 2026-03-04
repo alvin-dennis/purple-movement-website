@@ -34,7 +34,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full border-t border-foreground/10">
+    <footer className="w-full bg-background border-t border-foreground/10">
       <div className="mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 mb-14 text-center md:text-left">
           <div className="md:col-span-3 flex flex-col gap-8 items-center md:items-start">

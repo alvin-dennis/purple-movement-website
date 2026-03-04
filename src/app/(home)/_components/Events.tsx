@@ -48,6 +48,7 @@ export const Events = () => {
                 <MotionDiv
                   key={event.title}
                   variants={fadeInUp}
+                  viewport={viewportConfig}
                   className="group/article relative w-full rounded-xl overflow-hidden 
               md:group-hover:[&:not(:hover)]:w-[25%] 
               transition-all duration-500 

@@ -1,24 +1,26 @@
-"use client";
-
 import { MotionDiv } from "@/components/Framer";
 import { manifesto } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const Manifesto = () => {
   return (
-    <section className="w-full py-20 sm:py-32 md:py-40 lg:py-60 px-4 sm:px-6 relative">
+    <section className="w-full py-20 sm:py-32 md:py-40 lg:py-60 px-4 sm:px-6 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-full h-full select-none pointer-events-none opacity-[0.03] overflow-hidden">
         <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase text-foreground leading-none absolute -top-20 -right-20">
           MANIFESTO
         </span>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col gap-16">
+      <MotionDiv
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportConfig}
+        className="max-w-7xl mx-auto relative z-10"
+      >
+        <div className="flex flex-col">
           <MotionDiv
             variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
             viewport={viewportConfig}
             className="relative flex flex-col items-center md:items-start"
           >
@@ -27,124 +29,125 @@ export const Manifesto = () => {
                 MANIFESTO<span className="text-primary">.</span>
               </span>
             </h2>
-
             <div className="max-w-xl">
               <p className="text-xl sm:text-2xl text-foreground/50 font-medium leading-tight">
                 {manifesto.description}
               </p>
             </div>
-          </MotionDiv>
-          <MotionDiv
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24"
-          >
-            {manifesto.sections.map((section, idx) => (
-              <MotionDiv
-                key={section.id}
-                variants={fadeInUp}
-                className={`group relative p-8 md:p-12 border border-primary transition-colors duration-500 bg-card/30 backdrop-blur-sm ${
-                  idx % 2 !== 0 ? "md:mt-24" : ""
-                }`}
-              >
-                <div className="absolute -top-12 -left-4 text-8xl font-black text-primary/50 select-none group-hover:text-primary transition-colors duration-500">
-                  {section.id}
-                </div>
 
-                <h3 className="text-4xl sm:text-5xl font-black mb-8 leading-none">
-                  {section.title.split(" ")[0]}
-                  <br />
-                  <span className="text-tpm">{section.title.split(" ")[1]}</span>
-                </h3>
+            <div className="max-w-5xl mx-auto px-4 mt-5 md:px-10 py-2 flex flex-col gap-8">
+              <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                  <div className="bg-tpm p-4 flex flex-col justify-center min-h-32 md:min-h-32">
+                    <p className="text-2xl md:text-4xl font-black leading-tight">
+                      {manifesto.sections[0].title.toUpperCase()}
+                      <br />
+                      OF CHANGE.
+                    </p>
+                  </div>
 
-                <div className="text-lg sm:text-xl leading-relaxed text-foreground/80">
-                  {section.text.split(section.highlight).map((part, i, arr) => (
-                    <span key={i}>
-                      {part}
-                      {i < arr.length - 1 && (
-                        <span className="relative inline-block mx-1">
-                          <span className="relative z-10 font-bold text-foreground underline decoration-primary decoration-4 underline-offset-4">
-                            {section.highlight}
-                          </span>
-                        </span>
-                      )}
-                    </span>
-                  ))}
+                  <div className="col-span-1 md:col-span-2 flex flex-col gap-4">
+                    <div className="bg-tpm p-3 md:p-4">
+                      <p className="text-lg md:text-2xl font-black leading-tight">
+                        NOT WAITING FOR THE FUTURE.
+                      </p>
+                    </div>
+                    <div className="text-lg md:text-3xl font-black leading-tight space-y-1">
+                      <p className="text-lg md:text-3xl">BUILDING IT WITH</p>
+                      <p className="text-lg text-underline text-tpm">
+                        {manifesto.sections[0].highlight}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </MotionDiv>
-            ))}
-          </MotionDiv>
-          <div className="py-24 relative overflow-hidden">
-            <MotionDiv
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportConfig}
-              className="flex flex-col items-center justify-center text-center gap-12"
-            >
-              {manifesto.statements.bold.map((stmt, i) => (
-                <MotionDiv key={i} variants={fadeInUp}>
-                  <h4 className="text-4xl sm:text-6xl md:text-7xl font-black">
-                    {stmt.top}
-                    <br />
-                    <span className={i % 2 === 0 ? "text-primary" : "text-foreground"}>
-                      {stmt.bottom}
-                    </span>
-                  </h4>
-                </MotionDiv>
-              ))}
 
-              <MotionDiv variants={fadeInUp} className="max-w-2xl mt-8">
-                <p className="text-xl sm:text-2xl text-foreground font-bold italic leading-relaxed">
-                  &quot;{manifesto.statements.reclaim}&quot;
+              <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full">
+                <h2 className="text-3xl md:text-5xl text-tpm leading-tight">
+                  {manifesto.sections[1].title.toUpperCase()}
+                </h2>
+                <p className="text-lg md:text-3xl font-semibold leading-relaxed">
+                  {manifesto.sections[1].text}
                 </p>
               </MotionDiv>
-            </MotionDiv>
-          </div>
-          <MotionDiv
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-            className="flex flex-col items-center text-center gap-12"
-          >
-            <MotionDiv variants={fadeInUp} className="space-y-6">
-              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/40 text-primary text-xs font-black tracking-widest uppercase">
-                {manifesto.statements.movement.badge}
-              </span>
 
-              <h2 className="text-5xl sm:text-7xl font-black uppercase text-tpm">
-                {manifesto.statements.movement.title}
-              </h2>
+              <MotionDiv
+                variants={fadeInUp}
+                viewport={viewportConfig}
+                className="bg-tpm p-4 w-full"
+              >
+                <p className="text-lg md:text-3xl font-semibold leading-tight">
+                  {manifesto.statements.reclaim}
+                </p>
+              </MotionDiv>
 
-              <p className="text-xl sm:text-2xl text-foreground/60 max-w-3xl mx-auto leading-relaxed">
-                {manifesto.statements.movement.description}
-              </p>
-            </MotionDiv>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full pt-12">
-              {manifesto.statements.footer.map((item, i) => (
-                <MotionDiv key={i} variants={fadeInUp} className="flex flex-col gap-2 p-6">
-                  <span className="text-xs font-bold text-foreground/40 uppercase tracking-widest">
-                    {item.text}
-                  </span>
-                  <span className={`text-4xl font-black uppercase ${item.color || "text-primary"}`}>
-                    {item.highlight}
-                  </span>
-                </MotionDiv>
-              ))}
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                {manifesto.statements.bold.map((statement) => (
+                  <MotionDiv
+                    variants={fadeInUp}
+                    viewport={viewportConfig}
+                    key={statement.top}
+                    className="flex flex-col"
+                  >
+                    <p className="text-2xl md:text-4xl font-semibold">{statement.top}</p>
+                    <p className="text-2xl md:text-4xl font-semibold">{statement.bottom}</p>
+                  </MotionDiv>
+                ))}
+              </div>
+              <MotionDiv
+                variants={fadeInUp}
+                viewport={viewportConfig}
+                className="grid grid-cols-1 gap-2"
+              >
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-3xl md:text-5xl leading-none">
+                    {manifesto.statements.movement.title}
+                  </h3>
+                </div>
+                <div className="bg-tpm p-4 flex items-center">
+                  <p className="text-lg md:text-3xl font-semibold leading-snug font-black">
+                    {manifesto.statements.movement.description}
+                  </p>
+                </div>
+              </MotionDiv>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {manifesto.statements.footer.map((item, idx) => (
+                  <MotionDiv
+                    variants={fadeInUp}
+                    viewport={viewportConfig}
+                    key={item.highlight}
+                    className={idx === 1 ? "bg-tpm p-4" : "p-4"}
+                  >
+                    <p className="text-xl md:text-3xl font-black">
+                      {item.text}{" "}
+                      <span
+                        className={
+                          idx === 1
+                            ? "underline decoration-4 underline-offset-4"
+                            : idx === 2
+                              ? "text-energy px-2"
+                              : "text-steady px-2"
+                        }
+                      >
+                        {item.highlight}
+                      </span>
+                    </p>
+                  </MotionDiv>
+                ))}
+              </div>
+              <MotionDiv
+                variants={fadeInUp}
+                viewport={viewportConfig}
+                className="py-8 md:py-12 w-full"
+              >
+                <p className="text-3xl md:text-6xl bg-tpm font-black text-center uppercase tracking-tighter">
+                  {manifesto.statements.startsNow}
+                </p>
+              </MotionDiv>
             </div>
-
-            <MotionDiv
-              variants={fadeInUp}
-              className="mt-12 text-2xl sm:text-4xl font-black text-primary tracking-[0.3em] uppercase animate-pulse"
-            >
-              {manifesto.statements.startsNow}
-            </MotionDiv>
           </MotionDiv>
         </div>
-      </div>
+      </MotionDiv>
     </section>
   );
 };

@@ -51,7 +51,7 @@ export interface SocialLink {
 export interface SupportLink {
   name: string;
   href: string;
-  action?: string;
+  action?: "feedback";
 }
 
 export interface VerticalItem {

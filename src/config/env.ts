@@ -1,0 +1,34 @@
+import { createEnv } from "@t3-oss/env-nextjs";
+import { z } from "zod";
+
+export const env = createEnv({
+  /*
+   * Server-side environment variables
+   * ❗ These are NOT exposed to the browser
+   */
+  server: {},
+
+  /*
+   * Client-side environment variables
+   * ❗ MUST start with NEXT_PUBLIC_
+   */
+  client: {
+    NEXT_PUBLIC_API_URL: z.string().url(),
+    NEXT_PUBLIC_WTSP_URL: z.string(),
+  },
+
+  /*
+   * Runtime values
+   * Required for Next.js App Router
+   */
+  runtimeEnv: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    NEXT_PUBLIC_WTSP_URL: process.env.NEXT_PUBLIC_WTSP_URL,
+  },
+
+  /*
+   * Skip validation during build (optional)
+   * Useful in CI or Docker
+   */
+  skipValidation: false,
+});

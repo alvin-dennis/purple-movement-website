@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { Providers } from "./providers";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -34,10 +35,12 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${poppins.variable} bg-background text-foreground font-body`}
       >
-        <Navbar />
-        {children}
-        <Footer />
-        <Toaster position="top-center" theme="dark" richColors />
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+          <Toaster position="top-center" theme="dark" richColors />
+        </Providers>
       </body>
     </html>
   );
