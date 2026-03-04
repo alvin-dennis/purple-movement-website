@@ -100,6 +100,7 @@ h3,
 h4,
 h5,
 h6 {
+  @apply font-black tracking-tight uppercase leading-[0.9];
   font-family: var(--font-display), sans-serif;
   text-transform: uppercase;
 }

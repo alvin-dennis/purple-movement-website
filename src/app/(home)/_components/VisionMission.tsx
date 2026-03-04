@@ -1,28 +1,70 @@
-import { Separator } from "@/components/ui/separator";
+"use client";
+
+import { MotionDiv } from "@/components/Framer";
 import { vision } from "@/data/home";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const VisionMission = () => {
   return (
     <section
       id="about"
       aria-label="Vision and Mission Section"
-      className="flex flex-col md:flex-row items-center justify-center gap-12 mt-5 px-4 sm:px-6 md:px-12 lg:px-20 md:py-16"
+      className="relative w-full py-24 md:py-40 px-6 overflow-hidden border-b border-white/5"
     >
-      <div className="flex flex-col items-start w-full max-w-xl text-left">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold capitalize">
-          Our {vision.vision.title}
-        </h2>
-        <p className="mt-4 text-sm sm:text-base md:text-lg leading-relaxed font-poppins text-justify md:text-left">
-          {vision.vision.text}
-        </p>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-20">
+        <MotionDiv
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          className="flex flex-col items-start w-full md:w-[45%]"
+        >
+          <MotionDiv variants={fadeInUp} className="mb-8">
+            <span className="text-primary font-black uppercase tracking-[0.3em] text-xs">
+              01 / VISION
+            </span>
+          </MotionDiv>
+
+          <MotionDiv variants={fadeInUp}>
+            <h2 className="mb-10 lg:text-7xl">Our {vision.vision.title}</h2>
+          </MotionDiv>
+
+          <MotionDiv variants={fadeInUp}>
+            <p className="md:text-xl text-secondary-foreground leading-relaxed italic border-l-2 border-primary/30 pl-8">
+              {vision.vision.text}
+            </p>
+          </MotionDiv>
+        </MotionDiv>
+
+        <MotionDiv
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          className="flex flex-col items-start md:items-end w-full md:w-[45%] md:text-right md:mt-40"
+        >
+          <MotionDiv variants={fadeInUp} className="mb-8">
+            <span className="text-primary font-black uppercase tracking-[0.3em] text-xs">
+              02 / MISSION
+            </span>
+          </MotionDiv>
+
+          <MotionDiv variants={fadeInUp}>
+            <h2 className="mb-10 lg:text-7xl">Our {vision.mission.title}</h2>
+          </MotionDiv>
+
+          <MotionDiv variants={fadeInUp}>
+            <p className="md:text-xl text-secondary-foreground leading-relaxed md:ml-auto">
+              {vision.mission.text}
+            </p>
+          </MotionDiv>
+        </MotionDiv>
       </div>
-      <Separator orientation="vertical" className="hidden md:block w-px h-10 bg-tpm" />
-      <Separator orientation="vertical" className="block md:hidden w-24 sm:w-36 h-px bg-tpm" />
-      <div className="flex flex-col items-start md:items-end w-full max-w-xl text-left md:text-right">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold capitalize">Our Purpose</h2>
-        <p className="mt-4 text-sm sm:text-base md:text-lg leading-relaxed font-poppins text-justify md:text-right">
-          {vision.mission.text}
-        </p>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.02] select-none">
+        <span className="text-[30vw] font-black leading-none uppercase tracking-tighter">
+          ABOUT
+        </span>
       </div>
     </section>
   );

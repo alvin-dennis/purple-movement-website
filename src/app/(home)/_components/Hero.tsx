@@ -88,6 +88,12 @@ export function Hero() {
           </div>
         </MotionDiv>
       </div>
+
+      <div className="absolute bottom-12 right-12 hidden lg:block overflow-hidden">
+        <span className="text-[15vw] font-black leading-none opacity-[0.03] select-none pointer-events-none uppercase tracking-tighter">
+          PURPLE
+        </span>
+      </div>
     </section>
   );
 }
