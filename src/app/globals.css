@@ -100,7 +100,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-black tracking-tight uppercase leading-[0.9];
+  @apply uppercase leading-[0.9];
   font-family: var(--font-display), sans-serif;
   text-transform: uppercase;
 }
@@ -130,11 +130,11 @@ h6 {
   }
 
   h2 {
-    @apply text-2xl sm:text-3xl md:text-4xl font-bold leading-snug;
+    @apply text-2xl sm:text-3xl md:text-4xl font-black leading-snug;
   }
 
   h3 {
-    @apply text-xl md:text-2xl font-semibold;
+    @apply text-xl md:text-2xl font-black;
   }
 
   h4 {

@@ -26,7 +26,7 @@ export const Articles = () => {
               Knowledge Loop
             </MotionSpan>
 
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-8 leading-tight text-center lg:text-left">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 leading-tight text-center lg:text-left">
               Shared <span className="text-tpm">Wisdom</span>.
             </h2>
 
@@ -36,8 +36,6 @@ export const Articles = () => {
             </p>
           </div>
         </div>
-
-        {/* Expandable Grid Wrapper */}
         <div className="relative">
           <MotionDiv
             variants={containerVariants}
@@ -73,12 +71,11 @@ export const Articles = () => {
                     </CardContent>
 
                     <CardFooter className="px-8 md:px-10 pb-8 md:pb-10 pt-0">
-                      <Link
-                        href={res.link}
-                        className="inline-flex items-center gap-3 md:gap-4 font-bold tracking-widest text-[10px] uppercase hover:text-primary transition-colors"
-                      >
-                        READ ARTICLE
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                      <Link href={res.link}>
+                        <Button variant={"default"} className="inline-flex items-center uppercase">
+                          READ ARTICLE
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
                       </Link>
                     </CardFooter>
                   </Card>

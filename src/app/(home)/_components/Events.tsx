@@ -2,7 +2,7 @@ import Image from "next/image";
 import { MotionDiv } from "@/components/Framer";
 import { Card } from "@/components/ui/card";
 import { events } from "@/data/home";
-import { containerVariants, fadeInUp, viewportConfig } from "@/lib/animations";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const Events = () => {
   return (
@@ -25,7 +25,7 @@ export const Events = () => {
                 Kerala Stories
               </span>
             </MotionDiv>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-8 text-center sm:text-left">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 text-center sm:text-left">
               Lived <span className="text-tpm">Experiences</span>
             </h2>
 
@@ -36,24 +36,26 @@ export const Events = () => {
           </div>
         </div>
         <MotionDiv
-          variants={containerVariants}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
+          className="group flex max-md:flex-col justify-center gap-4 md:gap-6 mx-auto"
         >
           <Card className="w-full backdrop-blur-xl rounded-[40px] border-2 border-primary md:p-6">
             <div className="group flex max-md:flex-col justify-center gap-4 md:gap-6 mx-auto">
               {events.map((event, index) => (
-                <article
+                <MotionDiv
                   key={event.title}
+                  variants={fadeInUp}
                   className="group/article relative w-full rounded-xl overflow-hidden 
-                  md:group-hover:[&:not(:hover)]:w-[25%] 
-                  transition-all duration-500 
-                  ease-[cubic-bezier(.3,.85,.3,1)]
-                  before:absolute before:inset-x-0 before:bottom-0 before:h-full 
-                  before:bg-gradient-to-t before:from-background/90 before:to-transparent 
-                  before:transition-opacity md:before:opacity-0 
-                  md:hover:before:opacity-100"
+              md:group-hover:[&:not(:hover)]:w-[25%] 
+              transition-all duration-500 
+              ease-[cubic-bezier(.3,.85,.3,1)]
+              before:absolute before:inset-x-0 before:bottom-0 before:h-full 
+              before:bg-gradient-to-t before:from-background/90 before:to-transparent 
+              before:transition-opacity md:before:opacity-0 
+              md:hover:before:opacity-100"
                 >
                   <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/30 md:opacity-70 md:group-hover:opacity-0 transition-opacity duration-300 z-10" />
                   <div
@@ -85,7 +87,7 @@ export const Events = () => {
                     width={960}
                     height={480}
                   />
-                </article>
+                </MotionDiv>
               ))}
             </div>
           </Card>

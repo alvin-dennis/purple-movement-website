@@ -20,7 +20,7 @@ export const Whypurple = () => {
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="w-full flex flex-col items-start"
+          className="w-full flex flex-col items-center md:items-start text-center md:text-left"
         >
           <MotionDiv variants={fadeInUp} className="mb-8">
             <span className="text-primary font-black uppercase tracking-[0.3em] text-xs">
@@ -55,16 +55,13 @@ export const Whypurple = () => {
 
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 list-none">
                       {whyPurple.deepDive.map((item) => (
-                        <li
-                          key={item}
-                          className="bg-card p-6 border-l-2 border-primary/50 text-base"
-                        >
+                        <li key={item} className="bg-card p-6 border-l-2 border-primary text-base">
                           {item}
                         </li>
                       ))}
                     </ul>
 
-                    <div className="bg-primary/10 p-10 border border-primary/20">
+                    <div className="bg-card p-10 border border-primary">
                       <p className="mb-6 uppercase font-black tracking-widest text-sm">Outcome</p>
                       <p className="text-xl italic">{whyPurple.outcome}</p>
                     </div>

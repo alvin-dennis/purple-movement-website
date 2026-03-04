@@ -35,22 +35,22 @@ export const Footer = () => {
 
   return (
     <footer className="w-full border-t border-foreground/10">
-      <div className="mx-auto px-4 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 mb-16">
-          <div className="md:col-span-3 flex flex-col gap-8">
+      <div className="mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 mb-14 text-center md:text-left">
+          <div className="md:col-span-3 flex flex-col gap-8 items-center md:items-start">
             <div className="space-y-6">
               <Image
                 src="/logos/logo_pm.png"
                 width={160}
                 height={60}
                 alt="Purple Movement Logo"
-                className="brightness-125 w-auto h-12"
+                className="brightness-125 w-auto h-12 mx-auto md:mx-0"
               />
               <p className="text-sm text-foreground leading-relaxed">
                 Empowering individuals and organizations to rise beyond their limits.
               </p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-3 justify-center md:justify-start">
               {footer.socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -67,12 +67,11 @@ export const Footer = () => {
               })}
             </div>
           </div>
-
           <div className="md:col-span-3 space-y-6">
             <h4 className="text-md font-bold tracking-[0.15em] text-foreground/50 uppercase">
               Our Verticals
             </h4>
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4 items-center md:items-start">
               {footer.verticals.map((v) => (
                 <Link
                   key={v.label}
@@ -88,7 +87,7 @@ export const Footer = () => {
             <h4 className="text-md font-bold tracking-[0.15em] text-foreground/50 uppercase">
               Navigate
             </h4>
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4 items-center md:items-start">
               {footer.navLinks.map((l) => (
                 <Link
                   key={l.name}
@@ -105,13 +104,13 @@ export const Footer = () => {
             <h4 className="text-md font-bold tracking-[0.15em] text-foreground/50 uppercase">
               Support
             </h4>
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4 items-center md:items-start">
               {footer.supportLinks.map((l) =>
                 l.action === "feedback" ? (
                   <button
                     key={l.name}
                     onClick={() => setIsFeedbackOpen(true)}
-                    className="text-left text-xl font-medium text-foreground/70 hover:text-primary transition-colors duration-300"
+                    className="text-xl font-medium text-foreground/70 hover:text-primary transition-colors duration-300"
                   >
                     {l.name}
                   </button>
@@ -129,17 +128,10 @@ export const Footer = () => {
           </div>
         </div>
         <Separator className="bg-foreground/10 mb-8" />
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <div className="space-y-2">
-            <p className="text-xs font-semibold tracking-[0.1em] text-foreground/40 uppercase">
-              © 2025 The Purple Movement
-            </p>
-          </div>
-
-          <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-            <p className="text-xs font-medium text-foreground/50">Reclaim Your Limits</p>
-            <p className="text-xs font-medium text-foreground/50">Rise Beyond</p>
-          </div>
+        <div className="flex flex-col items-center justify-center text-center">
+          <p className="text-xs font-semibold tracking-[0.1em] text-foreground/40 uppercase">
+            © 2025 The Purple Movement
+          </p>
         </div>
       </div>
 

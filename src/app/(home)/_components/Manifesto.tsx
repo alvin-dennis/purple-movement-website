@@ -1,6 +1,8 @@
+"use client";
+
 import { MotionDiv } from "@/components/Framer";
 import { manifesto } from "@/data/home";
-import { containerVariants, fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const Manifesto = () => {
   return (
@@ -20,13 +22,14 @@ export const Manifesto = () => {
             viewport={viewportConfig}
             className="relative flex flex-col items-center md:items-start"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase flex flex-col items-center md:items-start text-center md:text-left">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase flex flex-col items-center md:items-start text-center md:text-left">
               <span>
-                MANIFESTO <span className="text-primary">.</span>
+                MANIFESTO<span className="text-primary">.</span>
               </span>
             </h2>
-            <div className="max-w-2xl mt-8 md:mt-12 pl-0 md:pl-8 border-l-0 md:border-l-4 border-primary text-center md:text-left">
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/60 leading-tight">
+
+            <div className="max-w-xl">
+              <p className="text-xl sm:text-2xl text-foreground/50 font-medium leading-tight">
                 {manifesto.description}
               </p>
             </div>
@@ -36,110 +39,106 @@ export const Manifesto = () => {
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="flex flex-col gap-24 md:gap-40"
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24"
           >
             {manifesto.sections.map((section, idx) => (
               <MotionDiv
                 key={section.id}
                 variants={fadeInUp}
-                className={`flex flex-col gap-8 md:gap-12 items-center ${idx % 2 === 0 ? "md:items-start" : "md:items-end text-center md:text-right"}`}
+                className={`group relative p-8 md:p-12 border border-primary transition-colors duration-500 bg-card/30 backdrop-blur-sm ${
+                  idx % 2 !== 0 ? "md:mt-24" : ""
+                }`}
               >
-                <div className="flex items-center gap-6 md:gap-8 w-full">
-                  {idx % 2 !== 0 && <div className="h-[1px] w-full bg-foreground/10" />}
-                  <span className="text-primary font-bold tracking-[1em] uppercase text-xs whitespace-nowrap">
-                    {section.id}
-                  </span>
-                  {idx % 2 === 0 && <div className="h-[1px] w-full bg-foreground/10" />}
+                <div className="absolute -top-12 -left-4 text-8xl font-black text-primary/50 select-none group-hover:text-primary transition-colors duration-500">
+                  {section.id}
                 </div>
-                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase">
+
+                <h3 className="text-4xl sm:text-5xl font-black mb-8 leading-none">
                   {section.title.split(" ")[0]}
                   <br />
-                  <span className={idx % 2 === 0 ? "text-primary" : "text-steady"}>
-                    {section.title.split(" ")[1]}
-                  </span>
+                  <span className="text-tpm">{section.title.split(" ")[1]}</span>
                 </h3>
-                <div
-                  className={`max-w-4xl space-y-2 ${idx % 2 === 0 ? "md:ml-[10vw] lg:ml-[20vw]" : "md:mr-[5vw] lg:mr-[10vw]"}`}
-                >
-                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-normal text-foreground">
-                    {section.text.split(section.highlight).map((part, i, arr) => (
-                      <span key={i}>
-                        {part}
-                        {i < arr.length - 1 && (
-                          <span className="bg-tpm text-foreground uppercase font-bold px-2 py-1">
+
+                <div className="text-lg sm:text-xl leading-relaxed text-foreground/80">
+                  {section.text.split(section.highlight).map((part, i, arr) => (
+                    <span key={i}>
+                      {part}
+                      {i < arr.length - 1 && (
+                        <span className="relative inline-block mx-1">
+                          <span className="relative z-10 font-bold text-foreground underline decoration-primary decoration-4 underline-offset-4">
                             {section.highlight}
                           </span>
-                        )}
-                      </span>
-                    ))}
-                  </p>
+                        </span>
+                      )}
+                    </span>
+                  ))}
                 </div>
               </MotionDiv>
             ))}
           </MotionDiv>
-
-          <MotionDiv
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-            className="py-12 sm:py-20 md:py-32 flex flex-col items-center text-center justify-center relative overflow-hidden group px-6 md:px-12"
-          >
-            {manifesto.statements.bold.map((stmt, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <h4
-                  className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.9] uppercase ${i === 1 ? "text-primary mt-6 md:mt-10" : "space-y-2"}`}
-                >
-                  {stmt.top}
-                  <br />
-                  {stmt.bottom}
-                </h4>
-                {i === 0 && <div className="h-1 w-24 md:w-40 bg-primary my-6 md:my-10" />}
-              </div>
-            ))}
-
-            <div className="mt-8 md:mt-12 text-foreground max-w-4xl px-4 md:px-10 leading-relaxed text-center">
-              <p className="mb-4 text-lg md:text-2xl">{manifesto.statements.reclaim}</p>
-              <div className="mt-12 space-y-6">
-                <h2 className="text-primary font-bold tracking-[0.4em] uppercase text-xl">
-                  {manifesto.statements.movement.badge}
-                </h2>
-                <h3 className="text-2xl md:text-4xl py-2 max-w-md mx-auto bg-tpm font-black uppercase">
-                  {manifesto.statements.movement.title}
-                </h3>
-                <p className="text-lg md:text-2xl text-foreground leading-relaxed max-w-3xl mx-auto">
-                  {manifesto.statements.movement.description}
-                </p>
-              </div>
-            </div>
-          </MotionDiv>
-
-          <MotionDiv
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportConfig}
-            className="mt-12 text-center relative"
-          >
-            <div className="flex flex-col gap-12 sm:gap-16">
-              <MotionDiv
-                variants={fadeInUp}
-                className="flex flex-col items-center text-center max-w-5xl mx-auto"
-              >
-                {manifesto.statements.footer.map((item, i) => (
-                  <h4
-                    key={i}
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[0.9] mb-6 last:mb-0"
-                  >
-                    {item.text}{" "}
-                    <span className={item.color || "text-primary"}>{item.highlight}</span>
+          <div className="py-24 relative overflow-hidden">
+            <MotionDiv
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportConfig}
+              className="flex flex-col items-center justify-center text-center gap-12"
+            >
+              {manifesto.statements.bold.map((stmt, i) => (
+                <MotionDiv key={i} variants={fadeInUp}>
+                  <h4 className="text-4xl sm:text-6xl md:text-7xl font-black">
+                    {stmt.top}
+                    <br />
+                    <span className={i % 2 === 0 ? "text-primary" : "text-foreground"}>
+                      {stmt.bottom}
+                    </span>
                   </h4>
-                ))}
+                </MotionDiv>
+              ))}
+
+              <MotionDiv variants={fadeInUp} className="max-w-2xl mt-8">
+                <p className="text-xl sm:text-2xl text-foreground font-bold italic leading-relaxed">
+                  &quot;{manifesto.statements.reclaim}&quot;
+                </p>
               </MotionDiv>
+            </MotionDiv>
+          </div>
+          <MotionDiv
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="flex flex-col items-center text-center gap-12"
+          >
+            <MotionDiv variants={fadeInUp} className="space-y-6">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/40 text-primary text-xs font-black tracking-widest uppercase">
+                {manifesto.statements.movement.badge}
+              </span>
+
+              <h2 className="text-5xl sm:text-7xl font-black uppercase text-tpm">
+                {manifesto.statements.movement.title}
+              </h2>
+
+              <p className="text-xl sm:text-2xl text-foreground/60 max-w-3xl mx-auto leading-relaxed">
+                {manifesto.statements.movement.description}
+              </p>
+            </MotionDiv>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full pt-12">
+              {manifesto.statements.footer.map((item, i) => (
+                <MotionDiv key={i} variants={fadeInUp} className="flex flex-col gap-2 p-6">
+                  <span className="text-xs font-bold text-foreground/40 uppercase tracking-widest">
+                    {item.text}
+                  </span>
+                  <span className={`text-4xl font-black uppercase ${item.color || "text-primary"}`}>
+                    {item.highlight}
+                  </span>
+                </MotionDiv>
+              ))}
             </div>
+
             <MotionDiv
               variants={fadeInUp}
-              className="mt-6 md:mt-10 text-base sm:text-lg md:text-xl lg:text-2xl font-black text-primary tracking-[0.3em] md:tracking-[0.4em] uppercase animate-pulse"
+              className="mt-12 text-2xl sm:text-4xl font-black text-primary tracking-[0.3em] uppercase animate-pulse"
             >
               {manifesto.statements.startsNow}
             </MotionDiv>
