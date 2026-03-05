@@ -10,8 +10,6 @@ export interface EventItem {
   image: string;
   title: string;
   description: string;
-  size: string;
-  tag: string;
 }
 
 export interface ArticleItem {
@@ -66,6 +64,27 @@ export interface FooterData {
   socialLinks: SocialLink[];
   bottomBar: {
     copyright: string;
-    slogans: string[];
+    email: {
+      label: string;
+      href: string;
+    };
+    site: {
+      label: string;
+      href: string;
+    };
   };
 }
+
+export type StepTwoFormData = {
+  selectedRole: string;
+  whyHere: string;
+  portfolioLink: string;
+};
+
+export type StepThreeFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  interested: boolean;
+  notInterested: boolean;
+};

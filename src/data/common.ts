@@ -12,15 +12,15 @@ export const footer: FooterData = {
   verticals: [
     {
       label: "Beyond Syllabus",
-      href: "/beyond-syllabus",
+      href: "https://beyondsyllabus.in",
     },
     {
       label: "Beyond Gatekeepers",
-      href: "/beyond-gatekeepers",
+      href: "https://beyondport80.com",
     },
     {
       label: "Beyond Borders",
-      href: "/beyond-borders",
+      href: "https://https://ai-compassion.com/",
     },
   ],
   navLinks: [
@@ -50,7 +50,14 @@ export const footer: FooterData = {
   ],
 
   bottomBar: {
-    copyright: "© 2025 THE PURPLE MOVEMENT.",
-    slogans: ["RECLAIM YOUR LIMITS", "RISE BEYOND"],
+    copyright: "©2025 THE PURPLE MOVEMENT.",
+    email: {
+      label: "contact@purple-movement.com",
+      href: "mailto:contact@purple-movement.com",
+    },
+    site: {
+      label: "purple-movement.com",
+      href: "https://purple-movement.com",
+    },
   },
 };

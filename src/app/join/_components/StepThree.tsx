@@ -9,7 +9,6 @@ import { Label } from "@/components/ui/label";
 import { Spinner } from "@/components/ui/spinner";
 import "react-phone-input-2/lib/style.css";
 
-// Custom styles for the phone input to match dark theme
 const phoneInputStyles = `
   .react-tel-input {
     width: 100% !important;
@@ -152,7 +151,6 @@ export default function StepThree({
 }: StepThreeProps) {
   const { name, email, phone, notInterested } = formData;
 
-  // Track which fields have been touched
   const [touchedFields, setTouchedFields] = useState({
     name: false,
     email: false,
@@ -175,7 +173,6 @@ export default function StepThree({
 
   const validatePhone = (phone: string) => {
     if (!phone.trim()) return "Phone number is required";
-    // react-phone-input-2 returns formatted phone with country code
     if (phone.length < 7) return "Phone number is too short";
     if (phone.length > 15) return "Phone number is too long";
     return "";

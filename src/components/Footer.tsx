@@ -1,5 +1,6 @@
 "use client";
 
+import { Globe, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -34,7 +35,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-background border-t border-foreground/10">
+    <footer className="relative z-10 w-full bg-background border-t border-foreground/10">
       <div className="mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 mb-14 text-center md:text-left">
           <div className="md:col-span-3 flex flex-col gap-8 items-center md:items-start">
@@ -76,6 +77,8 @@ export const Footer = () => {
                 <Link
                   key={v.label}
                   href={v.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-xl font-medium text-foreground/70 hover:text-primary transition-colors duration-300"
                 >
                   {v.label}
@@ -109,6 +112,7 @@ export const Footer = () => {
                 l.action === "feedback" ? (
                   <button
                     key={l.name}
+                    type="button"
                     onClick={() => setIsFeedbackOpen(true)}
                     className="text-xl font-medium text-foreground/70 hover:text-primary transition-colors duration-300"
                   >
@@ -127,11 +131,27 @@ export const Footer = () => {
             </nav>
           </div>
         </div>
+
         <Separator className="bg-foreground/10 mb-8" />
-        <div className="flex flex-col items-center justify-center text-center">
+
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between text-center md:text-left gap-6">
           <p className="text-xs font-semibold tracking-[0.1em] text-foreground/40 uppercase">
-            © 2025 The Purple Movement
+            {footer.bottomBar.copyright}
           </p>
+          <div className="flex flex-col md:flex-row items-center gap-3">
+            <div className="flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition">
+              <Mail className="text-primary" />
+              <Link href={footer.bottomBar.email.href} target="_blank" rel="noopener noreferrer">
+                <span className="font-medium">{footer.bottomBar.email.label}</span>
+              </Link>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-foreground/60 hover:text-primary transition">
+              <Globe className="text-primary" />
+              <Link href={footer.bottomBar.site.href} target="_blank" rel="noopener noreferrer">
+                <span className="font-medium">{footer.bottomBar.site.label}</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 

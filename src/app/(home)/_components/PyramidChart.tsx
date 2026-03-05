@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { levels } from "@/data/home";
 import { fadeInUp, viewportConfig } from "@/lib/animations";
 
-const PyramidChart = () => {
+export function PyramidClient() {
   const [activeLevel, setActiveLevel] = useState<number>(3);
 
   const scrollToSection = (id: string) => {
@@ -166,8 +166,11 @@ const PyramidChart = () => {
           )}
         </AnimatePresence>
       </div>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] select-none">
+        <span className="text-[28vw] md:text-[30vw] font-black leading-none uppercase tracking-tighter">
+          VERTICALS
+        </span>
+      </div>
     </div>
   );
-};
-
-export default PyramidChart;
+}

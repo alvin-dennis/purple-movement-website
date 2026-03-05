@@ -22,7 +22,7 @@ export const Events = () => {
             >
               <div className="h-[1px] w-12 bg-primary" />
               <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs">
-                Kerala Stories
+                Our Events
               </span>
             </MotionDiv>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 text-center sm:text-left">
@@ -75,7 +75,7 @@ export const Events = () => {
                         {event.title}
                       </h3>
                     </div>
-                    <p className="text-sm md:text-base font-medium mt-2 md:opacity-0 group-hover/article:opacity-100 md:translate-y-2 group-hover/article:translate-y-0 transition duration-300 ease-out delay-300 line-clamp-2">
+                    <p className="text-sm md:text-base font-medium mt-2 md:opacity-0 group-hover/article:opacity-100 md:translate-y-2 group-hover/article:translate-y-0 transition duration-300 ease-out delay-300 line-clamp-3">
                       {event.description}
                     </p>
                   </div>

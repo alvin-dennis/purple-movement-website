@@ -55,7 +55,7 @@ export const levels: LevelData[] = [
     slug: "borders",
     description:
       "Once, the Earth was a single piece of connected land. We want the world of opportunity to feel that way too. We can’t literally push continents and stick them together, but we can remove the barriers that separate people. Beyond Borders means enabling global access to the best talent, markets, and opportunities. It’s about creating a space where purposeful people can connect, collaborate, and grow without limits, without boundaries.",
-    link: "#",
+    link: "https://ai-compassion.com",
   },
   {
     id: 2,
@@ -63,7 +63,7 @@ export const levels: LevelData[] = [
     slug: "gatekeepers",
     description:
       "Gatekeeping is a big no. We don’t hold opportunities for ourselves, we share them. We want to give everyone the chance to showcase their best selves, grow their skills, and reach their full potential. By lifting others up, we create a community where growth, learning, and success are open, fair, and accessible to all.",
-    link: "#",
+    link: "https://beyondport80.com",
   },
   {
     id: 3,
@@ -71,7 +71,7 @@ export const levels: LevelData[] = [
     slug: "syllabus",
     description:
       "We should start treating the syllabus like a starting point and not a cage. It's a guide, not a rulebook. Real growth begins when curious minds explore outside the lines, experiment, and discover what truly inspires them. Those who step off the conventional path aren’t rebels, they’re pioneers. And instead of holding them back, we uplift and support them as they learn, grow, and create their own way forward.",
-    link: "#",
+    link: "https://beyondsyllabus.in",
   },
 ];
 
@@ -111,39 +111,28 @@ export const FAQs: FAQItem[] = [
 export const events: EventItem[] = [
   {
     image: "/images/flow.png",
-    title: "Kochi Creative Meet",
-    description:
-      "Exploring the intersections of traditional Kerala art and modern digital expressions.",
-    size: "md:col-span-2 md:row-span-2",
-    tag: "Art & Tech",
+    title: "Enter the Flow",
+    description: "A journey through the waters, finding rhythm in community movement.",
   },
   {
     image: "/images/saddle.jpg",
-    title: "Alleppey Backwaters Pulse",
+    title: "Saddle Up",
     description: "A journey through the waters, finding rhythm in community movement.",
-    size: "md:col-span-1 md:row-span-1",
-    tag: "Community",
   },
   {
     image: "/images/p80-1.jpg",
-    title: "Wayanad Tech Retreat",
+    title: "Port:80",
     description: "Deep growth and shared learning amidst the mist of the Western Ghats.",
-    size: "md:col-span-1 md:row-span-2",
-    tag: "Growth",
   },
   {
     image: "/images/hkbr.jpg",
-    title: "Trivandrum Open Loop",
+    title: "Hacktoberfest",
     description: "Building open source culture in the heart of the capital city.",
-    size: "md:col-span-1 md:row-span-1",
-    tag: "Open Source",
   },
   {
     image: "/images/aic.jpg",
-    title: "Munnar Mindscape",
+    title: "AI+Compassion",
     description: "Elevating human compassion above the clouds, a collective peak experience.",
-    size: "md:col-span-2 md:row-span-1",
-    tag: "Impact",
   },
 ];
 
@@ -187,39 +176,39 @@ export const articles: ArticleItem[] = [
 
 export const timeline: Timeline[] = [
   {
-    year: "DISCOVERY",
+    year: "JUN 2025",
     title: "Perumte",
     description: "It started with a simple question: Can we create a space without gatekeepers?",
     status: "ORIGIN",
   },
   {
-    year: "CURIOSITY",
+    year: "JUL 2025",
     title: "Formed TPM",
     description:
       "People from different backgrounds started sharing their learning journeys beyond borders.",
     status: "STIRRING",
   },
   {
-    year: "PARTICIPATION",
+    year: "AUG 2025",
     title: "Launch at beyond faya port:80",
     description:
       "Our first collective projects broke the syllabus limits and opened new doors for everyone.",
     status: "FLOW",
   },
   {
-    year: "CONTRIBUTION",
+    year: "SEP 2025",
     title: "Verticals syllabus and gatekeepers kickstart",
     description: "Every contribution became a seed for someone else's growth, completing the loop.",
     status: "PEAK",
   },
   {
-    year: "CONTRIBUTION",
+    year: "DEC 2025",
     title: "ai+compassion",
     description: "Every contribution became a seed for someone else's growth, completing the loop.",
     status: "PEAK",
   },
   {
-    year: "CONTRIBUTION",
+    year: "FEB 2026",
     title: "Tricult",
     description: "Every contribution became a seed for someone else's growth, completing the loop.",
     status: "PEAK",

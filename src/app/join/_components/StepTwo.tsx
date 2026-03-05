@@ -68,7 +68,7 @@ export default function StepTwo({
         <div className="max-w-[864px] w-full mx-auto space-y-3">
           <label
             htmlFor="role-select"
-            className="block text-base sm:text-xl md:text-2xl font-semibold capitalize text-white tracking-wide"
+            className="block text-base sm:text-xl md:text-2xl font-semibold capitalize tracking-wide"
           >
             What defines you?
           </label>{" "}
@@ -77,7 +77,7 @@ export default function StepTwo({
               id="role-select"
               value={selectedRole || ""}
               onChange={(e) => onChange({ selectedRole: e.target.value })}
-              className="w-full h-11 px-4 text-sm sm:text-base bg-transparent border border-white rounded text-white appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-violet-700"
+              className="w-full h-11 px-4 text-sm sm:text-base bg-transparent border border-white rounded appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-violet-700"
             >
               <option value="">Select...</option>
               {roleOptions.map((option) => (

@@ -1,28 +1,16 @@
 "use client";
 
+import { Check } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
 import type { JoinCommunityRequest } from "@/lib/schema";
+import type { StepThreeFormData, StepTwoFormData } from "@/lib/types";
 import { useJoinCommunity } from "@/services/hooks";
-import StepFour from "./components/StepFour";
-import StepOne from "./components/StepOne";
-import StepThree from "./components/StepThree";
-import StepTwo from "./components/StepTwo";
-
-type StepTwoFormData = {
-  selectedRole: string;
-  whyHere: string;
-  portfolioLink: string;
-};
-
-type StepThreeFormData = {
-  name: string;
-  email: string;
-  phone: string;
-  interested: boolean;
-  notInterested: boolean;
-};
+import StepFour from "./_components/StepFour";
+import StepOne from "./_components/StepOne";
+import StepThree from "./_components/StepThree";
+import StepTwo from "./_components/StepTwo";
 
 export default function JoinUsPage() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -168,7 +156,6 @@ export default function JoinUsPage() {
   return (
     <div className="min-h-screen">
       <main className="flex items-start justify-center pt-24 pb-12 px-4 sm:px-6 md:px-8">
-        {/* Background Image - Full Width */}
         <div className="fixed top-50 left-0 w-full h-full z-0 overflow-hidden">
           <Image
             src="/images/formbg.png"
@@ -179,48 +166,37 @@ export default function JoinUsPage() {
         </div>
 
         <div className="relative w-full max-w-7xl mt-15 mx-auto z-10">
-          {/* Form Content */}
           <div
             className={`relative z-10 transition-opacity duration-300 ${
               isTransitioning ? "opacity-0 pointer-events-none" : "opacity-100"
             }`}
           >
             {renderCurrentStep()}
-
-            {/* Progress Steps */}
             <div className="flex items-center justify-center gap-2 xs:gap-4 pt-12 mt-8 flex-wrap">
               {steps.map((step, index) => (
                 <div key={step.number} className="flex items-center">
-                  {/* Step Circle */}
                   <div className="relative">
                     <div
                       className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 ${
                         step.number === currentStep
-                          ? "border-white"
+                          ? "border-foreground"
                           : step.number < currentStep
-                            ? "border-violet-700"
-                            : "border-white/40"
+                            ? "border-primary"
+                            : "border-foreground/40"
                       }`}
                     />
-                    <div
-                      className={`absolute inset-1 rounded-full ${
-                        step.number <= currentStep ? "bg-violet-700" : "bg-violet-800/50"
-                      }`}
-                    />
+                    <div className={`absolute inset-1 rounded-full bg-tpm`} />
                     <span
-                      className={`absolute inset-0 flex items-center justify-center text-sm sm:text-base font-bold ${
-                        step.number <= currentStep ? "text-white" : "text-white/50"
-                      }`}
+                      className={`absolute inset-0 flex items-center justify-center text-sm sm:text-base font-bold`}
                     >
-                      {step.number < currentStep ? "✓" : step.number}
+                      {step.number < currentStep ? <Check className="h-6 w-6" /> : step.number}
                     </span>
                   </div>
 
-                  {/* Connector */}
                   {index < steps.length - 1 && (
                     <div
                       className={`w-8 sm:w-12 h-0.5 mx-2 sm:mx-3 ${
-                        step.number < currentStep ? "bg-violet-700" : "bg-white/30"
+                        step.number < currentStep ? "bg-tpm" : "bg-foreground/30"
                       }`}
                     />
                   )}

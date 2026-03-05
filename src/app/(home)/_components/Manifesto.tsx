@@ -122,11 +122,7 @@ export const Manifesto = () => {
                       {item.text}{" "}
                       <span
                         className={
-                          idx === 1
-                            ? "underline decoration-4 underline-offset-4"
-                            : idx === 2
-                              ? "text-energy px-2"
-                              : "text-steady px-2"
+                          idx === 1 ? "px-2" : idx === 2 ? "text-energy px-2" : "text-steady px-2"
                         }
                       >
                         {item.highlight}
@@ -148,6 +144,11 @@ export const Manifesto = () => {
           </MotionDiv>
         </div>
       </MotionDiv>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] select-none">
+        <span className="text-[28vw] md:text-[30vw] font-black leading-none uppercase tracking-tighter">
+          MANIFESTO
+        </span>
+      </div>
     </section>
   );
 };

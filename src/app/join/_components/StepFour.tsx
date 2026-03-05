@@ -37,14 +37,14 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
     <div className="w-full px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
         <div className="rounded-xl px-5 py-8 sm:px-10 sm:py-10 text-center space-y-6 sm:space-y-8 shadow-md">
-          <h1 className="text-xl sm:text-3xl md:text-4xl font-bold text-white capitalize">
+          <h1 className="text-xl sm:text-3xl md:text-4xl font-bold capitalize">
             Thank you {userName}
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-white/80 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto leading-relaxed">
             We&apos;ve received your response.
           </p>
 
-          <div className="text-center justify-start sm:text-base md:text-lg text-white text-xl font-semibold capitalize">
+          <div className="text-center justify-start sm:text-base md:text-lg text-xl font-semibold capitalize">
             Join our WhatsApp for updates.
           </div>
           <div className="w-full flex justify-center">
@@ -54,7 +54,7 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
                 className="-mt-5 sm:w-auto px-6 py-3 flex items-center justify-center gap-2"
               >
                 <span>Join WhatsApp</span>
-                <FaWhatsapp className="w-5 h-5 text-white" />
+                <FaWhatsapp className="w-5 h-5" />
               </Button>
             </Link>
           </div>
