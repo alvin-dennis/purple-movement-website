@@ -20,7 +20,6 @@ export const Events = () => {
               viewport={viewportConfig}
               className="flex items-center justify-center sm:justify-start gap-3 mb-4 md:mb-6"
             >
-              <div className="h-[1px] w-12 bg-primary" />
               <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs">
                 Our Events
               </span>

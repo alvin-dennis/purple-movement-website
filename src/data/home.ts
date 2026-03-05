@@ -179,39 +179,33 @@ export const timeline: Timeline[] = [
     year: "JUN 2025",
     title: "Perumte",
     description: "It started with a simple question: Can we create a space without gatekeepers?",
-    status: "ORIGIN",
   },
   {
     year: "JUL 2025",
     title: "Formed TPM",
     description:
       "People from different backgrounds started sharing their learning journeys beyond borders.",
-    status: "STIRRING",
   },
   {
     year: "AUG 2025",
     title: "Launch at beyond faya port:80",
     description:
       "Our first collective projects broke the syllabus limits and opened new doors for everyone.",
-    status: "FLOW",
   },
   {
     year: "SEP 2025",
     title: "Verticals syllabus and gatekeepers kickstart",
     description: "Every contribution became a seed for someone else's growth, completing the loop.",
-    status: "PEAK",
   },
   {
     year: "DEC 2025",
     title: "ai+compassion",
     description: "Every contribution became a seed for someone else's growth, completing the loop.",
-    status: "PEAK",
   },
   {
     year: "FEB 2026",
     title: "Tricult",
     description: "Every contribution became a seed for someone else's growth, completing the loop.",
-    status: "PEAK",
   },
 ];
 

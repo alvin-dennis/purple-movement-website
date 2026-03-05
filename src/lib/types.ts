@@ -25,7 +25,6 @@ export interface Timeline {
   year: string;
   title: string;
   description: string;
-  status: string;
 }
 
 export interface LevelData {

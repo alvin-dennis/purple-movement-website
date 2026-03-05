@@ -1,4 +1,5 @@
 "use client";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
@@ -57,18 +58,10 @@ export const TimelineClient = ({ data }: { data: Timeline[] }) => {
                 className="w-full relative"
               >
                 <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-tpm">
-                  {item.title}
+                  {item.year}
                 </h3>
-                <Card className="relative p-6 sm:p-8 border-primary backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2">
-                  <div className="flex justify-between items-center mb-6">
-                    <span className="text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
-                      {item.status}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl font-black mb-3 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
+                <Card className="relative p-6 border-primary backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2">
+                  <h3 className="mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
 
                   <p className="text-sm sm:text-base text-foreground/50 leading-relaxed font-medium">
                     {item.description}
