@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
-import { fadeInUp, viewportConfig } from "@/lib/animations";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 import type { Timeline } from "@/lib/types";
 import { MotionDiv } from "../Framer";
 
@@ -31,18 +31,19 @@ export const TimelineClient = ({ data }: { data: Timeline[] }) => {
     <div className="w-full md:px-10" ref={containerRef}>
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item) => (
-          <div key={item.title} className="flex justify-start pt-10 md:pt-40 md:gap-10">
+          <MotionDiv
+            key={item.title}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+          >
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-background flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-foreground p-2" />
               </div>
-              <MotionDiv
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportConfig}
-                className="w-full relative"
-              >
+              <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full relative">
                 <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-tpm">
                   {item.year}
                 </h3>
@@ -50,13 +51,7 @@ export const TimelineClient = ({ data }: { data: Timeline[] }) => {
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full group">
-              <MotionDiv
-                variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportConfig}
-                className="w-full relative"
-              >
+              <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full relative">
                 <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-tpm">
                   {item.year}
                 </h3>
@@ -69,7 +64,7 @@ export const TimelineClient = ({ data }: { data: Timeline[] }) => {
                 </Card>
               </MotionDiv>
             </div>
-          </div>
+          </MotionDiv>
         ))}
         <div
           style={{

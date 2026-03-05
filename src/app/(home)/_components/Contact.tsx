@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { contact } from "@/data/home";
-import { fadeInUp, viewportConfig } from "@/lib/animations";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const Contact = () => {
   const [question, setQuestion] = useState("");
@@ -53,75 +53,86 @@ export const Contact = () => {
 
   return (
     <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 overflow-hidden">
-      <Card className="max-w-7xl mx-auto backdrop-blur-xl border border-primary/50 relative">
-        <CardContent className="p-6 sm:p-10 md:p-16 lg:p-24">
-          <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-20">
-            <div className="lg:w-1/3 relative hidden lg:flex items-center justify-center">
-              <div className="relative w-64 xl:w-80 h-64 xl:h-80 flex items-center justify-center">
-                <div className="absolute inset-0 bg-primary/20 rounded-full" />
-                <Image
-                  src="/images/qtnmark.png"
-                  alt="Question Mark"
-                  width={250}
-                  height={250}
-                  className="relative z-10 brightness-200"
-                />
-              </div>
-            </div>
-            <div className="lg:w-2/3 w-full">
+      <MotionDiv
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportConfig}
+        className="max-w-7xl mx-auto backdrop-blur-xl border border-primary/50 relative rounded-xl"
+      >
+        <Card className="bg-transparent border-0 shadow-none">
+          <CardContent className="p-6 sm:p-10 md:p-16 lg:p-24">
+            <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-20">
               <MotionDiv
                 variants={fadeInUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewportConfig}
-                className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
+                className="lg:w-1/3 relative hidden lg:flex items-center justify-center"
               >
-                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-6 text-center lg:text-left">
-                  {contact.title} <span className="text-tpm">{contact.highlight}</span>?
-                </h2>
-
-                <p className="text-base md:text-lg lg:text-xl text-foreground/50 text-center lg:text-left">
-                  {contact.description}
-                </p>
-              </MotionDiv>
-
-              <form onSubmit={handleSubmit} className="w-full space-y-6 md:space-y-8">
-                <div className="relative">
-                  <Textarea
-                    value={question}
-                    onChange={(e) => setQuestion(e.target.value)}
-                    placeholder={contact.placeholder}
-                    disabled={isSubmitting}
-                    className="bg-zinc-900/50 border-foreground/5 text-base md:text-xl p-6 md:p-10 rounded-3xl min-h-[160px] md:min-h-[200px] resize-none placeholder:text-foreground/10 focus-visible:ring-primary/50"
+                <div className="relative w-64 xl:w-80 h-64 xl:h-80 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-primary/20 rounded-full" />
+                  <Image
+                    src="/images/qtnmark.png"
+                    alt="Question Mark"
+                    width={250}
+                    height={250}
+                    className="relative z-10 brightness-200"
                   />
-
-                  <div className="flex flex-col sm:flex-row items-end sm:items-center justify-end gap-3 mt-4 sm:mt-0 sm:absolute sm:bottom-6 sm:right-6">
-                    {submitStatus === "success" && (
-                      <span className="text-green-500 font-bold tracking-widest text-xs uppercase">
-                        SENT!
-                      </span>
-                    )}
-
-                    {submitStatus === "error" && (
-                      <span className="text-red-500 font-bold tracking-widest text-xs uppercase">
-                        Error, try again
-                      </span>
-                    )}
-
-                    <Button
-                      type="submit"
-                      disabled={!question.trim() || isSubmitting}
-                      className="px-8 md:px-12 py-3 md:py-5 rounded-full font-bold tracking-widest text-xs uppercase"
-                    >
-                      {isSubmitting ? contact.submittingText : contact.buttonText}
-                    </Button>
-                  </div>
                 </div>
-              </form>
+              </MotionDiv>
+              <div className="lg:w-2/3 w-full">
+                <MotionDiv
+                  variants={fadeInUp}
+                  viewport={viewportConfig}
+                  className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
+                >
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-6 text-center lg:text-left">
+                    {contact.title} <span className="text-tpm">{contact.highlight}</span>?
+                  </h2>
+
+                  <p className="text-base md:text-lg lg:text-xl text-foreground/50 text-center lg:text-left">
+                    {contact.description}
+                  </p>
+                </MotionDiv>
+
+                <MotionDiv variants={fadeInUp} viewport={viewportConfig}>
+                  <form onSubmit={handleSubmit} className="w-full space-y-6 md:space-y-8">
+                    <div className="relative">
+                      <Textarea
+                        value={question}
+                        onChange={(e) => setQuestion(e.target.value)}
+                        placeholder={contact.placeholder}
+                        disabled={isSubmitting}
+                        className="bg-zinc-900/50 border-foreground/5 text-base md:text-xl p-6 md:p-10 rounded-3xl min-h-[160px] md:min-h-[200px] resize-none placeholder:text-foreground/10 focus-visible:ring-primary/50"
+                      />
+
+                      <div className="flex flex-col sm:flex-row items-end sm:items-center justify-end gap-3 mt-4 sm:mt-0 sm:absolute sm:bottom-6 sm:right-6">
+                        {submitStatus === "success" && (
+                          <span className="text-green-500 font-bold tracking-widest text-xs uppercase">
+                            SENT!
+                          </span>
+                        )}
+
+                        {submitStatus === "error" && (
+                          <span className="text-red-500 font-bold tracking-widest text-xs uppercase">
+                            Error, try again
+                          </span>
+                        )}
+
+                        <Button
+                          type="submit"
+                          disabled={!question.trim() || isSubmitting}
+                          className="px-8 md:px-12 py-3 md:py-5 rounded-full font-bold tracking-widest text-xs uppercase"
+                        >
+                          {isSubmitting ? contact.submittingText : contact.buttonText}
+                        </Button>
+                      </div>
+                    </div>
+                  </form>
+                </MotionDiv>
+              </div>
             </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </MotionDiv>
     </section>
   );
 };

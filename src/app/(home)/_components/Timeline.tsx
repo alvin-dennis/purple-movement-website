@@ -20,19 +20,20 @@ export const Timeline = () => {
       >
         <MotionDiv
           variants={fadeInUp}
+          viewport={viewportConfig}
           className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-4 md:mb-6 block"
         >
           OUR EVOLUTION
         </MotionDiv>
-        <MotionDiv variants={fadeInUp}>
+        <MotionDiv variants={fadeInUp} viewport={viewportConfig}>
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-foreground">
             THE <span className="text-tpm">RISE</span>
           </h2>
         </MotionDiv>
+        <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full mt-12 md:mt-24">
+          <TimelineClient data={timeline} />
+        </MotionDiv>
       </MotionDiv>
-      <div className="w-full">
-        <TimelineClient data={timeline} />
-      </div>
     </section>
   );
 };

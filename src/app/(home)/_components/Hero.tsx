@@ -37,34 +37,40 @@ export function Hero() {
         </video>
       </div>
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 md:pt-36 md:pb-28 flex flex-col items-center text-center">
-        <MotionDiv
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          viewport={viewportConfig}
-          className="w-full flex flex-col items-center"
-        >
-          <div className="inline-flex items-center gap-3 px-4 py-2 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-md mb-4 md:mb-6">
+      <MotionDiv
+        variants={staggerContainer}
+        initial="hidden"
+        animate="visible"
+        viewport={viewportConfig}
+        className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 md:pt-36 md:pb-28 flex flex-col items-center text-center"
+      >
+        <div className="w-full flex flex-col items-center">
+          <MotionDiv
+            variants={fadeInUp}
+            viewport={viewportConfig}
+            className="inline-flex items-center gap-3 px-4 py-2 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-md mb-4 md:mb-6"
+          >
             <div className="w-1.5 h-1.5 rounded-full bg-foreground animate-pulse flex-shrink-0" />
             <span className="text-[10px] text-foreground font-bold tracking-[0.25em] uppercase">
               {hero.badge}
             </span>
-          </div>
+          </MotionDiv>
 
-          <h1 className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest mb-2 opacity-80">
-            {hero.title1}
-          </h1>
+          <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full">
+            <h1 className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest mb-2 opacity-80">
+              {hero.title1}
+            </h1>
+          </MotionDiv>
 
-          <h2 className="text-tpm text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[1]">
-            {hero.title2}
-          </h2>
-        </MotionDiv>
+          <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full">
+            <h2 className="text-tpm text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[1]">
+              {hero.title2}
+            </h2>
+          </MotionDiv>
+        </div>
 
         <MotionDiv
           variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
           viewport={viewportConfig}
           className="flex flex-col items-center gap-6 md:gap-10 w-full max-w-3xl mt-8"
         >
@@ -87,7 +93,7 @@ export function Hero() {
             </Link>
           </div>
         </MotionDiv>
-      </div>
+      </MotionDiv>
     </section>
   );
 }

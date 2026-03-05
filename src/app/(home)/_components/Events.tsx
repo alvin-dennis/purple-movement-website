@@ -10,13 +10,17 @@ export const Events = () => {
       className="w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative overflow-hidden"
       id="events"
     >
-      <div className="max-w-7xl mx-auto relative z-10">
+      <MotionDiv
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={viewportConfig}
+        className="max-w-7xl mx-auto relative z-10"
+      >
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-6 md:gap-8">
           <div className="max-w-4xl">
             <MotionDiv
               variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
               viewport={viewportConfig}
               className="flex items-center justify-center sm:justify-start gap-3 mb-4 md:mb-6"
             >
@@ -24,20 +28,22 @@ export const Events = () => {
                 Our Events
               </span>
             </MotionDiv>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 text-center sm:text-left">
-              Lived <span className="text-tpm">Experiences</span>
-            </h2>
+            <MotionDiv variants={fadeInUp} viewport={viewportConfig}>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 text-center sm:text-left">
+                Lived <span className="text-tpm">Experiences</span>
+              </h2>
+            </MotionDiv>
 
-            <p className="text-foreground/50 text-base md:text-lg lg:text-xl leading-relaxed text-center sm:text-left">
-              Our movement is rooted in real moments. These aren&apos;t just events; they are the
-              heartbeat of a community rising together.
-            </p>
+            <MotionDiv variants={fadeInUp} viewport={viewportConfig}>
+              <p className="text-foreground/50 text-base md:text-lg lg:text-xl leading-relaxed text-center sm:text-left">
+                Our movement is rooted in real moments. These aren&apos;t just events; they are the
+                heartbeat of a community rising together.
+              </p>
+            </MotionDiv>
           </div>
         </div>
         <MotionDiv
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
+          variants={fadeInUp}
           viewport={viewportConfig}
           className="group flex max-md:flex-col justify-center gap-4 md:gap-6 mx-auto"
         >
@@ -92,7 +98,7 @@ export const Events = () => {
             </div>
           </Card>
         </MotionDiv>
-      </div>
+      </MotionDiv>
     </section>
   );
 };

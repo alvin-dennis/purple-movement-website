@@ -19,8 +19,6 @@ export const CallToAction = () => {
           <div className="lg:w-2/3 text-center lg:text-left w-full flex flex-col items-center lg:items-start">
             <MotionDiv
               variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
               viewport={viewportConfig}
               className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
             >
@@ -39,12 +37,7 @@ export const CallToAction = () => {
               </div>
             </MotionDiv>
 
-            <MotionDiv
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={viewportConfig}
-            >
+            <MotionDiv variants={fadeInUp} viewport={viewportConfig}>
               <Link
                 href="/join"
                 className="inline-flex flex-col sm:flex-row items-center gap-4 md:gap-8 group"
@@ -59,16 +52,20 @@ export const CallToAction = () => {
             </MotionDiv>
           </div>
 
-          <div className="lg:w-1/3 relative w-full flex justify-center">
-            <MotionDiv className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-full lg:aspect-square">
+          <MotionDiv
+            variants={fadeInUp}
+            viewport={viewportConfig}
+            className="lg:w-1/3 relative w-full flex justify-center"
+          >
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-full lg:aspect-square">
               <Image
                 fill
                 src="/images/spiral.png"
                 alt="Purple Movement spiral illustration"
                 className="object-contain opacity-40"
               />
-            </MotionDiv>
-          </div>
+            </div>
+          </MotionDiv>
         </div>
       </MotionDiv>
     </section>

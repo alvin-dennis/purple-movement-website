@@ -6,7 +6,7 @@ import { useState } from "react";
 import { MotionDiv, MotionPath } from "@/components/Framer";
 import { Button } from "@/components/ui/button";
 import { levels } from "@/data/home";
-import { fadeInUp, viewportConfig } from "@/lib/animations";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export function PyramidClient() {
   const [activeLevel, setActiveLevel] = useState<number>(3);
@@ -19,8 +19,18 @@ export function PyramidClient() {
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 py-32 md:py-48 px-6">
-      <div className="relative w-full lg:w-1/2 aspect-square max-w-[550px] flex items-center justify-center">
+    <MotionDiv
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportConfig}
+      className="relative w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 py-32 md:py-48 px-6"
+    >
+      <MotionDiv
+        variants={fadeInUp}
+        viewport={viewportConfig}
+        className="relative w-full lg:w-1/2 aspect-square max-w-[550px] flex items-center justify-center"
+      >
         <svg
           viewBox="0 0 600 600"
           className="w-full h-full overflow-visible"
@@ -129,9 +139,13 @@ export function PyramidClient() {
             </text>
           </g>
         </svg>
-      </div>
+      </MotionDiv>
 
-      <div className="flex-1 flex flex-col justify-center items-center lg:items-start min-h-[400px]">
+      <MotionDiv
+        variants={fadeInUp}
+        viewport={viewportConfig}
+        className="flex-1 flex flex-col justify-center items-center lg:items-start min-h-[400px]"
+      >
         <AnimatePresence mode="wait">
           {levels.map(
             (level) =>
@@ -165,12 +179,12 @@ export function PyramidClient() {
               ),
           )}
         </AnimatePresence>
-      </div>
+      </MotionDiv>
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] select-none">
         <span className="text-[28vw] md:text-[30vw] font-black leading-none uppercase tracking-tighter">
           VERTICALS
         </span>
       </div>
-    </div>
+    </MotionDiv>
   );
 }
