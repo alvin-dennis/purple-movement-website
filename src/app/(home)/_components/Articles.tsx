@@ -50,7 +50,7 @@ export const Articles = () => {
             variants={fadeInUp}
             viewport={viewportConfig}
             className={`grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-700 overflow-hidden ${
-              isExpanded ? "max-h-[5000px]" : "max-h-[1600px]"
+              isExpanded ? "max-h-[5000px]" : "max-h-[1700px]"
             }`}
           >
             <AnimatePresence>

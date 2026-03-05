@@ -115,22 +115,22 @@ export const events: EventItem[] = [
     description: "A journey through the waters, finding rhythm in community movement.",
   },
   {
-    image: "/images/saddle.jpg",
+    image: "/images/saddle.webp",
     title: "Saddle Up",
     description: "A journey through the waters, finding rhythm in community movement.",
   },
   {
-    image: "/images/p80-1.jpg",
+    image: "/images/p80-1.webp",
     title: "Port:80",
     description: "Deep growth and shared learning amidst the mist of the Western Ghats.",
   },
   {
-    image: "/images/hkbr.jpg",
+    image: "/images/hkbr.webp",
     title: "Hacktoberfest",
     description: "Building open source culture in the heart of the capital city.",
   },
   {
-    image: "/images/aic.jpg",
+    image: "/images/aic.webp",
     title: "AI+Compassion",
     description: "Elevating human compassion above the clouds, a collective peak experience.",
   },

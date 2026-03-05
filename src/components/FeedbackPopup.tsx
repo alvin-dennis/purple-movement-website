@@ -20,11 +20,11 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
   const { mutateAsync: submitFeedback, isPending } = useSubmitFeedback();
 
   const reactions = [
-    { id: 1, src: "/images/fbr1.png", alt: "Very Sad" },
-    { id: 2, src: "/images/fbr2.png", alt: "Sad" },
-    { id: 3, src: "/images/fbr3.png", alt: "Neutral" },
-    { id: 4, src: "/images/fbr4.png", alt: "Happy" },
-    { id: 5, src: "/images/fbr5.png", alt: "Very Happy" },
+    { id: 1, src: "/images/fbr1.webp", alt: "Very Sad" },
+    { id: 2, src: "/images/fbr2.webp", alt: "Sad" },
+    { id: 3, src: "/images/fbr3.webp", alt: "Neutral" },
+    { id: 4, src: "/images/fbr4.webp", alt: "Happy" },
+    { id: 5, src: "/images/fbr5.webp", alt: "Very Happy" },
   ];
 
   const handleReactionClick = (rating: number) => {

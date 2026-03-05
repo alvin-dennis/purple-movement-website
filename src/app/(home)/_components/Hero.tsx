@@ -28,6 +28,8 @@ export function Hero() {
           loop
           muted
           playsInline
+          controls={false}
+          onContextMenu={(e) => e.preventDefault()}
           onLoadedData={() => setVideoLoaded(true)}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
             videoLoaded ? "opacity-60" : "opacity-0"
@@ -50,7 +52,7 @@ export function Hero() {
             viewport={viewportConfig}
             className="inline-flex items-center gap-3 px-4 py-2 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-md mb-4 md:mb-6"
           >
-            <div className="w-1.5 h-1.5 rounded-full bg-foreground animate-pulse flex-shrink-0" />
+            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse flex-shrink-0" />
             <span className="text-[10px] text-foreground font-bold tracking-[0.25em] uppercase">
               {hero.badge}
             </span>
@@ -86,9 +88,9 @@ export function Hero() {
               <Button
                 variant="default"
                 size="lg"
-                className="group relative rounded-full overflow-hidden font-bold uppercase tracking-[0.3em] h-auto"
+                className="group relative rounded-full overflow-hidden font-bold uppercase h-auto"
               >
-                <span className="relative z-10">Join Us</span>
+                Join Us
               </Button>
             </Link>
           </div>
