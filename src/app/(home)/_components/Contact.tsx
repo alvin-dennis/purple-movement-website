@@ -70,7 +70,7 @@ export const Contact = () => {
                 <div className="relative w-64 xl:w-80 h-64 xl:h-80 flex items-center justify-center">
                   <div className="absolute inset-0 bg-primary/20 rounded-full" />
                   <Image
-                    src="/images/qtnmark.png"
+                    src="/images/qtnmark.webp"
                     alt="Question Mark"
                     width={250}
                     height={250}

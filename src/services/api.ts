@@ -4,7 +4,7 @@ import type {
   FeedbackResponse,
   JoinCommunityRequest,
   JoinCommunityResponse,
-} from "../lib/schema";
+} from "./schema";
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,

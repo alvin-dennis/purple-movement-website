@@ -110,29 +110,34 @@ export const FAQs: FAQItem[] = [
 
 export const events: EventItem[] = [
   {
-    image: "/images/flow.png",
+    image: "/images/flow.webp",
     title: "Enter the Flow",
-    description: "A journey through the waters, finding rhythm in community movement.",
+    description:
+      "A sprint-mode UI/UX competition where speed meets creativity. The fastest teams delivering high-quality designs earn recognition.",
   },
   {
     image: "/images/saddle.webp",
     title: "Saddle Up",
-    description: "A journey through the waters, finding rhythm in community movement.",
+    description:
+      "A bi-weekly initiative designed to upskill individuals from all backgrounds through collaborative learning and hands-on sessions.",
   },
   {
     image: "/images/p80-1.webp",
     title: "Port:80",
-    description: "Deep growth and shared learning amidst the mist of the Western Ghats.",
+    description:
+      "Monthly meetups across multiple domains starting from grassroots college communities, led by alumni, industry experts, students, and faculty.",
   },
   {
     image: "/images/hkbr.webp",
     title: "Hacktoberfest",
-    description: "Building open source culture in the heart of the capital city.",
+    description:
+      "An annual October event encouraging people to explore open source, where knowledge is freely built, shared, and contributed.",
   },
   {
     image: "/images/aic.webp",
     title: "AI+Compassion",
-    description: "Elevating human compassion above the clouds, a collective peak experience.",
+    description:
+      "A global initiative promoting responsible AI use. A worldwide relay on October 2nd connected participants across 5+ regions.",
   },
 ];
 
@@ -176,36 +181,40 @@ export const articles: ArticleItem[] = [
 
 export const timeline: Timeline[] = [
   {
-    year: "JUN 2025",
-    title: "Perumte",
-    description: "It started with a simple question: Can we create a space without gatekeepers?",
+    year: "FEB 2025",
+    title: "Permute",
+    description:
+      "An offline gathering of industry professionals and students that sparked a crucial question: Can we create a space without gatekeepers? The question became the seed for everything that followed.",
   },
   {
     year: "JUL 2025",
-    title: "Formed TPM",
+    title: "Formation of TPM",
     description:
-      "People from different backgrounds started sharing their learning journeys beyond borders.",
+      "The Purple Movement was formed to unite people who understand the realities of the present, built on core principles: beyond borders, beyond gatekeepers, and beyond syllabus-driven limitations.",
   },
   {
     year: "AUG 2025",
-    title: "Launch at beyond faya port:80",
+    title: "Launched at Beyond Port:80",
     description:
-      "Our first collective projects broke the syllabus limits and opened new doors for everyone.",
+      "Emerging from Faya:80 to Beyond:80, the initiative took its first major step toward implementing the idea of a learning ecosystem beyond gatekeepers.",
   },
   {
     year: "SEP 2025",
-    title: "Verticals syllabus and gatekeepers kickstart",
-    description: "Every contribution became a seed for someone else's growth, completing the loop.",
+    title: "Kickstart of WikiSyllabus and Port:80s",
+    description:
+      "Colleges across different districts of Kerala began collaborating to bring meaningful change. Initiatives included an AI platform to analyze syllabi and monthly open forums for discussion and learning.",
   },
   {
     year: "DEC 2025",
-    title: "ai+compassion",
-    description: "Every contribution became a seed for someone else's growth, completing the loop.",
+    title: "AI + Compassion",
+    description:
+      "While many know how to use AI, responsible use remains a challenge. This initiative encourages reflection on ethical AI and the responsibility that comes with powerful technology.",
   },
   {
     year: "FEB 2026",
     title: "Tricult",
-    description: "Every contribution became a seed for someone else's growth, completing the loop.",
+    description:
+      "A three-day cultural carnival bringing together music, art, food, gaming, fashion, and community. Designed for creators and culture enthusiasts, it focuses on genuine connections and immersive experiences.",
   },
 ];
 

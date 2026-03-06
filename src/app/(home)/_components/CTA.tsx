@@ -60,7 +60,7 @@ export const CallToAction = () => {
             <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-full lg:aspect-square">
               <Image
                 fill
-                src="/images/spiral.png"
+                src="/images/spiral.webp"
                 alt="Purple Movement spiral illustration"
                 className="object-contain opacity-40"
               />

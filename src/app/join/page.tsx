@@ -4,9 +4,9 @@ import { Check } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
-import type { JoinCommunityRequest } from "@/lib/schema";
 import type { StepThreeFormData, StepTwoFormData } from "@/lib/types";
 import { useJoinCommunity } from "@/services/hooks";
+import type { JoinCommunityRequest } from "@/services/schema";
 import StepFour from "./_components/StepFour";
 import StepOne from "./_components/StepOne";
 import StepThree from "./_components/StepThree";
@@ -158,7 +158,7 @@ export default function JoinUsPage() {
       <main className="flex items-start justify-center pt-24 pb-12 px-4 sm:px-6 md:px-8">
         <div className="fixed top-50 left-0 w-full h-full z-0 overflow-hidden">
           <Image
-            src="/images/formbg.png"
+            src="/images/formbg.webp"
             alt="Background"
             fill
             className="object-cover opacity-50"

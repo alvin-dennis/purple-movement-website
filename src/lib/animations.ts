@@ -5,7 +5,7 @@ export const fadeInUp: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
+    transition: { duration: 0.3, ease: "easeOut" },
   },
 };
 
@@ -14,7 +14,7 @@ export const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
       delayChildren: 0.1,
     },
   },
@@ -25,7 +25,7 @@ export const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.3,
       staggerChildren: 0.1,
     },
   },
