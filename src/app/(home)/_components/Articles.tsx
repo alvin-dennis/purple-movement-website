@@ -1,9 +1,6 @@
-"use client";
-
 import { AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 import { MotionDiv, MotionSpan } from "@/components/Framer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -11,7 +8,6 @@ import { articles } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const Articles = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
   return (
     <section className="w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative" id="resources">
       <MotionDiv
@@ -49,9 +45,7 @@ export const Articles = () => {
           <MotionDiv
             variants={fadeInUp}
             viewport={viewportConfig}
-            className={`grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-700 overflow-hidden ${
-              isExpanded ? "max-h-[5000px]" : "max-h-[1700px]"
-            }`}
+            className={`grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-700 overflow-hidden`}
           >
             <AnimatePresence>
               {articles.map((res) => (
@@ -97,27 +91,6 @@ export const Articles = () => {
             </AnimatePresence>
           </MotionDiv>
         </div>
-        {articles.length > 4 && (
-          <MotionDiv
-            variants={fadeInUp}
-            viewport={viewportConfig}
-            className="mt-12 flex justify-center"
-          >
-            <Button
-              variant="default"
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="group flex items-center gap-2 px-8 py-6 uppercase tracking-widest text-xs"
-            >
-              <span>{isExpanded ? "Read Less" : "Read More"}</span>
-
-              {isExpanded ? (
-                <ChevronUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-              ) : (
-                <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-              )}
-            </Button>
-          </MotionDiv>
-        )}
       </MotionDiv>
     </section>
   );
