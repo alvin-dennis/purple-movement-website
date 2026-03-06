@@ -3,7 +3,6 @@ import { FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import type { FooterData, NavLink } from "@/lib/types";
 
 export const navLinks: NavLink[] = [
-  { name: "Home", href: "/" },
   { name: "About", href: "/#about" },
   { name: "Events", href: "/#events" },
 ];

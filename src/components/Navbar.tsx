@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { navLinks } from "@/data/common";
 import { fadeInUp, viewportConfig } from "@/lib/animations";
 import { MotionDiv } from "./Framer";
@@ -13,50 +13,8 @@ import { Button } from "./ui/button";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-
-  const [activeSection, setActiveSection] = useState("");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-
-      if (window.scrollY < 100) {
-        setActiveSection("/");
-        return;
-      }
-
-      const sections = ["about", "events"];
-      let currentActive = "";
-
-      sections.forEach((sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
-            currentActive = `/#${sectionId}`;
-          }
-        }
-      });
-
-      setActiveSection(currentActive);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Close menu on resize to desktop
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) setIsOpen(false);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const handleLinkClick = async (href: string) => {
     setIsOpen(false);
@@ -91,18 +49,8 @@ export const Navbar = () => {
   };
 
   return (
-    <nav
-      className={`fixed left-1/2 -translate-x-1/2 z-[100] transition-all duration-700 w-[95%] max-w-[1400px] ${
-        isScrolled ? "top-4" : "top-8"
-      }`}
-    >
-      <div
-        className={`flex items-center justify-between px-6 md:px-10 py-3 md:py-5 transition-all duration-500 rounded-[3rem] border borderforeground/5 shadow-2xl ${
-          isScrolled
-            ? "bg-black/60 backdrop-blur-2xl border-primary/20"
-            : "bg-transparent border-transparent"
-        }`}
-      >
+    <nav className="absolute top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1400px] z-[100]">
+      <div className="flex items-center justify-between px-6 md:px-10 py-3 rounded-[3rem] border borderforeground/5 shadow-2xl bg-black/60 backdrop-blur-2xl border-primary/20">
         <Link href="/" className="relative z-10 cursor-pointer flex-shrink-0">
           <Image
             src="/logos/logo_pm.png"
@@ -113,6 +61,7 @@ export const Navbar = () => {
             className="w-auto h-10 md:h-12 brightness-125"
           />
         </Link>
+
         <div className="hidden md:flex items-center gap-8 lg:gap-12">
           {navLinks.map((link) => (
             <Link
@@ -122,16 +71,9 @@ export const Navbar = () => {
                 e.preventDefault();
                 handleLinkClick(link.href);
               }}
-              className={`font-bold text-xs uppercase tracking-[0.3em] relative group py-2 hover:text-primary transition-colors ${
-                activeSection === link.href ? "text-primary" : "textforeground/60"
-              }`}
+              className={`font-bold text-xs uppercase tracking-[0.3em] relative group py-2 hover:text-primary transition-colors`}
             >
               {link.name}
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] bg-primary transition-all duration-500 group-hover:w-full ${
-                  activeSection === link.href ? "w-full" : "w-0"
-                }`}
-              />
             </Link>
           ))}
 
@@ -141,6 +83,7 @@ export const Navbar = () => {
             </Button>
           </Link>
         </div>
+
         <Button
           variant={"default"}
           size={"icon"}
@@ -155,6 +98,7 @@ export const Navbar = () => {
           )}
         </Button>
       </div>
+
       <AnimatePresence>
         {isOpen && (
           <MotionDiv
@@ -173,13 +117,12 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
-                className={`text-2xl sm:text-3xl transition-colors ${
-                  activeSection === link.href ? "text-primary" : "hover:text-primary"
-                }`}
+                className={`text-2xl sm:text-3xl transition-colors hover:text-primary`}
               >
                 {link.name}
               </Link>
             ))}
+
             <Link
               href="/join"
               onClick={() => setIsOpen(false)}
