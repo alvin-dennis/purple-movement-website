@@ -54,7 +54,7 @@ export const VisionMission = () => {
           </MotionDiv>
         </MotionDiv>
       </div>
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] select-none">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none">
         <span className="text-[28vw] md:text-[30vw] font-black leading-none uppercase tracking-tighter">
           ABOUT
         </span>

@@ -105,7 +105,7 @@ export const Manifesto = () => {
                   </h3>
                 </div>
                 <div className="bg-tpm p-4 flex items-center">
-                  <p className="text-lg md:text-3xl font-semibold leading-snug font-black">
+                  <p className="text-lg md:text-3xl leading-snug font-black">
                     {manifesto.statements.movement.description}
                   </p>
                 </div>
@@ -131,11 +131,7 @@ export const Manifesto = () => {
                   </MotionDiv>
                 ))}
               </div>
-              <MotionDiv
-                variants={fadeInUp}
-                viewport={viewportConfig}
-                className="py-8 md:py-12 w-full"
-              >
+              <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full">
                 <p className="text-3xl md:text-6xl bg-tpm font-black text-center uppercase tracking-tighter">
                   {manifesto.statements.startsNow}
                 </p>
@@ -144,7 +140,7 @@ export const Manifesto = () => {
           </MotionDiv>
         </div>
       </MotionDiv>
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] select-none">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none">
         <span className="text-[28vw] md:text-[30vw] font-black leading-none uppercase tracking-tighter">
           MANIFESTO
         </span>
