@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { MotionDiv } from "@/components/Framer";
+import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -52,14 +52,14 @@ export const Contact = () => {
   };
 
   return (
-    <section className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 overflow-hidden">
-      <MotionDiv
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportConfig}
-        className="max-w-7xl mx-auto backdrop-blur-xl border border-primary/50 relative rounded-xl"
-      >
+    <MotionSection
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportConfig}
+      className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto backdrop-blur-xl border border-primary/50 relative rounded-xl">
         <Card className="bg-transparent border-0 shadow-none">
           <CardContent className="p-6 sm:p-10 md:p-16 lg:p-24">
             <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-20">
@@ -81,19 +81,18 @@ export const Contact = () => {
               <div className="lg:w-2/3 w-full">
                 <MotionDiv
                   variants={fadeInUp}
-                  viewport={viewportConfig}
-                  className="mb-8 md:mb-12 flex flex-col items-center lg:items-start"
+                  className="mb-8 md:mb-12 flex flex-col items-center lg:items-start text-center lg:text-left"
                 >
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-6 text-center lg:text-left">
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-6 leading-tight">
                     {contact.title} <span className="text-tpm">{contact.highlight}</span>?
                   </h2>
 
-                  <p className="text-base md:text-lg lg:text-xl text-foreground/50 text-center lg:text-left">
+                  <p className="text-base md:text-lg lg:text-xl text-foreground/50">
                     {contact.description}
                   </p>
                 </MotionDiv>
 
-                <MotionDiv variants={fadeInUp} viewport={viewportConfig}>
+                <MotionDiv variants={fadeInUp}>
                   <form onSubmit={handleSubmit} className="w-full space-y-6 md:space-y-8">
                     <div className="relative">
                       <Textarea
@@ -132,7 +131,7 @@ export const Contact = () => {
             </div>
           </CardContent>
         </Card>
-      </MotionDiv>
-    </section>
+      </div>
+    </MotionSection>
   );
 };

@@ -1,41 +1,38 @@
 import Image from "next/image";
-import { MotionDiv } from "@/components/Framer";
+import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Card } from "@/components/ui/card";
 import { events } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const Events = () => {
   return (
-    <section
+    <MotionSection
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewportConfig}
       className="w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative overflow-hidden"
       id="events"
     >
-      <MotionDiv
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportConfig}
-        className="max-w-7xl mx-auto relative z-10"
-      >
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-6 md:gap-8">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl flex flex-col items-center sm:items-start text-center sm:text-left">
             <MotionDiv
               variants={fadeInUp}
-              viewport={viewportConfig}
               className="flex items-center justify-center sm:justify-start gap-3 mb-4 md:mb-6"
             >
               <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs">
                 Our Events
               </span>
             </MotionDiv>
-            <MotionDiv variants={fadeInUp} viewport={viewportConfig}>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 text-center sm:text-left">
+            <MotionDiv variants={fadeInUp}>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 leading-tight">
                 Lived <span className="text-tpm">Experiences</span>
               </h2>
             </MotionDiv>
 
-            <MotionDiv variants={fadeInUp} viewport={viewportConfig}>
-              <p className="text-foreground/50 text-base md:text-lg lg:text-xl leading-relaxed text-center sm:text-left">
+            <MotionDiv variants={fadeInUp}>
+              <p className="text-foreground/50 text-base md:text-lg lg:text-xl leading-relaxed">
                 Our movement is rooted in real moments. These aren&apos;t just events; they are the
                 heartbeat of a community rising together.
               </p>
@@ -44,7 +41,6 @@ export const Events = () => {
         </div>
         <MotionDiv
           variants={fadeInUp}
-          viewport={viewportConfig}
           className="group flex max-md:flex-col justify-center gap-4 md:gap-6 mx-auto"
         >
           <Card className="w-full backdrop-blur-xl rounded-[40px] border-2 border-primary md:p-6">
@@ -53,7 +49,6 @@ export const Events = () => {
                 <MotionDiv
                   key={event.title}
                   variants={fadeInUp}
-                  viewport={viewportConfig}
                   className="group/article relative w-full rounded-xl overflow-hidden 
               md:group-hover:[&:not(:hover)]:w-[25%] 
               transition-all duration-500 
@@ -98,7 +93,7 @@ export const Events = () => {
             </div>
           </Card>
         </MotionDiv>
-      </MotionDiv>
-    </section>
+      </div>
+    </MotionSection>
   );
 };

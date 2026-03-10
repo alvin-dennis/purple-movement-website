@@ -56,6 +56,16 @@ export interface VerticalItem {
   href: string;
 }
 
+export interface GalleryItem {
+  src: string;
+  alt: string;
+}
+
+export interface GalleryData {
+  left: GalleryItem[];
+  right: GalleryItem[];
+}
+
 export interface FooterData {
   verticals: VerticalItem[];
   navLinks: NavLink[];

@@ -1,4 +1,11 @@
-import type { ArticleItem, EventItem, FAQItem, LevelData, Timeline } from "@/lib/types";
+import type {
+  ArticleItem,
+  EventItem,
+  FAQItem,
+  GalleryData,
+  LevelData,
+  Timeline,
+} from "@/lib/types";
 
 export const hero = {
   badge: "The Collective Rise",
@@ -74,6 +81,33 @@ export const levels: LevelData[] = [
     link: "https://beyondsyllabus.in",
   },
 ];
+
+export const gallery: GalleryData = {
+  left: [
+    { src: "/images/aic.webp", alt: "Company 1" },
+    { src: "/images/aic.webp", alt: "Company 2" },
+    { src: "/images/aic.webp", alt: "Company 3" },
+    { src: "/images/aic.webp", alt: "Company 4" },
+    { src: "/images/aic.webp", alt: "Company 5" },
+    { src: "/images/aic.webp", alt: "Company 6" },
+    { src: "/images/aic.webp", alt: "Company 7" },
+    { src: "/images/aic.webp", alt: "Company 8" },
+    { src: "/images/aic.webp", alt: "Company 9" },
+    { src: "/images/aic.webp", alt: "Company 10" },
+  ],
+  right: [
+    { src: "/images/aic.webp", alt: "Company 1" },
+    { src: "/images/aic.webp", alt: "Company 2" },
+    { src: "/images/aic.webp", alt: "Company 3" },
+    { src: "/images/aic.webp", alt: "Company 4" },
+    { src: "/images/aic.webp", alt: "Company 5" },
+    { src: "/images/aic.webp", alt: "Company 6" },
+    { src: "/images/aic.webp", alt: "Company 7" },
+    { src: "/images/aic.webp", alt: "Company 8" },
+    { src: "/images/aic.webp", alt: "Company 9" },
+    { src: "/images/aic.webp", alt: "Company 10" },
+  ],
+};
 
 export const FAQs: FAQItem[] = [
   {

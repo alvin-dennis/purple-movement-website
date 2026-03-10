@@ -15,6 +15,16 @@ const MotionDiv = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(funct
   );
 });
 
+const MotionSection = React.forwardRef<HTMLDivElement, HTMLMotionProps<"section">>(
+  function MotionSection({ children, ...props }, ref) {
+    return (
+      <motion.section ref={ref} {...props}>
+        {children}
+      </motion.section>
+    );
+  },
+);
+
 const MotionButton = React.forwardRef<HTMLButtonElement, HTMLMotionProps<"button">>(
   function MotionButton({ children, ...props }, ref) {
     return (
@@ -46,4 +56,4 @@ const MotionPath = React.forwardRef<SVGPathElement, SVGMotionProps<SVGPathElemen
   },
 );
 
-export { MotionDiv, MotionButton, MotionSpan, MotionPath };
+export { MotionDiv, MotionSection, MotionButton, MotionSpan, MotionPath };

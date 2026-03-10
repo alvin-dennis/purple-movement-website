@@ -3,7 +3,7 @@
 import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { MotionDiv, MotionPath } from "@/components/Framer";
+import { MotionDiv, MotionPath, MotionSection } from "@/components/Framer";
 import { Button } from "@/components/ui/button";
 import { levels } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
@@ -19,7 +19,7 @@ export function PyramidClient() {
   };
 
   return (
-    <MotionDiv
+    <MotionSection
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
@@ -28,7 +28,6 @@ export function PyramidClient() {
     >
       <MotionDiv
         variants={fadeInUp}
-        viewport={viewportConfig}
         className="relative w-full lg:w-1/2 aspect-square max-w-[550px] flex items-center justify-center"
       >
         <svg
@@ -143,7 +142,6 @@ export function PyramidClient() {
 
       <MotionDiv
         variants={fadeInUp}
-        viewport={viewportConfig}
         className="flex-1 flex flex-col justify-center items-center lg:items-start min-h-[400px]"
       >
         <AnimatePresence mode="wait">
@@ -156,16 +154,13 @@ export function PyramidClient() {
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  viewport={viewportConfig}
                   className="max-w-xl w-full flex flex-col items-center lg:items-start text-center lg:text-left"
                 >
-                  <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block text-center lg:text-left">
+                  <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block">
                     PHASE 0{level.id}
                   </span>
-                  <h2 className="text-5xl md:text-6xl mb-8 text-center lg:text-left">
-                    {level.title}
-                  </h2>
-                  <p className="mb-12">{level.description}</p>
+                  <h2 className="text-5xl md:text-6xl mb-8 leading-tight">{level.title}</h2>
+                  <p className="mb-12 text-foreground/70">{level.description}</p>
                   <Link
                     key={level.id}
                     href={level.link}
@@ -185,6 +180,6 @@ export function PyramidClient() {
           VERTICALS
         </span>
       </div>
-    </MotionDiv>
+    </MotionSection>
   );
 }
