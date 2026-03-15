@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef, useCallback } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
 export interface Topic {
