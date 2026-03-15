@@ -2,39 +2,55 @@
 @import "tw-animate-css";
 
 :root {
-  --background: #020205;
-  --foreground: #F7F8FF;
-  --card: #090917;
-  --card-foreground: #F7F8FF;
-  --popover: #090917;
-  --popover-foreground: #F7F8FF;
-  --primary: #9810FA;
+  --background: #ffffff;
+  --foreground: #1A1333;
+
+  --card: #FFFFFF;
+  --card-foreground: #1A1333;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1333;
+
+  /* Premium Purple */
+  --primary: #7851A9;
   --primary-foreground: #FFFFFF;
-  --secondary: #1F1E38;
-  --secondary-foreground: #F7F8FF;
-  --muted: #131423;
-  --muted-foreground: #B3B6CC;
-  --accent: #1F1E38;
-  --accent-foreground: #F7F8FF;
+
+  --secondary: #F3F0FF;
+  --secondary-foreground: #1A1333;
+
+  --muted: #F5F5FB;
+  --muted-foreground: #6B6B8A;
+
+  --accent: #EFEAFE;
+  --accent-foreground: #1A1333;
+
   --destructive: #DE3B3D;
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.12);
-  --ring: rgba(122, 87, 255, 0.5);
-  --chart-1: #7A57FF;
-  --chart-2: #968FF7;
-  --chart-3: #B7B5FC;
-  --chart-4: #6500FF;
-  --chart-5: #5700F6;
-  --sidebar: #05050D;
-  --sidebar-foreground: #F7F8FF;
-  --sidebar-primary: #7A57FF;
+
+  --border: #E8E6F5;
+  --input: #E8E6F5;
+  --ring: rgba(109, 40, 217, 0.35);
+
+  /* Charts */
+  --chart-1: #6D28D9;
+  --chart-2: #8B5CF6;
+  --chart-3: #A78BFA;
+  --chart-4: #C4B5FD;
+  --chart-5: #DDD6FE;
+
+  /* Sidebar */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A1333;
+  --sidebar-primary: #6D28D9;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #131423;
-  --sidebar-accent-foreground: #F7F8FF;
-  --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: rgba(122, 87, 255, 0.5);
+  --sidebar-accent: #F3F0FF;
+  --sidebar-accent-foreground: #1A1333;
+  --sidebar-border: #E8E6F5;
+  --sidebar-ring: rgba(109, 40, 217, 0.35);
+
+  /* Concept Colors */
   --energy: #DE3B3D;
   --steady: #0061CE;
+
   --radius: 0.75rem;
 }
 
@@ -110,7 +126,7 @@ h6 {
 }
 
 .text-tpm {
-  background: linear-gradient(to right, var(--primary), var(--chart-4));
+  background: var(--primary);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

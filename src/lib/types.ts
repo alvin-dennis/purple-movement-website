@@ -17,7 +17,6 @@ export interface ArticleItem {
   source: string;
   category: string;
   link: string;
-  description: string;
   date: string;
 }
 

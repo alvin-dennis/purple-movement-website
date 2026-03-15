@@ -181,8 +181,6 @@ export const articles: ArticleItem[] = [
     source: "Medium",
     category: "Philosophy",
     link: "https://medium.com/@deepusnath/the-purple-manifesto-the-rise-of-the-unchained-individual-490810a4a67f",
-    description:
-      "A personal reflection on why the world needs individuals who are not defined by systems or labels. The Purple Manifesto explores the idea of becoming 'unchained' by learning, building, and sharing knowledge beyond borders, gatekeepers, and limitations.",
     date: "NOV 2025",
   },
   {
@@ -190,8 +188,6 @@ export const articles: ArticleItem[] = [
     source: "Medium",
     category: "Personal Growth",
     link: "https://medium.com/@deepusnath/the-first-battle-is-with-yourself-become-the-unchained-individual-c8fbaccfec41",
-    description:
-      "A reminder that the hardest barriers are often internal. This piece reflects on discipline, self-awareness, and the quiet daily battles required to become someone capable of building meaningful change.",
     date: "DEC 2025",
   },
   {
@@ -199,8 +195,6 @@ export const articles: ArticleItem[] = [
     source: "Republic World",
     category: "Community",
     link: "https://www.republicworld.com/initiatives/twelve-years-of-consistent-learning-inside-the-legacy-of-faya80",
-    description:
-      "A story of persistence. What started as a small effort grew into a learning ecosystem where curiosity, collaboration, and community became the driving forces for thousands of learners.",
     date: "2025",
   },
   {
@@ -208,8 +202,6 @@ export const articles: ArticleItem[] = [
     source: "Mid-Day",
     category: "Education",
     link: "https://www.mid-day.com/buzzfeed/article/the-future-of-learning-isnt-taught-its-built-deepu-s-naths-ecosystem-revolution-6335",
-    description:
-      "An exploration of a different vision for education, one where people learn by building together, sharing openly, and supporting each other’s growth rather than competing within rigid systems.",
     date: "JUN 2025",
   },
 ];

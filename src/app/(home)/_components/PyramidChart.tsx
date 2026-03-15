@@ -39,11 +39,10 @@ export function PyramidClient() {
           <title id="pyramid-interactive-title">Pyramid</title>
           <defs>
             <linearGradient id="pyr-active-grad" x1="50%" y1="0%" x2="50%" y2="100%">
-              <stop offset="0%" stopColor="#8E00FF" />
-              <stop offset="100%" stopColor="#4c008a" />
+              <stop offset="0%" stopColor="#A855F7" />
+              <stop offset="100%" stopColor="#7C3AED" />
             </linearGradient>
             <filter id="glow-effect" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="20" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
@@ -72,7 +71,9 @@ export function PyramidClient() {
               x="300"
               y="170"
               textAnchor="middle"
-              className="fill-foreground text-[14px] font-bold tracking-wider uppercase pointer-events-none"
+              className={`${
+                activeLevel === 1 ? "fill-white" : "fill-foreground"
+              } text-[14px] font-bold tracking-wider uppercase pointer-events-none transition-colors duration-300`}
             >
               Beyond Borders
             </text>
@@ -102,7 +103,9 @@ export function PyramidClient() {
               x="300"
               y="320"
               textAnchor="middle"
-              className="fill-foreground text-[25px] font-bold tracking-wider uppercase pointer-events-none"
+              className={`${
+                activeLevel === 2 ? "fill-white" : "fill-foreground"
+              } text-[25px] font-bold tracking-wider uppercase pointer-events-none transition-colors duration-300`}
             >
               Beyond Gatekeepers
             </text>
@@ -132,7 +135,9 @@ export function PyramidClient() {
               x="300"
               y="485"
               textAnchor="middle"
-              className="fill-foreground text-[40px] font-bold tracking-wider uppercase pointer-events-none"
+              className={`${
+                activeLevel === 3 ? "fill-white" : "fill-foreground"
+              } text-[40px] font-bold tracking-wider uppercase pointer-events-none transition-colors duration-300`}
             >
               Beyond Syllabus
             </text>
@@ -175,7 +180,7 @@ export function PyramidClient() {
           )}
         </AnimatePresence>
       </MotionDiv>
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] select-none">
         <span className="text-[28vw] md:text-[30vw] font-black leading-none uppercase tracking-tighter">
           VERTICALS
         </span>

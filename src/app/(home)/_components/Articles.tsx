@@ -50,8 +50,8 @@ export const Articles = () => {
               {articles.map((res) => (
                 <MotionDiv key={res.title} variants={fadeInUp} layout className="group">
                   <Card className="h-full backdrop-blur-xl border border-primary/50 transition-all duration-500 hover:border-primary">
-                    <CardContent className="p-8 md:p-10">
-                      <div className="flex justify-between items-start mb-8 md:mb-12 gap-4">
+                    <CardContent className="p-8">
+                      <div className="flex justify-between items-start mb-8 gap-2">
                         <div className="text-[10px] font-bold tracking-widest text-foreground uppercase border border-primary/20 px-3 py-1 rounded-full">
                           {res.category}
                         </div>
@@ -64,10 +64,6 @@ export const Articles = () => {
                       <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-6 group-hover:text-primary transition-colors">
                         {res.title}
                       </h3>
-
-                      <p className="text-foreground/50 text-base md:text-lg leading-relaxed">
-                        {res.description}
-                      </p>
                     </CardContent>
 
                     <CardFooter className="px-8 md:px-10 pb-8 md:pb-10 pt-0">

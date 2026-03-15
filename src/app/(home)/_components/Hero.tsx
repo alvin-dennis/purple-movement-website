@@ -1,16 +1,10 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Button } from "@/components/ui/button";
 import { hero } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export function Hero() {
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
   return (
     <MotionSection
       variants={staggerContainer}
@@ -19,32 +13,6 @@ export function Hero() {
       viewport={viewportConfig}
       className="relative min-h-screen flex items-center justify-center"
     >
-      <div className="absolute inset-0 z-0 scale-105 overflow-hidden">
-        {!videoLoaded && (
-          <Image
-            src="/images/hero.webp"
-            alt="Hero fallback"
-            fill
-            priority
-            className="object-cover opacity-60 grayscale-[0.2]"
-          />
-        )}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          controls={false}
-          onContextMenu={(e) => e.preventDefault()}
-          onLoadedData={() => setVideoLoaded(true)}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-            videoLoaded ? "opacity-60" : "opacity-0"
-          }`}
-        >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        </video>
-      </div>
-
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 md:pt-36 md:pb-28 flex flex-col items-center text-center">
         <div className="w-full flex flex-col items-center">
           <MotionDiv
