@@ -21,9 +21,9 @@ export const Manifesto = () => {
         <div className="flex flex-col">
           <MotionDiv
             variants={fadeInUp}
-            className="relative flex flex-col items-center md:items-start text-center md:text-left"
+            className="relative flex flex-col items-center text-center"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase flex flex-col items-center md:items-start mb-4 md:mb-6">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl uppercase flex flex-col items-center mb-4 md:mb-6">
               <span>
                 MANIFESTO<span className="text-primary">.</span>
               </span>
@@ -37,7 +37,7 @@ export const Manifesto = () => {
             <div className="max-w-5xl mx-auto px-4 mt-5 md:px-10 py-2 flex flex-col gap-8 w-full">
               <MotionDiv variants={fadeInUp} className="w-full text-left">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                  <div className="bg-tpm p-4 flex flex-col justify-center min-h-32 md:min-h-32">
+                  <div className="p-4 flex flex-col justify-center min-h-32 md:min-h-32">
                     <p className="text-2xl md:text-4xl font-black leading-tight">
                       {manifesto.sections[0].title.toUpperCase()}
                       <br />
@@ -46,7 +46,7 @@ export const Manifesto = () => {
                   </div>
 
                   <div className="col-span-1 md:col-span-2 flex flex-col gap-4 text-left">
-                    <div className="bg-tpm p-3 md:p-4">
+                    <div className="p-3 md:p-4">
                       <p className="text-lg md:text-2xl font-black leading-tight">
                         NOT WAITING FOR THE FUTURE.
                       </p>
@@ -70,7 +70,7 @@ export const Manifesto = () => {
                 </p>
               </MotionDiv>
 
-              <MotionDiv variants={fadeInUp} className="bg-tpm p-4 w-full text-left">
+              <MotionDiv variants={fadeInUp} className="p-4 w-full text-left">
                 <p className="text-lg md:text-3xl font-semibold leading-tight">
                   {manifesto.statements.reclaim}
                 </p>
@@ -90,7 +90,7 @@ export const Manifesto = () => {
                     {manifesto.statements.movement.title}
                   </h3>
                 </div>
-                <div className="bg-tpm p-4 flex items-center">
+                <div className="p-4 flex items-center">
                   <p className="text-lg md:text-3xl leading-snug font-black">
                     {manifesto.statements.movement.description}
                   </p>
@@ -101,7 +101,7 @@ export const Manifesto = () => {
                   <MotionDiv
                     variants={fadeInUp}
                     key={item.highlight}
-                    className={idx === 1 ? "bg-tpm p-4" : "p-4"}
+                    className={idx === 1 ? "p-4" : "p-4"}
                   >
                     <p className="text-xl md:text-3xl font-black">
                       {item.text}{" "}
@@ -117,7 +117,7 @@ export const Manifesto = () => {
                 ))}
               </div>
               <MotionDiv variants={fadeInUp} className="w-full">
-                <p className="text-3xl md:text-6xl bg-tpm font-black text-center uppercase tracking-tighter">
+                <p className="text-3xl md:text-6xl font-black text-center uppercase tracking-tighter">
                   {manifesto.statements.startsNow}
                 </p>
               </MotionDiv>

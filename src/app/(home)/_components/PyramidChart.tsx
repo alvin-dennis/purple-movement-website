@@ -4,9 +4,9 @@ import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { MotionDiv, MotionPath, MotionSection } from "@/components/Framer";
-import { Button } from "@/components/ui/button";
 import { levels } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export function PyramidClient() {
   const [activeLevel, setActiveLevel] = useState<number>(3);
@@ -171,9 +171,9 @@ export function PyramidClient() {
                     href={level.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-4 font-bold tracking-widest text-xs"
+                    className="group flex items-center"
                   >
-                    <Button variant={"default"}>Explore {level.title}</Button>
+                    <InteractiveHoverButton>Explore {level.title}</InteractiveHoverButton>
                   </Link>
                 </MotionDiv>
               ),

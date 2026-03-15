@@ -15,18 +15,10 @@ export const Events = () => {
       id="events"
     >
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-6 md:gap-8">
-          <div className="max-w-4xl flex flex-col items-center sm:items-start text-center sm:text-left">
-            <MotionDiv
-              variants={fadeInUp}
-              className="flex items-center justify-center sm:justify-start gap-3 mb-4 md:mb-6"
-            >
-              <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs">
-                Our Events
-              </span>
-            </MotionDiv>
+        <div className="flex flex-col md:flex-row md:items-center justify-center mb-12 md:mb-20 gap-6 md:gap-8">
+          <div className="max-w-4xl flex flex-col items-center text-center">
             <MotionDiv variants={fadeInUp}>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 leading-tight">
+              <h2 className="text-5xl sm:text-6xl md:text-7xl mb-4 md:mb-8 leading-tight">
                 Lived <span className="text-tpm">Experiences</span>
               </h2>
             </MotionDiv>

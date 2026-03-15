@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { contact } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export const Contact = () => {
   const [question, setQuestion] = useState("");
@@ -116,13 +116,12 @@ export const Contact = () => {
                           </span>
                         )}
 
-                        <Button
+                        <InteractiveHoverButton
                           type="submit"
                           disabled={!question.trim() || isSubmitting}
-                          className="px-8 md:px-12 py-3 md:py-5 rounded-full font-bold tracking-widest text-xs uppercase"
                         >
                           {isSubmitting ? contact.submittingText : contact.buttonText}
-                        </Button>
+                        </InteractiveHoverButton>
                       </div>
                     </div>
                   </form>

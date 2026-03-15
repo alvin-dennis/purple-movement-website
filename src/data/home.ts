@@ -1,3 +1,4 @@
+import type { Topic } from "@/components/ui/radialflow";
 import type {
   ArticleItem,
   EventItem,
@@ -14,6 +15,51 @@ export const hero = {
   subtext:
     "Where purposeful people gather to explore, tackle issues, and create meaningful change. A community without barriers, where your skills matter and open new possibilities.",
 };
+
+export const heroflow: Topic[] = [
+  {
+    id: "1",
+    name: "Beyond Borders",
+    position: { x: 20, y: 30 },
+    color: "#DE3B3D",
+    highlighted: true,
+  },
+  {
+    id: "2",
+    name: "Beyond Gatekeepers",
+    position: { x: 80, y: 40 },
+    color: "#0061CE",
+    highlighted: true,
+  },
+  {
+    id: "3",
+    name: "Beyond Syllabus",
+    position: { x: 30, y: 70 },
+    color: "#DE3B3D",
+    highlighted: true,
+  },
+  {
+    id: "4",
+    name: "Collective Rise",
+    position: { x: 70, y: 80 },
+    color: "#DE3B3D",
+    highlighted: true,
+  },
+  {
+    id: "5",
+    name: "Purposeful People",
+    position: { x: 40, y: 15 },
+    color: "#0061CE",
+    highlighted: true,
+  },
+  {
+    id: "6",
+    name: "Beyond Limits",
+    position: { x: 70, y: 15 },
+    color: "#0061CE",
+    highlighted: true,
+  },
+];
 
 export const vision = {
   vision: {

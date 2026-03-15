@@ -156,15 +156,6 @@ export default function JoinUsPage() {
   return (
     <div className="min-h-screen">
       <main className="flex items-start justify-center pt-24 pb-12 px-4 sm:px-6 md:px-8">
-        <div className="fixed top-50 left-0 w-full h-full z-0 overflow-hidden">
-          <Image
-            src="/images/formbg.webp"
-            alt="Background"
-            fill
-            className="object-cover opacity-50"
-          />
-        </div>
-
         <div className="relative w-full max-w-7xl mt-15 mx-auto z-10">
           <div
             className={`relative z-10 transition-opacity duration-300 ${
@@ -185,7 +176,7 @@ export default function JoinUsPage() {
                             : "border-foreground/40"
                       }`}
                     />
-                    <div className={`absolute inset-1 rounded-full bg-tpm`} />
+                    <div className={`absolute inset-1 rounded-full bg-primary`} />
                     <span
                       className={`absolute inset-0 flex items-center justify-center text-sm sm:text-base font-bold`}
                     >
@@ -196,7 +187,7 @@ export default function JoinUsPage() {
                   {index < steps.length - 1 && (
                     <div
                       className={`w-8 sm:w-12 h-0.5 mx-2 sm:mx-3 ${
-                        step.number < currentStep ? "bg-tpm" : "bg-foreground/30"
+                        step.number < currentStep ? "bg-primary" : "bg-foreground/30"
                       }`}
                     />
                   )}

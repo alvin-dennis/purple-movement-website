@@ -12,7 +12,7 @@
   --popover-foreground: #1A1333;
 
   /* Premium Purple */
-  --primary: #7851A9;
+  --primary: #A108F9;
   --primary-foreground: #FFFFFF;
 
   --secondary: #F3F0FF;
@@ -94,6 +94,14 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  @keyframes shine {
+  0% {
+    background-position: 100%;
+    }
+  100% {
+    background-position: -100%;
+    }
+  }
 }
 
 * {
@@ -116,13 +124,8 @@ h3,
 h4,
 h5,
 h6 {
-  @apply uppercase leading-[0.9];
   font-family: var(--font-display), sans-serif;
   text-transform: uppercase;
-}
-
-.bg-tpm {
-  background: linear-gradient(to right, var(--primary), var(--chart-5));
 }
 
 .text-tpm {
@@ -142,15 +145,15 @@ h6 {
   }
 
   h1 {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tighter;
   }
 
   h2 {
-    @apply text-2xl sm:text-3xl md:text-4xl font-black leading-snug;
+    @apply text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug tracking-tighter;
   }
 
   h3 {
-    @apply text-xl md:text-2xl font-black;
+    @apply text-xl md:text-2xl font-bold tracking-tighter;
   }
 
   h4 {
@@ -164,5 +167,11 @@ h6 {
 
   p {
     @apply text-base leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .animate-shine {
+    animation: shine 5s linear infinite;
   }
 }

@@ -13,14 +13,7 @@ export const VisionMission = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
-          {/* Vision */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            <MotionDiv
-              variants={fadeInUp}
-              className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block"
-            >
-              OUR VISION
-            </MotionDiv>
             <MotionDiv variants={fadeInUp}>
               <h2 className="text-4xl sm:text-5xl md:text-6xl mb-8 leading-tight">
                 {vision.vision.title.split(" ").map((word, i) => (
@@ -37,14 +30,7 @@ export const VisionMission = () => {
             </MotionDiv>
           </div>
 
-          {/* Mission */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            <MotionDiv
-              variants={fadeInUp}
-              className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block"
-            >
-              OUR MISSION
-            </MotionDiv>
             <MotionDiv variants={fadeInUp}>
               <h2 className="text-4xl sm:text-5xl md:text-6xl mb-8 leading-tight">
                 {vision.mission.title.split(" ").map((word, i) => (

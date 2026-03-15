@@ -15,15 +15,9 @@ export function Stats() {
         viewport={viewportConfig}
         className="w-full py-20 sm:py-28 md:py-32 px-4 mb-20 sm:mb-28 md:mb-40"
       >
-        <div className="max-w-7xl mx-auto flex flex-col items-center lg:items-start text-center lg:text-left">
-          <MotionDiv
-            variants={fadeInUp}
-            className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-4 md:mb-6 block"
-          >
-            OUR STATS
-          </MotionDiv>
+        <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
           <MotionDiv variants={fadeInUp}>
-            <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight">
+            <h2 className="text-5xl sm:text-6xl md:text-7xl">
               THE IMPACT OF <span className="text-tpm">TPM</span>
             </h2>
           </MotionDiv>

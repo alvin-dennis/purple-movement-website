@@ -49,7 +49,7 @@ export const footer: FooterData = {
   ],
 
   bottomBar: {
-    copyright: "©2025 THE PURPLE MOVEMENT.",
+    copyright: "©2025 THE PURPLE MOVEMENT",
     email: {
       label: "contact@purple-movement.com",
       href: "mailto:contact@purple-movement.com",

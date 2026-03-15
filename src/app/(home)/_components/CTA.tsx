@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MotionDiv, MotionSection } from "@/components/Framer";
-import { Button } from "@/components/ui/button";
 import { cta } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export const CallToAction = () => {
   return (
@@ -22,7 +22,6 @@ export const CallToAction = () => {
               viewport={viewportConfig}
               className="mb-8 md:mb-12 flex flex-col items-center lg:items-start text-center lg:text-left md:-translate-x-5"
             >
-              <div className="h-px w-12 bg-primary mb-6" />
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.85] space-y-2 mb-6 md:mb-10">
                 {cta.title1} <br />
                 <span className="text-tpm">{cta.title2}</span> {cta.title3}
@@ -43,9 +42,7 @@ export const CallToAction = () => {
                 href="/join"
                 className="inline-flex flex-col sm:flex-row items-center gap-4 md:gap-8 group"
               >
-                <Button variant="default" className="px-6 py-4">
-                  {cta.buttonText}
-                </Button>
+                <InteractiveHoverButton>{cta.buttonText}</InteractiveHoverButton>
                 <div className="items-center gap-3 text-primary font-bold uppercase tracking-[0.3em] text-[10px] opacity-0 group-hover:opacity-100 transition-all transform md:translate-x-[-20px] group-hover:translate-x-0 hidden sm:flex">
                   GET STARTED <div className="w-12 h-[1px] bg-primary" />
                 </div>

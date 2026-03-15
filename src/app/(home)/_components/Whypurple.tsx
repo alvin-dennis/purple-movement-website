@@ -1,11 +1,10 @@
 "use client";
 
-import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
-import { Button } from "@/components/ui/button";
 import { whyPurple } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export const Whypurple = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -21,14 +20,9 @@ export const Whypurple = () => {
     >
       <div className="absolute inset-0 opacity-[0.15] pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
-        <MotionDiv variants={fadeInUp} className="mb-8">
-          <span className="text-primary font-black uppercase tracking-[0.3em] text-xs">
-            THE PHILOSOPHY
-          </span>
-        </MotionDiv>
+      <div className="max-w-5xl mx-auto relative z-10 flex flex-col items-center text-center">
         <MotionDiv variants={fadeInUp}>
-          <h2 className="mb-16 text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight">
+          <h2 className="mb-16 text-5xl sm:text-6xl md:text-7xl leading-tight">
             Why <span className="text-tpm">Purple?</span>
           </h2>
         </MotionDiv>
@@ -85,21 +79,11 @@ export const Whypurple = () => {
             viewport={viewportConfig}
             className="mt-16 flex justify-center w-full"
           >
-            <Button
-              variant="default"
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="group px-8 py-6"
-            >
+            <InteractiveHoverButton onClick={() => setIsExpanded(!isExpanded)} className="group">
               <span className="text-sm font-black uppercase tracking-widest">
-                {isExpanded ? "Close Deep Dive" : "The Deep Dive"}
+                {isExpanded ? "Close" : "The Deep Dive"}
               </span>
-
-              {isExpanded ? (
-                <ChevronUp className="w-5 h-5 ml-2 group-hover:-translate-y-0.5 transition-transform" />
-              ) : (
-                <ChevronDown className="w-5 h-5 ml-2 group-hover:translate-y-0.5 transition-transform" />
-              )}
-            </Button>
+            </InteractiveHoverButton>
           </MotionDiv>
         </MotionDiv>
       </div>

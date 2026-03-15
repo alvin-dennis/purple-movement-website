@@ -1,11 +1,10 @@
 import { AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { MotionDiv, MotionSection, MotionSpan } from "@/components/Framer";
-import { Button } from "@/components/ui/button";
+import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { articles } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export const Articles = () => {
   return (
@@ -18,15 +17,8 @@ export const Articles = () => {
       id="resources"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 mb-12 md:mb-24">
-          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <MotionSpan
-              variants={fadeInUp}
-              className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-4 md:mb-6 block"
-            >
-              Knowledge Loop
-            </MotionSpan>
-
+        <div className="grid grid-cols-1 gap-8 md:gap-16 mb-12 md:mb-24">
+          <div className="flex flex-col items-center text-center">
             <MotionDiv variants={fadeInUp}>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 leading-tight">
                 Shared <span className="text-tpm">Wisdom</span>.
@@ -68,10 +60,9 @@ export const Articles = () => {
 
                     <CardFooter className="px-8 md:px-10 pb-8 md:pb-10 pt-0">
                       <Link href={res.link}>
-                        <Button variant={"default"} className="inline-flex items-center uppercase">
+                        <InteractiveHoverButton className="inline-flex items-center uppercase">
                           READ ARTICLE
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Button>
+                        </InteractiveHoverButton>
                       </Link>
                     </CardFooter>
                   </Card>

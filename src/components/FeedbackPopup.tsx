@@ -8,6 +8,7 @@ import { useSubmitFeedback } from "@/services/hooks";
 import { Button } from "./ui/button";
 import { Spinner } from "./ui/spinner";
 import { Textarea } from "./ui/textarea";
+import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 
 interface FeedbackPopupProps {
   isOpen: boolean;
@@ -88,12 +89,10 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
         >
           <X className="h-4 w-4" />
         </Button>
-        <div className="text-center mb-4 mt-10 sm:mb-6 pt-2 sm:pt-0">
-          <h2 className="text-xl xs:text-2xl sm:text-3xl font-bold tracking-wide leading-tight">
-            How helpful was this?
-          </h2>
+        <div className="text-center mb-10 mt-10 sm:mb-6 pt-2 sm:pt-0">
+          <h2 className="text-xl xs:text-2xl sm:text-3xl font-bold">How helpful was this?</h2>
         </div>
-        <div className="flex justify-center items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+        <div className="flex justify-center items-center gap-2 sm:gap-4 mb-4 sm:mb-6">
           {reactions.map((reaction) => (
             <Button
               key={reaction.id}
@@ -124,18 +123,17 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
         </div>
 
         <div className="flex justify-center">
-          <Button
-            variant={"default"}
+          <InteractiveHoverButton
             onClick={handleSubmit}
             disabled={(!feedback.trim() && !selectedRating) || isPending}
-            className="w-full max-w-32 py-2 px-4 inline-flex justify-center items-center gap-2.5 disabled:opacity-50"
+            className="inline-flex justify-center items-center disabled:opacity-50"
           >
             {isPending && <Spinner className="mr-2 h-4 w-4" />} Submit
-          </Button>
+          </InteractiveHoverButton>
         </div>
       </div>
 
-      <div className="hidden md:block w-[780px] h-[511px] bg-card rounded-xl overflow-hidden relative">
+      <div className="hidden md:block w-[780px] h-[520px] bg-card shadow-2xl rounded-xl overflow-hidden relative">
         <Button
           variant={"default"}
           size={"icon"}
@@ -146,10 +144,10 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
         </Button>
 
         <div className="absolute left-[121.5px] top-[66.32px]">
-          <h2 className="text-5xl font-bold tracking-wide">How helpful was this?</h2>
+          <h2 className="text-5xl font-bold">How helpful was this?</h2>
         </div>
 
-        <div className="absolute left-1/2 -translate-x-1/2 mt-5 top-[148px] flex justify-center items-center gap-6">
+        <div className="absolute left-1/2 -translate-x-1/2 mt-10 top-[148px] flex justify-center items-center gap-6">
           {reactions.map((reaction) => (
             <button
               key={reaction.id}
@@ -170,7 +168,7 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             </button>
           ))}
         </div>
-        <div className="w-[544.59px] h-40 absolute left-[125.06px] top-[227.28px] rounded">
+        <div className="w-[544.59px] h-40 mt-10 absolute left-[125.06px] top-[227.28px] rounded">
           <Textarea
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
@@ -178,15 +176,14 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
             className="w-full h-full px-4 py-4 text-lg"
           />
         </div>
-        <div className="p-2.5 absolute left-[329px] top-[406px] inline-flex justify-center items-center gap-2.5">
-          <Button
-            variant={"default"}
+        <div className="p-2.5 mt-10 absolute left-[329px] top-[406px] inline-flex justify-center items-center gap-2.5">
+          <InteractiveHoverButton
             onClick={handleSubmit}
             disabled={(!feedback.trim() && !selectedRating) || isPending}
             className="disabled:opacity-50"
           >
             {isPending && <Spinner className="mr-2 h-4 w-4" />} Submit
-          </Button>
+          </InteractiveHoverButton>
         </div>
       </div>
     </div>

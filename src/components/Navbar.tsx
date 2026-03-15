@@ -50,7 +50,7 @@ export const Navbar = () => {
 
   return (
     <nav className="absolute top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1400px] z-[100]">
-      <div className="flex items-center justify-between px-6 md:px-10 py-3 rounded-[3rem] border borderforeground/5 shadow-2xl bg-black/60 backdrop-blur-2xl border-primary/20">
+      <div className="flex items-center justify-between px-6 md:px-10 py-3 rounded-[3rem] border border-primary shadow-2xl bg-background backdrop-blur-2xl">
         <Link href="/" className="relative z-10 cursor-pointer flex-shrink-0">
           <Image
             src="/logos/logo_pm.png"

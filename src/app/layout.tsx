@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Poppins } from "next/font/google";
+import { Syne, Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import BackToTop from "@/components/BacktoTop";
@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { Providers } from "./providers";
 
-const montserrat = Montserrat({
+const montserrat = Syne({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
@@ -40,7 +40,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <Toaster position="top-center" theme="dark" richColors />
+          <Toaster position="top-right" theme="light" richColors />
           <div className="fixed bottom-4 right-4 z-50">
             <BackToTop />
           </div>
