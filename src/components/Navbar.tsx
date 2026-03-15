@@ -53,7 +53,7 @@ export const Navbar = () => {
       <div className="flex items-center justify-between px-6 md:px-10 py-3 rounded-[3rem] border border-primary shadow-2xl bg-background backdrop-blur-2xl">
         <Link href="/" className="relative z-10 cursor-pointer flex-shrink-0">
           <Image
-            src="/logos/logo_pm.png"
+            src="/logo.png"
             width={120}
             height={48}
             alt="Purple Movement Logo"
@@ -107,7 +107,7 @@ export const Navbar = () => {
             animate="visible"
             exit="hidden"
             viewport={viewportConfig}
-            className="absolute top-[calc(100%+12px)] left-0 w-full md:hidden bg-black/80 backdrop-blur-3xl rounded-[2rem] border borderforeground/10 p-8 flex flex-col items-center gap-8"
+            className="absolute top-[calc(100%+12px)] left-0 w-full md:hidden backdrop-blur-3xl rounded-[2rem] border borderforeground/10 p-8 flex flex-col items-center gap-8"
           >
             {navLinks.map((link) => (
               <Link
@@ -123,12 +123,10 @@ export const Navbar = () => {
               </Link>
             ))}
 
-            <Link
-              href="/join"
-              onClick={() => setIsOpen(false)}
-              className="px-10 py-4 bg-primary rounded-full font-bold text-sm tracking-widest uppercase shadow-xl hover:bg-primary transition-all active:scale-95 mt-2"
-            >
-              Start Rising
+            <Link href="/join" onClick={() => setIsOpen(false)}>
+              <Button variant={"default"} className="ml-2 uppercase">
+                Connect
+              </Button>
             </Link>
           </MotionDiv>
         )}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Poppins } from "next/font/google";
+import { Syne, Poppins, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import BackToTop from "@/components/BacktoTop";
@@ -13,10 +13,10 @@ const montserrat = Syne({
   display: "swap",
 });
 
-const poppins = Poppins({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-body",
-  weight: ["300", "400", "500"],
   display: "swap",
 });
 
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
-        className={`${montserrat.variable} ${poppins.variable} bg-background text-foreground font-body`}
+        className={`${montserrat.variable} ${plusJakarta.variable} bg-background text-foreground font-body`}
       >
         <Providers>
           <Navbar />

@@ -16,7 +16,7 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
         <div className="max-w-6xl mx-auto flex justify-center">
           <div className="w-[904px] rounded-[10px] flex flex-col items-center justify-center py-10 gap-8">
             <div className="w-80 space-y-6 flex flex-col items-center">
-              <div className="text-center text-5xl font-bold capitalize">Thank You!</div>
+              <h1 className="text-center capitalize">Thank You!</h1>
               <div className="text-center text-xl font-normal capitalize">
                 We&apos;ve received your response.
               </div>
@@ -37,9 +37,7 @@ export default function StepFour({ userName = "Friend", isAnonymous = false }: S
     <div className="w-full px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
         <div className="rounded-xl px-5 py-8 sm:px-10 sm:py-10 text-center space-y-6 sm:space-y-8 shadow-md">
-          <h1 className="text-xl sm:text-3xl md:text-4xl font-bold capitalize">
-            Thank you {userName}
-          </h1>
+          <h1 className="capitalize">Thank you {userName}</h1>
           <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto leading-relaxed">
             We&apos;ve received your response.
           </p>

@@ -191,9 +191,7 @@ export default function StepThree({
       <style dangerouslySetInnerHTML={{ __html: phoneInputStyles }} />
       <div className="space-y-6">
         <div className="max-w-[864px] w-full mx-auto space-y-3">
-          <h1 className="text-2xl sm:text-4xl font-bold capitalize text-left pl-3 sm:pl-4">
-            Tell Us About You
-          </h1>
+          <h1 className="capitalize text-left pl-3 sm:pl-4">Tell Us About You</h1>
           <div className="justify-start text-base font-normal capitalize pl-3 sm:pl-4">
             We&apos;d love to hear from you, or you can stay anonymous.
           </div>

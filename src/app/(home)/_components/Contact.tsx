@@ -57,7 +57,7 @@ export const Contact = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 overflow-hidden"
+      className="w-full py-20 px-4 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto backdrop-blur-xl border border-primary/50 relative rounded-xl">
         <Card className="bg-transparent border-0 shadow-none">
@@ -83,7 +83,7 @@ export const Contact = () => {
                   variants={fadeInUp}
                   className="mb-8 md:mb-12 flex flex-col items-center lg:items-start text-center lg:text-left"
                 >
-                  <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-6 leading-tight">
+                  <h2 className="mb-4 md:mb-6 leading-tight">
                     {contact.title} <span className="text-tpm">{contact.highlight}</span>?
                   </h2>
 

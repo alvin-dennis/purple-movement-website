@@ -15,21 +15,23 @@ export const Whypurple = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="relative w-full px-6 py-24 md:py-40 overflow-hidden bg-background"
+      className="relative w-full px-4 py-20 overflow-hidden"
       id="whypurple"
     >
       <div className="absolute inset-0 opacity-[0.15] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10 flex flex-col items-center text-center">
         <MotionDiv variants={fadeInUp}>
-          <h2 className="mb-16 text-5xl sm:text-6xl md:text-7xl leading-tight">
+          <h2 className="mb-16 leading-tight">
             Why <span className="text-tpm">Purple?</span>
           </h2>
         </MotionDiv>
         <MotionDiv variants={fadeInUp} className="w-full relative">
           <div className="space-y-6 text-xl md:text-2xl font-medium leading-relaxed">
-            <p className="border-l-4 border-primary pl-8 py-2">{whyPurple.quote}</p>
-            <p className="text-secondary-foreground">
+            <p className="text-base md:text-lg lg:text-xl border-l-4 border-primary pl-8 py-2">
+              {whyPurple.quote}
+            </p>
+            <p className="text-secondary-foreground text-base md:text-lg lg:text-xl">
               {whyPurple.duality[0].text}
               <br className="hidden md:block" />
               {whyPurple.duality[1].text}
@@ -45,9 +47,13 @@ export const Whypurple = () => {
                     The Gap we fill
                   </p>
 
-                  <p className="text-foreground/70">{whyPurple.gap.description}</p>
+                  <p className="text-foreground/70 text-base md:text-lg lg:text-xl">
+                    {whyPurple.gap.description}
+                  </p>
 
-                  <p className="text-secondary-foreground font-bold">{whyPurple.gap.title}</p>
+                  <p className="text-secondary-foreground font-bold text-base md:text-lg lg:text-xl">
+                    {whyPurple.gap.title}
+                  </p>
 
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 list-none">
                     {whyPurple.deepDive.map((item) => (
@@ -58,13 +64,17 @@ export const Whypurple = () => {
                   </ul>
 
                   <div className="bg-card p-10 border border-primary">
-                    <p className="mb-6 uppercase font-black tracking-widest text-sm">Outcome</p>
-                    <p className="text-xl italic">{whyPurple.outcome}</p>
+                    <p className="md:text-lg lg:text-xl mb-6 uppercase font-black tracking-widest text-sm">
+                      Outcome
+                    </p>
+                    <p className="text-base md:text-lg lg:text-xl italic">{whyPurple.outcome}</p>
                   </div>
 
-                  <p className="text-secondary-foreground italic">{whyPurple.thought}</p>
+                  <p className="text-secondary-foreground italic text-base md:text-lg lg:text-xl">
+                    {whyPurple.thought}
+                  </p>
 
-                  <p className="text-2xl font-black text-tpm uppercase tracking-tight pt-4">
+                  <p className="font-black text-tpm uppercase tracking-tight pt-4 text-base md:text-lg lg:text-xl">
                     {whyPurple.final}
                   </p>
                 </div>

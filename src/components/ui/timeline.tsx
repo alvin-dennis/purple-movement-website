@@ -44,21 +44,17 @@ export const TimelineClient = ({ data }: { data: Timeline[] }) => {
                 <div className="h-4 w-4 rounded-full bg-foreground p-2" />
               </div>
               <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full relative">
-                <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-tpm">
-                  {item.year}
-                </h3>
+                <h3 className="hidden md:block md:pl-20 text-tpm">{item.year}</h3>
               </MotionDiv>
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full group">
               <MotionDiv variants={fadeInUp} viewport={viewportConfig} className="w-full relative">
-                <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-tpm">
-                  {item.year}
-                </h3>
+                <h3 className="md:hidden block mb-4 text-left text-tpm">{item.year}</h3>
                 <Card className="relative p-6 border-primary backdrop-blur-xl transition-all duration-500 group-hover:-translate-y-2">
                   <h3 className="mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
 
-                  <p className="text-sm sm:text-base text-foreground/50 leading-relaxed font-medium">
+                  <p className="text-base md:text-lg lg:text-xl text-foreground/50 leading-relaxed font-medium">
                     {item.description}
                   </p>
                 </Card>
@@ -70,14 +66,14 @@ export const TimelineClient = ({ data }: { data: Timeline[] }) => {
           style={{
             height: height + "px",
           }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
+          className="absolute md:left-8 left-8 top-0 overflow-hidden w-0.5 bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-0% via-neutral-200 dark:via-neutral-700 to-transparent to-99% mask-[linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-primary via-primary/50 to-transparent from-[0%] via-[10%] rounded-full"
+            className="absolute inset-x-0 top-0 w-0.5 bg-linear-to-t from-primary via-primary/50 to-transparent from-0% via-10% rounded-full"
           />
         </div>
       </div>

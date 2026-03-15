@@ -24,7 +24,7 @@ export function PyramidClient() {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="relative w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 py-32 md:py-48 px-6"
+      className="relative w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 py-20 px-4"
     >
       <MotionDiv
         variants={fadeInUp}
@@ -164,8 +164,10 @@ export function PyramidClient() {
                   <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block">
                     PHASE 0{level.id}
                   </span>
-                  <h2 className="text-5xl md:text-6xl mb-8 leading-tight">{level.title}</h2>
-                  <p className="mb-12 text-foreground/70">{level.description}</p>
+                  <h2 className="mb-8 leading-tight">{level.title}</h2>
+                  <p className="mb-12 text-base md:text-lg lg:text-xl text-foreground/70">
+                    {level.description}
+                  </p>
                   <Link
                     key={level.id}
                     href={level.link}

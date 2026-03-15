@@ -15,9 +15,9 @@ export function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       id="home"
     >
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pt-28 pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <div className="flex flex-col items-start text-left max-w-3xl">
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-3xl">
             <MotionDiv
               variants={fadeInUp}
               className="inline-flex items-center gap-3 px-4 py-2 border border-primary/30 rounded-full bg-primary/10 backdrop-blur-md mb-4 md:mb-6"
@@ -29,15 +29,11 @@ export function Hero() {
             </MotionDiv>
 
             <MotionDiv variants={fadeInUp} className="w-full">
-              <h1 className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-widest mb-2 opacity-80">
-                {hero.title1}
-              </h1>
+              <h1 className="text-foreground opacity-80">{hero.title1}</h1>
             </MotionDiv>
 
             <MotionDiv variants={fadeInUp} className="pr-4">
-              <h2 className="text-tpm text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 py-3 w-fit leading-[0.9]">
-                {hero.title2}
-              </h2>
+              <h1 className="text-tpm w-fit">{hero.title2}</h1>
             </MotionDiv>
 
             <MotionDiv variants={fadeInUp} className="flex flex-col items-start gap-8 w-full">
@@ -58,7 +54,6 @@ export function Hero() {
             </MotionDiv>
           </div>
 
-          {/* Right Content - Radial Flow */}
           <MotionDiv
             variants={fadeInUp}
             className="hidden lg:block relative w-full aspect-square max-w-xl mx-auto"

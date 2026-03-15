@@ -13,14 +13,14 @@ export const Articles = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative"
+      className="w-full py-20 px-4 relative"
       id="resources"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 gap-8 md:gap-16 mb-12 md:mb-24">
+        <div className="grid grid-cols-1 gap-8 md:gap-16 mb-12">
           <div className="flex flex-col items-center text-center">
             <MotionDiv variants={fadeInUp}>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 md:mb-8 leading-tight">
+              <h2 className="mb-4">
                 Shared <span className="text-tpm">Wisdom</span>.
               </h2>
             </MotionDiv>
@@ -53,7 +53,7 @@ export const Articles = () => {
                         </span>
                       </div>
 
-                      <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-6 group-hover:text-primary transition-colors">
+                      <h3 className="mb-4 md:mb-6 group-hover:text-primary transition-colors">
                         {res.title}
                       </h3>
                     </CardContent>

@@ -12,7 +12,7 @@ export const CallToAction = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 sm:py-28 md:py-40 px-4 sm:px-6 relative overflow-hidden"
+      className="w-full py-20 px-4 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto relative overflow-hidden px-8 md:px-16 lg:px-24 py-16 md:py-24 lg:py-32">
         <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 lg:gap-24 relative z-10">
@@ -22,15 +22,15 @@ export const CallToAction = () => {
               viewport={viewportConfig}
               className="mb-8 md:mb-12 flex flex-col items-center lg:items-start text-center lg:text-left md:-translate-x-5"
             >
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.85] space-y-2 mb-6 md:mb-10">
+              <h2 className="mb-6 md:mb-10">
                 {cta.title1} <br />
                 <span className="text-tpm">{cta.title2}</span> {cta.title3}
               </h2>
               <div className="max-w-2xl border-l-0 lg:border-l border-primary/30 lg:pl-10 space-y-4 md:space-y-8">
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl textforeground/60 leading-relaxed">
+                <p className="text-base md:text-lg lg:text-xl textforeground/60 leading-relaxed">
                   {cta.description}
                 </p>
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl textforeground">
+                <h3 className="text-foreground">
                   {cta.statement.split(" THE ")[0]} THE{" "}
                   <span className="text-primary">{cta.statement.split(" THE ")[1]}</span>
                 </h3>

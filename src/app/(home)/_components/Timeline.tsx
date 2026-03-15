@@ -12,16 +12,16 @@ export const Timeline = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-24 sm:py-32 md:py-48 px-6 relative overflow-hidden bg-background"
+      className="w-full py-20 px-4 relative overflow-hidden"
       id="timeline"
     >
       <div className="max-w-7xl mx-auto relative mb-8 md:mb-12 flex flex-col items-center text-center">
         <MotionDiv variants={fadeInUp}>
-          <h2 className="text-5xl sm:text-6xl md:text-7xl text-foreground leading-tight">
+          <h2 className="text-foreground leading-tight">
             THE <span className="text-tpm">RISE</span>
           </h2>
         </MotionDiv>
-        <MotionDiv variants={fadeInUp} className="w-full mt-12 md:mt-24 text-left">
+        <MotionDiv variants={fadeInUp} className="w-full text-left">
           <TimelineClient data={timeline} />
         </MotionDiv>
       </div>

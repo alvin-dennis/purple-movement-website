@@ -1,22 +1,5 @@
 import { z } from "zod";
 
-export const feedbackSchema = z.object({
-  message: z.string().min(1, "Message is required"),
-  rating: z.number().min(1).max(5),
-  site_id: z.string().default("tpm-website"),
-});
-
-export type FeedbackRequest = z.infer<typeof feedbackSchema>;
-
-export const feedbackResponseSchema = z.object({
-  id: z.number(),
-  site_id: z.string(),
-  rating: z.number(),
-  message: z.string(),
-});
-
-export type FeedbackResponse = z.infer<typeof feedbackResponseSchema>;
-
 export const joinCommunitySchema = z
   .object({
     category: z.enum(["individual", "organisation", "government"]),

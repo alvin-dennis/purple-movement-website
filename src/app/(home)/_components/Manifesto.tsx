@@ -9,7 +9,7 @@ export const Manifesto = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 sm:py-32 md:py-40 lg:py-60 px-4 sm:px-6 relative overflow-hidden"
+      className="w-full py-20 px-4 relative overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-full h-full select-none pointer-events-none opacity-[0.03] overflow-hidden">
         <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase text-foreground leading-none absolute -top-20 -right-20">
@@ -23,7 +23,7 @@ export const Manifesto = () => {
             variants={fadeInUp}
             className="relative flex flex-col items-center text-center"
           >
-            <h2 className="text-5xl sm:text-6xl md:text-7xl uppercase flex flex-col items-center mb-4 md:mb-6">
+            <h2 className="uppercase flex flex-col items-center mb-4 md:mb-6">
               <span>
                 MANIFESTO<span className="text-primary">.</span>
               </span>
@@ -62,7 +62,7 @@ export const Manifesto = () => {
               </MotionDiv>
 
               <MotionDiv variants={fadeInUp} className="w-full text-left">
-                <h2 className="text-3xl md:text-5xl text-tpm leading-tight">
+                <h2 className="text-tpm leading-tight">
                   {manifesto.sections[1].title.toUpperCase()}
                 </h2>
                 <p className="text-lg md:text-3xl font-semibold leading-relaxed">
@@ -86,9 +86,7 @@ export const Manifesto = () => {
               </div>
               <MotionDiv variants={fadeInUp} className="grid grid-cols-1 gap-2 text-left">
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-3xl md:text-5xl leading-none">
-                    {manifesto.statements.movement.title}
-                  </h3>
+                  <h3 className="leading-none">{manifesto.statements.movement.title}</h3>
                 </div>
                 <div className="p-4 flex items-center">
                   <p className="text-lg md:text-3xl leading-snug font-black">

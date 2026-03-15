@@ -17,7 +17,7 @@ export function Stats() {
       >
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
           <MotionDiv variants={fadeInUp}>
-            <h2 className="text-5xl sm:text-6xl md:text-7xl">
+            <h2>
               THE IMPACT OF <span className="text-tpm">TPM</span>
             </h2>
           </MotionDiv>
@@ -45,7 +45,7 @@ function StatCard({
   isString?: boolean;
 }) {
   return (
-    <Card className="flex flex-col justify-center items-center p-8 w-full h-full min-h-[160px]">
+    <Card className="flex flex-col justify-center items-center p-6 w-full h-full min-h-[160px]">
       <p className="font-bold text-tpm text-3xl sm:text-4xl lg:text-5xl mb-2">
         {isString ? value : <CountUp end={value as number} duration={3} separator="," suffix="+" />}
       </p>

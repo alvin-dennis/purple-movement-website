@@ -10,17 +10,17 @@ export function Gallery() {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 md:py-32"
+      className="w-full py-20"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-12 flex flex-col items-center text-center">
+      <div className="max-w-7xl mx-auto px-4 mb-10 flex flex-col items-center text-center">
         <MotionDiv variants={fadeInUp}>
-          <h2 className="text-5xl sm:text-6xl md:text-7xl text-foreground">
+          <h2 className="text-foreground">
             THE <span className="text-tpm">GALLERY</span>
           </h2>
         </MotionDiv>
       </div>
 
-      <MotionDiv variants={fadeInUp} className="w-full">
+      <MotionDiv variants={fadeInUp} className="w-full max-w-7xl mx-auto">
         <LogoLoop
           logos={gallery.left}
           speed={50}

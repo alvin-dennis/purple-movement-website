@@ -4,13 +4,10 @@ import { Globe, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
 import { Separator } from "@/components/ui/separator";
 import { footer } from "@/data/common";
-import FeedbackPopup from "./FeedbackPopup";
 
 export const Footer = () => {
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -41,7 +38,7 @@ export const Footer = () => {
           <div className="md:col-span-3 flex flex-col gap-8 items-center md:items-start">
             <div className="space-y-6">
               <Image
-                src="/logos/logo_pm.png"
+                src="/logo.png"
                 width={160}
                 height={60}
                 alt="Purple Movement Logo"
@@ -69,9 +66,7 @@ export const Footer = () => {
             </div>
           </div>
           <div className="md:col-span-3 space-y-6">
-            <h4 className="text-md font-bold tracking-[0.15em] text-foreground/50 uppercase">
-              Our Verticals
-            </h4>
+            <h4 className="tracking-[0.15em] text-foreground/50 uppercase">Our Verticals</h4>
             <nav className="flex flex-col gap-4 items-center md:items-start">
               {footer.verticals.map((v) => (
                 <Link
@@ -87,9 +82,7 @@ export const Footer = () => {
             </nav>
           </div>
           <div className="md:col-span-3 space-y-6">
-            <h4 className="text-md font-bold tracking-[0.15em] text-foreground/50 uppercase">
-              Navigate
-            </h4>
+            <h4 className="tracking-[0.15em] text-foreground/50 uppercase">Navigate</h4>
             <nav className="flex flex-col gap-4 items-center md:items-start">
               {footer.navLinks.map((l) => (
                 <Link
@@ -104,30 +97,17 @@ export const Footer = () => {
             </nav>
           </div>
           <div className="md:col-span-3 space-y-6">
-            <h4 className="text-md font-bold tracking-[0.15em] text-foreground/50 uppercase">
-              Support
-            </h4>
+            <h4 className="tracking-[0.15em] text-foreground/50 uppercase">Support</h4>
             <nav className="flex flex-col gap-4 items-center md:items-start">
-              {footer.supportLinks.map((l) =>
-                l.action === "feedback" ? (
-                  <button
-                    key={l.name}
-                    type="button"
-                    onClick={() => setIsFeedbackOpen(true)}
-                    className="text-xl font-medium text-foreground/70 hover:text-primary transition-colors duration-300"
-                  >
-                    {l.name}
-                  </button>
-                ) : (
-                  <Link
-                    key={l.name}
-                    href={l.href}
-                    className="text-xl font-medium text-foreground/70 hover:text-primary transition-colors duration-300"
-                  >
-                    {l.name}
-                  </Link>
-                ),
-              )}
+              {footer.supportLinks.map((l) => (
+                <Link
+                  key={l.name}
+                  href={l.href}
+                  className="text-xl font-medium text-foreground/70 hover:text-primary transition-colors duration-300"
+                >
+                  {l.name}
+                </Link>
+              ))}
             </nav>
           </div>
         </div>
@@ -154,8 +134,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-
-      <FeedbackPopup isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
     </footer>
   );
 };

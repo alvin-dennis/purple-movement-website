@@ -11,14 +11,14 @@ export const Events = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative overflow-hidden"
+      className="w-full py-20 px-4 relative overflow-hidden"
       id="events"
     >
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-center justify-center mb-12 md:mb-20 gap-6 md:gap-8">
           <div className="max-w-4xl flex flex-col items-center text-center">
             <MotionDiv variants={fadeInUp}>
-              <h2 className="text-5xl sm:text-6xl md:text-7xl mb-4 md:mb-8 leading-tight">
+              <h2 className="mb-4 md:mb-8 leading-tight">
                 Lived <span className="text-tpm">Experiences</span>
               </h2>
             </MotionDiv>
@@ -63,7 +63,7 @@ export const Events = () => {
                   <div className="absolute inset-0 z-20 p-5 flex flex-col justify-end">
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover/article:opacity-100 transition-opacity duration-300 pointer-events-none" />
                     <div className="relative overflow-hidden">
-                      <h3 className="text-2xl md:text-3xl font-medium md:opacity-0 group-hover/article:opacity-100 md:translate-y-2 group-hover/article:translate-y-0 transition duration-300 ease-out delay-200">
+                      <h3 className="md:opacity-0 group-hover/article:opacity-100 md:translate-y-2 group-hover/article:translate-y-0 transition duration-300 ease-out delay-200">
                         {event.title}
                       </h3>
                     </div>

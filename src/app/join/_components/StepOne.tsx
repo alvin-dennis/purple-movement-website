@@ -31,7 +31,7 @@ export default function StepOne({ selectedOption, onCardClick }: StepOneProps) {
   return (
     <div className="space-y-8 sm:space-y-12 w-full">
       <div className="space-y-3 sm:space-y-4 text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold capitalize">What Defines You?</h1>
+        <h1 className="capitalize">What Defines You?</h1>
         <p className="text-sm sm:text-base md:text-lg font-normal capitalize">
           Understanding the things that define you.
         </p>
