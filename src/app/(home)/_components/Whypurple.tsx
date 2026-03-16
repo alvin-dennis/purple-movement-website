@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { whyPurple } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
@@ -51,11 +53,11 @@ export const Whypurple = () => {
                     {whyPurple.gap.description}
                   </p>
 
-                  <p className="text-secondary-foreground font-bold text-base md:text-lg lg:text-xl">
+                  <Badge className="font-bold text-base md:text-lg lg:text-xl">
                     {whyPurple.gap.title}
-                  </p>
+                  </Badge>
 
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 list-none">
+                  <ul className="flex flex-col md:flex-row gap-6 list-none">
                     {whyPurple.deepDive.map((item) => (
                       <li key={item} className="bg-card p-6 border-l-2 border-primary text-base">
                         {item}
@@ -63,12 +65,12 @@ export const Whypurple = () => {
                     ))}
                   </ul>
 
-                  <div className="bg-card p-10 border border-primary">
+                  <Card className="bg-primary/5 border border-primary">
                     <p className="md:text-lg lg:text-xl mb-6 uppercase font-black tracking-widest text-sm">
                       Outcome
                     </p>
                     <p className="text-base md:text-lg lg:text-xl italic">{whyPurple.outcome}</p>
-                  </div>
+                  </Card>
 
                   <p className="text-secondary-foreground italic text-base md:text-lg lg:text-xl">
                     {whyPurple.thought}
