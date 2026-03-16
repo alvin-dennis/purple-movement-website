@@ -4,9 +4,9 @@ import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { MotionDiv, MotionPath, MotionSection } from "@/components/Framer";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { levels } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export function PyramidClient() {
   const [activeLevel, setActiveLevel] = useState<number>(3);

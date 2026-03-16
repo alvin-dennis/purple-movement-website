@@ -2,9 +2,9 @@ import { AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { articles } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export const Articles = () => {
   return (

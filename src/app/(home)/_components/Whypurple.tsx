@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { whyPurple } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export const Whypurple = () => {
   const [isExpanded, setIsExpanded] = useState(false);

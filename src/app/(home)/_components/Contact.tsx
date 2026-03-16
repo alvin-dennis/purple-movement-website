@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Card, CardContent } from "@/components/ui/card";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { Textarea } from "@/components/ui/textarea";
 import { contact } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export const Contact = () => {
   const [question, setQuestion] = useState("");

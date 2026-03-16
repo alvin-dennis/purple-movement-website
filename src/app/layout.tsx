@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, Poppins, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Poppins, Syne } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import BackToTop from "@/components/BacktoTop";

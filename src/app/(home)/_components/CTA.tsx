@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MotionDiv, MotionSection } from "@/components/Framer";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { cta } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export const CallToAction = () => {
   return (
