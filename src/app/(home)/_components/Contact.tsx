@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,12 +8,6 @@ import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button
 import { Textarea } from "@/components/ui/textarea";
 import { contact } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
-
-const Dithering = dynamic(() =>
-  import("@paper-design/shaders-react").then((mod) => ({
-    default: mod.Dithering,
-  })),
-);
 
 export const Contact = () => {
   const [question, setQuestion] = useState("");
@@ -67,19 +60,7 @@ export const Contact = () => {
       className="w-full py-20 px-4 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto backdrop-blur-xl border border-primary relative rounded-[48px] overflow-hidden">
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-2 mix-blend-multiply">
-          <Dithering
-            colorBack="#00000000"
-            colorFront="#A108F9"
-            shape="warp"
-            type="8x8"
-            speed={0.2}
-            className="size-full"
-            minPixelRatio={1}
-          />
-        </div>
-
-        <Card className="bg-transparent border-0 shadow-none relative z-10">
+        <Card className="border-0 shadow-none relative z-10">
           <CardContent className="p-6 sm:p-10 md:p-16 lg:p-24">
             <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16 lg:gap-20">
               <MotionDiv

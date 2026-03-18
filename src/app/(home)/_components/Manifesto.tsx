@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MotionDiv, MotionSection } from "@/components/Framer";
-import { levels, manifesto } from "@/data/home";
+import { manifesto } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const Manifesto = () => {
@@ -30,109 +30,102 @@ export const Manifesto = () => {
               <div className="flex flex-wrap items-baseline text-justify">
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-4xl md:text-[46px] font-black leading-tight">
-                    We are a group of {manifesto.sections[0].title.split(" ").pop()}
+                    We are the Manifestors of Change.
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
-                  <span className="text-xl md:text-[21px] font-black mr-2">who have been</span>
+                  <span className="text-xl md:text-[21px] font-black mr-2">We are not</span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-xl md:text-[21px] font-black text-energy uppercase">
-                    HUMILIATED
+                    WAITING
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-xl md:text-[21px] font-normal text-energy">
-                    by archaic systems, processes, and syllabus for years.
+                    for the future. We are building it—with {manifesto.sections[0].highlight}
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-2xl md:text-[30px] font-semibold">
-                    We are tired of Borders, Gatekeepers, and any limitations
+                    We are the voice of a generation that refuses to settle.
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-2xl md:text-[30px] font-light mr-2">
-                    getting in the way of...
+                    We are not consumers of culture;
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-2xl md:text-[30px] font-semibold text-primary">
-                    The Collective Rise.
+                    Producers of Purpose.
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-xl md:text-[21px] font-normal text-energy">
-                    We are tired of being told we must follow the rules that were made to keep us
-                    small.
+                    We break barriers, not just for ourselves, but for every young mind daring to
+                    dream.
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-xl md:text-[21px] font-black text-energy uppercase">
-                    A Forced Syllabus Chain Gang
+                    Ecosystems that Empower
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
-                  <span className="text-lg md:text-[17px] font-normal text-energy mr-2">
-                    without any time to
-                  </span>
+                  <span className="text-lg md:text-[17px] font-normal text-energy mr-2">not</span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
-                  <span className="text-xl md:text-[21px] font-normal text-energy">
-                    be creative because we aren&apos;t trusted to be...
-                  </span>
+                  <span className="text-xl md:text-[21px] font-normal text-energy">LIMIT.</span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-xl md:text-[21px] font-black text-energy">
-                    Beyond Syllabus.
+                    Access, not Gatekeeping.
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-2xl md:text-[30px] font-light mr-2">
-                    We must destroy these systems that get in the way of...
+                    Bold visions, not borrowed templates.
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-2xl md:text-[30px] font-black text-primary">
-                    The Movement.
+                    This is The Purple Movement.
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-xl md:text-[21px] font-normal text-energy">
-                    Imagine what we do falling into one of three categories:
+                    A wave of youth power, purpose, and possibility. A signal that change is not
+                    coming—it’s already here.
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block gap-3 flex">
                   <span className="text-lg md:text-[17px] font-black uppercase tracking-wider">
-                    Beyond Borders.
+                    {manifesto.statements.notSidelines.text}
                   </span>
-                  <span className="text-lg md:text-[17px] font-black uppercase tracking-wider">
-                    Beyond Gatekeepers.
-                  </span>
-                  <span className="text-lg md:text-[17px] font-black uppercase tracking-wider">
-                    Beyond Syllabus.
+                  <span className="text-lg md:text-[17px] font-black uppercase tracking-wider text-primary">
+                    {manifesto.statements.notSidelines.highlight}
                   </span>
                 </MotionDiv>
 
                 <MotionDiv variants={fadeInUp} className="inline-block">
                   <span className="text-2xl md:text-[30px] font-semibold">
-                    We are here to reclaim the narrative. To give confidence to the curious,
-                    networks to the bold, and direction to the determined.
+                    {manifesto.statements.reclaim}
                   </span>
                 </MotionDiv>
               </div>

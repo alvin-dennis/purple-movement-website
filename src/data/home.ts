@@ -297,14 +297,14 @@ export const manifesto = {
     {
       id: "01",
       title: "THE MANIFESTORS",
-      text: "We are the Manifestors of Change. Not waiting for the future, but building it with courage, code, creativity, and clarity.",
+      text: "We are the Manifestors of Change. Not waiting for the future, but building it—with courage, code, creativity, and clarity.",
       highlight: "courage, code, creativity, and clarity.",
     },
     {
       id: "02",
       title: "THE PRODUCERS",
-      text: "We are not consumers of culture; we are producers of purpose. We hold the key to ecosystems that empower, not limit.",
-      highlight: "we are producers of purpose.",
+      text: "We are the voice of a generation that refuses to settle. Not consumers of culture; Producers of purpose. We break barriers, not just for ourselves, but for every young mind daring to dream.",
+      highlight: "producers of purpose.",
     },
   ],
   statements: {
@@ -313,12 +313,16 @@ export const manifesto = {
       { top: "IN BOLD VISIONS,", bottom: "NOT TEMPLATES." },
     ],
     reclaim:
-      "We are here to reclaim the narrative. To give confidence to the curious, networks to the bold, and direction to the determined.",
+      "We are here to reclaim the narrative—To give confidence to the curious, Networks to the bold, And direction to the determined.",
     movement: {
       badge: "The Movement",
       title: "This is The Purple Movement.",
       description:
         "A wave of youth power, purpose, and possibility. A signal that change is not coming—it's already here.",
+    },
+    notSidelines: {
+      text: "This movement is not for the sidelines. It’s for the doers, the builders, the ones who say,",
+      highlight: "“Why not us?”",
     },
     footer: [
       { text: "We are the", highlight: "energy." },
