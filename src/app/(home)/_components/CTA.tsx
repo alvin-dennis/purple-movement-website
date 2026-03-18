@@ -1,3 +1,4 @@
+import { Highlighter } from "@/components/ui/highlighter";
 import Image from "next/image";
 import Link from "next/link";
 import { MotionDiv, MotionSection } from "@/components/Framer";
@@ -22,15 +23,27 @@ export const CallToAction = () => {
               viewport={viewportConfig}
               className="mb-8 md:mb-12 flex flex-col items-center lg:items-start text-center lg:text-left md:-translate-x-5"
             >
-              <h2 className="mb-6 md:mb-10">
+              <h2 className="mb-6 md:mb-10 text-4xl md:text-6xl font-black">
                 {cta.title1} <br />
                 <span className="text-tpm">{cta.title2}</span> {cta.title3}
               </h2>
               <div className="max-w-2xl border-l-0 lg:border-l border-primary/30 lg:pl-10 space-y-4 md:space-y-8">
                 <p className="text-base md:text-lg lg:text-xl textforeground/60 leading-relaxed">
-                  {cta.description}
+                  You&apos;ve sparked the start of a{" "}
+                  <Highlighter action="highlight" color="#ffd1dc">
+                    borderless, collaborative journey
+                  </Highlighter>
+                  . Ideas will grow,{" "}
+                  <Highlighter action="circle" color="#0061CE">
+                    connections will flourish
+                  </Highlighter>
+                  , and together, we&apos;ll turn{" "}
+                  <Highlighter action="box" color="#ffd1dc">
+                    ambition into real impact
+                  </Highlighter>
+                  .
                 </p>
-                <h3 className="text-foreground">
+                <h3 className="text-foreground text-2xl font-bold">
                   {cta.statement.split(" THE ")[0]} THE{" "}
                   <span className="text-primary">{cta.statement.split(" THE ")[1]}</span>
                 </h3>

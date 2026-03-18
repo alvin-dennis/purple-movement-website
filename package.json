@@ -16,6 +16,7 @@
     "validate": "bun run typecheck && bun run lint"
   },
   "dependencies": {
+    "@paper-design/shaders-react": "^0.0.72",
     "@t3-oss/env-nextjs": "^0.13.10",
     "@tanstack/react-query": "^5.90.21",
     "@tanstack/react-query-devtools": "^5.91.3",

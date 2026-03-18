@@ -30,7 +30,7 @@ interface HighlighterProps {
 export function Highlighter({
   children,
   action = "highlight",
-  color = "#ffd1dc",
+  color = "#A108F9",
   strokeWidth = 1.5,
   animationDuration = 600,
   iterations = 2,
@@ -43,54 +43,69 @@ export function Highlighter({
 
   const isInView = useInView(elementRef, {
     once: true,
-    margin: "-10%",
+    margin: "-5%",
   });
 
-  // If isView is false, always show. If isView is true, wait for inView
   const shouldShow = !isView || isInView;
 
   useEffect(() => {
     const element = elementRef.current;
-    let resizeObserver: ResizeObserver | null = null;
+    if (!shouldShow || !element) return;
 
-    if (shouldShow && element) {
-      const annotationConfig = {
-        type: action,
-        color,
-        strokeWidth,
-        animationDuration,
-        iterations,
-        padding,
-        multiline,
-      };
+    const annotationConfig = {
+      type: action,
+      color,
+      strokeWidth,
+      animationDuration,
+      iterations,
+      padding,
+      multiline,
+    };
 
-      const annotation = annotate(element, annotationConfig);
+    const annotation = annotate(element, annotationConfig);
+    annotationRef.current = annotation;
 
-      annotationRef.current = annotation;
+    // Small delay to ensure layout is settled
+    const timer = setTimeout(() => {
       annotation.show();
+    }, 100);
 
-      resizeObserver = new ResizeObserver(() => {
-        annotation.hide();
-        annotation.show();
-      });
+    const resizeObserver = new ResizeObserver(() => {
+      if (annotationRef.current) {
+        const annotation = annotationRef.current as RoughAnnotation & { update?: () => void };
+        if (typeof annotation.update === "function") {
+          annotation.update();
+        } else {
+          annotation.hide();
+          annotation.show();
+        }
+      }
+    });
 
-      resizeObserver.observe(element);
-      resizeObserver.observe(document.body);
-    }
+    resizeObserver.observe(element);
+
+    const handleResize = () => {
+      if (annotationRef.current) {
+        annotationRef.current.hide();
+        annotationRef.current.show();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
+      clearTimeout(timer);
       if (annotationRef.current) {
         annotationRef.current.remove();
         annotationRef.current = null;
       }
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", handleResize);
     };
   }, [shouldShow, action, color, strokeWidth, animationDuration, iterations, padding, multiline]);
 
   return (
-    <span ref={elementRef} className="relative inline-block bg-transparent">
+    <span ref={elementRef} className="relative inline bg-transparent">
       {children}
     </span>
   );

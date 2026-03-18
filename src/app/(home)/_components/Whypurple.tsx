@@ -1,11 +1,11 @@
 "use client";
-
+import { Highlighter } from "@/components/ui/highlighter";
+import Image from "next/image";
 import { useState } from "react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import { whyPurple } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
 export const Whypurple = () => {
@@ -31,12 +31,23 @@ export const Whypurple = () => {
         <MotionDiv variants={fadeInUp} className="w-full relative">
           <div className="space-y-6 text-xl md:text-2xl font-medium leading-relaxed">
             <p className="text-base md:text-lg lg:text-xl border-l-4 border-primary pl-8 py-2">
-              {whyPurple.quote}
+              Purple isn&apos;t just a colour for us, it represents what happens when{" "}
+              <Highlighter action="highlight" color="#ffd1dc">
+                two worlds meet
+              </Highlighter>
+              .
             </p>
             <p className="text-secondary-foreground text-base md:text-lg lg:text-xl">
-              {whyPurple.duality[0].text}
+              <Highlighter action="highlight" color="#ffd1dc">
+                Red
+              </Highlighter>{" "}
+              symbolizes the youth: energetic, passionate, curious, and ready to create change.
               <br className="hidden md:block" />
-              {whyPurple.duality[1].text}
+              <Highlighter action="highlight" color="#ffd1dc">
+                Blue
+              </Highlighter>{" "}
+              symbolizes experienced professionals: steady, knowledgeable, and capable of unlocking
+              new possibilities.
             </p>
             <div className="relative">
               <div
@@ -45,39 +56,92 @@ export const Whypurple = () => {
                 }`}
               >
                 <div className="space-y-8 pt-8">
-                  <p className="text-primary font-black uppercase tracking-wider text-sm">
-                    The Gap we fill
-                  </p>
-
-                  <p className="text-foreground/70 text-base md:text-lg lg:text-xl">
-                    {whyPurple.gap.description}
-                  </p>
+                  <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
+                    <div className="w-full md:w-1/2 text-left">
+                      <p className="text-primary font-black uppercase tracking-wider text-sm mb-4">
+                        The Gap we fill
+                      </p>
+                      <p className="text-foreground/70 text-base md:text-lg lg:text-xl">
+                        Today, a gap exists between these two groups. There&apos;s no{" "}
+                        {isExpanded ? (
+                          <Highlighter action="box" color="#ffd1dc">
+                            bridge
+                          </Highlighter>
+                        ) : (
+                          "bridge"
+                        )}
+                        , no shared space where they can learn from each other. We aim to{" "}
+                        {isExpanded ? (
+                          <Highlighter action="highlight" color="#ffd1dc">
+                            bridge that gap
+                          </Highlighter>
+                        ) : (
+                          "bridge that gap"
+                        )}
+                        .
+                      </p>
+                    </div>
+                    <div className="w-full md:w-1/2 relative aspect-square max-w-[300px]">
+                      <Image
+                        src="/images/duality.png"
+                        alt="Red and Blue merging into Purple"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  </div>
 
                   <Badge className="font-bold text-base md:text-lg lg:text-xl">
-                    {whyPurple.gap.title}
+                    WE AIM TO BRIDGE THAT GAP.
                   </Badge>
 
                   <ul className="flex flex-col md:flex-row gap-6 list-none">
-                    {whyPurple.deepDive.map((item) => (
-                      <li key={item} className="bg-card p-6 border-l-2 border-primary text-base">
-                        {item}
-                      </li>
-                    ))}
+                    <li className="bg-card p-6 border-l-2 border-primary text-base">
+                      A place where{" "}
+                      {isExpanded ? (
+                        <Highlighter action="circle" color="#0061CE">
+                          young minds
+                        </Highlighter>
+                      ) : (
+                        "young minds"
+                      )}{" "}
+                      can prove that change is possible and necessary.
+                    </li>
+                    <li className="bg-card p-6 border-l-2 border-primary text-base">
+                      A place where{" "}
+                      {isExpanded ? (
+                        <Highlighter action="circle" color="#0061CE">
+                          experts
+                        </Highlighter>
+                      ) : (
+                        "experts"
+                      )}{" "}
+                      can guide, inspire, and open doors to new opportunities.
+                    </li>
+                    <li className="bg-card p-6 border-l-2 border-primary text-base">
+                      A place where everyone can be themselves, grow together, and lift each other
+                      up.
+                    </li>
                   </ul>
 
                   <Card className="bg-primary/5 border border-primary">
                     <p className="md:text-lg lg:text-xl mb-6 uppercase font-black tracking-widest text-sm">
                       Outcome
                     </p>
-                    <p className="text-base md:text-lg lg:text-xl italic">{whyPurple.outcome}</p>
+                    <p className="text-base md:text-lg lg:text-xl italic">
+                      When red and blue come together, they create{" "}
+                      {isExpanded ? <Highlighter color="#ffd1dc">purple</Highlighter> : "purple"}
+                      —a symbol of collaboration, balance, and the future we want to build.
+                    </p>
                   </Card>
 
                   <p className="text-secondary-foreground italic text-base md:text-lg lg:text-xl">
-                    {whyPurple.thought}
+                    And that thought every person has felt at least once: &quot;If only there was a
+                    place where I could learn, connect, and be understood&quot;
                   </p>
 
                   <p className="font-black text-tpm uppercase tracking-tight pt-4 text-base md:text-lg lg:text-xl">
-                    {whyPurple.final}
+                    We&apos;re here to make that place real.
                   </p>
                 </div>
               </div>
