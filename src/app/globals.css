@@ -145,15 +145,15 @@ h6 {
   }
 
   h1 {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tighter;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black;
   }
 
   h2 {
-    @apply text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug tracking-tighter;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold;
   }
 
   h3 {
-    @apply text-xl md:text-2xl font-bold tracking-tighter;
+    @apply text-3xl md:text-4xl font-bold;
   }
 
   h4 {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Poppins, Syne } from "next/font/google";
+import { Cinzel, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import BackToTop from "@/components/BacktoTop";
@@ -7,13 +7,14 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { Providers } from "./providers";
 
-const montserrat = Syne({
+const cinzel = Cinzel({
   subsets: ["latin"],
+  weight: ["700"],
   variable: "--font-display",
   display: "swap",
 });
 
-const plusJakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
-        className={`${montserrat.variable} ${plusJakarta.variable} bg-background text-foreground font-body`}
+        className={`${cinzel.variable} ${inter.variable} bg-background text-foreground font-body`}
       >
         <Providers>
           <Navbar />
