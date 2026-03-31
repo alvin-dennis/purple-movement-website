@@ -10,9 +10,9 @@ export function Gallery() {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20"
+      className="w-full py-10"
     >
-      <div className="max-w-7xl mx-auto px-4 mb-10 flex flex-col items-center text-center">
+      <div className="max-w-7xl mx-auto px-4 mb-6 flex flex-col items-center text-center">
         <MotionDiv variants={fadeInUp}>
           <h2 className="text-foreground">
             THE <span className="text-tpm">GALLERY</span>

@@ -1,7 +1,7 @@
-import { Highlighter } from "@/components/ui/highlighter";
 import Image from "next/image";
 import Link from "next/link";
 import { MotionDiv, MotionSection } from "@/components/Framer";
+import { Highlighter } from "@/components/ui/highlighter";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { cta } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
@@ -13,9 +13,9 @@ export const CallToAction = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 px-4 relative overflow-hidden"
+      className="w-full py-10 px-4 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto relative overflow-hidden px-8 md:px-16 lg:px-24 py-16 md:py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto relative overflow-hidden px-8 md:px-16 lg:px-24 py-8 md:py-12 lg:py-16">
         <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-16 lg:gap-24 relative z-10">
           <div className="lg:w-2/3 text-center lg:text-left w-full flex flex-col items-center lg:items-start">
             <MotionDiv
@@ -71,7 +71,7 @@ export const CallToAction = () => {
             <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-full lg:aspect-square">
               <Image
                 fill
-                src="/images/spiral.webp"
+                src="/assets/events/spiral.webp"
                 alt="Purple Movement spiral illustration"
                 className="object-contain opacity-40"
               />

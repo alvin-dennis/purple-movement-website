@@ -130,28 +130,28 @@ export const levels: LevelData[] = [
 
 export const gallery: GalleryData = {
   left: [
-    { src: "/images/aic.webp", alt: "Company 1" },
-    { src: "/images/aic.webp", alt: "Company 2" },
-    { src: "/images/aic.webp", alt: "Company 3" },
-    { src: "/images/aic.webp", alt: "Company 4" },
-    { src: "/images/aic.webp", alt: "Company 5" },
-    { src: "/images/aic.webp", alt: "Company 6" },
-    { src: "/images/aic.webp", alt: "Company 7" },
-    { src: "/images/aic.webp", alt: "Company 8" },
-    { src: "/images/aic.webp", alt: "Company 9" },
-    { src: "/images/aic.webp", alt: "Company 10" },
+    { src: "/assets/events/aic.webp", alt: "Company 1" },
+    { src: "/assets/events/aic.webp", alt: "Company 2" },
+    { src: "/assets/events/aic.webp", alt: "Company 3" },
+    { src: "/assets/events/aic.webp", alt: "Company 4" },
+    { src: "/assets/events/aic.webp", alt: "Company 5" },
+    { src: "/assets/events/aic.webp", alt: "Company 6" },
+    { src: "/assets/events/aic.webp", alt: "Company 7" },
+    { src: "/assets/events/aic.webp", alt: "Company 8" },
+    { src: "/assets/events/aic.webp", alt: "Company 9" },
+    { src: "/assets/events/aic.webp", alt: "Company 10" },
   ],
   right: [
-    { src: "/images/aic.webp", alt: "Company 1" },
-    { src: "/images/aic.webp", alt: "Company 2" },
-    { src: "/images/aic.webp", alt: "Company 3" },
-    { src: "/images/aic.webp", alt: "Company 4" },
-    { src: "/images/aic.webp", alt: "Company 5" },
-    { src: "/images/aic.webp", alt: "Company 6" },
-    { src: "/images/aic.webp", alt: "Company 7" },
-    { src: "/images/aic.webp", alt: "Company 8" },
-    { src: "/images/aic.webp", alt: "Company 9" },
-    { src: "/images/aic.webp", alt: "Company 10" },
+    { src: "/assets/events/aic.webp", alt: "Company 1" },
+    { src: "/assets/events/aic.webp", alt: "Company 2" },
+    { src: "/assets/events/aic.webp", alt: "Company 3" },
+    { src: "/assets/events/aic.webp", alt: "Company 4" },
+    { src: "/assets/events/aic.webp", alt: "Company 5" },
+    { src: "/assets/events/aic.webp", alt: "Company 6" },
+    { src: "/assets/events/aic.webp", alt: "Company 7" },
+    { src: "/assets/events/aic.webp", alt: "Company 8" },
+    { src: "/assets/events/aic.webp", alt: "Company 9" },
+    { src: "/assets/events/aic.webp", alt: "Company 10" },
   ],
 };
 
@@ -190,31 +190,31 @@ export const FAQs: FAQItem[] = [
 
 export const events: EventItem[] = [
   {
-    image: "/images/flow.webp",
+    image: "/assets/events/flow.webp",
     title: "Enter the Flow",
     description:
       "A sprint-mode UI/UX competition where speed meets creativity. The fastest teams delivering high-quality designs earn recognition.",
   },
   {
-    image: "/images/saddle.webp",
+    image: "/assets/events/saddle.webp",
     title: "Saddle Up",
     description:
       "A bi-weekly initiative designed to upskill individuals from all backgrounds through collaborative learning and hands-on sessions.",
   },
   {
-    image: "/images/p80-1.webp",
+    image: "/assets/events/p80-1.webp",
     title: "Port:80",
     description:
       "Monthly meetups across multiple domains starting from grassroots college communities, led by alumni, industry experts, students, and faculty.",
   },
   {
-    image: "/images/hkbr.webp",
+    image: "/assets/events/hkbr.webp",
     title: "Hacktoberfest",
     description:
       "An annual October event encouraging people to explore open source, where knowledge is freely built, shared, and contributed.",
   },
   {
-    image: "/images/aic.webp",
+    image: "/assets/events/aic.webp",
     title: "AI+Compassion",
     description:
       "A global initiative promoting responsible AI use. A worldwide relay on October 2nd connected participants across 5+ regions.",

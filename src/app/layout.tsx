@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel, Inter } from "next/font/google";
+import { Anton, Exo_2 } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import BackToTop from "@/components/BacktoTop";
@@ -7,14 +7,13 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { Providers } from "./providers";
 
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: ["700"],
+const anton = Anton({
+  weight: ["400"],
   variable: "--font-display",
   display: "swap",
 });
 
-const inter = Inter({
+const exo2 = Exo_2({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",
@@ -35,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
-        className={`${cinzel.variable} ${inter.variable} bg-background text-foreground font-body`}
+        className={`${anton.variable} ${exo2.variable} bg-background text-foreground font-body`}
       >
         <Providers>
           <Navbar />

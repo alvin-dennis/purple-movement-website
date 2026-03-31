@@ -1,7 +1,7 @@
-import { Highlighter } from "@/components/ui/highlighter";
 import { Lightbulb, Target } from "lucide-react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Highlighter } from "@/components/ui/highlighter";
 import { vision } from "@/data/home";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
@@ -12,7 +12,7 @@ export const VisionMission = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 px-4 relative overflow-hidden"
+      className="w-full px-4 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 relative z-10">

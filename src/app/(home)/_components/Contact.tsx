@@ -57,7 +57,7 @@ export const Contact = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 px-4 overflow-hidden"
+      className="w-full py-10 px-4 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto backdrop-blur-xl border border-primary relative rounded-[48px] overflow-hidden">
         <Card className="border-0 shadow-none relative z-10">
@@ -70,7 +70,7 @@ export const Contact = () => {
                 <div className="relative w-64 xl:w-80 h-64 xl:h-80 flex items-center justify-center">
                   <div className="absolute inset-0 bg-primary/20 rounded-full" />
                   <Image
-                    src="/images/qtnmark.webp"
+                    src="/assets/events/qtnmark.webp"
                     alt="Question Mark"
                     width={250}
                     height={250}

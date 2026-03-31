@@ -1,10 +1,10 @@
 "use client";
-import { Highlighter } from "@/components/ui/highlighter";
 import Image from "next/image";
 import { useState } from "react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { Highlighter } from "@/components/ui/highlighter";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
 
@@ -17,14 +17,14 @@ export const Whypurple = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="relative w-full px-4 py-20 overflow-hidden"
+      className="relative w-full px-4 py-10 overflow-hidden"
       id="whypurple"
     >
       <div className="absolute inset-0 opacity-[0.15] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10 flex flex-col items-center text-center">
         <MotionDiv variants={fadeInUp}>
-          <h2 className="mb-16 leading-tight">
+          <h2 className="mb-8 leading-tight">
             Why <span className="text-tpm">Purple?</span>
           </h2>
         </MotionDiv>
@@ -83,7 +83,7 @@ export const Whypurple = () => {
                     </div>
                     <div className="w-full md:w-1/2 relative aspect-square max-w-[300px]">
                       <Image
-                        src="/images/duality.png"
+                        src="/assets/events/duality.png"
                         alt="Red and Blue merging into Purple"
                         fill
                         className="object-contain"

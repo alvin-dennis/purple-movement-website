@@ -15,7 +15,7 @@ export const FAQ = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 px-4"
+      className="w-full py-10 px-4"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center gap-12 md:gap-20">
         <div className="flex flex-col items-center text-center max-w-2xl">

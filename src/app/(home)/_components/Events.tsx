@@ -11,11 +11,11 @@ export const Events = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 px-4 relative overflow-hidden"
+      className="w-full py-10 px-4 relative overflow-hidden"
       id="events"
     >
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row md:items-center justify-center mb-12 md:mb-20 gap-6 md:gap-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-center mb-6 md:mb-10 gap-6 md:gap-8">
           <div className="max-w-4xl flex flex-col items-center text-center">
             <MotionDiv variants={fadeInUp}>
               <h2 className="mb-4 md:mb-8 leading-tight">

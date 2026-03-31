@@ -10,7 +10,7 @@ export const Manifesto = () => {
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full py-20 relative overflow-hidden"
+      className="w-full py-10 relative overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <h2 className="uppercase flex flex-col items-center mb-4 md:mb-6">
@@ -133,7 +133,7 @@ export const Manifesto = () => {
           </div>
           <div className="relative aspect-square w-full opacity-60">
             <Image
-              src="/images/manifesto.png"
+              src="/assets/events/manifesto.png"
               alt="Unchained Movement Symbol"
               fill
               className="object-contain"
