@@ -1,35 +1,47 @@
+"use client";
+
 import { Lightbulb, Target } from "lucide-react";
 import { MotionDiv, MotionSection } from "@/components/Framer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Highlighter } from "@/components/ui/highlighter";
 import { vision } from "@/data/home";
-import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
+import {
+  fadeIn,
+  fadeInDown,
+  fadeInLeft,
+  fadeInRight,
+  slideUp,
+  staggerContainer,
+  staggerSlideUp,
+  viewportConfig,
+  viewportConfigMedium,
+} from "@/lib/animations";
 
 export const VisionMission = () => {
   return (
     <MotionSection
-      variants={staggerContainer}
+      variants={staggerSlideUp}
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="w-full px-4 relative overflow-hidden"
+      className="w-full px-4 py-16 md:py-20 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 relative z-10">
-          <MotionDiv variants={fadeInUp} className="group h-full">
-            <Card className="shadow-xl relative overflow-hidden h-full">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full transition-all duration-500 group-hover:scale-110" />
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 relative z-10">
+          <MotionDiv variants={slideUp} className="group h-full">
+            <Card className="shadow-xl relative overflow-hidden h-full border-2 border-transparent hover:border-primary/20 transition-all duration-300">
+              <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-primary/10 rounded-bl-full transition-all duration-500 group-hover:scale-110" />
 
-              <CardHeader className="flex flex-row items-center space-y-0 gap-4 pb-8">
-                <div className="bg-primary p-3 rounded-xl">
-                  <Lightbulb className="h-6 w-6 text-primary-foreground" />
+              <CardHeader className="flex flex-row items-center space-y-0 gap-3 md:gap-4 pb-6 md:pb-8">
+                <div className="bg-primary p-2.5 md:p-3 rounded-xl">
+                  <Lightbulb className="h-5 w-5 md:h-6 md:w-6 text-primary-foreground" />
                 </div>
-                <CardTitle className="text-2xl">
+                <CardTitle className="text-xl md:text-2xl">
                   OUR <span className="text-primary">{vision.vision.title}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                   We aim to build a world free of{" "}
                   <Highlighter action="bracket" color="#DE3B3D">
                     barriers and privilege
@@ -53,21 +65,21 @@ export const VisionMission = () => {
             </Card>
           </MotionDiv>
 
-          <MotionDiv variants={fadeInUp} className="group h-full">
-            <Card className="shadow-xl relative overflow-hidden h-full">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-primary/10 rounded-br-full transition-all duration-500 group-hover:scale-110" />
+          <MotionDiv variants={slideUp} className="group h-full">
+            <Card className="shadow-xl relative overflow-hidden h-full border-2 border-transparent hover:border-primary/20 transition-all duration-300">
+              <div className="absolute top-0 left-0 w-24 h-24 md:w-32 md:h-32 bg-primary/10 rounded-br-full transition-all duration-500 group-hover:scale-110" />
 
-              <CardHeader className="flex flex-row items-center space-y-0 gap-4 pb-8">
-                <div className="bg-primary p-3 rounded-xl">
-                  <Target className="h-6 w-6 text-primary-foreground" />
+              <CardHeader className="flex flex-row items-center space-y-0 gap-3 md:gap-4 pb-6 md:pb-8">
+                <div className="bg-primary p-2.5 md:p-3 rounded-xl">
+                  <Target className="h-5 w-5 md:h-6 md:w-6 text-primary-foreground" />
                 </div>
-                <CardTitle className="text-2xl">
+                <CardTitle className="text-xl md:text-2xl">
                   OUR <span className="text-primary">{vision.mission.title}</span>
                 </CardTitle>
               </CardHeader>
 
               <CardContent>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                   A community that rises{" "}
                   <Highlighter action="highlight" color="#ffd1dc">
                     beyond borders
@@ -97,7 +109,7 @@ export const VisionMission = () => {
         </div>
       </div>
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none">
-        <span className="text-[28vw] md:text-[30vw] font-black leading-none uppercase tracking-tighter">
+        <span className="text-[20vw] md:text-[25vw] lg:text-[28vw] font-black leading-none uppercase tracking-tighter">
           ABOUT
         </span>
       </div>

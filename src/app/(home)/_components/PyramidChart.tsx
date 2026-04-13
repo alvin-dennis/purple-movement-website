@@ -6,7 +6,14 @@ import { useState } from "react";
 import { MotionDiv, MotionPath, MotionSection } from "@/components/Framer";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import { levels } from "@/data/home";
-import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
+import {
+  fadeIn,
+  fadeInDown,
+  slideUp,
+  staggerContainer,
+  staggerSlideUp,
+  viewportConfig,
+} from "@/lib/animations";
 
 export function PyramidClient() {
   const [activeLevel, setActiveLevel] = useState<number>(3);
@@ -20,15 +27,15 @@ export function PyramidClient() {
 
   return (
     <MotionSection
-      variants={staggerContainer}
+      variants={staggerSlideUp}
       initial="hidden"
       whileInView="visible"
       viewport={viewportConfig}
-      className="relative w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24 py-20 px-4"
+      className="relative w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 py-12 md:py-16 px-4"
     >
       <MotionDiv
-        variants={fadeInUp}
-        className="relative w-full lg:w-1/2 aspect-square max-w-[550px] flex items-center justify-center"
+        variants={slideUp}
+        className="relative w-full lg:w-1/2 aspect-square max-w-[480px] flex items-center justify-center"
       >
         <svg
           viewBox="0 0 600 600"
@@ -36,7 +43,7 @@ export function PyramidClient() {
           role="img"
           aria-labelledby="pyramid-interactive-title"
         >
-          <title id="pyramid-interactive-title">Pyramid</title>
+          <title id="pyramid-interactive-title">Pyramid - Three Pillars</title>
           <defs>
             <linearGradient id="pyr-active-grad" x1="50%" y1="0%" x2="50%" y2="100%">
               <stop offset="0%" stopColor="#A855F7" />
@@ -58,7 +65,7 @@ export function PyramidClient() {
             <MotionPath
               d="M300 50 L420 220 L180 220 Z"
               fill={activeLevel === 1 ? "url(#pyr-active-grad)" : "transparent"}
-              stroke="violet"
+              stroke="#A855F7"
               strokeWidth="2"
               initial={false}
               animate={{
@@ -72,7 +79,7 @@ export function PyramidClient() {
               y="170"
               textAnchor="middle"
               className={`${
-                activeLevel === 1 ? "fill-white" : "fill-foreground"
+                activeLevel === 1 ? "fill-white" : "fill-foreground/60"
               } text-[14px] font-bold tracking-wider uppercase pointer-events-none transition-colors duration-300`}
             >
               Beyond Borders
@@ -90,7 +97,7 @@ export function PyramidClient() {
             <MotionPath
               d="M170 235 L430 235 L500 370 L100 370 Z"
               fill={activeLevel === 2 ? "url(#pyr-active-grad)" : "transparent"}
-              stroke="violet"
+              stroke="#A855F7"
               strokeWidth="2"
               initial={false}
               animate={{
@@ -104,8 +111,8 @@ export function PyramidClient() {
               y="320"
               textAnchor="middle"
               className={`${
-                activeLevel === 2 ? "fill-white" : "fill-foreground"
-              } text-[25px] font-bold tracking-wider uppercase pointer-events-none transition-colors duration-300`}
+                activeLevel === 2 ? "fill-white" : "fill-foreground/60"
+              } text-[22px] font-bold tracking-wider uppercase pointer-events-none transition-colors duration-300`}
             >
               Beyond Gatekeepers
             </text>
@@ -122,7 +129,7 @@ export function PyramidClient() {
             <MotionPath
               d="M90 385 L510 385 L580 540 L20 540 Z"
               fill={activeLevel === 3 ? "url(#pyr-active-grad)" : "transparent"}
-              stroke="violet"
+              stroke="#A855F7"
               strokeWidth="2"
               initial={false}
               animate={{
@@ -136,8 +143,8 @@ export function PyramidClient() {
               y="485"
               textAnchor="middle"
               className={`${
-                activeLevel === 3 ? "fill-white" : "fill-foreground"
-              } text-[40px] font-bold tracking-wider uppercase pointer-events-none transition-colors duration-300`}
+                activeLevel === 3 ? "fill-white" : "fill-foreground/60"
+              } text-[36px] font-bold tracking-wider uppercase pointer-events-none transition-colors duration-300`}
             >
               Beyond Syllabus
             </text>
@@ -146,8 +153,8 @@ export function PyramidClient() {
       </MotionDiv>
 
       <MotionDiv
-        variants={fadeInUp}
-        className="flex-1 flex flex-col justify-center items-center lg:items-start min-h-[400px]"
+        variants={fadeIn}
+        className="flex-1 flex flex-col justify-center items-center lg:items-start min-h-[360px]"
       >
         <AnimatePresence mode="wait">
           {levels.map(
@@ -155,17 +162,17 @@ export function PyramidClient() {
               level.id === activeLevel && (
                 <MotionDiv
                   key={level.id}
-                  variants={fadeInUp}
+                  variants={slideUp}
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
                   className="max-w-xl w-full flex flex-col items-center lg:items-start text-center lg:text-left"
                 >
-                  <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block">
+                  <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-6 block">
                     PHASE 0{level.id}
                   </span>
-                  <h2 className="mb-8 leading-tight">{level.title}</h2>
-                  <p className="mb-12 text-base md:text-lg lg:text-xl text-foreground/70">
+                  <h2 className="mb-6 leading-tight text-3xl md:text-4xl">{level.title}</h2>
+                  <p className="mb-10 text-base md:text-lg text-muted-foreground leading-relaxed">
                     {level.description}
                   </p>
                   <Link
@@ -173,7 +180,7 @@ export function PyramidClient() {
                     href={level.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center"
+                    className="group flex items-center cursor-pointer"
                   >
                     <InteractiveHoverButton>Explore {level.title}</InteractiveHoverButton>
                   </Link>
@@ -182,9 +189,10 @@ export function PyramidClient() {
           )}
         </AnimatePresence>
       </MotionDiv>
+
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02] select-none">
-        <span className="text-[28vw] md:text-[30vw] font-black leading-none uppercase tracking-tighter">
-          VERTICALS
+        <span className="text-[22vw] md:text-[26vw] lg:text-[28vw] font-black leading-none uppercase tracking-tighter">
+          PILLARS
         </span>
       </div>
     </MotionSection>

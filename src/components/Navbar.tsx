@@ -5,16 +5,25 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navLinks } from "@/data/common";
-import { fadeInUp, viewportConfig } from "@/lib/animations";
+import { slideUp, viewportConfig } from "@/lib/animations";
 import { MotionDiv } from "./Framer";
 import { Button } from "./ui/button";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleLinkClick = async (href: string) => {
     setIsOpen(false);
@@ -49,20 +58,33 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="absolute top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1400px] z-[100]">
-      <div className="flex items-center justify-between px-6 md:px-10 py-3 rounded-[3rem] border border-primary shadow-2xl bg-background backdrop-blur-2xl">
-        <Link href="/" className="relative z-10 cursor-pointer flex-shrink-0">
+    <nav
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1400px] z-[100] transition-all duration-300 ${
+        scrolled ? "py-2" : "py-3"
+      }`}
+    >
+      <div
+        className={`flex items-center justify-between px-5 md:px-8 rounded-[2.5rem] border transition-all duration-300 ${
+          scrolled
+            ? "border-primary/30 bg-background/90 backdrop-blur-xl shadow-lg shadow-primary/10"
+            : "border-primary/40 bg-background/80 backdrop-blur-2xl shadow-2xl"
+        }`}
+      >
+        <Link
+          href="/"
+          className="relative z-10 cursor-pointer flex-shrink-0 transition-transform duration-300 hover:scale-105"
+        >
           <Image
             src="/logo.png"
             width={120}
             height={48}
             alt="Purple Movement Logo"
             priority
-            className="w-auto h-10 md:h-12 brightness-125"
+            className="w-auto h-9 md:h-10"
           />
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 lg:gap-12">
+        <div className="hidden md:flex items-center gap-6 lg:gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -71,14 +93,15 @@ export const Navbar = () => {
                 e.preventDefault();
                 handleLinkClick(link.href);
               }}
-              className={`font-bold text-xs uppercase tracking-[0.3em] relative group py-2 hover:text-primary transition-colors`}
+              className="font-bold text-xs uppercase tracking-[0.25em] relative group py-2 hover:text-primary transition-colors cursor-pointer"
             >
               {link.name}
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
 
-          <Link href="/join">
-            <Button variant={"default"} className="ml-2 uppercase">
+          <Link href="/join" className="cursor-pointer">
+            <Button variant={"default"} className="ml-2 uppercase text-xs tracking-wider">
               Connect
             </Button>
           </Link>
@@ -88,26 +111,22 @@ export const Navbar = () => {
           variant={"default"}
           size={"icon"}
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-10 p-2.5 rounded-full flex-shrink-0"
+          className="md:hidden relative z-10 p-2 rounded-full flex-shrink-0 cursor-pointer"
           aria-label="Toggle menu"
         >
-          {isOpen ? (
-            <X size={18} className="textforeground" />
-          ) : (
-            <Menu size={18} className="textforeground" />
-          )}
+          {isOpen ? <X size={18} /> : <Menu size={18} />}
         </Button>
       </div>
 
       <AnimatePresence>
         {isOpen && (
           <MotionDiv
-            variants={fadeInUp}
+            variants={slideUp}
             initial="hidden"
             animate="visible"
             exit="hidden"
             viewport={viewportConfig}
-            className="absolute top-[calc(100%+12px)] left-0 w-full md:hidden backdrop-blur-3xl rounded-[2rem] border borderforeground/10 p-8 flex flex-col items-center gap-8"
+            className="absolute top-[calc(100%+12px)] left-0 w-full md:hidden backdrop-blur-3xl rounded-[2rem] border border-foreground/10 p-6 flex flex-col items-center gap-6"
           >
             {navLinks.map((link) => (
               <Link
@@ -117,13 +136,13 @@ export const Navbar = () => {
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
-                className={`text-2xl sm:text-3xl transition-colors hover:text-primary`}
+                className="text-xl sm:text-2xl transition-colors hover:text-primary cursor-pointer"
               >
                 {link.name}
               </Link>
             ))}
 
-            <Link href="/join" onClick={() => setIsOpen(false)}>
+            <Link href="/join" onClick={() => setIsOpen(false)} className="cursor-pointer">
               <Button variant={"default"} className="ml-2 uppercase">
                 Connect
               </Button>
